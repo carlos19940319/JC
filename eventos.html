@@ -43,74 +43,199 @@
 
 
 
-<!-- Sección independiente: Eventos Especiales -->
-<section id="eventos-especiales" style="padding: 40px 10px; text-align: center; margin: 50px auto; max-width: 100%;">
-  <div class="carousel-container" style="position: relative; overflow: hidden; width: 100%; max-width: 100%; margin: 0 auto;">
-    <button class="arrow left" onclick="moveCarousel(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10;">&#10094;</button>
 
-    <div class="carousel-track" id="carouselTrack" style="display: flex; transition: transform 0.6s ease-in-out;">
 
-      <!-- Tarjeta -->
-      <div class="card" style="flex: 0 0 85%; max-width: 85%; margin: 0 auto; background: rgba(178,34,34,0.6); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Noche Italiana" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;">
-        <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: clamp(1.2rem, 4vw, 1.6rem); margin: 0;">Noche Italiana</h3>
-          <p style="font-size: clamp(0.9rem, 3vw, 1rem); margin: 10px 0 20px;">Disfruta de una velada especial con auténtica pizza italiana y vinos seleccionados.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Noche%20Italiana..." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
-        </div>
+
+
+<section class="eventos">
+  <h1 class="titulo">🎉 Nuestros Próximos Eventos 🎉</h1>
+
+  <div class="contenedor-tarjetas">
+    <!-- Evento 1 -->
+    <div class="tarjeta-evento animada">
+      <img src="img/evento1.jpg" alt="Cena romántica">
+      <div class="contenido">
+        <h2>Cena Romántica</h2>
+        <p>Disfruta una velada especial con música en vivo y menú gourmet para dos personas.</p>
+        <p>📅 14 de febrero | 📍 Bonanza Pizza</p>
+        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
       </div>
-
-      <!-- Copia y pega más tarjetas igual que arriba -->
-      <div class="card" style="flex: 0 0 85%; max-width: 85%; margin: 0 auto; background: rgba(178,34,34,0.6); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Cena Romántica" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;">
-        <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: clamp(1.2rem, 4vw, 1.6rem); margin: 0;">Cena Romántica</h3>
-          <p style="font-size: clamp(0.9rem, 3vw, 1rem); margin: 10px 0 20px;">Una noche especial para dos con menú gourmet y ambiente íntimo.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar..." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
-        </div>
-      </div>
-
-      <!-- ... resto de tarjetas -->
     </div>
 
-    <button class="arrow right" onclick="moveCarousel(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10;">&#10095;</button>
+    <!-- Evento 2 -->
+    <div class="tarjeta-evento animada">
+      <img src="img/evento2.jpg" alt="Fiesta familiar">
+      <div class="contenido">
+        <h2>Fiesta Familiar</h2>
+        <p>Un día completo con juegos, pizzas ilimitadas y diversión para toda la familia.</p>
+        <p>📅 10 de marzo | 📍 Bonanza Pizza</p>
+        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
+      </div>
+    </div>
+
+    <!-- Evento 3 -->
+    <div class="tarjeta-evento animada">
+      <img src="img/evento3.jpg" alt="Degustación de vinos">
+      <div class="contenido">
+        <h2>Degustación de Vinos</h2>
+        <p>Conoce los mejores vinos artesanales acompañados de deliciosas pizzas gourmet.</p>
+        <p>📅 22 de abril | 📍 Bonanza Pizza</p>
+        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
+      </div>
+    </div>
   </div>
-
-  <script>
-    const track = document.getElementById('carouselTrack');
-    let index = 0;
-
-    function applyZoomEffect() {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach((card, i) => {
-        card.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-          card.style.transform = 'scale(1)';
-        }, 80 + i * 20);
-      });
-    }
-
-    function moveCarousel(direction) {
-      const totalCards = document.querySelectorAll('.card').length;
-      const cardWidth = document.querySelector('.card').offsetWidth + 20; // dinámico ✅
-      index = (index + direction + totalCards) % totalCards;
-      track.style.transform = `translateX(-${index * cardWidth}px)`;
-      applyZoomEffect();
-    }
-
-    // Auto-slide
-    setInterval(() => moveCarousel(1), 55000);
-
-    // Soporte táctil móvil
-    let startX = 0;
-    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    track.addEventListener('touchend', e => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) moveCarousel(1);
-      else if (endX - startX > 50) moveCarousel(-1);
-    });
-  </script>
 </section>
+
+<style>
+/* ===== ESTILOS ===== */
+.eventos {
+  padding: 40px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.titulo {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 30px;
+  color: #8b3a2b;
+}
+
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🧱 Tarjetas con fondo ladrillo semi-transparente */
+.tarjeta-evento {
+  background: rgba(178, 34, 34, 0.7);
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(50px);
+  backdrop-filter: blur(8px);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-evento img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.contenido {
+  padding: 20px;
+}
+
+.contenido h2 {
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  margin-bottom: 10px;
+}
+
+.contenido p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.boton {
+  display: inline-block;
+  background: #fff;
+  color: #8b3a2b;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: #f5f5f5;
+}
+
+/* ✨ Animación de aparición */
+.animada.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1.05);
+  animation: rebote-inicial 0.8s ease;
+}
+
+@keyframes rebote-inicial {
+  0% { transform: translateY(40px) scale(0.9); opacity: 0; }
+  60% { transform: translateY(-10px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* 🌀 Efecto 3D al pasar */
+.tarjeta-evento:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* 📱 Ajustes para móvil */
+@media (max-width: 480px) {
+  .contenido p {
+    font-size: 0.9rem;
+  }
+  .tarjeta-evento img {
+    height: 160px;
+  }
+}
+</style>
+
+<script>
+// 👇 Animación al aparecer con IntersectionObserver
+document.addEventListener("DOMContentLoaded", () => {
+  const tarjetas = document.querySelectorAll('.animada');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  tarjetas.forEach(tarjeta => observer.observe(tarjeta));
+});
+
+// 🌀 Efecto 3D interactivo con rebote suave
+document.querySelectorAll('.tarjeta-evento').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; 
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * -10;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    setTimeout(() => { card.style.transition = 'transform 0.3s ease'; }, 500);
+  });
+
+  // 📱 Efecto táctil (móviles)
+  card.addEventListener('touchstart', () => {
+    card.style.transform = `scale(1.05)`;
+  });
+  card.addEventListener('touchend', () => {
+    card.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    card.style.transform = `scale(1)`;
+    setTimeout(() => { card.style.transition = 'transform 0.3s ease'; }, 500);
+  });
+});
+</script>
+
+
 
 
 
