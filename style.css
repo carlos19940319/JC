@@ -1,0 +1,135 @@
+/* Variables editables */
+:root{
+  --color-principal: #b22222;
+  --color-secundario: #333333;
+  --color-fondo-tarjeta: #ffffff;
+  --navbar-bg: rgba(178,34,34,0.7);
+  --fondo-img: ("img/fondo2.jpg") 
+  width: auto;/* ruta editable */
+
+}
+
+/* Fondo */
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  color: var(--color-secundario);
+  background: linear-gradient(180deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
+
+}
+
+/* Header/logo */
+header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  background: rgba(0,0,0,0.45);
+  color:#ffffff;
+
+
+
+
+
+}
+header img.logo{
+  width:100px;
+  height:auto
+   position:sticky;
+   border-radius:50px 50px 50px 50px;
+   box-shadow:0px 1px 
+   58px #000000 inset, 0px 0px 20px  -5px #FFFFFF;
+
+
+
+
+
+}
+
+/* Nav sticky 3D */
+nav{
+  display:flex;
+  justify-content:space-around;
+  gap:8px;
+  padding:10px;
+  border-radius:10px 10px 10px 10px;
+  box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px  -6px #FFFFFF;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(-20px);
+}
+nav a{
+  text-decoration:none;
+  color:var(--color-secundario);
+  font-weight:700;
+  padding:10px 14px;
+  border-radius:12px;
+  background: linear-gradient(145deg,#fff,#e6e6e6);
+  box-shadow: 0px 8px 10px #000000, 0px 0px 0px #ffffff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition: all .18s ease-in-out;
+  border-radius:10px 10px 10px 10px;
+  box-shadow:0px 0px 6px #000000 inset, 0px 9px 8px  -3px #000000;
+}
+nav a:hover{ transform: translateY(-4px) scale(1.03); box-shadow:6px 6px 12px #999, -6px -6px 12px #ffffff;
+box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px  -6px #FFFFFF; }
+nav a:active{ transform: translateY(2px) scale(.98); box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff; }
+nav a.active{ color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
+
+/* Main */
+main{ max-width:1100px; margin:18px auto; padding:0 14px; }
+
+.welcome-text{ text-align:center; color:#ffffff; margin:18px 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); animation: aparecer 1.2s ease-out; }
+.welcome-text h2{ margin:6px 0; color:var(--color-principal); font-size:2rem; }
+.welcome-text p{ margin:0; font-size:1.05rem; color:#ffffff; }
+
+.hero{ display:flex; justify-content:center; padding:10px; }
+.img-bienvenida{ width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.40); animation: zoom 2.3s ease-out; }
+
+.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:12px; }
+.card{ background: var(--color-fondo-tarjeta); border-radius:12px; padding:8px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.card img{ width:100%; height:160px; object-fit:cover; border-radius:15px; margin-bottom:5px; }
+
+.price{ color:var(--color-principal); font-weight:800; }
+
+/* footer */
+footer{ text-align:center; padding:-1px; color:#ffffff; margin-top:-10px; background: rgba(0,0,0,0.85); border-top-left-radius:8px; border-top-right-radius:1px; }
+
+/* Animations */
+@keyframes aparecer{ from{opacity:0; transform:translateY(-20px)} to{opacity:11; transform:translateY(0)} }
+@keyframes zoom{ from{opacity:0; transform:scale(.95)} to{opacity:1; transform:scale(1)} }
+
+/* Responsive */
+@media(max-width:768px){
+  .img-bienvenida{ width:92%; }
+  nav{ flex-wrap:wrap; gap:6px; }
+  header img.logo{ width:64px; 
+   position:sticky;}
+
+}
+
+/* Hover dorado en botones y pestañas */
+nav a:hover, 
+.card button:hover {
+  background-color: var(--color-secundario);
+  color: #000;
+  box-shadow: 0 0 10px var(--color-secundario);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ✨ Animación de brillo para logo/título */
+@keyframes brilloSuave {
+  0% { text-shadow: 0 0 5px var(--color-secundario); }
+  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
+  100% { text-shadow: 0 0 5px var(--color-secundario); }
+}
+
+header h1, 
+header img {
+  animation: brilloSuave 3s infinite alternate;
+}
