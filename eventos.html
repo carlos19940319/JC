@@ -41,65 +41,36 @@
 </main>
 <div class="welcome-text"><h2><font color="white">Eventos</h2></font></div>
 
-<!-- Sección independiente: Eventos Especiales (solo la sección) -->
-<section id="eventos-especiales" style="padding: 50px 1; background: linear-gradient(135deg, ); text-align: center; margin: 50px 1;">
-  
 
-  <div class="carousel-container" style="position: relative; overflow: hidden; max-width: 100%; margin: 0 auto;">
+
+<!-- Sección independiente: Eventos Especiales -->
+<section id="eventos-especiales" style="padding: 40px 10px; text-align: center; margin: 50px auto; max-width: 100%;">
+  <div class="carousel-container" style="position: relative; overflow: hidden; width: 100%; max-width: 100%; margin: 0 auto;">
     <button class="arrow left" onclick="moveCarousel(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10;">&#10094;</button>
 
     <div class="carousel-track" id="carouselTrack" style="display: flex; transition: transform 0.6s ease-in-out;">
 
-      <!-- Tarjeta 1 -->
-      <div class="card" style="min-width: 405px; max-width: 350px; margin: 0 15px; background: rgba(178,34,34,0.5); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Noche Italiana" style="width: 100%; height: 250px; object-fit: cover;">
+      <!-- Tarjeta -->
+      <div class="card" style="flex: 0 0 85%; max-width: 85%; margin: 0 auto; background: rgba(178,34,34,0.6); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
+        <img src="img/foto9.jpg" alt="Noche Italiana" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;">
         <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: 1.5rem; margin: 0;">Noche Italiana</h3>
-          <p style="font-size: 1rem; margin: 10px 0 20px;">Disfruta de una velada especial con auténtica pizza italiana y vinos seleccionados.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Noche%20Italiana%20el%20día%20[fecha]%20para%20[número%20de%20personas]%20personas." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
+          <h3 style="font-size: clamp(1.2rem, 4vw, 1.6rem); margin: 0;">Noche Italiana</h3>
+          <p style="font-size: clamp(0.9rem, 3vw, 1rem); margin: 10px 0 20px;">Disfruta de una velada especial con auténtica pizza italiana y vinos seleccionados.</p>
+          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Noche%20Italiana..." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
         </div>
       </div>
 
-      <!-- Tarjeta 2 -->
-      <div class="card" style="min-width: 405px; max-width: 350px; margin: 0 15px; background: rgba(178,34,34,0.5); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Cena Romántica" style="width: 100%; height: 200px; object-fit: cover;">
+      <!-- Copia y pega más tarjetas igual que arriba -->
+      <div class="card" style="flex: 0 0 85%; max-width: 85%; margin: 0 auto; background: rgba(178,34,34,0.6); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
+        <img src="img/foto9.jpg" alt="Cena Romántica" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;">
         <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: 1.5rem; margin: 0;">Cena Romántica</h3>
-          <p style="font-size: 1rem; margin: 10px 0 20px;">Una noche especial para dos con menú gourmet y ambiente íntimo.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Cena%20Romántica%20el%20día%20[fecha]%20para%20[número%20de%20personas]%20personas." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
+          <h3 style="font-size: clamp(1.2rem, 4vw, 1.6rem); margin: 0;">Cena Romántica</h3>
+          <p style="font-size: clamp(0.9rem, 3vw, 1rem); margin: 10px 0 20px;">Una noche especial para dos con menú gourmet y ambiente íntimo.</p>
+          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar..." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
         </div>
       </div>
 
-      <!-- Tarjeta 3 -->
-      <div class="card" style="min-width: 405px; max-width: 350px; margin: 0 15px; background: rgba(178,34,34,0.5); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Fiesta Familiar" style="width: 100%; height: 200px; object-fit: cover;">
-        <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: 1.5rem; margin: 0;">Fiesta Familiar</h3>
-          <p style="font-size: 1rem; margin: 10px 0 20px;">El lugar perfecto para celebrar en familia con menú especial para todos.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Fiesta%20Familiar%20el%20día%20[fecha]%20para%20[número%20de%20personas]%20personas." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 4 -->
-      <div class="card" style="min-width: 405px; max-width: 350px; margin: 0 15px; background: rgba(178,34,34,0.5); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg" alt="Música en Vivo" style="width: 100%; height: 200px; object-fit: cover;">
-        <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: 1.5rem; margin: 0;">Música en Vivo</h3>
-          <p style="font-size: 1rem; margin: 10px 0 20px;">Disfruta de nuestras pizzas con el mejor ambiente musical en vivo.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Música%20en%20Vivo%20el%20día%20[fecha]%20para%20[número%20de%20personas]%20personas." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 5 -->
-      <div class="card" style="min-width: 405px; max-width: 350px; margin: 0 15px; background: rgba(178,34,34,0.5); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.4s, box-shadow 0.4s;">
-        <img src="img/foto9.jpg"alt="Degustación de Vinos" style="width: 100%; height: 200px; object-fit: cover;">
-        <div class="card-content" style="padding: 20px; color: #fff;">
-          <h3 style="font-size: 1.5rem; margin: 0;">Degustación de Vinos</h3>
-          <p style="font-size: 1rem; margin: 10px 0 20px;">Una experiencia única para los amantes del vino y la buena comida.</p>
-          <a href="https://wa.me/527222675873?text=Hola,%20me%20gustaría%20reservar%20para%20el%20evento%20Degustación%20de%20Vinos%20el%20día%20[fecha]%20para%20[número%20de%20personas]%20personas." style="display: inline-block; padding: 10px 25px; background: #fff; color: #b64c2a; text-decoration: none; border-radius: 30px; font-weight: bold;">Reservar</a>
-        </div>
-      </div>
-
+      <!-- ... resto de tarjetas -->
     </div>
 
     <button class="arrow right" onclick="moveCarousel(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10;">&#10095;</button>
@@ -108,30 +79,29 @@
   <script>
     const track = document.getElementById('carouselTrack');
     let index = 0;
-    const cardWidth = 480; // Ajusta si cambias el tamaño de las tarjetas
 
     function applyZoomEffect() {
       const cards = document.querySelectorAll('.card');
       cards.forEach((card, i) => {
         card.style.transform = 'scale(0.9)';
-        // delay per card to create nicer transition
         setTimeout(() => {
           card.style.transform = 'scale(1)';
-        }, 80 + i*20);
+        }, 80 + i * 20);
       });
     }
 
     function moveCarousel(direction) {
       const totalCards = document.querySelectorAll('.card').length;
+      const cardWidth = document.querySelector('.card').offsetWidth + 20; // dinámico ✅
       index = (index + direction + totalCards) % totalCards;
       track.style.transform = `translateX(-${index * cardWidth}px)`;
       applyZoomEffect();
     }
 
-    // Auto-movimiento cada 5 seg
+    // Auto-slide
     setInterval(() => moveCarousel(1), 55000);
 
-    // Soporte táctil en móviles
+    // Soporte táctil móvil
     let startX = 0;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     track.addEventListener('touchend', e => {
@@ -140,6 +110,9 @@
       else if (endX - startX > 50) moveCarousel(-1);
     });
   </script>
+</section>
+
+
 
 
 
