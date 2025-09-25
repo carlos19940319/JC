@@ -35,18 +35,23 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
 <nav><a href="index.html">Inicio</a><a href="entradas.html">Entradas</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a></nav>
 
 
-
-<!-- 🔥 Carrusel de Eventos - Moderno y Responsive -->
+<!-- 🍕 Carrusel de Eventos Gastronómicos - Totalmente independiente -->
 <section id="eventos" style="padding:40px 0;">
   <style>
-    :root {
-      --card-radius: 16px;
-      --accent: #b55a4c;
-      --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 60%);
-      --glass: rgba(255,255,255,0.06);
+    /* 🌐 Estilos limitados solo al #eventos */
+    #eventos {
+      all: initial;
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial !important;
+      display: block;
+      width: 100%;
     }
-    #eventos * { box-sizing: border-box; }
-    #eventos { font-family: Inter, system-ui, Segoe UI, Roboto, Arial; }
+
+    #eventos * {
+      all: unset;
+      display: revert;
+      box-sizing: border-box;
+    }
+
     #eventos .carousel-wrap { max-width: 1100px; margin: 0 auto; position: relative; }
     #eventos .carousel {
       display: flex;
@@ -56,51 +61,61 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
       padding: 20px 0;
       scroll-snap-type: x mandatory;
     }
+
     #eventos .slide {
       min-width: 80%;
-      border-radius: var(--card-radius);
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
-      background: var(--glass);
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+      background: rgba(255,255,255,0.06);
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.3s ease-out;
       transform: scale(0.9);
       opacity: 0.85;
       scroll-snap-align: center;
+      text-align: center;
     }
     #eventos .slide.active {
-      transform: scale(1.05);
+      transform: scale(1.07);
       opacity: 1;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
+
     @media (min-width: 900px) { #eventos .slide { min-width: 45%; } }
     @media (min-width: 1200px) { #eventos .slide { min-width: 32%; } }
 
     #eventos .media { position: relative; height: 420px; overflow: hidden; }
-    #eventos .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(.2,.9,.2,1); }
-    #eventos .slide.active img { transform: scale(1.06); }
+    #eventos .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-out;
+    }
+    #eventos .slide.active img { transform: scale(1.08); }
 
     #eventos .overlay {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: flex-end;
-      padding: 20px;
+      justify-content: center;
+      padding: 25px;
       color: #fff;
-      background: var(--overlay-gradient);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%);
+      text-align: center;
     }
     #eventos .badge {
       display: inline-flex;
       gap: 8px;
       align-items: center;
-      background: rgba(255,255,255,0.08);
-      padding: 6px 10px;
+      background: rgba(255,255,255,0.12);
+      padding: 6px 12px;
       border-radius: 999px;
-      backdrop-filter: blur(6px);
       font-weight: 600;
+      margin-bottom: 10px;
     }
-    #eventos .title { font-size: 1.2rem; margin: 8px 0 4px; }
-    #eventos .date { font-size: .9rem; opacity: .95; }
-    #eventos .desc { font-size: .95rem; margin-top: 6px; line-height: 1.25; }
+    #eventos .title { font-size: 1.4rem; margin: 6px 0; font-weight: bold; }
+    #eventos .date { font-size: 1rem; opacity: .9; }
+    #eventos .desc { font-size: 1rem; margin-top: 8px; line-height: 1.35; }
 
     #eventos .controls { position: absolute; inset: 0; pointer-events: none; }
     #eventos .btn {
@@ -108,7 +123,7 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
       top: 50%;
       transform: translateY(-50%);
       pointer-events: auto;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
       border: 0;
       width: 44px;
       height: 44px;
@@ -121,62 +136,64 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
     }
     #eventos .btn.left { left: -12px; }
     #eventos .btn.right { right: -12px; }
-    #eventos .btn svg { width: 18px; height: 18px; }
+    #eventos .btn svg { width: 20px; height: 20px; }
 
     #eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
-    #eventos .dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(0,0,0,0.12); cursor: pointer; }
-    #eventos .dot.active { background: var(--accent); }
+    #eventos .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }
+    #eventos .dot.active { background: #d35400; }
 
     @media (max-width: 640px) {
       #eventos .media { height: 280px; }
-      #eventos .title { font-size: 1.05rem; }
+      #eventos .title { font-size: 1.2rem; }
       #eventos .desc { font-size: .95rem; }
+      #eventos .slide { min-width: 90%; }
       #eventos .btn.left { left: 6px; }
       #eventos .btn.right { right: 6px; }
-      #eventos .slide { min-width: 90%; }
     }
   </style>
 
   <div class="carousel-wrap">
     <div class="carousel" id="carousel" tabindex="0">
-      <!-- 🖼️ Diapositivas -->
+      <!-- 🍕 Evento 1 -->
       <article class="slide">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1600&auto=format&fit=crop" alt="Inauguración 2025">
+          <img src="https://images.unsplash.com/photo-1601924582975-7d749b52f86e?q=80&w=1600&auto=format&fit=crop" alt="Pizza Fest">
           <div class="overlay">
             <div>
-              <div class="badge">🎉 Inauguración</div>
-              <h3 class="title">Inauguración 2025</h3>
-              <div class="date">Mar 10, 2025 · Centro Cultural</div>
-              <p class="desc">Un evento lleno de sorpresas y presentaciones especiales.</p>
+              <div class="badge">🍕 Evento Especial</div>
+              <h3 class="title">Pizza Fest 2025</h3>
+              <div class="date">Oct 15, 2025 · Plaza Central</div>
+              <p class="desc">Ven a disfrutar las pizzas artesanales más deliciosas con música en vivo y concursos.</p>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- 🍝 Evento 2 -->
       <article class="slide">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop" alt="Festival Primavera">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1600&auto=format&fit=crop" alt="Noche Italiana">
           <div class="overlay">
             <div>
-              <div class="badge">🌸 Festival</div>
-              <h3 class="title">Festival de Primavera</h3>
-              <div class="date">Abr 15, 2025 · Parque Central</div>
-              <p class="desc">Arte, música y gastronomía para toda la familia.</p>
+              <div class="badge">🍝 Cena Temática</div>
+              <h3 class="title">Noche Italiana</h3>
+              <div class="date">Oct 22, 2025 · Terraza Gourmet</div>
+              <p class="desc">Pastas, vinos y postres italianos en un ambiente romántico con música en vivo.</p>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- 👨‍🍳 Evento 3 -->
       <article class="slide">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1600&auto=format&fit=crop" alt="Noche Cultural">
+          <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be40?q=80&w=1600&auto=format&fit=crop" alt="Taller de Pizzaiolos">
           <div class="overlay">
             <div>
-              <div class="badge">🌙 Cultural</div>
-              <h3 class="title">Noche Cultural</h3>
-              <div class="date">Jun 21, 2025 · Plaza Mayor</div>
-              <p class="desc">Presentaciones artísticas y espectáculos en vivo.</p>
+              <div class="badge">👨‍🍳 Taller</div>
+              <h3 class="title">Taller de Pizzaiolos</h3>
+              <div class="date">Oct 29, 2025 · Cocina Escuela</div>
+              <p class="desc">Aprende a preparar tu propia pizza desde cero con nuestros chefs expertos.</p>
             </div>
           </div>
         </div>
@@ -204,7 +221,6 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
       const dotsWrap = document.getElementById('dots');
       let current = 0;
 
-      // Crear puntos
       slides.forEach((s, i) => {
         const dot = document.createElement('button');
         dot.className = 'dot';
@@ -214,7 +230,6 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
       });
       const dots = [...dotsWrap.children];
 
-      // Actualizar slide activa
       function updateActiveSlide() {
         const center = carousel.scrollLeft + carousel.clientWidth / 2;
         let closest = 0, min = Infinity;
@@ -230,44 +245,29 @@ no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewpor
         dots[current]?.classList.add('active');
       }
 
-      function clamp(i) { return i < 0 ? 0 : i >= slides.length ? slides.length - 1 : i; }
+      function clamp(i) { return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i; }
 
       function goTo(i) {
         current = clamp(i);
         const s = slides[current];
         const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
         carousel.scrollTo({ left, behavior: 'smooth' });
-        setTimeout(updateActiveSlide, 300);
+        setTimeout(updateActiveSlide, 250);
       }
 
       prevBtn.onclick = () => goTo(current - 1);
       nextBtn.onclick = () => goTo(current + 1);
-
-      // Snap automático al dejar de deslizar
-      let scrollTimeout;
       carousel.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          const center = carousel.scrollLeft + carousel.clientWidth / 2;
-          let closest = 0, min = Infinity;
-          slides.forEach((s, i) => {
-            const slideCenter = s.offsetLeft + s.clientWidth / 2;
-            const dist = Math.abs(center - slideCenter);
-            if (dist < min) { min = dist; closest = i; }
-          });
-          goTo(closest);
-        }, 120);
+        clearTimeout(window._scrollTimer);
+        window._scrollTimer = setTimeout(updateActiveSlide, 100);
       });
 
-      // ✅ Centrar y aplicar zoom a la primera desde el inicio
       window.addEventListener('load', () => {
-        slides[0].classList.add('active');
         goTo(0);
       });
     })();
   </script>
 </section>
-
 
 
 
