@@ -34,6 +34,193 @@
 </a></header>
 <nav><a href="index.html">Inicio</a><a href="entradas.html">Entradas</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a></nav>
 
+
+
+
+
+
+
+
+<section class="eventos-section">
+  <h2 class="eventos-titulo">✨ Catálogo de Eventos & Reservas ✨</h2>
+  <div class="carrusel-contenedor">
+    <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
+    <div class="carrusel" id="carrusel">
+      
+      <div class="etiqueta">
+        <img src="img/evento1.jpg" alt="Evento 1">
+        <h3>Noche Italiana</h3>
+        <p>Disfruta de nuestras pizzas artesanales al horno de leña.</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+      
+      <div class="etiqueta">
+        <img src="img/evento2.jpg" alt="Evento 2">
+        <h3>Festival de Pizzas</h3>
+        <p>6 estilos de pizzas en un solo lugar. ¡Ideal para toda la familia!</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+
+      <div class="etiqueta">
+        <img src="img/evento3.jpg" alt="Evento 3">
+        <h3>Brunch Especial</h3>
+        <p>Platillos y combos para un mediodía inolvidable.</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20Especial" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+
+      <div class="etiqueta">
+        <img src="img/evento4.jpg" alt="Evento 4">
+        <h3>Noche Gourmet</h3>
+        <p>Maridaje de pizzas gourmet con vinos seleccionados.</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Gourmet" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+
+      <div class="etiqueta">
+        <img src="img/evento5.jpg" alt="Evento 5">
+        <h3>Fiesta Familiar</h3>
+        <p>Pizzas ilimitadas, área de juegos y diversión para todos.</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+
+      <div class="etiqueta">
+        <img src="img/evento6.jpg" alt="Evento 6">
+        <h3>Cata de Salsas</h3>
+        <p>Explora sabores con nuestras salsas artesanales.</p>
+        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" class="btn-reservar">Reservar</a>
+      </div>
+
+    </div>
+    <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
+  </div>
+</section>
+
+<style>
+.eventos-section {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.eventos-titulo {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #5a2d1d;
+}
+
+.carrusel-contenedor {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carrusel {
+  display: flex;
+  gap: 20px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+}
+
+.carrusel::-webkit-scrollbar {
+  display: none;
+}
+
+.etiqueta {
+  background: rgba(178, 63, 37, 0.85); /* ladrillo semi-transparente */
+  border-radius: 20px;
+  padding: 16px;
+  width: 240px;
+  flex: 0 0 auto;
+  text-align: center;
+  color: white;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  scroll-snap-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.etiqueta img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.etiqueta h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.etiqueta p {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.btn-reservar {
+  background: #25d366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-reservar:hover {
+  background: #1ebe5d;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.flecha.izquierda { left: -10px; }
+.flecha.derecha { right: -10px; }
+
+@media (max-width: 768px) {
+  .etiqueta {
+    width: 180px;
+  }
+}
+</style>
+
+<script>
+const carrusel = document.getElementById('carrusel');
+
+carrusel.addEventListener('scroll', () => {
+  const centro = carrusel.scrollLeft + carrusel.offsetWidth / 2;
+
+  document.querySelectorAll('.etiqueta').forEach(card => {
+    const cardCentro = card.offsetLeft + card.offsetWidth / 2;
+    const distancia = Math.abs(centro - cardCentro);
+    const escala = Math.max(0.85, 1 - distancia / 500);
+    card.style.transform = `scale(${escala})`;
+    card.style.opacity = escala;
+  });
+});
+
+function moverCarrusel(direccion) {
+  const cardWidth = document.querySelector('.etiqueta').offsetWidth + 20;
+  carrusel.scrollBy({ left: direccion * cardWidth, behavior: 'smooth' });
+}
+</script>
+
+
+
+
+
+
 <footer>
 
     <h3><p style="margin-bottom:20px; line-height:1.5; font-size:16px;">
