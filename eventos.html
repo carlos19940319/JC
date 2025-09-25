@@ -37,197 +37,215 @@
 
 
 
+<section class="eventos-carrusel">
+  <div class="ev-texto">
+    <p>🍕 Brindamos nuestros servicios para tus eventos especiales, renta del lugar y platillos únicos para cada ocasión.</p>
+  </div>
 
-<section class="eventos-section">
-  <p class="eventos-descripcion">
-    ✨ Brindamos nuestros servicios para tus eventos especiales, ofreciendo la renta del lugar, 
-    atención personalizada y una exquisita variedad de platillos artesanales que harán de tu celebración un momento inolvidable. ✨
-  </p>
+  <div class="carousel-container">
+    <button class="arrow left" aria-label="Anterior" onclick="moveCarousel(-1)">&#10094;</button>
 
-  <div class="carrusel-contenedor">
-    <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="carouselTrack">
+        
+        <!-- Etiqueta 1 -->
+        <article class="card">
+          <img src="img/evento1.jpg" alt="Noche Italiana">
+          <div class="card-content">
+            <h3>Noche Italiana</h3>
+            <p>Pizzas artesanales al horno de leña y vinos selectos.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank">Reservar</a>
+          </div>
+        </article>
 
-    <div class="carrusel" id="carrusel">
-      <div class="etiqueta">
-        <img src="img/evento1.jpg" alt="Evento 1">
-        <h3>Noche Italiana</h3>
-        <p>Pizzas artesanales al horno de leña.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" class="btn-reservar">Reservar</a>
-      </div>
+        <!-- Etiqueta 2 -->
+        <article class="card">
+          <img src="img/evento2.jpg" alt="Festival de Pizzas">
+          <div class="card-content">
+            <h3>Festival de Pizzas</h3>
+            <p>Prueba 6 estilos diferentes en un solo lugar.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank">Reservar</a>
+          </div>
+        </article>
 
-      <div class="etiqueta">
-        <img src="img/evento2.jpg" alt="Evento 2">
-        <h3>Festival de Pizzas</h3>
-        <p>6 estilos de pizza en un mismo lugar.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" class="btn-reservar">Reservar</a>
-      </div>
+        <!-- Etiqueta 3 -->
+        <article class="card">
+          <img src="img/evento3.jpg" alt="Brunch & Platillos">
+          <div class="card-content">
+            <h3>Brunch & Platillos</h3>
+            <p>Deliciosos platillos y combos especiales para tus fines de semana.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch" target="_blank">Reservar</a>
+          </div>
+        </article>
 
-      <div class="etiqueta">
-        <img src="img/evento3.jpg" alt="Evento 3">
-        <h3>Brunch Especial</h3>
-        <p>Platillos y combos de mediodía.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20Especial" target="_blank" class="btn-reservar">Reservar</a>
-      </div>
+        <!-- Etiqueta 4 -->
+        <article class="card">
+          <img src="img/evento4.jpg" alt="Noche de Maridaje">
+          <div class="card-content">
+            <h3>Noche de Maridaje</h3>
+            <p>Degustación de pizzas gourmet con cervezas y vinos.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20de%20Maridaje" target="_blank">Reservar</a>
+          </div>
+        </article>
 
-      <div class="etiqueta">
-        <img src="img/evento4.jpg" alt="Evento 4">
-        <h3>Noche Gourmet</h3>
-        <p>Maridaje de pizzas y vinos.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Gourmet" target="_blank" class="btn-reservar">Reservar</a>
-      </div>
-
-      <div class="etiqueta">
-        <img src="img/evento5.jpg" alt="Evento 5">
-        <h3>Fiesta Familiar</h3>
-        <p>Pizzas ilimitadas y juegos.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" class="btn-reservar">Reservar</a>
-      </div>
-
-      <div class="etiqueta">
-        <img src="img/evento6.jpg" alt="Evento 6">
-        <h3>Cata de Salsas</h3>
-        <p>Sabores artesanales únicos.</p>
-        <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" class="btn-reservar">Reservar</a>
       </div>
     </div>
 
-    <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
+    <button class="arrow right" aria-label="Siguiente" onclick="moveCarousel(1)">&#10095;</button>
   </div>
 </section>
 
 <style>
-.eventos-section {
+.eventos-carrusel {
   width: 100%;
   text-align: center;
-  margin-top: 40px;
+  padding: 40px 0;
 }
 
-.eventos-descripcion {
-  font-family: 'Georgia', serif;
+.ev-texto p {
   font-size: 1.2rem;
-  line-height: 1.6;
-  color: #5a2d1d;
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto 30px;
-  padding: 0 15px;
   font-style: italic;
+  color: #5a2e1f;
 }
 
-/* 📌 Carrusel */
-.carrusel-contenedor {
+.carousel-container {
   position: relative;
-  width: 120%;
-  margin: 0 auto;
-  overflow: hidden;
+  width: 100%;
 }
 
-.carrusel {
-  display: flex;
-  gap: 20px;
-  scroll-behavior: smooth;
+.carousel-viewport {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 20px 12%;
+  display: flex;
+  justify-content: center;
+  scroll-behavior: smooth;
+  padding: 0 20%;
 }
 
-.carrusel::-webkit-scrollbar { display: none; }
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
 
-/* 📌 Tarjetas con degradado ladrillo claro */
-.etiqueta {
-  background: linear-gradient(to bottom, rgba(198, 89, 55, 0.85), rgba(160, 55, 30, 0.75));
+.card {
+  flex: 0 0 70%;
+  max-width: 320px;
+  background: linear-gradient(to bottom, rgba(178, 83, 50, 0.85), rgba(178, 83, 50, 0.65));
   border-radius: 20px;
-  padding: 16px;
-  width: 240px;
-  flex: 0 0 auto;
+  overflow: hidden;
   text-align: center;
-  color: white;
-  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   scroll-snap-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  opacity: 0.7;
+  transform: scale(0.9);
+  cursor: pointer;
 }
 
-/* ✨ Efecto flotante al pasar el cursor */
-.etiqueta:hover {
-  transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+.card.active {
+  transform: scale(1.15);
+  opacity: 1;
+  z-index: 2;
 }
 
-.etiqueta img {
+.card img {
   width: 100%;
-  border-radius: 16px;
-  margin-bottom: 12px;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.etiqueta h3 {
-  margin: 10px 0 5px;
-  font-size: 1.2rem;
+.card.active img:hover {
+  transform: scale(1.05);
 }
 
-.etiqueta p {
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-}
-
-.btn-reservar {
-  background: #25d366;
+.card-content {
+  padding: 15px;
   color: #fff;
-  padding: 8px 16px;
-  border-radius: 25px;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.boton {
+  background: #ffffff;
+  color: #b25332;
+  padding: 10px 20px;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
 }
 
-.btn-reservar:hover { background: #1ebe5d; }
+.boton:hover {
+  background: #ffe1d7;
+}
 
-/* 📌 Flechas */
-.flecha {
+.arrow {
+  background: none;
+  border: none;
+  color: #b25332;
+  font-size: 2.5rem;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 5px 10px;
   cursor: pointer;
-  border-radius: 50%;
   z-index: 10;
 }
 
-.flecha.izquierda { left: 10px; }
-.flecha.derecha { right: 10px; }
+.arrow.left { left: 2%; }
+.arrow.right { right: 2%; }
 
 @media (max-width: 768px) {
-  .etiqueta { width: 180px; }
-  .eventos-descripcion { font-size: 1rem; }
-  .carrusel { padding: 20px 8%; }
+  .card {
+    max-width: 85%;
+    flex: 0 0 85%;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .carousel-viewport {
+    padding: 0 10%;
+  }
 }
 </style>
 
 <script>
-const carrusel = document.getElementById('carrusel');
+const cards = document.querySelectorAll('.card');
+const viewport = document.getElementById('carouselViewport');
 
-carrusel.addEventListener('scroll', () => {
-  const centro = carrusel.scrollLeft + carrusel.offsetWidth / 2;
-  document.querySelectorAll('.etiqueta').forEach(card => {
-    const cardCentro = card.offsetLeft + card.offsetWidth / 2;
-    const distancia = Math.abs(centro - cardCentro);
-    const escala = Math.max(0.85, 1 - distancia / 500);
-    card.style.transform = `scale(${escala})`;
-    card.style.opacity = escala;
+viewport.addEventListener('scroll', () => {
+  let center = viewport.scrollLeft + viewport.offsetWidth / 2;
+
+  cards.forEach(card => {
+    let cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    let distance = Math.abs(center - cardCenter);
+
+    if (distance < card.offsetWidth / 2) {
+      card.classList.add('active');
+    } else {
+      card.classList.remove('active');
+    }
   });
 });
 
-function moverCarrusel(direccion) {
-  const cardWidth = document.querySelector('.etiqueta').offsetWidth + 20;
-  carrusel.scrollBy({ left: direccion * cardWidth, behavior: 'smooth' });
+function moveCarousel(dir) {
+  const scrollAmount = cards[0].offsetWidth + 20;
+  viewport.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
 }
-
-window.addEventListener('load', () => {
-  carrusel.scrollLeft = 0;
-});
 </script>
+
 
 
 
