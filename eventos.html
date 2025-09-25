@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eventos | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
+no<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eventos | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
 <header><img src="img/logo.png" alt="Logo" class="logo"><div><h2 style="margin:0;color:white">Pizzería</h2></div><a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
   <img src="img/insta.png" alt="Instagram" class="logo-instagram">
 </a>
@@ -36,58 +36,110 @@
 
 
 
-
 <!-- 🔥 Carrusel de Eventos - Moderno y Responsive -->
 <section id="eventos" style="padding:40px 0;">
   <style>
-    :root{
-      --card-radius:16px;
-      --accent:#b55a4c;
-      --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.45) 60%);
+    :root {
+      --card-radius: 16px;
+      --accent: #b55a4c;
+      --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 60%);
       --glass: rgba(255,255,255,0.06);
     }
-    #eventos *{box-sizing:border-box;}
-    #eventos{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;}
-    #eventos .carousel-wrap{max-width:1100px;margin:0 auto;position:relative}
-    #eventos .carousel{display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth;padding:20px 0}
+    #eventos * { box-sizing: border-box; }
+    #eventos { font-family: Inter, system-ui, Segoe UI, Roboto, Arial; }
+    #eventos .carousel-wrap { max-width: 1100px; margin: 0 auto; position: relative; }
+    #eventos .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+    #eventos .slide {
+      min-width: 80%;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--glass);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+      transform: scale(0.9);
+      opacity: 0.85;
+      scroll-snap-align: center;
+    }
+    #eventos .slide.active {
+      transform: scale(1.05);
+      opacity: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    @media (min-width: 900px) { #eventos .slide { min-width: 45%; } }
+    @media (min-width: 1200px) { #eventos .slide { min-width: 32%; } }
 
-    #eventos .slide{min-width:80%;border-radius:var(--card-radius);overflow:hidden;position:relative;box-shadow:0 8px 30px rgba(0,0,0,0.12);background:var(--glass);transition:transform .35s ease;}
-    @media(min-width:900px){#eventos .slide{min-width:45%}}
-    @media(min-width:1200px){#eventos .slide{min-width:32%}}
+    #eventos .media { position: relative; height: 420px; overflow: hidden; }
+    #eventos .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(.2,.9,.2,1); }
+    #eventos .slide.active img { transform: scale(1.06); }
 
-    #eventos .media{position:relative;height:420px;overflow:hidden}
-    #eventos .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
-    #eventos .slide:hover img{transform:scale(1.06)}
+    #eventos .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      color: #fff;
+      background: var(--overlay-gradient);
+    }
+    #eventos .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      padding: 6px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      font-weight: 600;
+    }
+    #eventos .title { font-size: 1.2rem; margin: 8px 0 4px; }
+    #eventos .date { font-size: .9rem; opacity: .95; }
+    #eventos .desc { font-size: .95rem; margin-top: 6px; line-height: 1.25; }
 
-    #eventos .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px;color:#fff;background:var(--overlay-gradient)}
-    #eventos .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.08);padding:6px 10px;border-radius:999px;backdrop-filter: blur(6px);font-weight:600}
-    #eventos .title{font-size:1.2rem;margin:8px 0 4px}
-    #eventos .date{font-size:.9rem;opacity:.95}
-    #eventos .desc{font-size:.95rem;margin-top:6px;line-height:1.25}
+    #eventos .controls { position: absolute; inset: 0; pointer-events: none; }
+    #eventos .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #eventos .btn.left { left: -12px; }
+    #eventos .btn.right { right: -12px; }
+    #eventos .btn svg { width: 18px; height: 18px; }
 
-    #eventos .controls{position:absolute;inset:0;pointer-events:none}
-    #eventos .btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));border:0;width:44px;height:44px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer}
-    #eventos .btn.left{left:-12px}
-    #eventos .btn.right{right:-12px}
-    #eventos .btn svg{width:18px;height:18px}
+    #eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+    #eventos .dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(0,0,0,0.12); cursor: pointer; }
+    #eventos .dot.active { background: var(--accent); }
 
-    #eventos .dots{display:flex;gap:8px;justify-content:center;margin-top:18px}
-    #eventos .dot{width:10px;height:10px;border-radius:999px;background:rgba(0,0,0,0.12);cursor:pointer}
-    #eventos .dot.active{background:var(--accent)}
-
-    @media(max-width:640px){
-      #eventos .media{height:280px}
-      #eventos .title{font-size:1.05rem}
-      #eventos .desc{font-size:.95rem}
-      #eventos .btn.left{left:6px}
-      #eventos .btn.right{right:6px}
-      #eventos .slide{min-width:90%}
+    @media (max-width: 640px) {
+      #eventos .media { height: 280px; }
+      #eventos .title { font-size: 1.05rem; }
+      #eventos .desc { font-size: .95rem; }
+      #eventos .btn.left { left: 6px; }
+      #eventos .btn.right { right: 6px; }
+      #eventos .slide { min-width: 90%; }
     }
   </style>
 
   <div class="carousel-wrap">
     <div class="carousel" id="carousel" tabindex="0">
-      <!-- Slide 1 -->
+      <!-- 🖼️ Diapositivas -->
       <article class="slide">
         <div class="media">
           <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1600&auto=format&fit=crop" alt="Inauguración 2025">
@@ -102,61 +154,29 @@
         </div>
       </article>
 
-      <!-- Slide 2 -->
       <article class="slide">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1600&auto=format&fit=crop" alt="Festival de música">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop" alt="Festival Primavera">
           <div class="overlay">
             <div>
-              <div class="badge">🎶 Festival</div>
-              <h3 class="title">Festival de música</h3>
-              <div class="date">Abr 5, 2025 · Parque Central</div>
-              <p class="desc">Bandas locales, artistas invitados y un gran ambiente.</p>
+              <div class="badge">🌸 Festival</div>
+              <h3 class="title">Festival de Primavera</h3>
+              <div class="date">Abr 15, 2025 · Parque Central</div>
+              <p class="desc">Arte, música y gastronomía para toda la familia.</p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Slide 3 -->
       <article class="slide">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1600&auto=format&fit=crop" alt="Feria gastronómica">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1600&auto=format&fit=crop" alt="Noche Cultural">
           <div class="overlay">
             <div>
-              <div class="badge">🍔 Feria</div>
-              <h3 class="title">Feria gastronómica</h3>
-              <div class="date">May 20, 2025 · Plaza Gourmet</div>
-              <p class="desc">Sabores únicos de todo el mundo y talleres culinarios.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Slide 4 -->
-      <article class="slide">
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1600&auto=format&fit=crop" alt="Exposición de arte">
-          <div class="overlay">
-            <div>
-              <div class="badge">🎨 Arte</div>
-              <h3 class="title">Exposición de arte</h3>
-              <div class="date">Jun 12, 2025 · Galería Moderna</div>
-              <p class="desc">Obras de artistas emergentes y conversatorios exclusivos.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Slide 5 -->
-      <article class="slide">
-        <div class="media">
-          <img src="https://images.unsplash.com/photo-1515165562835-c7b41a3d53d1?q=80&w=1600&auto=format&fit=crop" alt="Premiación anual">
-          <div class="overlay">
-            <div>
-              <div class="badge">🏆 Premiación</div>
-              <h3 class="title">Premiación anual</h3>
-              <div class="date">Jul 30, 2025 · Teatro Principal</div>
-              <p class="desc">Reconocimiento a los mejores del año con invitados especiales.</p>
+              <div class="badge">🌙 Cultural</div>
+              <h3 class="title">Noche Cultural</h3>
+              <div class="date">Jun 21, 2025 · Plaza Mayor</div>
+              <p class="desc">Presentaciones artísticas y espectáculos en vivo.</p>
             </div>
           </div>
         </div>
@@ -184,46 +204,69 @@
       const dotsWrap = document.getElementById('dots');
       let current = 0;
 
-      slides.forEach((s,i)=>{
+      // Crear puntos
+      slides.forEach((s, i) => {
         const dot = document.createElement('button');
-        dot.className='dot';
-        dot.setAttribute('aria-label','Ir al slide '+(i+1));
-        dot.addEventListener('click',()=>goTo(i));
+        dot.className = 'dot';
+        dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
         dotsWrap.appendChild(dot);
       });
       const dots = [...dotsWrap.children];
 
-      function updateDots(){
-        dots.forEach(d=>d.classList.remove('active'));
+      // Actualizar slide activa
+      function updateActiveSlide() {
+        const center = carousel.scrollLeft + carousel.clientWidth / 2;
+        let closest = 0, min = Infinity;
+        slides.forEach((s, i) => {
+          const slideCenter = s.offsetLeft + s.clientWidth / 2;
+          const dist = Math.abs(center - slideCenter);
+          if (dist < min) { min = dist; closest = i; }
+          s.classList.remove('active');
+        });
+        slides[closest].classList.add('active');
+        current = closest;
+        dots.forEach(d => d.classList.remove('active'));
         dots[current]?.classList.add('active');
       }
-      function clamp(i){return i<0?slides.length-1:i>=slides.length?0:i}
-      function goTo(i){
-        current=clamp(i);
-        const s=slides[current];
-        const left=s.offsetLeft-(carousel.clientWidth-s.clientWidth)/2;
-        carousel.scrollTo({left,behavior:'smooth'});
-        updateDots();
-      }
-      prevBtn.onclick=()=>goTo(current-1);
-      nextBtn.onclick=()=>goTo(current+1);
 
-      let startX=0,isDrag=false,scrollStart=0;
-      carousel.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;isDrag=true;scrollStart=carousel.scrollLeft},{passive:true});
-      carousel.addEventListener('touchmove',e=>{if(!isDrag)return;carousel.scrollLeft=scrollStart+(startX-e.touches[0].clientX)},{passive:true});
-      carousel.addEventListener('touchend',()=>{
-        isDrag=false;
-        const center=carousel.scrollLeft+carousel.clientWidth/2;
-        let closest=0,min=Infinity;
-        slides.forEach((s,i)=>{const c=s.offsetLeft+s.clientWidth/2,d=Math.abs(center-c);if(d<min){min=d;closest=i}});
-        goTo(closest);
+      function clamp(i) { return i < 0 ? 0 : i >= slides.length ? slides.length - 1 : i; }
+
+      function goTo(i) {
+        current = clamp(i);
+        const s = slides[current];
+        const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
+        carousel.scrollTo({ left, behavior: 'smooth' });
+        setTimeout(updateActiveSlide, 300);
+      }
+
+      prevBtn.onclick = () => goTo(current - 1);
+      nextBtn.onclick = () => goTo(current + 1);
+
+      // Snap automático al dejar de deslizar
+      let scrollTimeout;
+      carousel.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const center = carousel.scrollLeft + carousel.clientWidth / 2;
+          let closest = 0, min = Infinity;
+          slides.forEach((s, i) => {
+            const slideCenter = s.offsetLeft + s.clientWidth / 2;
+            const dist = Math.abs(center - slideCenter);
+            if (dist < min) { min = dist; closest = i; }
+          });
+          goTo(closest);
+        }, 120);
       });
 
-      window.addEventListener('load',()=>goTo(0));
+      // ✅ Centrar y aplicar zoom a la primera desde el inicio
+      window.addEventListener('load', () => {
+        slides[0].classList.add('active');
+        goTo(0);
+      });
     })();
   </script>
 </section>
-
 
 
 
