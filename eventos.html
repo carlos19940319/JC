@@ -38,58 +38,59 @@
 
 
 
-
-
-
 <section class="eventos-section">
-  <h2 class="eventos-titulo">✨ Catálogo de Eventos & Reservas ✨</h2>
+  <p class="eventos-descripcion">
+    ✨ Brindamos nuestros servicios para tus eventos especiales, ofreciendo la renta del lugar, 
+    atención personalizada y una exquisita variedad de platillos artesanales que harán de tu celebración un momento inolvidable. ✨
+  </p>
+
   <div class="carrusel-contenedor">
     <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
+
     <div class="carrusel" id="carrusel">
-      
       <div class="etiqueta">
         <img src="img/evento1.jpg" alt="Evento 1">
         <h3>Noche Italiana</h3>
-        <p>Disfruta de nuestras pizzas artesanales al horno de leña.</p>
+        <p>Pizzas artesanales al horno de leña.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" class="btn-reservar">Reservar</a>
       </div>
-      
+
       <div class="etiqueta">
         <img src="img/evento2.jpg" alt="Evento 2">
         <h3>Festival de Pizzas</h3>
-        <p>6 estilos de pizzas en un solo lugar. ¡Ideal para toda la familia!</p>
+        <p>6 estilos de pizza en un mismo lugar.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" class="btn-reservar">Reservar</a>
       </div>
 
       <div class="etiqueta">
         <img src="img/evento3.jpg" alt="Evento 3">
         <h3>Brunch Especial</h3>
-        <p>Platillos y combos para un mediodía inolvidable.</p>
+        <p>Platillos y combos de mediodía.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20Especial" target="_blank" class="btn-reservar">Reservar</a>
       </div>
 
       <div class="etiqueta">
         <img src="img/evento4.jpg" alt="Evento 4">
         <h3>Noche Gourmet</h3>
-        <p>Maridaje de pizzas gourmet con vinos seleccionados.</p>
+        <p>Maridaje de pizzas y vinos.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Gourmet" target="_blank" class="btn-reservar">Reservar</a>
       </div>
 
       <div class="etiqueta">
         <img src="img/evento5.jpg" alt="Evento 5">
         <h3>Fiesta Familiar</h3>
-        <p>Pizzas ilimitadas, área de juegos y diversión para todos.</p>
+        <p>Pizzas ilimitadas y juegos.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" class="btn-reservar">Reservar</a>
       </div>
 
       <div class="etiqueta">
         <img src="img/evento6.jpg" alt="Evento 6">
         <h3>Cata de Salsas</h3>
-        <p>Explora sabores con nuestras salsas artesanales.</p>
+        <p>Sabores artesanales únicos.</p>
         <a href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" class="btn-reservar">Reservar</a>
       </div>
-
     </div>
+
     <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
   </div>
 </section>
@@ -101,13 +102,18 @@
   margin-top: 40px;
 }
 
-.eventos-titulo {
+.eventos-descripcion {
   font-family: 'Georgia', serif;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.6;
   color: #5a2d1d;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 0 15px;
+  font-style: italic;
 }
 
+/* 📌 Carrusel */
 .carrusel-contenedor {
   position: relative;
   width: 100%;
@@ -121,24 +127,29 @@
   scroll-behavior: smooth;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 20px 0;
+  padding: 20px 12%;
 }
 
-.carrusel::-webkit-scrollbar {
-  display: none;
-}
+.carrusel::-webkit-scrollbar { display: none; }
 
+/* 📌 Tarjetas con degradado ladrillo claro */
 .etiqueta {
-  background: rgba(178, 63, 37, 0.85); /* ladrillo semi-transparente */
+  background: linear-gradient(to bottom, rgba(198, 89, 55, 0.85), rgba(160, 55, 30, 0.75));
   border-radius: 20px;
   padding: 16px;
   width: 240px;
   flex: 0 0 auto;
   text-align: center;
   color: white;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
   scroll-snap-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ✨ Efecto flotante al pasar el cursor */
+.etiqueta:hover {
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
 }
 
 .etiqueta img {
@@ -167,10 +178,9 @@
   transition: background 0.3s;
 }
 
-.btn-reservar:hover {
-  background: #1ebe5d;
-}
+.btn-reservar:hover { background: #1ebe5d; }
 
+/* 📌 Flechas */
 .flecha {
   position: absolute;
   top: 50%;
@@ -185,13 +195,13 @@
   z-index: 10;
 }
 
-.flecha.izquierda { left: -10px; }
-.flecha.derecha { right: -10px; }
+.flecha.izquierda { left: 10px; }
+.flecha.derecha { right: 10px; }
 
 @media (max-width: 768px) {
-  .etiqueta {
-    width: 180px;
-  }
+  .etiqueta { width: 180px; }
+  .eventos-descripcion { font-size: 1rem; }
+  .carrusel { padding: 20px 8%; }
 }
 </style>
 
@@ -200,7 +210,6 @@ const carrusel = document.getElementById('carrusel');
 
 carrusel.addEventListener('scroll', () => {
   const centro = carrusel.scrollLeft + carrusel.offsetWidth / 2;
-
   document.querySelectorAll('.etiqueta').forEach(card => {
     const cardCentro = card.offsetLeft + card.offsetWidth / 2;
     const distancia = Math.abs(centro - cardCentro);
@@ -214,7 +223,13 @@ function moverCarrusel(direccion) {
   const cardWidth = document.querySelector('.etiqueta').offsetWidth + 20;
   carrusel.scrollBy({ left: direccion * cardWidth, behavior: 'smooth' });
 }
+
+window.addEventListener('load', () => {
+  carrusel.scrollLeft = 0;
+});
 </script>
+
+
 
 
 
