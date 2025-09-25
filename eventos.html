@@ -37,217 +37,192 @@
 
 
 
-<section class="eventos-carrusel">
-  <div class="ev-texto">
-    <p>🍕 Brindamos nuestros servicios para tus eventos especiales, renta del lugar y platillos únicos para cada ocasión.</p>
-  </div>
+<!-- 🔥 Carrusel de Eventos - Moderno y Responsive -->
+<section id="eventos" style="padding:40px 0;">
+  <style>
+    :root{
+      --card-radius:16px;
+      --accent:#b55a4c;
+      --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.45) 60%);
+      --glass: rgba(255,255,255,0.06);
+    }
+    #eventos *{box-sizing:border-box;}
+    #eventos{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;}
+    #eventos .carousel-wrap{max-width:1100px;margin:0 auto;position:relative}
+    #eventos .carousel{display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth;padding:20px 0}
 
-  <div class="carousel-container">
-    <button class="arrow left" aria-label="Anterior" onclick="moveCarousel(-1)">&#10094;</button>
+    #eventos .slide{min-width:80%;border-radius:var(--card-radius);overflow:hidden;position:relative;box-shadow:0 8px 30px rgba(0,0,0,0.12);background:var(--glass);transition:transform .35s ease;}
+    @media(min-width:900px){#eventos .slide{min-width:45%}}
+    @media(min-width:1200px){#eventos .slide{min-width:32%}}
 
-    <div class="carousel-viewport" id="carouselViewport">
-      <div class="carousel-track" id="carouselTrack">
-        
-        <!-- Etiqueta 1 -->
-        <article class="card">
-          <img src="img/foto5.jpg" alt="Noche Italiana">
-          <div class="card-content">
-            <h3>Noche Italiana</h3>
-            <p>Pizzas artesanales al horno de leña y vinos selectos.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank">Reservar</a>
+    #eventos .media{position:relative;height:420px;overflow:hidden}
+    #eventos .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+    #eventos .slide:hover img{transform:scale(1.06)}
+
+    #eventos .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px;color:#fff;background:var(--overlay-gradient)}
+    #eventos .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.08);padding:6px 10px;border-radius:999px;backdrop-filter: blur(6px);font-weight:600}
+    #eventos .title{font-size:1.2rem;margin:8px 0 4px}
+    #eventos .date{font-size:.9rem;opacity:.95}
+    #eventos .desc{font-size:.95rem;margin-top:6px;line-height:1.25}
+
+    #eventos .controls{position:absolute;inset:0;pointer-events:none}
+    #eventos .btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));border:0;width:44px;height:44px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer}
+    #eventos .btn.left{left:-12px}
+    #eventos .btn.right{right:-12px}
+    #eventos .btn svg{width:18px;height:18px}
+
+    #eventos .dots{display:flex;gap:8px;justify-content:center;margin-top:18px}
+    #eventos .dot{width:10px;height:10px;border-radius:999px;background:rgba(0,0,0,0.12);cursor:pointer}
+    #eventos .dot.active{background:var(--accent)}
+
+    @media(max-width:640px){
+      #eventos .media{height:280px}
+      #eventos .title{font-size:1.05rem}
+      #eventos .desc{font-size:.95rem}
+      #eventos .btn.left{left:6px}
+      #eventos .btn.right{right:6px}
+      #eventos .slide{min-width:90%}
+    }
+  </style>
+
+  <div class="carousel-wrap">
+    <div class="carousel" id="carousel" tabindex="0">
+      <!-- Slide 1 -->
+      <article class="slide">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1600&auto=format&fit=crop" alt="Inauguración 2025">
+          <div class="overlay">
+            <div>
+              <div class="badge">🎉 Inauguración</div>
+              <h3 class="title">Inauguración 2025</h3>
+              <div class="date">Mar 10, 2025 · Centro Cultural</div>
+              <p class="desc">Un evento lleno de sorpresas y presentaciones especiales.</p>
+            </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Etiqueta 2 -->
-        <article class="card">
-          <img src="img/foto5.jpg" alt="Festival de Pizzas">
-          <div class="card-content">
-            <h3>Festival de Pizzas</h3>
-            <p>Prueba 6 estilos diferentes en un solo lugar.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank">Reservar</a>
+      <!-- Slide 2 -->
+      <article class="slide">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1600&auto=format&fit=crop" alt="Festival de música">
+          <div class="overlay">
+            <div>
+              <div class="badge">🎶 Festival</div>
+              <h3 class="title">Festival de música</h3>
+              <div class="date">Abr 5, 2025 · Parque Central</div>
+              <p class="desc">Bandas locales, artistas invitados y un gran ambiente.</p>
+            </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Etiqueta 3 -->
-        <article class="card">
-          <img src="img/foto5.jpg" alt="Brunch & Platillos">
-          <div class="card-content">
-            <h3>Brunch & Platillos</h3>
-            <p>Deliciosos platillos y combos especiales para tus fines de semana.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch" target="_blank">Reservar</a>
+      <!-- Slide 3 -->
+      <article class="slide">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1600&auto=format&fit=crop" alt="Feria gastronómica">
+          <div class="overlay">
+            <div>
+              <div class="badge">🍔 Feria</div>
+              <h3 class="title">Feria gastronómica</h3>
+              <div class="date">May 20, 2025 · Plaza Gourmet</div>
+              <p class="desc">Sabores únicos de todo el mundo y talleres culinarios.</p>
+            </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Etiqueta 4 -->
-        <article class="card">
-          <img src="img/foto5.jpg" alt="Noche de Maridaje">
-          <div class="card-content">
-            <h3>Noche de Maridaje</h3>
-            <p>Degustación de pizzas gourmet con cervezas y vinos.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20de%20Maridaje" target="_blank">Reservar</a>
+      <!-- Slide 4 -->
+      <article class="slide">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1600&auto=format&fit=crop" alt="Exposición de arte">
+          <div class="overlay">
+            <div>
+              <div class="badge">🎨 Arte</div>
+              <h3 class="title">Exposición de arte</h3>
+              <div class="date">Jun 12, 2025 · Galería Moderna</div>
+              <p class="desc">Obras de artistas emergentes y conversatorios exclusivos.</p>
+            </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-      </div>
+      <!-- Slide 5 -->
+      <article class="slide">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1515165562835-c7b41a3d53d1?q=80&w=1600&auto=format&fit=crop" alt="Premiación anual">
+          <div class="overlay">
+            <div>
+              <div class="badge">🏆 Premiación</div>
+              <h3 class="title">Premiación anual</h3>
+              <div class="date">Jul 30, 2025 · Teatro Principal</div>
+              <p class="desc">Reconocimiento a los mejores del año con invitados especiales.</p>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <button class="arrow right" aria-label="Siguiente" onclick="moveCarousel(1)">&#10095;</button>
+    <div class="controls">
+      <button class="btn left" id="prevBtn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn right" id="nextBtn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="dots" id="dots"></div>
   </div>
+
+  <script>
+    (function(){
+      const carousel = document.getElementById('carousel');
+      const slides = [...carousel.querySelectorAll('.slide')];
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsWrap = document.getElementById('dots');
+      let current = 0;
+
+      slides.forEach((s,i)=>{
+        const dot = document.createElement('button');
+        dot.className='dot';
+        dot.setAttribute('aria-label','Ir al slide '+(i+1));
+        dot.addEventListener('click',()=>goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+      const dots = [...dotsWrap.children];
+
+      function updateDots(){
+        dots.forEach(d=>d.classList.remove('active'));
+        dots[current]?.classList.add('active');
+      }
+      function clamp(i){return i<0?slides.length-1:i>=slides.length?0:i}
+      function goTo(i){
+        current=clamp(i);
+        const s=slides[current];
+        const left=s.offsetLeft-(carousel.clientWidth-s.clientWidth)/2;
+        carousel.scrollTo({left,behavior:'smooth'});
+        updateDots();
+      }
+      prevBtn.onclick=()=>goTo(current-1);
+      nextBtn.onclick=()=>goTo(current+1);
+
+      let startX=0,isDrag=false,scrollStart=0;
+      carousel.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;isDrag=true;scrollStart=carousel.scrollLeft},{passive:true});
+      carousel.addEventListener('touchmove',e=>{if(!isDrag)return;carousel.scrollLeft=scrollStart+(startX-e.touches[0].clientX)},{passive:true});
+      carousel.addEventListener('touchend',()=>{
+        isDrag=false;
+        const center=carousel.scrollLeft+carousel.clientWidth/2;
+        let closest=0,min=Infinity;
+        slides.forEach((s,i)=>{const c=s.offsetLeft+s.clientWidth/2,d=Math.abs(center-c);if(d<min){min=d;closest=i}});
+        goTo(closest);
+      });
+
+      window.addEventListener('load',()=>goTo(0));
+    })();
+  </script>
 </section>
-
-<style>
-.eventos-carrusel {
-  width: 100%;
-  text-align: center;
-  padding: 40px 0;
-}
-
-.ev-texto p {
-  font-size: 1.2rem;
-  max-width: 500px;
-  margin: 0 auto 30px;
-  font-style: italic;
-  color: #5a2e1f;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-}
-
-.carousel-viewport {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  justify-content: center;
-  scroll-behavior: smooth;
-  padding: 0 20%;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.card {
-  flex: 0 0 70%;
-  max-width: 320px;
-  background: linear-gradient(to bottom, rgba(178, 83, 50, 0.85), rgba(178, 83, 50, 0.65));
-  border-radius: 20px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  scroll-snap-align: center;
-  opacity: 0.7;
-  transform: scale(0.9);
-  cursor: pointer;
-}
-
-.card.active {
-  transform: scale(1.15);
-  opacity: 1;
-  z-index: 2;
-}
-
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.card.active img:hover {
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 15px;
-  color: #fff;
-}
-
-.card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-.boton {
-  background: #ffffff;
-  color: #b25332;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.boton:hover {
-  background: #ffe1d7;
-}
-
-.arrow {
-  background: none;
-  border: none;
-  color: #b25332;
-  font-size: 2.5rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 10;
-}
-
-.arrow.left { left: 2%; }
-.arrow.right { right: 2%; }
-
-@media (max-width: 768px) {
-  .card {
-    max-width: 85%;
-    flex: 0 0 85%;
-  }
-
-  .card img {
-    height: 180px;
-  }
-
-  .carousel-viewport {
-    padding: 0 10%;
-  }
-}
-</style>
-
-<script>
-const cards = document.querySelectorAll('.card');
-const viewport = document.getElementById('carouselViewport');
-
-viewport.addEventListener('scroll', () => {
-  let center = viewport.scrollLeft + viewport.offsetWidth / 2;
-
-  cards.forEach(card => {
-    let cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    let distance = Math.abs(center - cardCenter);
-
-    if (distance < card.offsetWidth / 2) {
-      card.classList.add('active');
-    } else {
-      card.classList.remove('active');
-    }
-  });
-});
-
-function moveCarousel(dir) {
-  const scrollAmount = cards[0].offsetWidth + 20;
-  viewport.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
-}
-</script>
-
-
-
 
 
 
