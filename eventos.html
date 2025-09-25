@@ -42,353 +42,337 @@
 <div class="welcome-text"><h2><font color="white">Eventos</h2></font></div>
 
 
-<!-- ===========================
 
-  <section id="eventos-especiales" style="padding:10px 10px; text-align:center;">
+<!-- =========================
+  Sección: Carrusel de Eventos (lista para pegar)
+  - Texto elegante discreto arriba
+  - Carrusel centrado (vertical + horizontal)
+  - 6 tarjetas (pizza/platillos/refacción)
+  - Zoom suave solo en tarjeta centrada
+  - Swipe táctil + flechas
+  - Reserva -> WhatsApp +52 722 267 5873
+  ========================= -->
+<section class="ev-section-carrusel" aria-label="Eventos especiales">
+  <div class="ev-inner">
+    <p class="ev-subtitle">Creamos momentos inolvidables con eventos personalizados y renta de espacios especiales.</p>
 
-  <h2 style="font-family:'Segoe UI', sans-serif; color:#8b3a2b; font-size:clamp(1.4rem,4vw,1.9rem); margin-bottom:18px;">
-    🎉 Eventos & Platillos Especiales
-  </h2>
+    <div class="ev-carousel-container" role="region" aria-roledescription="carousel" aria-label="Carrusel de eventos">
+      <button class="ev-arrow ev-left" aria-label="Anterior" onclick="evMoveCarousel(-1)">&#10094;</button>
 
-  <div class="carousel-container" aria-label="Carrusel de eventos" style="position:relative; overflow:hidden; width:100%; max-width:1200px; margin:0 auto; background:none;">
-    <button class="arrow left" aria-label="Anterior" onclick="moveCarousel(-1)">&#10094;</button>
+      <div class="ev-viewport" id="evViewport">
+        <div class="ev-track" id="evTrack">
+          <!-- Card 1 -->
+          <article class="ev-card ev-anim" data-event="Noche Italiana">
+            <img src="img/evento1.jpg" alt="Noche Italiana">
+            <div class="ev-card-content">
+              <h3>Noche Italiana</h3>
+              <p>Pizzas artesanales al horno de leña y selección de vinos.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
 
-    <div class="carousel-viewport" id="carouselViewport" style="overflow:hidden; width:100%;">
-      <div class="carousel-track" id="carouselTrack" style="display:flex; gap:20px; align-items:center; will-change:transform; transition:transform 600ms cubic-bezier(.22,.9,.27,1);">
-        <!-- Card 1 -->
-        <article class="card anim" data-event="Noche Italiana">
-          <img src="img/imagen6.jpg" alt="Noche Italiana">
-          <div class="card-content">
-            <h3>Noche Italiana</h3>
-            <p>Pizzas artesanales al horno de leña y selección de vinos.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
+          <!-- Card 2 -->
+          <article class="ev-card ev-anim" data-event="Festival de Pizzas">
+            <img src="img/evento2.jpg" alt="Festival de Pizzas">
+            <div class="ev-card-content">
+              <h3>Festival de Pizzas</h3>
+              <p>Prueba 6 estilos de pizza en un mismo lugar. Ambiente familiar.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
 
-        <!-- Card 2 -->
-        <article class="card anim" data-event="Festival de Pizzas">
-          <img src="img/imagen6.jpg" alt="Festival de Pizzas">
-          <div class="card-content">
-            <h3>Festival de Pizzas</h3>
-            <p>Prueba 6 estilos de pizza en un mismo lugar. Ambiente familiar.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
+          <!-- Card 3 -->
+          <article class="ev-card ev-anim" data-event="Brunch & Platillos">
+            <img src="img/evento3.jpg" alt="Brunch & Platillos">
+            <div class="ev-card-content">
+              <h3>Brunch & Platillos</h3>
+              <p>Platillos especiales y combos para mediodía en fin de semana.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20%26%20Platillos" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
 
-        <!-- Card 3 -->
-        <article class="card anim" data-event="Brunch & Platillos">
-          <img src="img/imagen6.jpg" alt="Brunch & Platillos">
-          <div class="card-content">
-            <h3>Brunch & Platillos</h3>
-            <p>Platillos especiales y combos para mediodía en fin de semana.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20%26%20Platillos" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
+          <!-- Card 4 -->
+          <article class="ev-card ev-anim" data-event="Noche de Maridaje">
+            <img src="img/evento4.jpg" alt="Noche de Maridaje">
+            <div class="ev-card-content">
+              <h3>Noche de Maridaje</h3>
+              <p>Degustación: pizzas gourmet + cervezas y vinos seleccionados.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20de%20Maridaje" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
 
-        <!-- Card 4 -->
-        <article class="card anim" data-event="Noche de Maridaje">
-          <img src="img/imagen6.jpg" alt="Noche de Maridaje">
-          <div class="card-content">
-            <h3>Noche de Maridaje</h3>
-            <p>Degustación: pizzas gourmet + cervezas y vinos seleccionados.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20de%20Maridaje" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
+          <!-- Card 5 -->
+          <article class="ev-card ev-anim" data-event="Fiesta Familiar">
+            <img src="img/evento5.jpg" alt="Fiesta Familiar">
+            <div class="ev-card-content">
+              <h3>Fiesta Familiar</h3>
+              <p>Menú para niños, pizzas ilimitadas y área de juegos.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
 
-        <!-- Card 5 -->
-        <article class="card anim" data-event="Fiesta Familiar">
-          <img src="img/imagen6.jpg" alt="Fiesta Familiar">
-          <div class="card-content">
-            <h3>Fiesta Familiar</h3>
-            <p>Menú para niños, pizzas ilimitadas y área de juegos.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="card anim" data-event="Cata de Salsas y Platos">
-          <img src="img/evento6.jpg" alt="Cata de Salsas">
-          <div class="card-content">
-            <h3>Cata de Salsas</h3>
-            <p>Explora sabores de salsas artesanales con platillos seleccionados.</p>
-            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" rel="noopener">Reservar</a>
-          </div>
-        </article>
+          <!-- Card 6 -->
+          <article class="ev-card ev-anim" data-event="Cata de Salsas">
+            <img src="img/evento6.jpg" alt="Cata de Salsas">
+            <div class="ev-card-content">
+              <h3>Cata de Salsas</h3>
+              <p>Explora sabores de salsas artesanales con platillos seleccionados.</p>
+              <a class="ev-boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" rel="noopener">Reservar ahora</a>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
 
-    <button class="arrow right" aria-label="Siguiente" onclick="moveCarousel(1)">&#10095;</button>
+      <button class="ev-arrow ev-right" aria-label="Siguiente" onclick="evMoveCarousel(1)">&#10095;</button>
+    </div>
   </div>
 </section>
 
 <style>
-  :root{
-    --card-w-small: 85%;   /* mobile */
-    --card-w-mid: 45%;     /* tablet */
-    --card-w-large: 30%;   /* desktop */
-    --brick: rgba(178,34,34,0.92);
+  /* ===== Encapsulado con prefijo ev- para evitar conflictos ===== */
+  .ev-section-carrusel { margin:0; padding:0; }
+  .ev-inner { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:24px; box-sizing:border-box; }
+
+  .ev-subtitle {
+    margin:0 0 20px 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial;
+    color:#6b3b2d;
+    font-size:clamp(0.95rem, 1.6vw, 1.05rem);
+    opacity:0.95;
+    max-width:780px;
+    text-align:center;
   }
 
-  /* container arrows */
-  .carousel-container { position: relative; }
-  .arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:40;
-    width:44px;height:44px;border-radius:50%;
-    border:none;background:rgba(255,255,255,0.85);font-size:22px;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  .ev-carousel-container { position:relative; width:100%; max-width:1200px; display:flex; align-items:center; justify-content:center; background:none; }
+
+  /* arrows */
+  .ev-arrow {
+    position:absolute; top:50%; transform:translateY(-50%); z-index:40;
+    width:44px; height:44px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12); font-size:20px;
   }
-  .arrow.left{ left:8px; }
-  .arrow.right{ right:8px; }
+  .ev-left { left:10px; }
+  .ev-right { right:10px; }
 
-  /* track & cards */
-  .carousel-viewport{ padding:10px 0; }
-  .carousel-track{ padding:18px; display:flex; align-items:center; }
+  /* viewport & track */
+  .ev-viewport { overflow:hidden; width:100%; padding:6px 0; box-sizing:border-box; }
+  .ev-track { display:flex; gap:18px; align-items:center; padding:12px; transition:transform 600ms cubic-bezier(.22,.9,.27,1); will-change:transform; }
 
-  .card{
-    flex:0 0 var(--card-w-small);
-    max-width:var(--card-w-small);
-    margin: 0 10px;
-    background: var(--brick); /* ladrillo sólido en cada tarjeta */
+  /* cards */
+  :root { --ev-brick: rgba(178,34,34,0.92); }
+  .ev-card {
+    flex:0 0 85%;
+    max-width:85%;
+    margin:0 auto;
+    background:var(--ev-brick);
     border-radius:18px;
     overflow:hidden;
-    box-shadow: 0 18px 30px rgba(0,0,0,0.25);
+    box-shadow:0 18px 30px rgba(0,0,0,0.25);
     transform-origin:center center;
     transition: transform 450ms cubic-bezier(.22,.9,.27,1), box-shadow 350ms ease;
-    will-change: transform;
-    cursor: pointer;
+    will-change:transform;
+    cursor:pointer;
     position:relative;
-    /* Requiere perspective por padre para 3D: lo manejamos desde JS en movimiento */
   }
 
-  .card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    display:block;
+  .ev-card img { width:100%; height:200px; object-fit:cover; display:block; }
+  .ev-card-content { padding:16px; background: rgba(0,0,0,0.18); color:#fff; }
+  .ev-card-content h3 { margin:0 0 8px; font-size:1.2rem; }
+  .ev-card-content p { margin:0 0 12px; font-size:0.95rem; line-height:1.4; opacity:0.95; }
+
+  .ev-boton {
+    display:inline-block; padding:9px 16px; border-radius:26px; background:#fff; color:#b64c2a; text-decoration:none; font-weight:700;
+    transition: transform 180ms ease;
+  }
+  .ev-boton:active { transform:scale(.98); }
+
+  /* appear animation (rebote solo al aparecer) */
+  .ev-anim { opacity:0; transform: translateY(40px) scale(.96); }
+  .ev-anim.visible { animation: evReboteIn 700ms cubic-bezier(.22,.9,.27,1) forwards; }
+  @keyframes evReboteIn {
+    0%{ opacity:0; transform:translateY(40px) scale(.94); }
+    60%{ opacity:1; transform:translateY(-8px) scale(1.04); }
+    100%{ opacity:1; transform:translateY(0) scale(1); }
   }
 
-  .card-content{
-    padding:16px;
-    background: #00000020; /* contenido con fondo tenue que no deja ver el contenido detrás */
-    color:#fff;
-  }
+  /* centered zoom (smooth & elegant) */
+  .ev-card.centered { transform: scale(1.06); box-shadow:0 34px 60px rgba(0,0,0,0.45); }
 
-  .card-content h3{ margin:0 0 8px; font-size:1.15rem; }
-  .card-content p{ margin:0 0 12px; font-size:0.95rem; line-height:1.4; opacity:0.95; }
-  .boton{
-    display:inline-block;padding:10px 18px;border-radius:26px;background:#fff;color:#b64c2a;text-decoration:none;font-weight:700;
-    transition:transform 200ms ease, box-shadow 200ms ease;
-  }
-  .boton:active{ transform:scale(.98); }
+  /* subtle tilt (applied via JS) */
+  .ev-card.tilt { transition: transform 120ms linear; }
 
-  /* initial appear animation (rebote solo al aparecer) */
-  .anim{ opacity:0; transform: translateY(40px) scale(.98); }
-  .anim.visible { animation: reboteIn 700ms cubic-bezier(.22,.9,.27,1) forwards; }
-
-  @keyframes reboteIn {
-    0%{ opacity:0; transform: translateY(40px) scale(.92); }
-    60%{ opacity:1; transform: translateY(-8px) scale(1.04); }
-    100%{ opacity:1; transform: translateY(0) scale(1); }
-  }
-
-  /* centered zoom: smooth and elegant */
-  .card.centered{
-    transform: scale(1.06);
-    box-shadow: 0 34px 60px rgba(0,0,0,0.45);
-  }
-
-  /* 3D subtle tilt while moving pointer (we'll apply rotations via JS) */
-  .card.tilt{ transition: transform 120ms linear; }
-
-  /* responsive widths */
-  @media (min-width:601px){
-    .card{ flex:0 0 var(--card-w-mid); max-width:var(--card-w-mid); }
-  }
-  @media (min-width:1000px){
-    .card{ flex:0 0 var(--card-w-large); max-width:var(--card-w-large); }
-  }
-
-  /* smaller image on very small screens */
-  @media (max-width:420px){
-    .card img{ height:150px; }
-  }
+  /* responsive breakpoints */
+  @media(min-width:601px){ .ev-card { flex:0 0 45%; max-width:45%; } }
+  @media(min-width:1000px){ .ev-card { flex:0 0 30%; max-width:30%; } }
+  @media(max-width:420px){ .ev-card img { height:160px; } }
 </style>
 
 <script>
-  // ====== Config ======
-  const WA_BASE = "https://wa.me/527222675873"; // tu número en formato wa.me (sin + ni espacios)
+  // ====== Config (usa tu número en formato wa.me) ======
+  // ya incluido en los enlaces de cada tarjeta (527222675873)
 
-  // ====== Carousel behavior ======
-  const track = document.getElementById('carouselTrack');
-  const viewport = document.getElementById('carouselViewport');
-  const cards = () => Array.from(track.querySelectorAll('.card'));
-  let index = 0;
-  let autoSlideTimer = null;
+  // elementos
+  const evTrack = document.getElementById('evTrack');
+  const evViewport = document.getElementById('evViewport');
 
-  // center the track so first card is nicely visible
-  function updateTrackPosition() {
-    const list = cards();
-    if (!list.length) return;
-    const viewportWidth = track.parentElement.clientWidth;
-    const cardElem = list[index];
-    const cardWidth = cardElem.offsetWidth + parseFloat(getComputedStyle(track).gap || 20);
-    // compute translate so the selected card is centered in viewport
-    const cardCenter = cardElem.offsetLeft + (cardElem.offsetWidth/2);
-    const translateX = Math.max(0, cardCenter - viewportWidth/2);
-    track.style.transform = `translateX(-${translateX}px)`;
-    updateCenteredCard(); // update zoom on center
-  }
+  function evCards(){ return Array.from(evTrack.querySelectorAll('.ev-card')); }
 
-  function moveCarousel(direction){
-    const list = cards();
-    if (!list.length) return;
-    index = (index + direction + list.length) % list.length;
-    updateTrackPosition();
-    restartAutoSlide();
-  }
+  // index y auto slide
+  let evIndex = 0, evAutoTimer = null;
 
-  // Auto slide (optional)
-  function startAutoSlide(){
-    stopAutoSlide();
-    autoSlideTimer = setInterval(()=> moveCarousel(1), 6000);
-  }
-  function stopAutoSlide(){ if(autoSlideTimer) clearInterval(autoSlideTimer); }
-  function restartAutoSlide(){ stopAutoSlide(); startAutoSlide(); }
-
-  // When page loads, center first card nicely
-  window.addEventListener('load', ()=> {
-    // small delay to let images load
-    setTimeout(()=> {
-      updateTrackPosition();
-      startAutoSlide();
-    }, 120);
-  });
-  window.addEventListener('resize', () => updateTrackPosition());
-
-  // ====== Center detection & smooth zoom (elegant) ======
-  function updateCenteredCard(){
-    const list = cards();
-    const viewportRect = track.parentElement.getBoundingClientRect();
-    const viewportCenterX = viewportRect.left + viewportRect.width/2;
-    let nearest = null;
-    let nearestDist = Infinity;
-    list.forEach(card => {
-      const r = card.getBoundingClientRect();
-      const cardCenterX = r.left + r.width/2;
-      const dist = Math.abs(cardCenterX - viewportCenterX);
-      if(dist < nearestDist){ nearestDist = dist; nearest = card; }
-      card.classList.remove('centered');
-    });
-    // apply centered class to nearest (only if reasonably close)
-    if(nearest) {
-      nearest.classList.add('centered');
+  // centrar tarjeta calculando translateX para que su centro quede en el centro del viewport
+  function evUpdatePosition(animate = true){
+    const list = evCards();
+    if(!list.length) return;
+    const viewportWidth = evViewport.clientWidth;
+    const card = list[evIndex];
+    const cardCenter = card.offsetLeft + card.offsetWidth/2;
+    let translateX = Math.max(0, cardCenter - viewportWidth/2);
+    if(!animate) evTrack.style.transition = 'none';
+    evTrack.style.transform = `translateX(-${translateX}px)`;
+    if(!animate) {
+      // restore transition after small delay
+      requestAnimationFrame(()=> setTimeout(()=> evTrack.style.transition = 'transform 600ms cubic-bezier(.22,.9,.27,1)', 20));
     }
+    evUpdateCentered();
   }
 
-  // call updateCenteredCard on any transform end (track transitionend)
-  track.addEventListener('transitionend', updateCenteredCard);
+  function evMoveCarousel(dir){
+    const list = evCards();
+    if(!list.length) return;
+    evIndex = (evIndex + dir + list.length) % list.length;
+    evUpdatePosition();
+    evRestartAuto();
+  }
 
-  // also call when user finishes touch dragging
-  // ===== touch swipe for carousel =====
-  let touchStartX = 0, touchStartY = 0, touchCurrentX = 0, isDragging = false;
-  track.addEventListener('touchstart', e => {
-    stopAutoSlide();
-    isDragging = true;
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    touchCurrentX = touchStartX;
+  function evStartAuto(){ evStopAuto(); evAutoTimer = setInterval(()=> evMoveCarousel(1), 6000); }
+  function evStopAuto(){ if(evAutoTimer) clearInterval(evAutoTimer); }
+  function evRestartAuto(){ evStopAuto(); evStartAuto(); }
+
+  // detecta cuál tarjeta queda centrada y aplica clase centered
+  function evUpdateCentered(){
+    const list = evCards();
+    if(!list.length) return;
+    const viewportRect = evViewport.getBoundingClientRect();
+    const centerX = viewportRect.left + viewportRect.width/2;
+    let nearest = null, dist = Infinity;
+    list.forEach(c => {
+      const r = c.getBoundingClientRect();
+      const cCenter = r.left + r.width/2;
+      const d = Math.abs(cCenter - centerX);
+      c.classList.remove('centered');
+      // reset transform if no tilt present (maintain clean)
+      if(!c.classList.contains('tilt')) c.style.transform = '';
+    });
+    list.forEach(c => {
+      const r = c.getBoundingClientRect();
+      const cCenter = r.left + r.width/2;
+      const d = Math.abs(cCenter - centerX);
+      if(d < dist){ dist = d; nearest = c; }
+    });
+    if(nearest) nearest.classList.add('centered');
+  }
+
+  // events: window load / resize
+  window.addEventListener('load', () => {
+    // small delay to allow images to size
+    setTimeout(()=>{ evUpdatePosition(false); evStartAuto(); }, 120);
+  });
+  window.addEventListener('resize', () => evUpdatePosition(false));
+
+  // touch swipe handling (live drag feel)
+  let evTouchStartX = 0, evTouchCurrentX = 0, evIsDragging = false;
+  evTrack.addEventListener('touchstart', e => {
+    evStopAuto();
+    evIsDragging = true;
+    evTouchStartX = e.touches[0].clientX;
+    evTouchCurrentX = evTouchStartX;
+    evTrack.style.transition = 'none';
   }, {passive:true});
 
-  track.addEventListener('touchmove', e => {
-    if(!isDragging) return;
-    touchCurrentX = e.touches[0].clientX;
-    const dx = touchStartX - touchCurrentX;
-    // apply a live transform for dragging feel (limited)
-    track.style.transition = 'none';
-    track.style.transform = `translateX(${ -Math.max(0, (cards()[index].offsetLeft + cards()[index].offsetWidth/2) - track.parentElement.clientWidth/2) - dx }px)`;
+  evTrack.addEventListener('touchmove', e => {
+    if(!evIsDragging) return;
+    evTouchCurrentX = e.touches[0].clientX;
+    const dx = evTouchStartX - evTouchCurrentX;
+    // move track accordingly (bounded to leftmost 0)
+    const list = evCards();
+    const baseTranslate = Math.max(0, evCards()[evIndex].offsetLeft + evCards()[evIndex].offsetWidth/2 - evViewport.clientWidth/2);
+    evTrack.style.transform = `translateX(${-Math.max(0, baseTranslate + dx)}px)`;
   }, {passive:true});
 
-  track.addEventListener('touchend', e => {
-    isDragging = false;
-    track.style.transition = 'transform 600ms cubic-bezier(.22,.9,.27,1)';
-    const dxTotal = touchStartX - touchCurrentX;
-    if(Math.abs(dxTotal) > 40){
-      moveCarousel(dxTotal > 0 ? 1 : -1);
+  evTrack.addEventListener('touchend', e => {
+    evIsDragging = false;
+    evTrack.style.transition = 'transform 600ms cubic-bezier(.22,.9,.27,1)';
+    const dxTotal = evTouchStartX - evTouchCurrentX;
+    if(Math.abs(dxTotal) > 40) {
+      evMoveCarousel(dxTotal > 0 ? 1 : -1);
     } else {
-      // re-center current
-      updateTrackPosition();
+      evUpdatePosition();
     }
-    restartAutoSlide();
+    evRestartAuto();
   });
 
-  // ===== 3D tilt while moving pointer (desktop) - subtle, no rebounce =====
-  function applyTilt(card, clientX, clientY){
-    const rect = card.getBoundingClientRect();
-    const offsetX = clientX - (rect.left + rect.width/2);
-    const offsetY = clientY - (rect.top + rect.height/2);
-    const rotateY = (offsetX / rect.width) * -8; // left/right
-    const rotateX = (offsetY / rect.height) * 6;  // up/down
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) ${card.classList.contains('centered') ? 'scale(1.06)' : ''}`;
-  }
-
-  let hoverCard = null;
+  // desktop: subtle tilt while moving pointer
+  let evHoverCard = null;
   document.addEventListener('mousemove', e => {
-    // apply tilt to card under pointer (if on a card)
     const el = document.elementFromPoint(e.clientX, e.clientY);
-    const card = el && el.closest && el.closest('.card');
-    if(card !== hoverCard){
-      if(hoverCard){
-        hoverCard.classList.remove('tilt');
-        // reset transform for previous (but preserve centered scale)
-        hoverCard.style.transform = hoverCard.classList.contains('centered') ? 'scale(1.06)' : 'scale(1)';
+    const card = el && el.closest ? el.closest('.ev-card') : null;
+    if(card !== evHoverCard){
+      if(evHoverCard){
+        evHoverCard.classList.remove('tilt');
+        if(!evHoverCard.classList.contains('centered')) evHoverCard.style.transform = '';
       }
-      hoverCard = card;
-      if(hoverCard) hoverCard.classList.add('tilt');
+      evHoverCard = card;
+      if(evHoverCard) evHoverCard.classList.add('tilt');
     }
-    if(hoverCard) applyTilt(hoverCard, e.clientX, e.clientY);
-  });
-
-  // On mouse leave window, reset
-  document.addEventListener('mouseleave', ()=> {
-    if(hoverCard){
-      hoverCard.classList.remove('tilt');
-      hoverCard.style.transform = hoverCard.classList.contains('centered') ? 'scale(1.06)' : 'scale(1)';
-      hoverCard = null;
+    if(evHoverCard){
+      const rect = evHoverCard.getBoundingClientRect();
+      const offsetX = (e.clientX - (rect.left + rect.width/2)) / rect.width;
+      const offsetY = (e.clientY - (rect.top + rect.height/2)) / rect.height;
+      const rotateY = offsetX * -6;
+      const rotateX = offsetY * 5;
+      // if centered keep scale
+      const scale = evHoverCard.classList.contains('centered') ? 1.06 : 1;
+      evHoverCard.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
     }
   });
 
-  // ===== Make click/tap on card toggle zoom quickly (optional) =====
-  cards()[0] && cards().forEach(card => {
-    // prevent focus outline weirdness on mobile
-    card.addEventListener('click', (e) => {
-      // minor visual pop on tap but we won't keep zoom: center logic handles main zoom
-      card.classList.add('centered');
-      setTimeout(()=> updateCenteredCard(), 300);
-    });
+  document.addEventListener('mouseleave', () => {
+    if(evHoverCard){
+      evHoverCard.classList.remove('tilt');
+      evHoverCard.style.transform = evHoverCard.classList.contains('centered') ? 'scale(1.06)' : '';
+      evHoverCard = null;
+    }
   });
 
-  // ===== IntersectionObserver: reveal cards with rebote (only once) =====
+  // small click/tap quick center (optional UX improvement)
+  evTrack.addEventListener('click', e => {
+    const clicked = e.target.closest('.ev-card');
+    if(!clicked) return;
+    const list = evCards();
+    const idx = list.indexOf(clicked);
+    if(idx > -1){
+      evIndex = idx;
+      evUpdatePosition();
+      evRestartAuto();
+    }
+  });
+
+  // reveal with IntersectionObserver (rebote only once)
   document.addEventListener('DOMContentLoaded', () => {
-    const animCards = document.querySelectorAll('.anim');
-    const obs = new IntersectionObserver((entries, observer) => {
+    const anims = document.querySelectorAll('.ev-anim');
+    const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-    animCards.forEach(c => obs.observe(c));
+    }, { threshold: 0.18 });
+    anims.forEach(a => io.observe(a));
   });
 </script>
-
-
-
-
 
 
 
