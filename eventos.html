@@ -45,195 +45,359 @@
 
 
 
+<!-- ===========================
+  Sección: Eventos (carrusel)
+  - 6 tarjetas (pizza / platillos / eventos)
+  - carrusel sin fondo
+  - fondo ladrillo por tarjeta
+  - rebote solo al aparecer
+  - efecto 3D al mover/seleccionar
+  - zoom suave SOLO en la tarjeta centrada
+  - botón Reservar -> WhatsApp (+52 722 267 5873)
+  =========================== -->
 
+<section id="eventos-especiales" style="padding:50px 10px; text-align:center;">
+  <h2 style="font-family:'Segoe UI', sans-serif; color:#8b3a2b; font-size:clamp(1.4rem,4vw,1.9rem); margin-bottom:18px;">
+    🎉 Eventos & Platillos Especiales
+  </h2>
 
-<section class="eventos">
-  <h1 class="titulo">🎉 Nuestros Próximos Eventos 🎉</h1>
+  <div class="carousel-container" aria-label="Carrusel de eventos" style="position:relative; overflow:hidden; width:100%; max-width:1200px; margin:0 auto; background:none;">
+    <button class="arrow left" aria-label="Anterior" onclick="moveCarousel(-1)">&#10094;</button>
 
-  <div class="contenedor-tarjetas">
-    <!-- Evento 1 -->
-    <div class="tarjeta-evento animada">
-      <img src="img/imagen6.jpg" alt="Cena romántica">
-      <div class="contenido">
-        <h2>Cena Romántica</h2>
-        <p>Disfruta una velada especial con música en vivo y menú gourmet para dos personas.</p>
-        <p>📅 14 de febrero | 📍 Bonanza Pizza</p>
-        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
+    <div class="carousel-viewport" id="carouselViewport" style="overflow:hidden; width:100%;">
+      <div class="carousel-track" id="carouselTrack" style="display:flex; gap:20px; align-items:center; will-change:transform; transition:transform 600ms cubic-bezier(.22,.9,.27,1);">
+        <!-- Card 1 -->
+        <article class="card anim" data-event="Noche Italiana">
+          <img src="img/evento1.jpg" alt="Noche Italiana">
+          <div class="card-content">
+            <h3>Noche Italiana</h3>
+            <p>Pizzas artesanales al horno de leña y selección de vinos.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20Italiana" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card anim" data-event="Festival de Pizzas">
+          <img src="img/evento2.jpg" alt="Festival de Pizzas">
+          <div class="card-content">
+            <h3>Festival de Pizzas</h3>
+            <p>Prueba 6 estilos de pizza en un mismo lugar. Ambiente familiar.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Festival%20de%20Pizzas" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card anim" data-event="Brunch & Platillos">
+          <img src="img/evento3.jpg" alt="Brunch & Platillos">
+          <div class="card-content">
+            <h3>Brunch & Platillos</h3>
+            <p>Platillos especiales y combos para mediodía en fin de semana.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Brunch%20%26%20Platillos" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card anim" data-event="Noche de Maridaje">
+          <img src="img/evento4.jpg" alt="Noche de Maridaje">
+          <div class="card-content">
+            <h3>Noche de Maridaje</h3>
+            <p>Degustación: pizzas gourmet + cervezas y vinos seleccionados.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Noche%20de%20Maridaje" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card anim" data-event="Fiesta Familiar">
+          <img src="img/evento5.jpg" alt="Fiesta Familiar">
+          <div class="card-content">
+            <h3>Fiesta Familiar</h3>
+            <p>Menú para niños, pizzas ilimitadas y área de juegos.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Fiesta%20Familiar" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card anim" data-event="Cata de Salsas y Platos">
+          <img src="img/evento6.jpg" alt="Cata de Salsas">
+          <div class="card-content">
+            <h3>Cata de Salsas</h3>
+            <p>Explora sabores de salsas artesanales con platillos seleccionados.</p>
+            <a class="boton" href="https://wa.me/527222675873?text=Hola,%20quiero%20reservar%20para%20Cata%20de%20Salsas" target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </article>
       </div>
     </div>
 
-    <!-- Evento 2 -->
-    <div class="tarjeta-evento animada">
-      <img src="img/evento2.jpg" alt="Fiesta familiar">
-      <div class="contenido">
-        <h2>Fiesta Familiar</h2>
-        <p>Un día completo con juegos, pizzas ilimitadas y diversión para toda la familia.</p>
-        <p>📅 10 de marzo | 📍 Bonanza Pizza</p>
-        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
-      </div>
-    </div>
-
-    <!-- Evento 3 -->
-    <div class="tarjeta-evento animada">
-      <img src="img/evento3.jpg" alt="Degustación de vinos">
-      <div class="contenido">
-        <h2>Degustación de Vinos</h2>
-        <p>Conoce los mejores vinos artesanales acompañados de deliciosas pizzas gourmet.</p>
-        <p>📅 22 de abril | 📍 Bonanza Pizza</p>
-        <a href="https://wa.me/527221383605" class="boton">Reservar</a>
-      </div>
-    </div>
+    <button class="arrow right" aria-label="Siguiente" onclick="moveCarousel(1)">&#10095;</button>
   </div>
 </section>
 
 <style>
-/* ===== ESTILOS ===== */
-.eventos {
-  padding: 40px 20px;
-  background: #f9f9f9;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.titulo {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  margin-bottom: 30px;
-  color: #8b3a2b;
-}
-
-.contenedor-tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* 🧱 Tarjetas con fondo ladrillo semi-transparente */
-.tarjeta-evento {
-  background: rgba(178, 34, 34, 0.7);
-  color: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  opacity: 0;
-  transform: translateY(50px);
-  backdrop-filter: blur(8px);
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tarjeta-evento img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.contenido {
-  padding: 20px;
-}
-
-.contenido h2 {
-  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
-  margin-bottom: 10px;
-}
-
-.contenido p {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  margin: 8px 0;
-  line-height: 1.5;
-}
-
-.boton {
-  display: inline-block;
-  background: #fff;
-  color: #8b3a2b;
-  padding: 10px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: background 0.3s ease;
-}
-
-.boton:hover {
-  background: #f5f5f5;
-}
-
-/* ✨ Animación de aparición */
-.animada.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1.05);
-  animation: rebote-inicial 0.8s ease;
-}
-
-@keyframes rebote-inicial {
-  0% { transform: translateY(40px) scale(0.9); opacity: 0; }
-  60% { transform: translateY(-10px) scale(1.05); opacity: 1; }
-  100% { transform: translateY(0) scale(1); }
-}
-
-/* 🌀 Efecto 3D al pasar */
-.tarjeta-evento:hover {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* 📱 Ajustes para móvil */
-@media (max-width: 480px) {
-  .contenido p {
-    font-size: 0.9rem;
+  :root{
+    --card-w-small: 85%;   /* mobile */
+    --card-w-mid: 45%;     /* tablet */
+    --card-w-large: 30%;   /* desktop */
+    --brick: rgba(178,34,34,0.92);
   }
-  .tarjeta-evento img {
-    height: 160px;
+
+  /* container arrows */
+  .carousel-container { position: relative; }
+  .arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:40;
+    width:44px;height:44px;border-radius:50%;
+    border:none;background:rgba(255,255,255,0.85);font-size:22px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.15);
   }
-}
+  .arrow.left{ left:8px; }
+  .arrow.right{ right:8px; }
+
+  /* track & cards */
+  .carousel-viewport{ padding:10px 0; }
+  .carousel-track{ padding:18px; display:flex; align-items:center; }
+
+  .card{
+    flex:0 0 var(--card-w-small);
+    max-width:var(--card-w-small);
+    margin: 0 10px;
+    background: var(--brick); /* ladrillo sólido en cada tarjeta */
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow: 0 18px 30px rgba(0,0,0,0.25);
+    transform-origin:center center;
+    transition: transform 450ms cubic-bezier(.22,.9,.27,1), box-shadow 350ms ease;
+    will-change: transform;
+    cursor: pointer;
+    position:relative;
+    /* Requiere perspective por padre para 3D: lo manejamos desde JS en movimiento */
+  }
+
+  .card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+  }
+
+  .card-content{
+    padding:16px;
+    background: #00000020; /* contenido con fondo tenue que no deja ver el contenido detrás */
+    color:#fff;
+  }
+
+  .card-content h3{ margin:0 0 8px; font-size:1.15rem; }
+  .card-content p{ margin:0 0 12px; font-size:0.95rem; line-height:1.4; opacity:0.95; }
+  .boton{
+    display:inline-block;padding:10px 18px;border-radius:26px;background:#fff;color:#b64c2a;text-decoration:none;font-weight:700;
+    transition:transform 200ms ease, box-shadow 200ms ease;
+  }
+  .boton:active{ transform:scale(.98); }
+
+  /* initial appear animation (rebote solo al aparecer) */
+  .anim{ opacity:0; transform: translateY(40px) scale(.98); }
+  .anim.visible { animation: reboteIn 700ms cubic-bezier(.22,.9,.27,1) forwards; }
+
+  @keyframes reboteIn {
+    0%{ opacity:0; transform: translateY(40px) scale(.92); }
+    60%{ opacity:1; transform: translateY(-8px) scale(1.04); }
+    100%{ opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  /* centered zoom: smooth and elegant */
+  .card.centered{
+    transform: scale(1.06);
+    box-shadow: 0 34px 60px rgba(0,0,0,0.45);
+  }
+
+  /* 3D subtle tilt while moving pointer (we'll apply rotations via JS) */
+  .card.tilt{ transition: transform 120ms linear; }
+
+  /* responsive widths */
+  @media (min-width:601px){
+    .card{ flex:0 0 var(--card-w-mid); max-width:var(--card-w-mid); }
+  }
+  @media (min-width:1000px){
+    .card{ flex:0 0 var(--card-w-large); max-width:var(--card-w-large); }
+  }
+
+  /* smaller image on very small screens */
+  @media (max-width:420px){
+    .card img{ height:150px; }
+  }
 </style>
 
 <script>
-// 👇 Animación al aparecer con IntersectionObserver
-document.addEventListener("DOMContentLoaded", () => {
-  const tarjetas = document.querySelectorAll('.animada');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+  // ====== Config ======
+  const WA_BASE = "https://wa.me/527222675873"; // tu número en formato wa.me (sin + ni espacios)
+
+  // ====== Carousel behavior ======
+  const track = document.getElementById('carouselTrack');
+  const viewport = document.getElementById('carouselViewport');
+  const cards = () => Array.from(track.querySelectorAll('.card'));
+  let index = 0;
+  let autoSlideTimer = null;
+
+  // center the track so first card is nicely visible
+  function updateTrackPosition() {
+    const list = cards();
+    if (!list.length) return;
+    const viewportWidth = track.parentElement.clientWidth;
+    const cardElem = list[index];
+    const cardWidth = cardElem.offsetWidth + parseFloat(getComputedStyle(track).gap || 20);
+    // compute translate so the selected card is centered in viewport
+    const cardCenter = cardElem.offsetLeft + (cardElem.offsetWidth/2);
+    const translateX = Math.max(0, cardCenter - viewportWidth/2);
+    track.style.transform = `translateX(-${translateX}px)`;
+    updateCenteredCard(); // update zoom on center
+  }
+
+  function moveCarousel(direction){
+    const list = cards();
+    if (!list.length) return;
+    index = (index + direction + list.length) % list.length;
+    updateTrackPosition();
+    restartAutoSlide();
+  }
+
+  // Auto slide (optional)
+  function startAutoSlide(){
+    stopAutoSlide();
+    autoSlideTimer = setInterval(()=> moveCarousel(1), 6000);
+  }
+  function stopAutoSlide(){ if(autoSlideTimer) clearInterval(autoSlideTimer); }
+  function restartAutoSlide(){ stopAutoSlide(); startAutoSlide(); }
+
+  // When page loads, center first card nicely
+  window.addEventListener('load', ()=> {
+    // small delay to let images load
+    setTimeout(()=> {
+      updateTrackPosition();
+      startAutoSlide();
+    }, 120);
+  });
+  window.addEventListener('resize', () => updateTrackPosition());
+
+  // ====== Center detection & smooth zoom (elegant) ======
+  function updateCenteredCard(){
+    const list = cards();
+    const viewportRect = track.parentElement.getBoundingClientRect();
+    const viewportCenterX = viewportRect.left + viewportRect.width/2;
+    let nearest = null;
+    let nearestDist = Infinity;
+    list.forEach(card => {
+      const r = card.getBoundingClientRect();
+      const cardCenterX = r.left + r.width/2;
+      const dist = Math.abs(cardCenterX - viewportCenterX);
+      if(dist < nearestDist){ nearestDist = dist; nearest = card; }
+      card.classList.remove('centered');
     });
-  }, { threshold: 0.2 });
-  tarjetas.forEach(tarjeta => observer.observe(tarjeta));
-});
+    // apply centered class to nearest (only if reasonably close)
+    if(nearest) {
+      nearest.classList.add('centered');
+    }
+  }
 
-// 🌀 Efecto 3D interactivo con rebote suave
-document.querySelectorAll('.tarjeta-evento').forEach(card => {
-  card.addEventListener('mousemove', e => {
+  // call updateCenteredCard on any transform end (track transitionend)
+  track.addEventListener('transitionend', updateCenteredCard);
+
+  // also call when user finishes touch dragging
+  // ===== touch swipe for carousel =====
+  let touchStartX = 0, touchStartY = 0, touchCurrentX = 0, isDragging = false;
+  track.addEventListener('touchstart', e => {
+    stopAutoSlide();
+    isDragging = true;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchCurrentX = touchStartX;
+  }, {passive:true});
+
+  track.addEventListener('touchmove', e => {
+    if(!isDragging) return;
+    touchCurrentX = e.touches[0].clientX;
+    const dx = touchStartX - touchCurrentX;
+    // apply a live transform for dragging feel (limited)
+    track.style.transition = 'none';
+    track.style.transform = `translateX(${ -Math.max(0, (cards()[index].offsetLeft + cards()[index].offsetWidth/2) - track.parentElement.clientWidth/2) - dx }px)`;
+  }, {passive:true});
+
+  track.addEventListener('touchend', e => {
+    isDragging = false;
+    track.style.transition = 'transform 600ms cubic-bezier(.22,.9,.27,1)';
+    const dxTotal = touchStartX - touchCurrentX;
+    if(Math.abs(dxTotal) > 40){
+      moveCarousel(dxTotal > 0 ? 1 : -1);
+    } else {
+      // re-center current
+      updateTrackPosition();
+    }
+    restartAutoSlide();
+  });
+
+  // ===== 3D tilt while moving pointer (desktop) - subtle, no rebounce =====
+  function applyTilt(card, clientX, clientY){
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; 
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * 10;
-    const rotateY = ((x - centerX) / centerX) * -10;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    const offsetX = clientX - (rect.left + rect.width/2);
+    const offsetY = clientY - (rect.top + rect.height/2);
+    const rotateY = (offsetX / rect.width) * -8; // left/right
+    const rotateX = (offsetY / rect.height) * 6;  // up/down
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) ${card.classList.contains('centered') ? 'scale(1.06)' : ''}`;
+  }
+
+  let hoverCard = null;
+  document.addEventListener('mousemove', e => {
+    // apply tilt to card under pointer (if on a card)
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const card = el && el.closest && el.closest('.card');
+    if(card !== hoverCard){
+      if(hoverCard){
+        hoverCard.classList.remove('tilt');
+        // reset transform for previous (but preserve centered scale)
+        hoverCard.style.transform = hoverCard.classList.contains('centered') ? 'scale(1.06)' : 'scale(1)';
+      }
+      hoverCard = card;
+      if(hoverCard) hoverCard.classList.add('tilt');
+    }
+    if(hoverCard) applyTilt(hoverCard, e.clientX, e.clientY);
   });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-    setTimeout(() => { card.style.transition = 'transform 0.3s ease'; }, 500);
+  // On mouse leave window, reset
+  document.addEventListener('mouseleave', ()=> {
+    if(hoverCard){
+      hoverCard.classList.remove('tilt');
+      hoverCard.style.transform = hoverCard.classList.contains('centered') ? 'scale(1.06)' : 'scale(1)';
+      hoverCard = null;
+    }
   });
 
-  // 📱 Efecto táctil (móviles)
-  card.addEventListener('touchstart', () => {
-    card.style.transform = `scale(1.05)`;
+  // ===== Make click/tap on card toggle zoom quickly (optional) =====
+  cards()[0] && cards().forEach(card => {
+    // prevent focus outline weirdness on mobile
+    card.addEventListener('click', (e) => {
+      // minor visual pop on tap but we won't keep zoom: center logic handles main zoom
+      card.classList.add('centered');
+      setTimeout(()=> updateCenteredCard(), 300);
+    });
   });
-  card.addEventListener('touchend', () => {
-    card.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    card.style.transform = `scale(1)`;
-    setTimeout(() => { card.style.transition = 'transform 0.3s ease'; }, 500);
+
+  // ===== IntersectionObserver: reveal cards with rebote (only once) =====
+  document.addEventListener('DOMContentLoaded', () => {
+    const animCards = document.querySelectorAll('.anim');
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    animCards.forEach(c => obs.observe(c));
   });
-});
 </script>
+
+
 
 
 
