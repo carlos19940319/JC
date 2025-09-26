@@ -64,7 +64,132 @@
 
 
 
+<!-- Horario Inteligente con Estado Abierto/Cerrado -->
+<iframe id="horario-frame" srcdoc='
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: transparent;
+    text-align:center;
+}
+h2 {
+    margin-bottom:6px;
+}
+#estado {
+    font-weight:bold;
+    margin-bottom:6px;
+}
+ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+li {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:4px 0;
+}
+@keyframes brillo {
+  0% { box-shadow: 0 0 4px var(--brillo-color); }
+  50% { box-shadow: 0 0 12px var(--brillo-color); }
+  100% { box-shadow: 0 0 4px var(--brillo-color); }
+}
+.dia-actual {
+    border-radius: 6px;
+    font-weight: bold;
+    animation: brillo 1.5s infinite;
+    padding: 0 5px;
+}
+</style>
+</head>
+<body>
+<h2 id="titulo">Horario de Atención</h2>
+<div id="estado">Calculando...</div>
+<div id="reloj" style="font-size:1.4em; margin-bottom:8px;"></div>
+<ul id="dias">
+    <li data-dia="1" data-abierto="9,20">🕘 Lunes a Viernes: <strong>9:00 AM - 8:00 PM</strong></li>
+    <li data-dia="6" data-abierto="10,18">🕙 Sábado: <strong>10:00 AM - 6:00 PM</strong></li>
+    <li data-dia="0" data-abierto="0,0">⛔ Domingo: <strong>Cerrado</strong></li>
+</ul>
 
+<script>
+// Función para actualizar el reloj
+function actualizarReloj() {
+    const reloj = document.getElementById("reloj");
+    const ahora = new Date();
+    let h = ahora.getHours(); let m = ahora.getMinutes(); let s = ahora.getSeconds();
+    h=h<10?"0"+h:h; m=m<10?"0"+m:m; s=s<10?"0"+s:s;
+    reloj.textContent=h+":"+m+":"+s;
+    // Ajustar altura del iframe automáticamente
+    parent.document.getElementById("horario-frame").style.height = document.body.scrollHeight + "px";
+}
+
+// Resaltar el día actual y actualizar estado abierto/cerrado
+function resaltarDiaYEstado(){
+    const dias=document.querySelectorAll("#dias li");
+    const hoy=new Date().getDay();
+    const horaActual = new Date().getHours();
+    let estadoText = "Cerrado";
+
+    dias.forEach(li=>{
+        li.classList.remove("dia-actual");
+        const dia = parseInt(li.dataset.dia);
+        const horario = li.dataset.abierto.split(","); // [horaInicio,horaFin]
+        const horaInicio = parseInt(horario[0]);
+        const horaFin = parseInt(horario[1]);
+        if(dia===hoy){
+            li.classList.add("dia-actual");
+            if(horaActual >= horaInicio && horaActual < horaFin){
+                estadoText = "Abierto";
+            }
+        }
+    });
+
+    const estadoDiv = document.getElementById("estado");
+    estadoDiv.textContent = "Estado: " + estadoText;
+
+    ajustarColores();
+}
+
+// Ajuste de colores según fondo
+function ajustarColores() {
+    let bodyStyles = window.getComputedStyle(document.body);
+    let bgColor = bodyStyles.backgroundColor || "rgb(255,255,255)";
+    let rgb = bgColor.match(/\d+/g);
+    let brightness = (parseInt(rgb[0])*299 + parseInt(rgb[1])*587 + parseInt(rgb[2])*114)/1000;
+    let textoColor = brightness > 128 ? "#000" : "#fff";
+    let brilloColor = brightness > 128 ? "rgba(241,196,15,1)" : "rgba(255,255,0,1)";
+    document.getElementById("titulo").style.color = textoColor;
+    document.getElementById("reloj").style.color = textoColor;
+    document.getElementById("estado").style.color = textoColor;
+    document.querySelectorAll("#dias li").forEach(li=>li.style.color = textoColor);
+    document.documentElement.style.setProperty("--brillo-color", brilloColor);
+    document.querySelectorAll(".dia-actual").forEach(li=>{
+        li.style.backgroundColor = brightness > 128 ? "rgba(241,196,15,0.5)" : "rgba(255,255,0,0.5)";
+    });
+}
+
+// Inicialización
+setInterval(()=>{
+    actualizarReloj();
+    resaltarDiaYEstado();
+},1000);
+
+window.onload = ()=>{
+    actualizarReloj();
+    resaltarDiaYEstado();
+};
+</script>
+</body>
+</html>
+' width="100%" style="border:none; background:transparent;"></iframe>
 
 
 
