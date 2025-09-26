@@ -64,8 +64,9 @@
 
 
 
-<!-- Horario de Atención con Reloj en Vivo -->
-<section id="horario" style="font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 20px; background: linear-gradient(to bottom, #fdf0e0, #f9e4d4); border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align:center;">
+
+<!-- Horario Transparente con Reloj y Animación en el Día Actual -->
+<section id="horario" style="font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 20px; text-align:center;">
   <h2 style="color:#d35400; margin-bottom:10px;">Horario de Atención</h2>
   
   <!-- Reloj en vivo -->
@@ -78,8 +79,24 @@
   </ul>
 </section>
 
+<style>
+/* Animación de brillo */
+@keyframes brillo {
+  0% { box-shadow: 0 0 5px rgba(241,196,15,0.6); }
+  50% { box-shadow: 0 0 15px rgba(241,196,15,1); }
+  100% { box-shadow: 0 0 5px rgba(241,196,15,0.6); }
+}
+.dia-actual {
+  background-color: rgba(241,196,15,0.5); /* semi-transparente */
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  animation: brillo 1.5s infinite;
+}
+</style>
+
 <script>
-// Función para actualizar el reloj en vivo
+// Reloj en vivo
 function actualizarReloj() {
     const reloj = document.getElementById('reloj');
     const ahora = new Date();
@@ -87,7 +104,6 @@ function actualizarReloj() {
     let minutos = ahora.getMinutes();
     let segundos = ahora.getSeconds();
     
-    // Formato 2 dígitos
     horas = horas < 10 ? '0'+horas : horas;
     minutos = minutos < 10 ? '0'+minutos : minutos;
     segundos = segundos < 10 ? '0'+segundos : segundos;
@@ -95,32 +111,21 @@ function actualizarReloj() {
     reloj.textContent = `${horas}:${minutos}:${segundos}`;
 }
 
-// Resalta el día actual
+// Resaltar día actual con animación
 function resaltarDia() {
     const dias = document.querySelectorAll('#dias li');
-    const hoy = new Date().getDay(); // 0=Domingo, 1=Lunes...
+    const hoy = new Date().getDay(); // 0=Domingo
     dias.forEach(li => {
         if(parseInt(li.dataset.dia) === hoy){
-            li.style.backgroundColor = '#f1c40f';
-            li.style.borderRadius = '8px';
-            li.style.color = '#fff';
-            li.style.fontWeight = 'bold';
+            li.classList.add('dia-actual');
         }
     });
 }
 
-// Ejecutar funciones cada segundo
+// Ejecutar funciones
 setInterval(actualizarReloj, 1000);
 window.onload = resaltarDia;
 </script>
-
-
-
-<footer><!-- Sección centrada sin fondo -->
-<div style="text-align:center; margin:40px auto;">
-
-  <footer>
-
 
 
 
