@@ -64,7 +64,7 @@
 
 
 
-<!-- Horario Inteligente con Estado Abierto/Cerrado -->
+<!-- Horario Compacto y Minimalista -->
 <iframe id="horario-frame" srcdoc='
 <!DOCTYPE html>
 <html lang="es">
@@ -79,11 +79,12 @@ html, body {
     text-align:center;
 }
 h2 {
-    margin-bottom:6px;
+    margin:2px 0;
+    font-size:1em;
 }
-#estado {
-    font-weight:bold;
-    margin-bottom:6px;
+#reloj {
+    font-size:1em;
+    margin:2px 0 4px 0;
 }
 ul {
     list-style:none;
@@ -94,67 +95,51 @@ li {
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:4px 0;
+    padding:2px 0;
+    font-size:0.9em;
 }
 @keyframes brillo {
-  0% { box-shadow: 0 0 4px var(--brillo-color); }
-  50% { box-shadow: 0 0 12px var(--brillo-color); }
-  100% { box-shadow: 0 0 4px var(--brillo-color); }
+  0% { box-shadow: 0 0 3px var(--brillo-color); }
+  50% { box-shadow: 0 0 8px var(--brillo-color); }
+  100% { box-shadow: 0 0 3px var(--brillo-color); }
 }
 .dia-actual {
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius:4px;
+    font-weight:bold;
     animation: brillo 1.5s infinite;
-    padding: 0 5px;
+    padding:0 3px;
 }
 </style>
 </head>
 <body>
-<h2 id="titulo">Horario de Atención</h2>
-<div id="estado">Calculando...</div>
-<div id="reloj" style="font-size:1.4em; margin-bottom:8px;"></div>
+<h2 id="titulo">Horario</h2>
+<div id="reloj"></div>
 <ul id="dias">
-    <li data-dia="1" data-abierto="9,20">🕘 Lunes a Viernes: <strong>05:00 PM - 12:00 PM</strong></li>
-    <li data-dia="6" data-abierto="10,18">🕙 Sábado: <strong>06:00 PM - 12:00 PM</strong></li>
-    <li data-dia="0" data-abierto="0,0">⛔ Domingo: <strong>Cerrado</strong></li>
+    <li data-dia="1">Lun-Vie: <strong>9-20h</strong></li>
+    <li data-dia="6">Sáb: <strong>10-18h</strong></li>
+    <li data-dia="0">Dom: <strong>Cerrado</strong></li>
 </ul>
 
 <script>
-// Función para actualizar el reloj
+// Reloj en vivo y ajuste de altura
 function actualizarReloj() {
     const reloj = document.getElementById("reloj");
     const ahora = new Date();
     let h = ahora.getHours(); let m = ahora.getMinutes(); let s = ahora.getSeconds();
     h=h<10?"0"+h:h; m=m<10?"0"+m:m; s=s<10?"0"+s:s;
     reloj.textContent=h+":"+m+":"+s;
-    // Ajustar altura del iframe automáticamente
     parent.document.getElementById("horario-frame").style.height = document.body.scrollHeight + "px";
 }
 
-// Resaltar el día actual y actualizar estado abierto/cerrado
-function resaltarDiaYEstado(){
+// Resaltar día actual
+function resaltarDia(){
     const dias=document.querySelectorAll("#dias li");
     const hoy=new Date().getDay();
-    const horaActual = new Date().getHours();
-    let estadoText = "Cerrado";
-
     dias.forEach(li=>{
-        li.classList.remove("dia-actual");
-        const dia = parseInt(li.dataset.dia);
-        const horario = li.dataset.abierto.split(","); // [horaInicio,horaFin]
-        const horaInicio = parseInt(horario[0]);
-        const horaFin = parseInt(horario[1]);
-        if(dia===hoy){
+        if(parseInt(li.dataset.dia)===hoy){
             li.classList.add("dia-actual");
-            if(horaActual >= horaInicio && horaActual < horaFin){
-                estadoText = "Abierto";
-            }
         }
     });
-
-    const estadoDiv = document.getElementById("estado");
-    estadoDiv.textContent = "Estado: " + estadoText;
-
     ajustarColores();
 }
 
@@ -168,7 +153,6 @@ function ajustarColores() {
     let brilloColor = brightness > 128 ? "rgba(241,196,15,1)" : "rgba(255,255,0,1)";
     document.getElementById("titulo").style.color = textoColor;
     document.getElementById("reloj").style.color = textoColor;
-    document.getElementById("estado").style.color = textoColor;
     document.querySelectorAll("#dias li").forEach(li=>li.style.color = textoColor);
     document.documentElement.style.setProperty("--brillo-color", brilloColor);
     document.querySelectorAll(".dia-actual").forEach(li=>{
@@ -177,14 +161,10 @@ function ajustarColores() {
 }
 
 // Inicialización
-setInterval(()=>{
-    actualizarReloj();
-    resaltarDiaYEstado();
-},1000);
-
+setInterval(actualizarReloj,1000);
 window.onload = ()=>{
     actualizarReloj();
-    resaltarDiaYEstado();
+    resaltarDia();
 };
 </script>
 </body>
