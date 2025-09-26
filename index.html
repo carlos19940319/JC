@@ -60,6 +60,62 @@
   <section class="hero"><img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida"></section>
   <h2><font color="white">Descubre nuestro menú</h2><p>Explore sabores únicos en nuestras sección de entradas, pizzas y bebidas,explore nuestra sección de eventos exclusivos😉🫰"Catering".</p></font>
 </main>
+
+
+
+
+<!-- Horario de Atención con Reloj en Vivo -->
+<section id="horario" style="font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 20px; background: linear-gradient(to bottom, #fdf0e0, #f9e4d4); border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align:center;">
+  <h2 style="color:#d35400; margin-bottom:10px;">Horario de Atención</h2>
+  
+  <!-- Reloj en vivo -->
+  <div id="reloj" style="font-size:1.5em; margin-bottom:15px; color:#e67e22;"></div>
+  
+  <ul id="dias" style="list-style:none; padding:0; margin:0;">
+    <li data-dia="1" style="display:flex; align-items:center; padding:8px 0; justify-content:center;">🕘 Lunes a Viernes: <strong>9:00 AM - 8:00 PM</strong></li>
+    <li data-dia="6" style="display:flex; align-items:center; padding:8px 0; justify-content:center;">🕙 Sábado: <strong>10:00 AM - 6:00 PM</strong></li>
+    <li data-dia="0" style="display:flex; align-items:center; padding:8px 0; justify-content:center;">⛔ Domingo: <strong>Cerrado</strong></li>
+  </ul>
+</section>
+
+<script>
+// Función para actualizar el reloj en vivo
+function actualizarReloj() {
+    const reloj = document.getElementById('reloj');
+    const ahora = new Date();
+    let horas = ahora.getHours();
+    let minutos = ahora.getMinutes();
+    let segundos = ahora.getSeconds();
+    
+    // Formato 2 dígitos
+    horas = horas < 10 ? '0'+horas : horas;
+    minutos = minutos < 10 ? '0'+minutos : minutos;
+    segundos = segundos < 10 ? '0'+segundos : segundos;
+    
+    reloj.textContent = `${horas}:${minutos}:${segundos}`;
+}
+
+// Resalta el día actual
+function resaltarDia() {
+    const dias = document.querySelectorAll('#dias li');
+    const hoy = new Date().getDay(); // 0=Domingo, 1=Lunes...
+    dias.forEach(li => {
+        if(parseInt(li.dataset.dia) === hoy){
+            li.style.backgroundColor = '#f1c40f';
+            li.style.borderRadius = '8px';
+            li.style.color = '#fff';
+            li.style.fontWeight = 'bold';
+        }
+    });
+}
+
+// Ejecutar funciones cada segundo
+setInterval(actualizarReloj, 1000);
+window.onload = resaltarDia;
+</script>
+
+
+
 <footer><!-- Sección centrada sin fondo -->
 <div style="text-align:center; margin:40px auto;">
 
@@ -67,13 +123,7 @@
 
 
 
-<section id="horario">
-  <ul>
-    <li>Lunes a Viernes: 9:00 AM - 8:00 PM</li>
-    <li>Sábado: 10:00 AM - 6:00 PM</li>
-    <li>Domingo: Cerrado</li>
-  </ul>
-</section>
+
 
 
 
