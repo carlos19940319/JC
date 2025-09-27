@@ -163,62 +163,58 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   );
 
   /* Sombras */
-  --card-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  --img-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  --color-principal: #b22222;
+  --card-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  --img-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  --color-principal: #b22222; /* Color principal para precios */
 }
 
-/* Tarjeta completa */
+/* Contenedor de la tarjeta */
 .card {
-  background: var(--color-fondo-tarjeta);
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--card-shadow);
-  color: #fff;
   position: relative;
-  overflow: hidden; /* recorta la imagen y desvanecido */
+  background: var(--color-fondo-tarjeta); /* mantiene el degradado de fondo */
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Imagen dentro de la tarjeta */
 .card img {
-  width: 100%;          /* ocupa todo el ancho */
-  height: 100%;         /* ocupa todo el alto */
+  width: 80%;           /* ocupa 80% del ancho de la tarjeta */
+  height: 80%;          /* ocupa 80% del alto de la tarjeta */
   object-fit: cover;    /* mantiene proporción sin deformarse */
-  border-radius: 12px;
-  display: block;
+  border-radius: 16px;  /* bordes redondeados */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: var(--img-shadow);
+  z-index: 1;
+
+  /* Bordes de la imagen desvanecidos */
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Desvanecido para combinar imagen con fondo y mejorar legibilidad del texto */
-.card::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 12px;
-  background: linear-gradient(
-    rgba(0,0,0,0),      /* transparente arriba */
-    rgba(0,0,0,0.5)     /* semi-transparente abajo para texto */
-  );
-  pointer-events: none;
-}
-
-/* Texto dentro de la imagen */
+/* Texto centrado sobre la imagen */
 .card-text {
-  position: absolute;
-  bottom: 10px;          /* dentro de la imagen, abajo */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  text-align: center;
+  position: relative;
+  z-index: 2;
   color: #ffffff;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+  padding: 0 10px;
 }
 
 /* Encabezado del texto */
 .card-text h3 {
-  margin: 0 0 4px 0;
-  font-size: 1.2rem;
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
 }
 
 /* Descripción dentro de la tarjeta */
@@ -233,12 +229,18 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   color: var(--color-principal);
 }
 
-/* Hover de la tarjeta */
+/* Hover sobre la imagen */
 .card:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
 
+/* Hover sobre la tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
 
 
 
