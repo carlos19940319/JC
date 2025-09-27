@@ -14,7 +14,7 @@ body{
   margin:0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
-  background: linear-gradient(180deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
+  background: linear-gradient(180deg,#071021cc 50%, #0c1320cc 50%), url("img/fondo2.jpg") center/cover fixed no-repeat;
 
 }
 
@@ -66,8 +66,6 @@ nav a{
   font-weight:700;
   padding:10px 14px;
   border-radius:12px;
-
-background: linear-gradient(180deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
 
   background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0px 8px 10px #000000, 0px 0px 0px #ffffff;
