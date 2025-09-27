@@ -117,7 +117,7 @@ footer{ text-align:center; padding:-1px; color:#ffffff; margin-top:-10px; backgr
 nav a:hover, 
 .card button:hover {
   background-color: var(--color-secundario);
-  color: #000;
+  color: #ffffff;
   box-shadow: 0 0 10px var(--color-secundario);
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
