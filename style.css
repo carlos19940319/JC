@@ -2,11 +2,12 @@
 :root{
   --color-principal: #b22222;
   --color-secundario: #333333;
-  --color-fondo-tarjeta: #ffffff;
+  --color-fondo-tarjeta: rgba(255,255,255,0.15); /* semi-transparente para combinar con fondo */
   --navbar-bg: rgba(128,0,32,0.7);
-  --fondo-img: ("img/fondo2.jpg") 
-  width: auto;/* ruta editable */
-
+  --fondo-img: ("img/fondo2.jpg");
+  width: auto; /* ruta editable */
+  --card-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  --img-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* Fondo */
@@ -15,7 +16,6 @@ body{
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
   background: linear-gradient(180deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
-
 }
 
 /* Header/logo */
@@ -26,24 +26,13 @@ header{
   padding:14px;
   background: rgba(0,0,0,0.45);
   color:#ffffff;
-
-
-
-
-
 }
 header img.logo{
   width:100px;
-  height:auto
-   position:sticky;
-   border-radius:50px 50px 50px 50px;
-   box-shadow:0px 1px 
-   58px #000000 inset, 0px 0px 20px  -5px #FFFFFF;
-
-
-
-
-
+  height:auto;
+  position:sticky;
+  border-radius:50px;
+  box-shadow:0px 1px 58px #000000 inset, 0px 0px 20px -5px #FFFFFF;
 }
 
 /* Nav sticky 3D */
@@ -52,8 +41,8 @@ nav{
   justify-content:space-around;
   gap:8px;
   padding:10px;
-  border-radius:10px 10px 10px 10px;
-  box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px  -6px #FFFFFF;
+  border-radius:10px;
+  box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
   position:sticky;
   top:0;
   z-index:1000;
@@ -66,206 +55,118 @@ nav a{
   font-weight:700;
   padding:10px 14px;
   border-radius:12px;
-
-  background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0px 8px 10px #000000, 0px 0px 0px #ffffff;
   display:flex;
   flex-direction:column;
   align-items:center;
-  transition: all .18s ease-in-out;
-  border-radius:10px 10px 10px 10px;
-  box-shadow:0px 0px 6px #000000 inset, 0px 9px 8px  -3px #000000;
-}
-
-
-
-/* Nav sticky 3D */
-nav {
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--navbar-bg);
-  backdrop-filter: blur(-10px);
-}
-
-/* Pestañas normales */
-nav a {
-  text-decoration: none;
-  color: var(--color-secundario);
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0px 0px 6px #000000 inset, 0px 9px 8px -3px #000000;
-  transition: all 0.18s ease-in-out;
+  box-shadow:0px 0px 6px #000000 inset, 0px 9px 8px -3px #000000;
+  transition: all .18s ease-in-out;
 }
-
-/* Hover de pestañas normales */
 nav a:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
 }
-
-/* Cuando se hace clic */
 nav a:active {
   transform: translateY(2px) scale(.98);
   box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff;
 }
-
-/* Pestaña activa */
 nav a.active {
-  color: #ffffff; /* Texto blanco */
-  background: linear-gradient(
-    135deg,
-    rgba(128,0,32,0.85), /* vino */
-    rgba(0,0,0,0.95)      /* negro */
-  );
-  box-shadow: 0 0 15px #ffffff, 0 4px 12px rgba(0,0,0,0.4); /* sombra blanca + negra */
-  transform: scale(1.05); /* zoom ligero */
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(128,0,32,0.85), rgba(0,0,0,0.95));
+  box-shadow: 0 0 15px #ffffff, 0 4px 12px rgba(0,0,0,0.4);
+  transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
 
-
-
-
-
-
 /* Main */
 main{ max-width:1100px; margin:18px auto; padding:0 14px; }
-
 .welcome-text{ text-align:center; color:#ffffff; margin:18px 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); animation: aparecer 1.2s ease-out; }
 .welcome-text h2{ margin:6px 0; color:var(--color-principal); font-size:2rem; }
 .welcome-text p{ margin:0; font-size:1.05rem; color:#ffffff; }
 
-.hero{ display:flex; justify-content:center; padding:10px; }
-.img-bienvenida{ width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.40); animation: zoom 2.3s ease-out; }
-
+/* Grid de tarjetas */
 .grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:12px; }
 
-
-
-:root {
-  --color-fondo-tarjeta: linear-gradient(
-    135deg,
-    rgba(128, 0, 32, 0.85),
-    rgba(0, 0, 0, 0.95)
-  );
-  --color-principal: #b22222;
-  --card-shadow: 0 6px 18px rgba(0,0,0,0.3);
-  --img-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* 🃏 Tarjeta */
+/* Tarjetas */
 .card {
   background: var(--color-fondo-tarjeta);
   border-radius: 14px;
   width: 300px;
-  height: 400px; /* controla el tamaño total */
+  height: 400px;
   box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   color: #fff;
+  position: relative;
 }
 
-/* 📸 Contenedor de la imagen */
+/* Contenedor de imagen */
 .img-container {
   position: relative;
-  height: 80%; /* imagen ocupa el 80% de la tarjeta */
+  height: 80%; /* imagen ocupa 80% de la tarjeta */
   width: 100%;
   overflow: hidden;
   border-radius: 12px;
 }
-
-/* Imagen dentro */
 .img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* no se deforma */
+  object-fit: cover;
   display: block;
   box-shadow: var(--img-shadow);
   transition: transform 0.4s ease;
 }
-
-/* Efecto de orillas transparentes */
+/* Orillas transparentes */
 .img-container::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 12px;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 70%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  background: radial-gradient(circle, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 100%);
   pointer-events: none;
 }
 
-/* 📝 Texto dentro de la imagen */
+/* Texto sobre la imagen */
 .card-text {
   position: absolute;
-  bottom: 10px; /* al fondo de la imagen */
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
   text-align: center;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
-
-/* Encabezado del texto */
 .card-text h3 {
   margin: 0 0 4px;
   font-size: 1.3rem;
 }
-
-/* Descripción */
 .card-text p {
   margin: 0;
   font-size: 1rem;
   color: #ddd;
 }
-
-/* Precio */
 .card-text .price {
   font-weight: 800;
   font-size: 1.1rem;
   color: var(--color-principal);
 }
 
-/* Hover efecto */
-.card:hover img {
-  transform: scale(1.05);
-}
+/* Hover imagen */
+.card:hover img { transform: scale(1.05); }
 
-
-
-
-
-.price{ color:var(--color-principal); font-weight:800; }
-
-/* footer */
-footer{ text-align:center; padding:-1px; color:#ffffff; margin-top:-10px; background: rgba(0,0,0,0.85); border-top-left-radius:8px; border-top-right-radius:1px; }
+/* Footer */
+footer{ text-align:center; padding:10px; color:#ffffff; margin-top:10px; background: rgba(0,0,0,0.85); border-top-left-radius:8px; border-top-right-radius:8px; }
 
 /* Animations */
-@keyframes aparecer{ from{opacity:0; transform:translateY(-20px)} to{opacity:11; transform:translateY(0)} }
+@keyframes aparecer{ from{opacity:0; transform:translateY(-20px)} to{opacity:1; transform:translateY(0)} }
 @keyframes zoom{ from{opacity:0; transform:scale(.95)} to{opacity:1; transform:scale(1)} }
 
 /* Responsive */
 @media(max-width:768px){
   .img-bienvenida{ width:92%; }
   nav{ flex-wrap:wrap; gap:6px; }
-  header img.logo{ width:64px; 
-   position:sticky;}
-
+  header img.logo{ width:64px; position:sticky;}
 }
 
 /* Hover dorado en botones y pestañas */
@@ -278,17 +179,10 @@ nav a:hover,
   transition: all 0.3s ease-in-out;
 }
 
-/* ✨ Animación de brillo para logo/título */
+/* Animación de brillo logo/título */
 @keyframes brilloSuave {
   0% { text-shadow: 0 0 5px var(--color-secundario); }
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
-
-header h1, 
-header img {
-  animation: brilloSuave 3s infinite alternate;
-}
-
-
-
+header h1, header img { animation: brilloSuave 3s infinite alternate; }
