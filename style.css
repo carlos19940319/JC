@@ -96,76 +96,9 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
+.card{ background: var(--color-fondo-tarjeta); border-radius:12px; padding:8px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.card img{ width:100%; height:160px; object-fit:cover; border-radius:15px; margin-bottom:5px; }
 
-
-:root {
-  /* Colores del degradado en RGB */
-  --grad-color-start-rgb: 128, 0, 32;   /* vino */
-  --grad-color-end-rgb: 0, 0, 0;        /* negro */
-
-  /* Ángulo y opacidad del degradado */
-  --grad-angle: 135deg;         /* dirección del degradado */
-  --grad-opacity-start: 0.85;   /* opacidad inicio (vino) */
-  --grad-opacity-end: 0.95;     /* opacidad final (negro) */
-
-  /* Sombras */
-  --card-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  --img-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.card {
-  /* Fondo con degradado de vino a negro */
-  background: linear-gradient(
-    var(--grad-angle),
-    rgba(var(--grad-color-start-rgb), var(--grad-opacity-start)),
-    rgba(var(--grad-color-end-rgb), var(--grad-opacity-end))
-  );
-
-  border-radius: 15px;
-  padding: 8px;
-  text-align: center;
-
-  /* Sombra y profundidad */
-  box-shadow: var(--card-shadow);
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-
-  /* Transición suave para hover */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Contenido por encima del fondo */
-.card * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Imagen del producto */
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 5px;
-
-  /* Sombra y efecto de flotación */
-  box-shadow: var(--img-shadow);
-  transform: translateY(-3px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover de la tarjeta */
-.card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-/* Hover de la imagen */
-.card img:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-}
 
 
 
