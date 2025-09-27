@@ -98,41 +98,75 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
-
-
-
-
-.card {
-  /* Imagen de fondo + degradado */
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 127, 80, 0.3)), 
-              url("img/horno-de-leña-súper-caliente-y-encantador-con-espacio-para-descripción.jpg") no-repeat center/cover; /* cambia 'fondo.jpg' por tu imagen */
-  
-  border-radius: 12px;
-  padding: 8px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-
-  /* Para superponer la imagen del producto encima */
-  position: relative;
-  overflow: hidden;
-  color: #fff; /* texto visible sobre el fondo */
+:root {
+  --grad-opacity-start: 0.03; /* opacidad superior del degradado */
+  --grad-opacity-end: 0.12;   /* opacidad inferior del degradado */
+  --card-shadow: 0 8px 25px rgba(0,0,0,0.15); /* sombra de la tarjeta */
+  --img-shadow: 0 10px 30px rgba(0,0,0,0.25); /* sombra de la imagen */
 }
 
-/* Mantener la imagen y el texto encima del fondo */
+.card {
+  /* Fondo general de la tarjeta */
+  background: url('img/fondo.jpg') no-repeat center/cover;
+  border-radius: 15px;
+  padding: 8px;
+  text-align: center;
+
+  /* Sombra y efecto de profundidad */
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+
+  /* Transición suave para hover de toda la tarjeta */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Capa de degradado sutil usando variables */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,var(--grad-opacity-start)),
+    rgba(0,0,0,var(--grad-opacity-end))
+  );
+  border-radius: 15px;
+  z-index: 0;
+}
+
+/* Contenido por encima del fondo */
 .card * {
   position: relative;
   z-index: 1;
 }
 
-/* Imagen del producto dentro de la tarjeta */
+/* Imagen del producto con efecto de flotación */
 .card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
   border-radius: 15px;
   margin-bottom: 5px;
+
+  /* Sombra y efecto 3D */
+  box-shadow: var(--img-shadow);
+  transform: translateY(-3px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover de la tarjeta: aumenta la flotación de la imagen y la sombra */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.card img:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
 
 
 
