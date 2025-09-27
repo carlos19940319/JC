@@ -154,17 +154,8 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
-<!-- Tarjeta con imagen desvanecida y texto sobre ella -->
-<div class="card">
-  <img src="img/tu-imagen.jpg" alt="Imagen de ejemplo">
-  <div class="card-text">
-    <h3>Nombre del producto</h3>
-    <p>Descripción breve</p>
-    <span class="price">$120</span>
-  </div>
-</div>
 
-<style>
+
 :root {
   /* Degradado global para todas las tarjetas */
   --color-fondo-tarjeta: linear-gradient(
@@ -241,7 +232,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   transform: scale(1.05);
   box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
-</style>
+
 
 
 
