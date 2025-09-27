@@ -14,7 +14,7 @@ body{
   margin:0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
-  background: linear-gradient(100deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
+  background: linear-gradient(180deg,#071021cc 0%, #0c1320cc 100%), url("img/fondo2.jpg") center/cover fixed no-repeat;
 
 }
 
