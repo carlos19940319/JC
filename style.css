@@ -109,7 +109,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 .card {
   /* Fondo general de la tarjeta con imagen y degradado */
-  background: url("img/img/horno-de-leña-súper-caliente-y-encantador-con-espacio-para-descripción.jpg") no-repeat center/cover;
+  background: url("img/horno-de-leña-súper-caliente-y-encantador-con-espacio-para-descripción.jpg") no-repeat center/cover;
   border-radius: 15px;
   padding: 8px;
   text-align: center;
