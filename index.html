@@ -138,9 +138,9 @@ function actualizarEstado() {
     const estado = document.getElementById("estado");
     let abierto = false;
 
-    if(hoy === 6){ // Solo viernes
+    if(hoy === 5){ // Solo viernes
         const ahoraMin = ahora.getHours()*60 + ahora.getMinutes();
-        const abreMin = 04*60;
+        const abreMin = 19*60;
         const cierraMin = 23*60;
         if(ahoraMin >= abreMin && ahoraMin <= cierraMin){
             abierto = true;
