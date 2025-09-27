@@ -105,7 +105,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 .card {
   /* Imagen de fondo + degradado */
   background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 127, 80, 0.3)), 
-              url("img/fondo2.jpg") no-repeat center/cover; /* cambia 'fondo.jpg' por tu imagen */
+              url("img/horno-de-leña-súper-caliente-y-encantador-con-espacio-para-descripción.jpg") no-repeat center/cover; /* cambia 'fondo.jpg' por tu imagen */
   
   border-radius: 12px;
   padding: 8px;
