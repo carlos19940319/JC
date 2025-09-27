@@ -97,16 +97,18 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
-
 :root {
+  /* Variables para controlar la intensidad del degradado */
   --grad-opacity-start: 0.03; /* opacidad superior del degradado */
   --grad-opacity-end: 0.12;   /* opacidad inferior del degradado */
+
+  /* Variables para sombras */
   --card-shadow: 0 8px 25px rgba(0,0,0,0.15); /* sombra de la tarjeta */
   --img-shadow: 0 10px 30px rgba(0,0,0,0.25); /* sombra de la imagen */
 }
 
 .card {
-  /* Fondo general de la tarjeta */
+  /* Fondo general de la tarjeta con imagen y degradado */
   background: url('img/fondo.jpg') no-repeat center/cover;
   border-radius: 15px;
   padding: 8px;
@@ -122,7 +124,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Capa de degradado sutil usando variables */
+/* Capa de degradado ajustable con variables CSS */
 .card::before {
   content: "";
   position: absolute;
@@ -143,7 +145,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   z-index: 1;
 }
 
-/* Imagen del producto con efecto de flotación */
+/* Imagen del producto dentro de la tarjeta */
 .card img {
   width: 100%;
   height: 160px;
@@ -151,22 +153,31 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   border-radius: 15px;
   margin-bottom: 5px;
 
-  /* Sombra y efecto 3D */
+  /* Sombra y efecto de “flotación” */
   box-shadow: var(--img-shadow);
   transform: translateY(-3px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover de la tarjeta: aumenta la flotación de la imagen y la sombra */
+/* Hover de la tarjeta: aumenta la flotación de la tarjeta */
 .card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
+/* Hover de la imagen: resalta aún más */
 .card img:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -214,27 +225,3 @@ header img {
 
 
 
-
-.card {
-  position: relative;
-  background: url("img/fondo2.jpg") no-repeat center/cover;
-  border-radius: 15px;
-  padding: 10px;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* oscurece el fondo */
-  z-index: 0;
-}
-
-.card * {
-  position: relative;
-  z-index: 1; /* mantiene imagen y texto encima del fondo */
-}
