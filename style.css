@@ -92,8 +92,51 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 .img-bienvenida{ width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.40); animation: zoom 2.3s ease-out; }
 
 .grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:12px; }
-.card{ background: var(--color-fondo-tarjeta); border-radius:12px; padding:8px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-.card img{ width:100%; height:160px; object-fit:cover; border-radius:15px; margin-bottom:5px; }
+
+
+
+
+
+
+
+
+
+
+.card {
+  /* Imagen de fondo + degradado */
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 127, 80, 0.3)), 
+              url("img/fondo2.jpg") no-repeat center/cover; /* cambia 'fondo.jpg' por tu imagen */
+  
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  /* Para superponer la imagen del producto encima */
+  position: relative;
+  overflow: hidden;
+  color: #fff; /* texto visible sobre el fondo */
+}
+
+/* Mantener la imagen y el texto encima del fondo */
+.card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Imagen del producto dentro de la tarjeta */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
 
 .price{ color:var(--color-principal); font-weight:800; }
 
