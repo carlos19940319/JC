@@ -97,23 +97,24 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
-:root {
-  /* Ángulo y colores del degradado de la tarjeta */
-  --grad-angle: 135deg;         /* ángulo del degradado */
-    :root {
-  --grad-color-start-rgb: 255, 218, 185; /* #FFDAB9 */
-  --grad-color-end-rgb: 255, 127, 80;    /* #FF7F50 */
-}
-  --grad-opacity-start: 1;      /* opacidad inicial del degradado */
-  --grad-opacity-end: 1;        /* opacidad final del degradado */
 
-  /* Variables para sombras */
-  --card-shadow: 0 8px 25px rgba(128,0,32,0.15);
-  --img-shadow: 0 10px 30px rgba(0,0,0,0.5);
+:root {
+  /* Colores del degradado en RGB */
+  --grad-color-start-rgb: 128, 0, 32;   /* vino */
+  --grad-color-end-rgb: 0, 0, 0;        /* negro */
+
+  /* Ángulo y opacidad del degradado */
+  --grad-angle: 135deg;         /* dirección del degradado */
+  --grad-opacity-start: 0.85;   /* opacidad inicio (vino) */
+  --grad-opacity-end: 0.95;     /* opacidad final (negro) */
+
+  /* Sombras */
+  --card-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  --img-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .card {
-  /* Fondo con degradado ajustable por variables */
+  /* Fondo con degradado de vino a negro */
   background: linear-gradient(
     var(--grad-angle),
     rgba(var(--grad-color-start-rgb), var(--grad-opacity-start)),
@@ -165,10 +166,6 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
-
-
-
-
 
 
 
