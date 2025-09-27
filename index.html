@@ -63,7 +63,6 @@
 
 
 
-
 <!-- Horario Compacto y Minimalista -->
 <iframe id="horario-frame" srcdoc='
 <!DOCTYPE html>
@@ -78,26 +77,27 @@ html, body {
     background: transparent;
     text-align:center;
 }
-h2 {
+h2 { margin:2px 0; font-size:1em; }
+#reloj { font-size:1em; margin:2px 0 4px 0; }
+#estado {
+    font-weight:bold;
+    font-size:1em;
     margin:2px 0;
-    font-size:1em;
+    padding:2px 6px;
+    border-radius:4px;
+    display:inline-block;
+    transition: all 0.3s ease;
 }
-#reloj {
-    font-size:1em;
-    margin:2px 0 4px 0;
+.open-anim {
+    animation: zoomEstado 0.5s ease forwards;
 }
-ul {
-    list-style:none;
-    padding:0;
-    margin:0;
+@keyframes zoomEstado {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
-li {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:2px 0;
-    font-size:0.9em;
-}
+ul { list-style:none; padding:0; margin:0; }
+li { display:flex; align-items:center; justify-content:center; padding:2px 0; font-size:0.9em; }
 @keyframes brillo {
   0% { box-shadow: 0 0 3px var(--brillo-color); }
   50% { box-shadow: 0 0 8px var(--brillo-color); }
@@ -114,19 +114,56 @@ li {
 <body>
 <h2 id="titulo">Horario</h2>
 <div id="reloj"></div>
+<div id="estado"></div>
 <ul id="dias">
-    <li data-dia="1">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
-   
+    <li data-dia="5">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
+</ul>
 
 <script>
 // Reloj en vivo y ajuste de altura
 function actualizarReloj() {
     const reloj = document.getElementById("reloj");
     const ahora = new Date();
-    let h = ahora.getHours(); let m = ahora.getMinutes(); let s = ahora.getSeconds();
+    let h = ahora.getHours(), m = ahora.getMinutes(), s = ahora.getSeconds();
     h=h<10?"0"+h:h; m=m<10?"0"+m:m; s=s<10?"0"+s:s;
     reloj.textContent=h+":"+m+":"+s;
     parent.document.getElementById("horario-frame").style.height = document.body.scrollHeight + "px";
+}
+
+// Función para actualizar estado Abierto/Cerrado
+let ultimoEstado = ""; // para detectar cambios y disparar animación
+function actualizarEstado() {
+    const ahora = new Date();
+    const hoy = ahora.getDay();
+    const estado = document.getElementById("estado");
+    let abierto = false;
+
+    if(hoy === 5){ // Solo viernes
+        const ahoraMin = ahora.getHours()*60 + ahora.getMinutes();
+        const abreMin = 19*60;
+        const cierraMin = 23*60;
+        if(ahoraMin >= abreMin && ahoraMin <= cierraMin){
+            abierto = true;
+        }
+    }
+
+    if(abierto){
+        estado.textContent = "🟢 Abierto";
+        estado.style.color = "#fff";
+        estado.style.backgroundColor = "green";
+        estado.style.boxShadow = "0 0 8px green";
+        if(ultimoEstado !== "abierto") {
+            estado.classList.add("open-anim");
+            setTimeout(()=> estado.classList.remove("open-anim"), 500);
+        }
+        ultimoEstado = "abierto";
+    } else {
+        estado.textContent = "🔴 Cerrado";
+        estado.style.color = "#fff";
+        estado.style.backgroundColor = "red";
+        estado.style.boxShadow = "0 0 8px red";
+        ultimoEstado = "cerrado";
+    }
 }
 
 // Resaltar día actual
@@ -139,9 +176,10 @@ function resaltarDia(){
         }
     });
     ajustarColores();
+    actualizarEstado();
 }
 
-// Ajuste de colores según fondo
+// Ajuste de colores según fondo (manteniendo tu código original)
 function ajustarColores() {
     let bodyStyles = window.getComputedStyle(document.body);
     let bgColor = bodyStyles.backgroundColor || "rgb(255,255,255)";
@@ -159,7 +197,7 @@ function ajustarColores() {
 }
 
 // Inicialización
-setInterval(actualizarReloj,1000);
+setInterval(()=>{ actualizarReloj(); actualizarEstado(); }, 1000);
 window.onload = ()=>{
     actualizarReloj();
     resaltarDia();
