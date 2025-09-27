@@ -154,49 +154,90 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 :root {
-  /* Degradado global para todas las tarjetas */
+  /* 🎨 Colores y degradado */
   --color-fondo-tarjeta: linear-gradient(
-    135deg,                 
-    rgba(128,0,32,0.85),    
-    rgba(0,0,0,0.95)        
+    135deg,
+    rgba(128, 0, 32, 0.85), /* vino */
+    rgba(0, 0, 0, 0.95)      /* negro */
   );
 
-  /* Sombras */
+  /* 💡 Sombras */
   --card-shadow: 0 6px 18px rgba(0,0,0,0.08);
   --img-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  --color-principal: #b22222;
 }
 
+/* 🃏 Tarjeta principal */
 .card {
-  background: var(--color-fondo-tarjeta); 
+  background: var(--color-fondo-tarjeta);
   border-radius: 12px;
-  padding: 0; /* eliminamos padding para que la imagen use todo el espacio */
+  padding: 8px;
   text-align: center;
   box-shadow: var(--card-shadow);
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* importante para que no se desborde la imagen */
   position: relative;
+  overflow: hidden;
 }
 
+/* 📦 Imagen dentro de la tarjeta */
 .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* ocupa todo el espacio sin deformarse */
+  width: 100%;       
+  height: 250px;           /* 👈 Ajusta la altura de la imagen aquí */
+  object-fit: cover;       /* llena el contenedor sin deformarse */
   border-radius: 12px;
   display: block;
   box-shadow: var(--img-shadow);
+  position: relative;
+  z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ✨ Bordes semi-transparentes de la imagen */
+.card img::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 60%,    /* transparente en el centro */
+    rgba(0, 0, 0, 0.5) 100%  /* semi-transparente en los bordes */
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ✨ Efectos hover */
 .card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
-.card img:hover {
+.card:hover img {
   transform: scale(1.05);
   box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
+
+/* 📝 Texto debajo o sobre la imagen */
+.card h3 {
+  font-size: 1.3rem;
+  margin: 10px 0 6px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0 0 6px;
+  color: #ddd;
+}
+
+.card .price {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-principal);
+}
+
 
 
 
