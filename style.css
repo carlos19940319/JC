@@ -100,8 +100,10 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 :root {
   /* Ángulo y colores del degradado de la tarjeta */
   --grad-angle: 135deg;         /* ángulo del degradado */
-  --grad-color-start: #FFDAB9;  /* color inicial */
-  --grad-color-end: #FF7F50;    /* color final */
+    :root {
+  --grad-color-start-rgb: 255, 218, 185; /* #FFDAB9 */
+  --grad-color-end-rgb: 255, 127, 80;    /* #FF7F50 */
+}
   --grad-opacity-start: 1;      /* opacidad inicial del degradado */
   --grad-opacity-end: 1;        /* opacidad final del degradado */
 
