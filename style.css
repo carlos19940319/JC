@@ -98,45 +98,38 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 :root {
-  /* Variables para controlar la intensidad del degradado */
-  --grad-opacity-start: 0.03; /* opacidad superior del degradado */
-  --grad-opacity-end: 0.12;   /* opacidad inferior del degradado */
+  /* Ángulo y colores del degradado de la tarjeta */
+  --grad-angle: 135deg;         /* ángulo del degradado */
+  --grad-color-start: #FFDAB9;  /* color inicial */
+  --grad-color-end: #FF7F50;    /* color final */
+  --grad-opacity-start: 1;      /* opacidad inicial del degradado */
+  --grad-opacity-end: 1;        /* opacidad final del degradado */
 
   /* Variables para sombras */
-  --card-shadow: 0 8px 25px rgba(0,0,0,0.15); /* sombra de la tarjeta */
-  --img-shadow: 0 10px 30px rgba(0,0,0,0.25); /* sombra de la imagen */
+  --card-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  --img-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .card {
-  /* Fondo general de la tarjeta con imagen y degradado */
-  background: url("img/fondoo.jpg") no-repeat center/cover;
+  /* Fondo con degradado ajustable por variables */
+  background: linear-gradient(
+    var(--grad-angle),
+    rgba(var(--grad-color-start-rgb), var(--grad-opacity-start)),
+    rgba(var(--grad-color-end-rgb), var(--grad-opacity-end))
+  );
+
   border-radius: 15px;
   padding: 8px;
   text-align: center;
 
-  /* Sombra y efecto de profundidad */
+  /* Sombra y profundidad */
   box-shadow: var(--card-shadow);
   position: relative;
   overflow: hidden;
   color: #fff;
 
-  /* Transición suave para hover de toda la tarjeta */
+  /* Transición suave para hover */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Capa de degradado ajustable con variables CSS */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,var(--grad-opacity-start)),
-    rgba(0,0,0,var(--grad-opacity-end))
-  );
-  border-radius: 15px;
-  z-index: 0;
 }
 
 /* Contenido por encima del fondo */
@@ -145,7 +138,7 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   z-index: 1;
 }
 
-/* Imagen del producto dentro de la tarjeta */
+/* Imagen del producto */
 .card img {
   width: 100%;
   height: 160px;
@@ -153,25 +146,23 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   border-radius: 15px;
   margin-bottom: 5px;
 
-  /* Sombra y efecto de “flotación” */
+  /* Sombra y efecto de flotación */
   box-shadow: var(--img-shadow);
   transform: translateY(-3px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover de la tarjeta: aumenta la flotación de la tarjeta */
+/* Hover de la tarjeta */
 .card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
-/* Hover de la imagen: resalta aún más */
+/* Hover de la imagen */
 .card img:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
-
-
 
 
 
