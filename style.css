@@ -153,10 +153,14 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 
 
 
+
+
+
+
 :root {
   /* Degradado global para todas las tarjetas */
   --color-fondo-tarjeta: linear-gradient(
-    135deg,
+    135deg,                 
     rgba(128,0,32,0.85),    /* vino */
     rgba(0,0,0,0.95)        /* negro */
   );
@@ -164,82 +168,74 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
   /* Sombras */
   --card-shadow: 0 6px 18px rgba(0,0,0,0.08);
   --img-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  --color-principal: #b22222;
 }
 
-/* Tarjeta completa */
 .card {
-  background: var(--color-fondo-tarjeta);
+  background: var(--color-fondo-tarjeta); /* mantiene tu fondo original */
   border-radius: 12px;
+  padding: 8px;
   text-align: center;
   box-shadow: var(--card-shadow);
   color: #fff;
   position: relative;
   overflow: hidden; /* recorta la imagen y el desvanecido */
-  height: 350px; /* altura mayor para que la imagen sea más grande */
 }
 
-/* Imagen dentro de la tarjeta */
 .card img {
-  width: 100%;           /* ocupa todo el ancho */
-  height: 80%;           /* ocupa 80% del alto de la tarjeta */
-  object-fit: cover;     /* mantiene proporción sin deformarse */
-  border-radius: 12px;   /* bordes redondeados igual que la tarjeta */
+  width: 80%;           /* ocupa 80% del ancho */
+  height: 80%;          /* ocupa 80% del alto */
+  object-fit: cover;    /* mantiene proporción sin deformarse */
+  border-radius: 15px;  /* bordes redondeados */
   display: block;
   margin: 0 auto;
   box-shadow: var(--img-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Desvanecido en los bordes de la imagen para combinar con el fondo de la tarjeta */
+/* Desvanecido para que la imagen se combine con el fondo */
 .card::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 12px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0) 70%,    /* transparente en el centro */
-    rgba(0,0,0,0.5) 100%  /* semitransparente en los bordes */
-  );
+  border-radius: 12px;  /* coincide con la tarjeta */
+  background: linear-gradient(rgba(0,0,0,0), var(--color-fondo-tarjeta));
   pointer-events: none;
 }
 
-/* Texto centrado sobre la imagen */
+/* Texto sobre la imagen */
 .card-text {
   position: absolute;
-  top: 50%;       /* centrado verticalmente */
-  left: 50%;      /* centrado horizontalmente */
-  transform: translate(-50%, -50%);
+  bottom: 10px;        /* abajo de la imagen */
+  left: 50%;
+  transform: translateX(-50%);
   width: 90%;
   color: #ffffff;
-  text-align: center;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
-/* Encabezado del texto */
 .card-text h3 {
   margin: 0 0 4px 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
-/* Descripción dentro de la tarjeta */
 .card-text p {
   margin: 0 0 4px 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-/* Precio dentro de la tarjeta */
 .card-text .price {
   font-weight: 800;
-  color: var(--color-principal);
+  color: #b22222; /* tu color principal */
 }
 
-/* Hover de la tarjeta */
+/* Hover efectos */
 .card:hover img {
   transform: scale(1.05);
   box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
+</style>
+
+
 
 
 
