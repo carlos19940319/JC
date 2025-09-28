@@ -88,13 +88,48 @@ main{ max-width:1100px; margin:18px auto; padding:0 14px; }
 .welcome-text p{ margin:0; font-size:1.05rem; color:#ffffff; }
 
 .hero{ display:flex; justify-content:center; padding:10px; }
-.img-bienvenida{ width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 0px 8px 1px rgba(255,255,255,1); animation: zoom 2.3s ease-out; }
+.img-bienvenida{ width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 0px 10px -2px rgba(255,255,255,1); animation: zoom 2.3s ease-out; }
 
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; margin-top:12px; }
-.card{ background: var(--color-fondo-tarjeta);  border-radius:12px 0px 12px 0px; padding:10px; text-align:center; box-shadow:0 0px 2px 4px rgba(178,34,34,1); }
-.card img{ width:98%; height:210px; object-fit:cover;  border-radius:12px 0px 12px 0px; margin-bottom:5px;box-shadow:0 0px 15px 1px rgba(0,0,0,1); }
+/* 📦 GRID contenedor de tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 12px;
+}
 
-.price{ color:var(--color-principal); font-weight:800; }
+/* 🖼 Tarjeta con imagen de fondo */
+.card {
+  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 12px 0px 12px 0px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0px 2px 3px rgba(178, 34, 34, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🖼 Imagen interna dentro de la tarjeta (opcional, puedes eliminar si no usas imágenes dentro) */
+.card img {
+  width: 98%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 0px 12px 0px 12px;
+  margin-bottom: 5px;
+  box-shadow:0 0px 9px 2px rgba(0, 0, 0, 1);
+}
+
+/* 💰 Precio */
+.price {
+  color: var(--color-principal);
+  font-weight: 800;
+}
+
+
+
+
+
 
 /* footer */
 footer{ text-align:center; padding:-1px; color:#ffffff; margin-top:-10px; background: rgba(0,0,0,.3); border-top-left-radius:8px; border-top-right-radius:1px; }
