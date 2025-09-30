@@ -11,13 +11,14 @@
 }
 
 /* ======================
-   Fondo adaptativo con parallax suave
+   Fondo adaptativo fijo
    ====================== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
 
+  /* Fondo con degradado + imagen */
   background-image: 
     linear-gradient(
       180deg,
@@ -26,20 +27,19 @@ body {
     ),
     var(--fondo-img);
 
-  background-position: center top; /* posición inicial */
-  background-size: cover;          /* se adapta a pantalla */
+  background-position: center center;  /* Centrado */
+  background-size: cover;               /* Se adapta a toda la pantalla */
   background-repeat: no-repeat;
-  background-attachment: scroll;   /* necesario para parallax */
-  height: 100vh;
+  background-attachment: fixed;         /* Fondo totalmente fijo */
+  min-height: 100vh;                    /* Asegura que cubra pantalla */
   width: 100vw;
   overflow-x: hidden;
-  transition: background-position 0.1s linear; /* suaviza el movimiento */
 }
 
-/* Móviles */
+/* Móviles: algunos navegadores no soportan fixed, se mantiene adaptativo */
 @media (max-width: 768px) {
   body {
-    background-position: center top;
+    background-attachment: scroll;
     background-size: cover;
   }
 }
