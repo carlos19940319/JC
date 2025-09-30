@@ -3,7 +3,7 @@
   --color-principal: #b22222;
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
-  --navbar-bg: rgba(178,34,34,0.5);
+  --navbar-bg: rgba(227,83,54,0.7);
   --fondo-img: ("img/fondo2.jpg") 
   width: auto;/* ruta editable */
 
@@ -69,7 +69,7 @@ nav{
   gap:8px;
   padding:10px;
   border-radius:10px 10px 10px 10px;
-  box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px  -6px #FFFFFF;
+  box-shadow:1px 10px 20px #320000 inset, 0px 0px 8px  -6px #FFFFFF;
   position:sticky;
   top:0;
   z-index:1000;
