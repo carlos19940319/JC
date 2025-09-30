@@ -1,237 +1,348 @@
-<section id="eventos">
-  <h2>🎉 Eventos | La Bonanza</h2>
-  <h3>“Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.”</h3>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eventos | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
 
-  <div class="carousel" id="carousel">
-    <!-- 🍕 Evento 1 -->
-    <article class="slide">
-      <div class="media">
-        <img src="img/fondo22.jpg" alt="Pizza Fest">
-        <div class="overlay">
-          <div>
-            <div class="badge">LA BONANZA</div>
-            <h3 class="title">Reserve nuestro espacio</h3>
-            <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
-          </div>
-        </div>
-      </div>
-    </article>
+<header><img src="img/logo.png" alt="Logo" class="logo"><div><h2 style="margin:0;color:white">Pizzería</h2></div><a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">  
+  <img src="img/insta.png" alt="Instagram" class="logo-instagram">  
+</a>  <style>  
+.logo-instagram {  
+  
+  bottom: 45px;  
+  right: 20px;        /* esquina inferior derecha */  
+  width: 45px;   
+  
+.logo-instagram:hover {  
+  transform: scale(1.2);  
+}  
+  
+/* 📱 Tamaño para celulares */  
+@media (max-width: 300px) {  
+  .logo-instagram {  
+    width: 20px;   /* más pequeño en celular */  
+  }  
+}  
+  
+/* 💻 Tamaño para tablets */  
+@media (min-width: 301px) and (max-width: 1024px) {  
+  .logo-instagram {  
+    width: 40px;   /* tamaño intermedio en tablet */  
+  }  
+}  
+</style></style>  </style></div>
+<a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
+<img src="img/facce.png" alt="Facebook" width="45" height="45" style="border-radius:40%;">
+</a></header>
 
-    <!-- 🍝 Evento 2 -->
-    <article class="slide">
-      <div class="media">
-        <img src="img/foto7.jpg" alt="Pizza Fest">
-        <div class="overlay">
-          <div>
-            <div class="badge">LA BONANZA</div>
-            <h3 class="title">🍽️ Preparamos platillos especiales</h3>
-            <p class="desc">Disfruta de sabores únicos que harán de tu evento un momento inolvidable.</p>
-          </div>
-        </div>
-      </div>
-    </article>
+<nav><a href="index.html">Inicio</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a>  </nav>  <div class="welcome-text"><h3><font color="white">“🎉 Celebra con nosotros tus momentos especiales.  
+Eventos, reservas y experiencias únicas para ti.”</h3></font></div>  
+  <div class="grid">  <!-- 🍕 Carrusel de Eventos Gastronómicos - Totalmente independiente -->  <section id="eventos" style="padding:40px 0;">  
+  <style>  /* 🌐 Estilos limitados solo al #eventos */  
+#eventos {  
+  all: initial;  
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial !important;  
+  display: block;  
+  width: 100%;  
+}  
 
-    <!-- 🍝 Evento 3 -->
-    <article class="slide">
-      <div class="media">
-        <img src="img/foto9.jpg" alt="Noche Italiana">
-        <div class="overlay">
-          <div>
-            <div class="badge">LA BONANZA</div>
-            <h3 class="title">Eventos especiales</h3>
-            <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
-          </div>
-        </div>
-      </div>
-    </article>
+#eventos * {  
+  all: unset;  
+  display: revert;  
+  box-sizing: border-box;  
+}  
+
+#eventos .carousel-wrap { max-width: 1100px; margin: 0 auto; position: relative; }  
+#eventos .carousel {  
+  display: flex;  
+  gap: 20px;  
+  overflow-x: auto;  
+  scroll-behavior: smooth;  
+  padding: 20px 0;  
+  scroll-snap-type: x mandatory;  
+}  
+
+#eventos .slide {  
+  min-width: 0%;  
+  border-radius: 16px;  
+  overflow: hidden;  
+  position: relative;  
+  background: rgba(255,255,255,0.06);  
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.3s ease-out;  
+  transform: scale(0.9);  
+  opacity: 0.85;  
+  scroll-snap-align: center;  
+  text-align: center;  
+}  
+#eventos .slide.active {  
+  transform: scale(1.07);  
+  opacity: 1;  
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);  
+}  
+
+@media (min-width: 900px) { #eventos .slide { min-width: 45%; } }  
+@media (min-width: 1200px) { #eventos .slide { min-width: 32%; } }  
+
+#eventos .media { position: relative; height: 420px; overflow: hidden; }  
+#eventos .media img {  
+  width: 100%;  
+  height: 100%;  
+  object-fit: cover;  
+  transition: transform 0.3s ease-out;  
+}  
+#eventos .slide.active img { transform: scale(1.08); }  
+
+#eventos .overlay {  
+  position: absolute;  
+  inset: 0;  
+  display: flex;  
+  align-items: flex-end;  
+  justify-content: center;  
+  padding: 25px;  
+  color: #fff;  
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%);  
+  text-align: center;  
+}  
+#eventos .badge {  
+  display: inline-flex;  
+  gap: 8px;  
+  align-items: center;  
+  background: rgba(255,255,255,0.12);  
+  padding: 6px 12px;  
+  border-radius: 999px;  
+  font-weight: 600;  
+  margin-bottom: 10px;  
+}  
+#eventos .title { font-size: 1.4rem; margin: 6px 0; font-weight: bold; }  
+#eventos .date { font-size: 1rem; opacity: .9; }  
+#eventos .desc { font-size: 1rem; margin-top: 8px; line-height: 1.35; }  
+
+#eventos .controls { position: absolute; inset: 0; pointer-events: none; }  
+#eventos .btn {  
+  position: absolute;  
+  top: 50%;  
+  transform: translateY(-50%);  
+  pointer-events: auto;  
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));  
+  border: 0;  
+  width: 44px;  
+  height: 44px;  
+  border-radius: 10px;  
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  cursor: pointer;  
+}  
+#eventos .btn.left { left: -12px; }  
+#eventos .btn.right { right: -12px; }  
+#eventos .btn svg { width: 20px; height: 20px; }  
+
+#eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }  
+#eventos .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }  
+#eventos .dot.active { background: #d35400; }  
+
+@media (max-width: 640px) {  
+  #eventos .media { height: 280px; }  
+  #eventos .title { font-size: 1.2rem; }  
+  #eventos .desc { font-size: .95rem; }  
+  #eventos .slide { min-width: 90%; }  
+  #eventos .btn.left { left: 6px; }  
+  #eventos .btn.right { right: 6px; }  
+}
+
+  </style>    <div class="carousel-wrap">  
+    <div class="carousel" id="carousel" tabindex="0">  <!-- 🍕 Evento 1 -->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/fondo22.jpg" alt="Pizza Fest">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Reserve nuestro espacio</h3>  
+          <div class="date"></div>  
+          <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>
+
+<!-- 🍕 Evento 2 -->  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto7.jpg"  alt="Pizza Fest">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">🍽️ Preparamos platillos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Disfruta de sabores únicos que harán de tu evento un momento inolvidable.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+
+  <!-- 🍝 Evento 3-->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto9.jpg" alt="Noche Italiana">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Eventos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+
+   <!-- 🍝 Evento 3-->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto9.jpg" alt="Noche Italiana">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Eventos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+   <!-- 🍝 Evento 4-->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto9.jpg" alt="Noche Italiana">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Eventos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+
+   <!-- 🍝 Evento 5-->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto9.jpg" alt="Noche Italiana">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Eventos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+   <!-- 🍝 Evento 6-->  
+  <article class="slide">  
+    <div class="media">  
+      <img src="img/foto9.jpg" alt="Noche Italiana">  
+      <div class="overlay">  
+        <div>  
+          <div class="badge">LA BONANZA</div>  
+          <h3 class="title">Eventos especiales</h3>  
+          <div class="date"></div>  
+          <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>  
+        </div>  
+      </div>  
+    </div>  
+  </article>  
+
+</div>  
+
+<div class="controls">  
+  <button class="btn left" id="prevBtn" aria-label="Anterior">  
+    <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>  
+  </button>  
+  <button class="btn right" id="nextBtn" aria-label="Siguiente">  
+    <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>  
+  </button>  
+</div>  
+
+<div class="dots" id="dots"></div>
+
+  </div>    <script>  
+    (function(){  
+      const carousel = document.getElementById('carousel');  
+      const slides = [...carousel.querySelectorAll('.slide')];  
+      const prevBtn = document.getElementById('prevBtn');  
+      const nextBtn = document.getElementById('nextBtn');  
+      const dotsWrap = document.getElementById('dots');  
+      let current = 0;  
+  
+      slides.forEach((s, i) => {  
+        const dot = document.createElement('button');  
+        dot.className = 'dot';  
+        dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));  
+        dot.addEventListener('click', () => goTo(i));  
+        dotsWrap.appendChild(dot);  
+      });  
+      const dots = [...dotsWrap.children];  
+  
+      function updateActiveSlide() {  
+        const center = carousel.scrollLeft + carousel.clientWidth / 2;  
+        let closest = 0, min = Infinity;  
+        slides.forEach((s, i) => {  
+          const slideCenter = s.offsetLeft + s.clientWidth / 2;  
+          const dist = Math.abs(center - slideCenter);  
+          if (dist < min) { min = dist; closest = i; }  
+          s.classList.remove('active');  
+        });  
+        slides[closest].classList.add('active');  
+        current = closest;  
+        dots.forEach(d => d.classList.remove('active'));  
+        dots[current]?.classList.add('active');  
+      }  
+  
+      function clamp(i) { return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i; }  
+  
+      function goTo(i) {  
+        current = clamp(i);  
+        const s = slides[current];  
+        const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;  
+        carousel.scrollTo({ left, behavior: 'smooth' });  
+        setTimeout(updateActiveSlide, 250);  
+      }  
+  
+      prevBtn.onclick = () => goTo(current - 1);  
+      nextBtn.onclick = () => goTo(current + 1);  
+      carousel.addEventListener('scroll', () => {  
+        clearTimeout(window._scrollTimer);  
+        window._scrollTimer = setTimeout(updateActiveSlide, 100);  
+      });  
+  
+      window.addEventListener('load', () => {  
+        goTo(0);  
+      });  
+    })();  
+  </script>  </section>  <footer>  <h3><p style="margin-bottom:20px; line-height:1.5; font-size:16px;">  
+Calle Amado Nervo 14-MZ 016,<br>  
+San Miguel, 52740 Ocoyoacac, Méx
+
+  </p></h3>  
+  <!-- Botones juntos -->  
+  <div style="display:flex; justify-content:center; gap:5px; flex-wrap:wrap; margin-bottom:5px;">  
+    <!-- Botón ladrillo -->  
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"   
+       target="_blank"   
+       style="display:inline-block; padding:10px 18px; background:#b22222; color:#fff;   
+              font-size:15px; font-weight:bold; border-radius:15px; text-decoration:none;">  
+      📍Cómo llegar  
+    </a>  
+    <!-- Botón grande de WhatsApp -->  
+    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería" target="_blank"   
+       style="display:inline-flex; align-items:center; justify-content:center; gap:10px;  
+              padding:10px 18px; background:#25d366; color:#fff; font-size:15px; font-weight:bold;   
+              border-radius:8px; text-decoration:none;">  
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"   
+           alt="WhatsApp"   
+          style="width:24px; height:24px;"> 722 267 5873  
+    </a>  
   </div>
-
-  <!-- Flechas -->
-  <div class="controls">
-    <button class="btn left" id="prevBtn" aria-label="Anterior">
-      <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <button class="btn right" id="nextBtn" aria-label="Siguiente">
-      <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-
-  <div class="dots" id="dots"></div>
-
-  <p style="margin-top:20px; line-height:1.5; font-size:16px;">
-    📍 Calle Amado Nervo 14-MZ 016, <br>
-    San Miguel, 52740 Ocoyoacac, Méx
-  </p>
-  <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx">Cómo llegar</a> |
-  <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería">WhatsApp 722 267 5873</a>
-</section>
-
-<style>
-#eventos {
-  text-align: center;
-  padding: 40px 10px;
-  color: #fff;
-  position: relative;
-}
-
-#eventos h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-#eventos h3 {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.carousel {
-  display: flex;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 20px;
-  position: relative;
-}
-
-.slide {
-  min-width: 100%;
-  transition: transform 0.5s ease;
-  position: relative;
-}
-
-.media img {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.badge {
-  background: #e63946;
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.controls {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.btn {
-  pointer-events: auto;
-  background: rgba(0,0,0,0.6);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: rgba(0,0,0,0.9);
-}
-
-.btn svg {
-  width: 24px;
-  height: 24px;
-}
-
-.dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.dots button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 0 5px;
-  border: none;
-  background: #999;
-  cursor: pointer;
-}
-
-.dots button.active {
-  background: #e63946;
-}
-
-@media (max-width: 768px) {
-  .media img { height: 300px; }
-  #eventos h2 { font-size: 1.6rem; }
-}
-</style>
-
-<script>
-const carousel = document.getElementById("carousel");
-const slides = document.querySelectorAll(".slide");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const dotsContainer = document.getElementById("dots");
-
-let currentIndex = 0;
-
-// Crear puntos
-slides.forEach((_, i) => {
-  const dot = document.createElement("button");
-  if (i === 0) dot.classList.add("active");
-  dot.addEventListener("click", () => goToSlide(i));
-  dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll(".dots button");
-
-function updateCarousel() {
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[currentIndex].classList.add("active");
-}
-
-function goToSlide(index) {
-  currentIndex = index;
-  updateCarousel();
-}
-
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-});
-
-// Soporte táctil (móvil)
-let startX = 0;
-carousel.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-carousel.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) nextBtn.click();
-  if (endX - startX > 50) prevBtn.click();
-});
-</script>
