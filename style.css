@@ -1,9 +1,9 @@
 /* Variables editables */
 :root{
-  --color-principal: #b22222;
+  --color-principal: #C00000;
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
-  --navbar-bg: rgba(227,83,54,0.7);
+  --navbar-bg: rgba(197,0,0,0.5);
   --fondo-img: ("img/fondo2.jpg") 
   width: auto;/* ruta editable */
 
