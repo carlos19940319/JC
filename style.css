@@ -25,8 +25,6 @@ rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
 rgba(12, 19, 32, var(--fondo-opacidad)) 100%
 ),
 url("img/fondo24.jpg");
-
-/* Propiedades necesarias para que la imagen se vea bien /
 background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
