@@ -1,6 +1,23 @@
 <section id="eventos" class="carrusel-eventos">
+  <header class="encabezado">
+    <img src="img/logo.png" alt="Logo" class="logo" />
+    <h2>Pizzería</h2>
+    <nav class="redes">
+      <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">Facebook</a>
+    </nav>
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Pizzas</a>
+      <a href="#">Bebidas</a>
+      <a href="#">Catering</a>
+    </nav>
+  </header>
+
+  <h3 class="subtitulo">🎉 Celebra con nosotros tus momentos especiales.<br>Eventos, reservas y experiencias únicas para ti.</h3>
+
   <div class="carousel-wrap">
-    <div class="carousel" id="carousel" tabindex="0">
+    <div class="carousel" id="carousel">
 
       <!-- 🍕 Evento 1 -->
       <article class="slide">
@@ -10,21 +27,21 @@
             <div>
               <div class="badge">LA BONANZA</div>
               <h3 class="title">Reserve nuestro espacio</h3>
-              <p class="desc">Ambiente cómodo y exclusivo, ideal para momentos especiales con tus seres queridos.</p>
+              <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 🍕 Evento 2 -->
+      <!-- 🍝 Evento 2 -->
       <article class="slide">
         <div class="media">
-          <img src="img/foto7.jpg" alt="Evento Especial">
+          <img src="img/foto7.jpg" alt="Evento especial">
           <div class="overlay">
             <div>
               <div class="badge">LA BONANZA</div>
-              <h3 class="title">🍽️ Platillos especiales</h3>
-              <p class="desc">Sabores únicos que harán de tu evento un momento inolvidable.</p>
+              <h3 class="title">🍽️ Preparamos platillos especiales</h3>
+              <p class="desc">Disfruta de sabores únicos que harán de tu evento un momento inolvidable.</p>
             </div>
           </div>
         </div>
@@ -38,7 +55,7 @@
             <div>
               <div class="badge">LA BONANZA</div>
               <h3 class="title">Eventos especiales</h3>
-              <p class="desc">Creamos experiencias únicas y memorables para ti.</p>
+              <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
             </div>
           </div>
         </div>
@@ -46,26 +63,26 @@
 
     </div>
 
-    <!-- ⬅️➡️ Controles -->
+    <!-- Flechas -->
     <div class="controls">
       <button class="btn left" id="prevBtn" aria-label="Anterior">
-        <svg viewBox="0 0 24 24" width="28" height="28">
-          <path d="M15 6 L9 12 L15 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <button class="btn right" id="nextBtn" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24" width="28" height="28">
-          <path d="M9 6 L15 12 L9 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
 
-    <!-- 🔘 Indicadores -->
     <div class="dots" id="dots"></div>
   </div>
+
+  <footer class="direccion">
+    <p>Calle Amado Nervo 14-MZ 016,<br>San Miguel, 52740 Ocoyoacac, Méx</p>
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" target="_blank">📍 Cómo llegar</a> |
+    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería" target="_blank">📲 WhatsApp 722 267 5873</a>
+  </footer>
 </section>
 
-<!-- 🧠 Script -->
 <script>
 (function () {
   const carousel = document.getElementById("carousel");
@@ -78,216 +95,140 @@
   slides.forEach((s, i) => {
     const dot = document.createElement("button");
     dot.className = "dot";
-    dot.setAttribute("aria-label", "Ir al slide " + (i + 1));
     dot.addEventListener("click", () => goTo(i));
     dotsWrap.appendChild(dot);
   });
   const dots = [...dotsWrap.children];
 
-  function updateActiveSlide() {
-    const center = carousel.scrollLeft + carousel.clientWidth / 2;
-    let closest = 0,
-      min = Infinity;
-    slides.forEach((s, i) => {
-      const slideCenter = s.offsetLeft + s.clientWidth / 2;
-      const dist = Math.abs(center - slideCenter);
-      if (dist < min) {
-        min = dist;
-        closest = i;
-      }
-      s.classList.remove("active");
-    });
-    slides[closest].classList.add("active");
-    current = closest;
-    dots.forEach((d) => d.classList.remove("active"));
-    dots[current]?.classList.add("active");
-  }
-
-  function clamp(i) {
-    return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i;
-  }
-
   function goTo(i) {
-    current = clamp(i);
-    const s = slides[current];
-    const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
-    carousel.scrollTo({ left, behavior: "smooth" });
-    setTimeout(updateActiveSlide, 250);
+    current = (i + slides.length) % slides.length;
+    const slide = slides[current];
+    carousel.scrollTo({ left: slide.offsetLeft - (carousel.clientWidth - slide.clientWidth) / 2, behavior: "smooth" });
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
   }
 
   prevBtn.onclick = () => goTo(current - 1);
   nextBtn.onclick = () => goTo(current + 1);
-  carousel.addEventListener("scroll", () => {
-    clearTimeout(window._scrollTimer);
-    window._scrollTimer = setTimeout(updateActiveSlide, 100);
-  });
+  window.addEventListener("load", () => goTo(0));
 
-  // 📱 soporte para arrastre táctil
+  // 📱 Swipe táctil
   let startX = 0;
   carousel.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX));
   carousel.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const delta = endX - startX;
-    if (Math.abs(delta) > 50) {
-      delta < 0 ? goTo(current + 1) : goTo(current - 1);
-    }
-  });
-
-  window.addEventListener("load", () => {
-    goTo(0);
+    const delta = e.changedTouches[0].clientX - startX;
+    if (Math.abs(delta) > 50) delta < 0 ? goTo(current + 1) : goTo(current - 1);
   });
 })();
 </script>
 
-<!-- 📌 Estilos -->
 <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #071021cc, #0c1320cc), url("img/fondo.jpg") no-repeat center/cover;
+  color: #fff;
+}
+
 .carrusel-eventos {
-  padding: 40px 0;
-  background: transparent;
-  position: relative;
-  z-index: 1;
-}
-
-.carrusel-eventos * { box-sizing: border-box; }
-.carrusel-eventos .carousel-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.carrusel-eventos .carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carrusel-eventos .slide {
-  min-width: 85%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.3s ease-out;
-  transform: scale(0.9);
-  opacity: 0.85;
-  scroll-snap-align: center;
+  padding: 40px 20px;
   text-align: center;
 }
 
-.carrusel-eventos .slide.active {
-  transform: scale(1.07);
-  opacity: 1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-.carrusel-eventos .media {
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-
-.carrusel-eventos .media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carrusel-eventos .overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 25px;
-  color: #fff;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 70%);
-}
-
-.carrusel-eventos .badge {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-weight: 600;
+.encabezado .logo {
+  width: 120px;
   margin-bottom: 10px;
 }
 
-.carrusel-eventos .title {
-  font-size: 1.4rem;
-  margin: 6px 0;
-  font-weight: bold;
+.menu a, .redes a {
+  color: #fff;
+  margin: 0 8px;
+  text-decoration: none;
 }
 
-.carrusel-eventos .desc {
-  font-size: 1rem;
-  margin-top: 8px;
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
 }
 
-.carrusel-eventos .controls {
+.slide {
+  min-width: 85%;
+  scroll-snap-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.media img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
 }
 
-.carrusel-eventos .btn {
+.controls .btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: auto;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
-  z-index: 10;
 }
 
-.carrusel-eventos .btn svg path {
+.controls .btn.left { left: 10px; }
+.controls .btn.right { right: 10px; }
+
+.controls .btn svg path {
   stroke: #fff;
 }
 
-.carrusel-eventos .btn:hover {
-  background: rgba(0, 0, 0, 0.85);
-}
-
-.carrusel-eventos .btn.left { left: 10px; }
-.carrusel-eventos .btn.right { right: 10px; }
-
-.carrusel-eventos .dots {
+.dots {
   display: flex;
-  gap: 8px;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 15px;
+  gap: 8px;
 }
 
-.carrusel-eventos .dot {
-  width: 10px;
-  height: 10px;
+.dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255,255,255,0.4);
+  border: none;
   cursor: pointer;
 }
 
-.carrusel-eventos .dot.active {
+.dot.active {
   background: #ff7b00;
 }
 
+.direccion {
+  margin-top: 40px;
+  font-size: 16px;
+}
+
 @media (max-width: 768px) {
-  .carrusel-eventos .slide { min-width: 90%; }
-  .carrusel-eventos .title { font-size: 1.2rem; }
-  .carrusel-eventos .desc { font-size: 0.95rem; }
+  .slide { min-width: 90%; }
+  .media img { height: 220px; }
 }
 </style>
