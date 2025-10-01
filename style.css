@@ -54,23 +54,21 @@ header img.logo{
   box-shadow:0px 1px 58px #000000 inset, 0px 0px 20px 1px #FFFFFF;
 }
 
-/* NAV FIJO FLOTANTE DEBAJO DEL HEADER */
+/* NAV FIJO DEBAJO DEL HEADER, MANTENIENDO SU ESTILO ORIGINAL */
 nav {
   display:flex;
   justify-content:space-around;
   gap:8px;
   padding:10px;
-  border-radius:15px; /* esquinas suaves */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35); /* sombra externa elegante */
+  border-radius:10px;
+  box-shadow:1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed; /* Fijo */
-  top: 80px; /* debajo del header, ajustar según altura del logo */
-  left: 50%;
-  transform: translateX(-50%); /* centrado horizontal */
-  width: 90%; /* ancho menor para efecto flotante */
-  max-width: 1100px;
+  top: 72px; /* Ajustar según altura del header */
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  background: var(--navbar-bg);
-  backdrop-filter: blur(10px); /* efecto vidrio/frosted glass */
+  background: var(--navbar-bg); /* degradado semi-transparente */
+  backdrop-filter: blur(-20px); /* mantiene efecto original */
 }
 
 /* Links dentro del nav */
@@ -80,7 +78,7 @@ nav a{
   font-weight:700;
   padding:10px 14px;
   border-radius:12px;
-  background: linear-gradient(145deg,#fff,#e6e6e6);
+  background: linear-gradient(145deg,#fff,#e6e6e6); /* degradado original */
   box-shadow:0px 0px 8px #000000 inset, 0px 9px 8px -3px #000000;
   display:flex;
   flex-direction:column;
@@ -89,8 +87,8 @@ nav a{
 }
 
 nav a:hover{
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
 }
 
 nav a:active{
@@ -108,9 +106,12 @@ main{
   max-width:1100px;
   margin:18px auto;
   padding:0 14px;
-  padding-top: 160px; /* Ajustar según header + nav */
+  padding-top: 140px; /* Ajustar según header + nav */
 }
 
+/* Resto del CSS permanece igual */
+
+/* Welcome text */
 .welcome-text{
   text-align:center;
   color:#ffffff;
@@ -129,7 +130,7 @@ main{
   color:#ffffff;
 }
 
-/* Imagen de bienvenida */
+/* Hero imagen */
 .hero{
   display:flex;
   justify-content:center;
@@ -144,7 +145,7 @@ main{
   animation: zoom 2.5s ease-out;
 }
 
-/* GRID contenedor de tarjetas */
+/* Grid de tarjetas */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -152,7 +153,7 @@ main{
   margin-top: 12px;
 }
 
-/* Tarjeta con imagen de fondo */
+/* Tarjeta */
 .card {
   background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
   background-size: cover;
@@ -164,7 +165,6 @@ main{
   overflow: hidden;
 }
 
-/* Imagen interna en tarjeta */
 .card img {
   width: 98%;
   height: 210px;
@@ -174,13 +174,11 @@ main{
   box-shadow:0 0px 10px 2px rgba(0, 0, 0, 1);
 }
 
-/* Precio */
 .price {
   color: var(--color-principal);
   font-weight:800;
 }
 
-/* Footer */
 footer{
   text-align:center;
   padding:4px;
@@ -191,7 +189,7 @@ footer{
   border-top-right-radius:1px;
 }
 
-/* Animations */
+/* Animaciones */
 @keyframes aparecer{
   from{opacity:0; transform:translateY(-20px)}
   to{opacity:1; transform:translateY(0)}
@@ -218,7 +216,7 @@ nav a:hover,
   transition: all 0.3s ease-in-out;
 }
 
-/* Animación de brillo para logo/título */
+/* Brillo logo/título */
 @keyframes brilloSuave {
   0% { text-shadow: 0 0 5px var(--color-secundario); }
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
