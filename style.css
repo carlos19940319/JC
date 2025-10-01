@@ -197,13 +197,20 @@ main {
 }
 
 footer {
+  position: fixed;        /* fijo en la pantalla */
+  bottom: 0;              /* pegado abajo */
+  left: 0;
+  width: 100%;
   text-align: center;
-  padding: 5px;
+  padding: 3px 5px;       /* compacto */
+  margin: 0;              /* sin margen superior */
   color: #ffffff;
-  margin-top: 5px;
-  background: rgba(0,0,0,.6);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 1px;
+  background: rgba(0,0,0,0.6);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 0.85rem;     /* texto más pequeño */
+  line-height: 1.2;       /* compacto verticalmente */
+  z-index: 999;           /* sobre contenido */
 }
 
 /* Animaciones */
