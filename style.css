@@ -64,7 +64,7 @@ nav {
   border-radius: 50px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed; /* ✅ fijo */
-  top: 10px;       /* altura aproximada del header, ajusta si cambias tamaño del logo */
+  top: 100px;       /* altura aproximada del header, ajusta si cambias tamaño del logo */
   width: 100%;
   z-index: 1000;
   background: var(--navbar-bg);
