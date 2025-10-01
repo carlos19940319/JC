@@ -32,27 +32,32 @@ body {
   background-attachment: fixed; /* mantiene la imagen fija al hacer scroll */
 }
 
-/* 📌 Header */
+/* 📌 Header fijo con logo */
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 12px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
-  position: relative; /* ahora relative para nav sticky */
-  z-index: 1001;
+  position: fixed;       /* fijo */
+  top: 0;                /* arriba de todo */
+  left: 0;
+  width: 100%;
+  z-index: 1001;         /* sobre todo */
 }
 
-/* Logo */
+/* Logo dentro del header */
 header img.logo {
   width: 100px;
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  animation: brilloSuave 3s infinite alternate;
 }
 
-/* 📍 NAV pegado al header */
+/* 📍 NAV pegado justo debajo del header */
 nav {
   display: flex;
   justify-content: space-around;
@@ -60,8 +65,9 @@ nav {
   padding: 10px;
   border-radius: 50px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: sticky;       /* ✅ se mantiene pegado al header */
-  top: 0;                 /* pegado al bloque superior */
+  position: fixed;       /* también fijo */
+  top: 72px;             /* altura del header */
+  left: 0;
   width: 100%;
   z-index: 1000;
   background: var(--navbar-bg);
@@ -98,12 +104,12 @@ nav a.active {
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-/* Main con padding-top suficiente para dejar espacio al nav */
+/* Main con padding-top suficiente para dejar espacio a header + nav fijo */
 main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 280px; /* suficiente espacio para header + nav */
+  padding-top: 160px; /* header (72px) + nav (aprox 70px) + margen */
 }
 
 /* Welcome text */
@@ -198,13 +204,6 @@ footer {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Responsive */
-@media(max-width:768px){
-  .img-bienvenida { width: 92%; }
-  nav { flex-wrap: wrap; gap: 6px; } 
-  header img.logo { width: 64px; }
-}
-
 /* Hover dorado en botones y pestañas */
 nav a:hover,
 .card button:hover {
@@ -222,7 +221,9 @@ nav a:hover,
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
 
-header h1,
-header img {
-  animation: brilloSuave 3s infinite alternate;
+/* Responsive */
+@media(max-width:768px){
+  .img-bienvenida { width: 92%; }
+  nav { flex-wrap: wrap; gap: 6px; } 
+  header img.logo { width: 64px; }
 }
