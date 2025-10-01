@@ -79,7 +79,7 @@ nav {
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(8px); /* valor positivo */
-  height: 10px; /* altura de la barra de pestañas */
+  height: 30px; /* altura de la barra de pestañas */
 }
 
 /* Links dentro del nav */
