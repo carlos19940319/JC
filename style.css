@@ -52,9 +52,9 @@ header img.logo {
 nav {
   display: flex;
   justify-content: space-around;
-  gap: 8px;
-  padding: 5px;
-  border-radius: 0px;
+  gap: 10px;
+  padding: 7px;
+  border-radius: 12px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 72px;
