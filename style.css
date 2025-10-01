@@ -84,7 +84,7 @@ nav {
 
 /* Links dentro del nav (mismo tamaño y configuración anterior) */
 nav a {
-  font-size: 1rem; none;
+  font-size: 1rem;
   color: var(--color-secundario);
   font-weight: 700;
   padding: 10px 14px; /* mantiene tamaño original */
