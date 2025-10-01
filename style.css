@@ -1,18 +1,18 @@
-/* ==============================
-Variables editables
-==============================*/
-:root {
+/* 📌 Variables editables */
+:root{
   --color-principal: #C00000;
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197,0,0,0.5);
-  --fondo-img: img/fondo2.jpg; /* sin comillas */
-  --fondo-opacidad: 0.3; /* Controla opacidad del header y fondo */
+  --fondo-img: ("img/fondo2.jpg");
+  width: auto; /* ruta editable */
 }
 
-/* ==============================
-Body y fondo
-============================== */
+:root {
+  --fondo-opacidad: 0.3;
+}
+
+/* Body y fondo */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -25,99 +25,88 @@ body {
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
-    url(var(--fondo-img));
+    url("img/fondo24.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+  background-attachment: fixed; /* mantiene la imagen fija al hacer scroll */
 }
 
-/* ==============================
-Header/logo fijo con nav abajo
-============================== */
+/* 📌 Header */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,var(--fondo-opacidad));
   display: flex;
-  flex-direction: column; /* logo arriba, nav abajo */
   align-items: center;
-  padding: 10px 0;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(0,0,0,0.5);
+  color: #ffffff;
+  position: relative; /* ahora relative para nav sticky */
   z-index: 1001;
 }
 
+/* Logo */
 header img.logo {
   width: 100px;
   height: auto;
   border-radius: 50px;
-  background: rgba(255,255,255,0.2);
-  padding: 4px;
-  margin-bottom: 6px; /* separación logo-nav */
-  box-shadow: 0px 1px 58px #000000 inset, 0px 0px 20px 1px #FFFFFF;
+  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* ==============================
-Nav dentro del header
-==============================*/
-header nav {
+/* 📍 NAV pegado al header */
+nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 8px;
   padding: 10px;
-  border-radius: 10px;
-  box-shadow: 1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  background: var(--navbar-bg);
-  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
+  position: sticky;       /* ✅ se mantiene pegado al header */
+  top: 0;                 /* pegado al bloque superior */
   width: 100%;
-  max-width: 1100px;
-  flex-wrap: wrap;
   z-index: 1000;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(20px);
 }
 
-header nav a {
+/* Links dentro del nav */
+nav a {
   text-decoration: none;
   color: var(--color-secundario);
   font-weight: 700;
   padding: 10px 14px;
   border-radius: 12px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0px 0px 8px #000000 inset, 0px 9px 8px -3px #000000;
+  box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.18s ease-in-out;
 }
 
-header nav a:hover {
+nav a:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
 }
 
-header nav a:active {
+nav a:active {
   transform: translateY(2px) scale(.98);
   box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff;
 }
 
-header nav a.active {
+nav a.active {
   color: var(--color-principal);
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-/* ==============================
-Main
-==============================*/
+/* Main con padding-top suficiente para dejar espacio al nav */
 main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: calc(100px + 20px); /* altura del header total + margen */
+  padding-top: 280px; /* suficiente espacio para header + nav */
 }
 
-/* ==============================
-Welcome text
-============================== */
+/* Welcome text */
 .welcome-text {
   text-align: center;
   color: #ffffff;
@@ -138,9 +127,7 @@ Welcome text
   color: #ffffff;
 }
 
-/* ==============================
-Hero imagen
-============================== */
+/* Hero imagen */
 .hero {
   display: flex;
   justify-content: center;
@@ -156,9 +143,7 @@ Hero imagen
   animation: zoom 2.5s ease-out;
 }
 
-/* ==============================
-Grid de tarjetas
-============================== */
+/* Grid de tarjetas */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -166,13 +151,14 @@ Grid de tarjetas
   margin-top: 12px;
 }
 
+/* Tarjeta */
 .card {
   background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
   background-size: cover;
   border-radius: 50px 0px 50px 0px;
   padding: 10px;
   text-align: center;
-  box-shadow: 0 0px 8px 2px rgba(178, 34, 34, 1);
+  box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
   position: relative;
   overflow: hidden;
 }
@@ -191,32 +177,45 @@ Grid de tarjetas
   font-weight: 800;
 }
 
-/* ==============================
-Footer
-============================== */
 footer {
   text-align: center;
-  padding: 4px;
+  padding: 10px;
   color: #ffffff;
-  margin-top: -10px;
+  margin-top: 10px;
   background: rgba(0,0,0,.6);
   border-top-left-radius: 15px;
   border-top-right-radius: 1px;
 }
 
-/* ==============================
-Animaciones
-============================== */
+/* Animaciones */
 @keyframes aparecer {
-  from {opacity:0; transform:translateY(-20px);}
-  to {opacity:1; transform:translateY(0);}
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes zoom {
-  from {opacity:0; transform:scale(.95);}
-  to {opacity:1; transform:scale(1);}
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
+/* Responsive */
+@media(max-width:768px){
+  .img-bienvenida { width: 92%; }
+  nav { flex-wrap: wrap; gap: 6px; } 
+  header img.logo { width: 64px; }
+}
+
+/* Hover dorado en botones y pestañas */
+nav a:hover,
+.card button:hover {
+  background-color: var(--color-secundario);
+  color: #b22222;
+  box-shadow: 0 0 10px var(--color-secundario);
+  transform: scale(1.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Brillo logo/título */
 @keyframes brilloSuave {
   0% { text-shadow: 0 0 5px var(--color-secundario); }
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
@@ -226,26 +225,4 @@ Animaciones
 header h1,
 header img {
   animation: brilloSuave 3s infinite alternate;
-}
-
-/* ==============================
-Hover dorado en botones y pestañas
-============================== */
-header nav a:hover,
-.card button:hover {
-  background-color: var(--color-secundario);
-  color: #b22222;
-  box-shadow: 0 0 10px var(--color-secundario);
-  transform: scale(1.15);
-  transition: all 0.3s ease-in-out;
-}
-
-/* ==============================
-Responsive
-==============================*/
-@media(max-width:768px){
-  .img-bienvenida{ width: 92%; }
-  header img.logo{ width: 64px; }
-  header nav{ flex-wrap: wrap; gap: 6px; }
-  main { padding-top: calc(110px + 20px); } /* ajustar altura header en móvil */
 }
