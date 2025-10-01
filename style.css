@@ -158,7 +158,7 @@ main{
   border-radius: 50px 0px 50px 0px;
   padding: 10px;
   text-align: center;
-  box-shadow: 0 0px 8px 2px rgba(178, 34, 34, 1);
+  box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
   position: relative;
   overflow: hidden;
 }
