@@ -1,63 +1,43 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Eventos | La Bonanza</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="img/logo.png" alt="Logo" class="logo">
-    <div><h2 style="margin:0;color:white">Pizzería</h2></div>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bebidas | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
+<header><img src="img/logo.png" alt="Logo" class="logo"><div><h2 style="margin:0;color:white">Pizzería</h2></div><a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
+  <img src="img/insta.png" alt="Instagram" class="logo-instagram">
+</a>
 
-    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
-      <img src="img/insta.png" alt="Instagram" class="logo-instagram">
-    </a>
-    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
-      <img src="img/facce.png" alt="Facebook" width="45" height="45" style="border-radius:40%;">
-    </a>
+<style>
+.logo-instagram {
 
-    <style>
-      .logo-instagram {
-        bottom: 45px;
-        right: 20px;
-        width: 45px;
-      }
+  bottom: 45px;
+  right: 20px;        /* esquina inferior derecha */
+  width: 45px; 
 
-      .logo-instagram:hover {
-        transform: scale(1.2);
-      }
+.logo-instagram:hover {
+  transform: scale(1.2);
+}
 
-      /* 📱 Tamaño para celulares */
-      @media (max-width: 300px) {
-        .logo-instagram { width: 20px; }
-      }
+/* 📱 Tamaño para celulares */
+@media (max-width: 300px) {
+  .logo-instagram {
+    width: 20px;   /* más pequeño en celular */
+  }
+}
 
-      /* 💻 Tamaño para tablets */
-      @media (min-width: 301px) and (max-width: 1024px) {
-        .logo-instagram { width: 40px; }
-      }
-    </style>
-  </header>
+/* 💻 Tamaño para tablets */
+@media (min-width: 301px) and (max-width: 1024px) {
+  .logo-instagram {
+    width: 40px;   /* tamaño intermedio en tablet */
+  }
+}
+</style></style>
+</style></div>
+<a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
+  <img src="img/facce.png" alt="Facebook" width="45" height="45" style="border-radius:40%;">
+</a>
+</header>
+<nav><a href="index.html">Inicio</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a></nav>
+<main>
+<div class="welcome-text"> <h2><font color="white">🥤 Nuestras bebidas</h2></font></div>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="pizzas.html">Pizzas</a>
-    <a href="bebidas.html">Bebidas</a>
-    <a href="eventos.html">Catering</a>
-  </nav>
-
-  <!-- MENSAJE DE BIENVENIDA -->
-  <div class="welcome-text">
-    <h3 style="color:white; margin-bottom:10px;">
-      🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.
-    </h3>
-  </div>
 
   <!-- CONTENIDO PRINCIPAL: CARRUSEL DE EVENTOS -->
   <div class="grid">
