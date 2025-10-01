@@ -66,7 +66,7 @@
   <div id="reloj" style="margin:0 0 5px 0; font-size:1em;"></div>
   <div id="estado" style="margin:0 0 5px 0; font-weight:bold; font-size:1em; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s ease;"></div>
   <ul id="dias" style="list-style:none; padding:0; margin:0;">
-    <li data-dia="5,6,0" style="padding:2px 0; font-size:0.9em;">Viernes a Domingo: <strong>17:00 a 23:00 hrs</strong></li>
+    <li data-dia="5" style="padding:2px 0; font-size:0.9em;">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
   </ul>
 </div>
 
@@ -110,9 +110,9 @@
     const hoy = ahora.getDay();
     const estado = document.getElementById("estado");
     let abierto=false;
-    if([5,6,0].includes(hoy)) {
+    if([5].includes(hoy)) {
       const ahoraMin = ahora.getHours()*60 + ahora.getMinutes();
-      if(ahoraMin>=17*60 && ahoraMin<=23*60) abierto=true;
+      if(ahoraMin>=19*60 && ahoraMin<=23*60) abierto=true;
     }
     if(abierto){
       estado.textContent="🟢 Abierto";
