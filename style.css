@@ -101,15 +101,13 @@ nav a.active{
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-/* Main con padding-top para que no quede debajo del header+nav */
+/* Main con padding-top suficiente para dejar espacio al header+nav */
 main{
   max-width:1100px;
   margin:18px auto;
   padding:0 14px;
-  padding-top: 140px; /* Ajustar según header + nav */
+  padding-top: 150px; /* Ajustado para header + nav fijo */
 }
-
-/* Resto del CSS permanece igual */
 
 /* Welcome text */
 .welcome-text{
@@ -202,7 +200,7 @@ footer{
 /* Responsive */
 @media(max-width:768px){
   .img-bienvenida{ width:92%; }
-  nav{ flex-wrap:wrap; gap:6px; top:90px; }
+  nav{ flex-wrap:wrap; gap:6px; top:90px; } /* Ajusta top según header reducido en móvil */
   header img.logo{ width:64px;}
 }
 
