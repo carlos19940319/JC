@@ -4,7 +4,7 @@
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197, 0, 0, 0.5);
-  --fondo-img: url("img/fondo24.jpg"); /* ✅ corregido */
+  --fondo-img: url("img/fondo24.jpg");
   --fondo-opacidad: 0.3;
 }
 
@@ -48,38 +48,41 @@ header img.logo {
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* 📍 NAV fijo */
-
+/* 📍 NAV fijo centrado con botones centrados */
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;       /* centra los botones dentro del nav */
+  align-items: center;           /* alinea verticalmente los botones */
+  flex-wrap: wrap;               /* permite que bajen si no caben en pantallas pequeñas */
   gap: 10px;
-  padding: 7px;
-  border-radius: 12px; /* ✅ ahora todas las esquinas */
+  padding: 10px;
+  border-radius: 12px;           /* esquinas redondeadas */
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 72px;
-  left: 2.5%;
-  width: 95%; /* ✅ deja espacio para que se vea el redondeo */
+  left: 50%;                     /* centro exacto de la pantalla */
+  transform: translateX(-50%);   /* ajusta la barra al centro */
+  width: 90%;                    /* ancho flexible de la barra */
+  max-width: 1200px;             /* evita que se estire demasiado en pantallas grandes */
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
 }
-
-
 
 /* 📎 Links */
 nav a {
   text-decoration: none;
   color: var(--color-secundario);
   font-weight: 700;
-  padding: 10px 14px;
+  padding: 10px 20px;
   border-radius: 8px;
   background: linear-gradient(145deg, #fff, #e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline-flex;          
+  align-items: center;           
+  justify-content: center;       
+  min-width: 110px;              /* todos los botones del mismo tamaño */
+  text-align: center;
   transition: all 0.18s ease-in-out;
 }
 
