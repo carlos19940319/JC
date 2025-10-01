@@ -48,25 +48,26 @@ header img.logo {
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* 📍 NAV fijo centrado con botones centrados */
+/* 📍 NAV fijo centrado en una sola línea */
 nav {
   display: flex;
-  justify-content: center;       /* centra los botones dentro del nav */
-  align-items: center;           /* alinea verticalmente los botones */
-  flex-wrap: wrap;               /* permite que bajen si no caben en pantallas pequeñas */
+  justify-content: center;       /* centra los botones */
+  align-items: center;           /* alinea verticalmente */
+  flex-wrap: nowrap;             /* ❌ mantiene en una sola línea */
   gap: 10px;
-  padding: 10px;
-  border-radius: 12px;           /* esquinas redondeadas */
+  padding: 10px 20px;
+  border-radius: 12px;           
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 72px;
-  left: 50%;                     /* centro exacto de la pantalla */
-  transform: translateX(-50%);   /* ajusta la barra al centro */
-  width: 90%;                    /* ancho flexible de la barra */
-  max-width: 1200px;             /* evita que se estire demasiado en pantallas grandes */
+  left: 50%;                     
+  transform: translateX(-50%);   
+  width: auto;                   
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
+  overflow-x: auto;              /* scroll horizontal si es necesario */
+  white-space: nowrap;           
 }
 
 /* 📎 Links */
@@ -81,7 +82,7 @@ nav a {
   display: inline-flex;          
   align-items: center;           
   justify-content: center;       
-  min-width: 110px;              /* todos los botones del mismo tamaño */
+  min-width: 110px;              
   text-align: center;
   transition: all 0.18s ease-in-out;
 }
@@ -199,7 +200,6 @@ footer {
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .img-bienvenida { width: 92%; }
-  nav { flex-wrap: wrap; gap: 6px; top: 90px; }
   header img.logo { width: 64px; }
 }
 
