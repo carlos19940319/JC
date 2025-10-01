@@ -179,9 +179,9 @@ main{
 
 footer{
   text-align:center;
-  padding:3px;
+  padding:10px;
   color:#ffffff;
-  margin-top:-10px;
+  margin-top:10px;
   background: rgba(0,0,0,.6);
   border-top-left-radius:15px;
   border-top-right-radius:1px;
