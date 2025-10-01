@@ -47,7 +47,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1001;
-  height: 72px; /* Altura fija para referencia */
+  height: 72px; /* altura fija */
 }
 
 /* Logo */
@@ -62,22 +62,23 @@ header img.logo {
 }
 
 /* ==============================
-   Nav fijo debajo del header
+   Nav fijo debajo del header, separado y redondeado
    ============================== */
 nav {
   display: flex;
   justify-content: space-around;
   gap: 8px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px; /* barra redondeada */
   box-shadow: 1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
-  top: 72px; /* justo debajo del header */
-  left: 0;
-  width: 100%;
+  top: 90px; /* separa visualmente del header/logo */
+  left: 50%;
+  transform: translateX(-50%); /* centra horizontalmente */
+  width: 90%; /* deja espacio a los lados */
   z-index: 1000;
   background: var(--navbar-bg);
-  backdrop-filter: blur(8px); /* valor positivo para desenfoque */
+  backdrop-filter: blur(8px); /* valor positivo */
   height: 60px; /* altura de la barra de pestañas */
 }
 
@@ -118,7 +119,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: calc(72px + 60px + 20px); /* espacio para header + nav */
+  padding-top: calc(90px + 60px + 20px); /* espacio para header + nav separado */
 }
 
 /* ==============================
@@ -250,11 +251,11 @@ nav a:hover,
   nav{ 
     flex-wrap: wrap; 
     gap: 6px; 
-    top: 90px; 
-    height: auto; 
+    top: 100px; /* ajusta separación en tablet */
+    width: 95%;
   }
   header img.logo{ width: 64px; }
-  main { padding-top: calc(90px + 60px + 20px); }
+  main { padding-top: calc(100px + 60px + 20px); }
 }
 
 @media(max-width:480px){
@@ -263,5 +264,5 @@ nav a:hover,
     padding: 6px 8px;
   }
   header img.logo { width: 50px; }
-  main { padding-top: calc(90px + 60px + 10px); }
+  main { padding-top: calc(100px + 60px + 10px); }
 }
