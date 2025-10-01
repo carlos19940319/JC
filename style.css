@@ -61,7 +61,7 @@ nav {
   gap:8px;
   padding:7px;
   border-radius:10px 10xp 10xp 10xp;
-  box-shadow:1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
+  box-shadow:1px 5px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed; /* Fijo */
   top: 72px; /* Ajustar según altura del header */
   left: 0;
