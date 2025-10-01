@@ -38,7 +38,7 @@ header{
   align-items:center;
   gap:12px;
   padding:14px;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.5);
   color:#ffffff;
   position: fixed; /* Fijo */
   top: 0;
