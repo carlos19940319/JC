@@ -53,7 +53,7 @@ nav {
   display: flex;
   justify-content: space-around;
   gap: 8px;
-  padding: 10px 20xp;
+  padding: 10px 70xp;
   border-radius: 30px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
