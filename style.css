@@ -72,7 +72,9 @@ nav {
   /* CENTRADO Y ANCHO AJUSTABLE */
   left: 50%;               /* centro horizontal */
   transform: translateX(-50%); /* centra el nav respecto a su width */
-  width: 90%;              /* puedes cambiar al % que quieras, p.ej. 60%, 90% */
+  width: 90%; 
+padding: 8px; 
+            /* puedes cambiar al % que quieras, p.ej. 60%, 90% */
   
   z-index: 1000;
   background: var(--navbar-bg);
