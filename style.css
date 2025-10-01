@@ -17,7 +17,6 @@ margin: 0;
 font-family: Arial, sans-serif;
 color: var(--color-secundario);
 
-/* Fondo con degradado + imagen /
 background-image:
 linear-gradient(
 180deg,
@@ -31,7 +30,6 @@ background-repeat: no-repeat;
 background-attachment: fixed; / mantiene la imagen fija al hacer scroll */
 }
 
-/* Header/logo fijo /
 header{
 display:flex;
 align-items:center;
