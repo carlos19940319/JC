@@ -75,7 +75,7 @@ nav {
   top: 90px; /* separa visualmente del header/logo */
   left: 50%;
   transform: translateX(-50%); /* centra horizontalmente */
-  width: 90%; /* deja espacio a los lados */
+  width: 100%; /* deja espacio a los lados */
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(8px); /* valor positivo */
@@ -86,7 +86,7 @@ nav {
 nav a {
   text-decoration: none;
   color: var(--color-secundario);
-  font-weight: 700;
+  font-weight: 900;
   padding: 5px 5px;
   border-radius: 12px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
