@@ -199,7 +199,6 @@ main {
 footer {
   text-align: center;
   padding: 5px;
-  left: 50%;               /* centro horizontal */ 
   color: #ffffff;
   margin-top: 5px;
   background: rgba(0,0,0,.6);
