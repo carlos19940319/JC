@@ -49,21 +49,24 @@ header img.logo {
 }
 
 /* 📍 NAV fijo */
+
 nav {
   display: flex;
   justify-content: space-around;
   gap: 10px;
   padding: 7px;
-  border-radius:0 0 12px 12px;
+  border-radius: 12px; /* ✅ ahora todas las esquinas */
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 72px;
-  left: 0;
-  width: 100%;
+  left: 2.5%;
+  width: 95%; /* ✅ deja espacio para que se vea el redondeo */
   z-index: 1000;
   background: var(--navbar-bg);
-  backdrop-filter: blur(20px); /* ✅ corregido */
+  backdrop-filter: blur(20px);
 }
+
+
 
 /* 📎 Links */
 nav a {
