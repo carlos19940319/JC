@@ -54,7 +54,7 @@ nav {
   justify-content: space-around;
   gap: 8px;
   padding: 7px;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 72px;
