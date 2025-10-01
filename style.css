@@ -1,6 +1,4 @@
-/* ==============================
-   VARIABLES EDITABLES
-============================== */
+/* Variables editables */
 :root{
   --color-principal: #C00000;
   --color-secundario: #333333;
@@ -14,9 +12,7 @@
   --fondo-opacidad: 0.3;
 }
 
-/* ==============================
-   BODY Y FONDO
-============================== */
+/* Body y fondo */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -36,17 +32,15 @@ body {
   background-attachment: fixed; /* mantiene la imagen fija al hacer scroll */
 }
 
-/* ==============================
-   HEADER / LOGO FIJO
-============================== */
+/* Header/logo fijo */
 header{
   display:flex;
   align-items:center;
   gap:12px;
   padding:14px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.9);
   color:#ffffff;
-  position: fixed; /* ← Fijo */
+  position: fixed; /* Fijo */
   top: 0;
   left: 0;
   width: 100%;
@@ -57,28 +51,29 @@ header img.logo{
   width:100px;
   height:auto;
   border-radius:50px;
-  box-shadow:0px 1px 58px #000000 inset, 0px 0px 20px -5px #FFFFFF;
+  box-shadow:0px 1px 58px #000000 inset, 0px 0px 20px 1px #FFFFFF;
 }
 
-/* ==============================
-   NAV FIJO DEBAJO DEL HEADER
-============================== */
-nav{
+/* NAV FIJO FLOTANTE DEBAJO DEL HEADER */
+nav {
   display:flex;
   justify-content:space-around;
   gap:8px;
   padding:10px;
-  border-radius:10px;
-  box-shadow:1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: fixed; /* ← Fijo */
-  top: 72px; /* Ajustar según altura del header */
-  left: 0;
-  width: 100%;
+  border-radius:15px; /* esquinas suaves */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35); /* sombra externa elegante */
+  position: fixed; /* Fijo */
+  top: 80px; /* debajo del header, ajustar según altura del logo */
+  left: 50%;
+  transform: translateX(-50%); /* centrado horizontal */
+  width: 90%; /* ancho menor para efecto flotante */
+  max-width: 1100px;
   z-index: 1000;
   background: var(--navbar-bg);
-  backdrop-filter: blur(-20px);
+  backdrop-filter: blur(10px); /* efecto vidrio/frosted glass */
 }
 
+/* Links dentro del nav */
 nav a{
   text-decoration:none;
   color:var(--color-secundario);
@@ -90,60 +85,126 @@ nav a{
   display:flex;
   flex-direction:column;
   align-items:center;
-  transition: all .18s ease-in-out;
+  transition: all 0.18s ease-in-out;
 }
 
-nav a:hover{ transform: translateY(-4px) scale(1.03); box-shadow:1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF; }
-nav a:active{ transform: translateY(2px) scale(.98); box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff; }
-nav a.active{ color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
+nav a:hover{
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
 
-/* ==============================
-   MAIN CON PADDING PARA HEADER+NAV
-============================== */
+nav a:active{
+  transform: translateY(2px) scale(.98);
+  box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff;
+}
+
+nav a.active{
+  color: var(--color-principal);
+  background: linear-gradient(145deg,#fff7f7,#ffecec);
+}
+
+/* Main con padding-top para que no quede debajo del header+nav */
 main{
   max-width:1100px;
   margin:18px auto;
   padding:0 14px;
-  padding-top: 140px; /* Ajustar según header + nav */
+  padding-top: 160px; /* Ajustar según header + nav */
 }
 
-/* ==============================
-   DEMÁS ESTILOS (Texto, tarjetas, hero, footer)
-   Se mantienen igual que tu configuración
-============================== */
-.welcome-text{ text-align:center; color:#ffffff; margin:18px 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); animation: aparecer 2.5s ease-out; }
-.welcome-text h2{ margin:6px 0; color:var(--color-principal); font-size:2rem; }
-.welcome-text p{ margin:0; font-size:1.05rem; color:#ffffff; }
+.welcome-text{
+  text-align:center;
+  color:#ffffff;
+  margin:18px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  animation: aparecer 2.5s ease-out;
+}
+.welcome-text h2{
+  margin:6px 0;
+  color:var(--color-principal);
+  font-size:2rem;
+}
+.welcome-text p{
+  margin:0;
+  font-size:1.05rem;
+  color:#ffffff;
+}
 
-.hero{ display:flex; justify-content:center; padding:10px; }
-.img-bienvenida{ width:200%; max-width:950px; height:auto; border-radius:10px; box-shadow:0 0px 15px -2px rgba(255,255,255,1); animation: zoom 2.5s ease-out; }
+/* Imagen de bienvenida */
+.hero{
+  display:flex;
+  justify-content:center;
+  padding:10px;
+}
+.img-bienvenida{
+  width:100%;
+  max-width:950px;
+  height:auto;
+  border-radius:10px;
+  box-shadow:0 0px 15px -2px rgba(255,255,255,1);
+  animation: zoom 2.5s ease-out;
+}
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 12px; }
+/* GRID contenedor de tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 12px;
+}
 
-.card { background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center; background-size: cover; border-radius: 50px 0px 50px 0px; padding: 10px; text-align: center; box-shadow: 0 0px 8px 2px rgba(178, 34, 34, 1); position: relative; overflow: hidden; }
-.card img { width: 98%; height: 210px; object-fit: cover; border-radius: 50px 0px 50px 0px; margin-bottom: 5px; box-shadow:0 0px 10px 2px rgba(0, 0, 0, 1); }
+/* Tarjeta con imagen de fondo */
+.card {
+  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 50px 0px 50px 0px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0px 8px 2px rgba(178, 34, 34, 1);
+  position: relative;
+  overflow: hidden;
+}
 
-.price { color: var(--color-principal); font-weight: 800; }
+/* Imagen interna en tarjeta */
+.card img {
+  width: 98%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 50px 0px 50px 0px;
+  margin-bottom: 5px;
+  box-shadow:0 0px 10px 2px rgba(0, 0, 0, 1);
+}
 
-footer{ text-align:center; padding:-5px; color:#ffffff; margin-top:-10px; background: rgba(0,0,0,.6); border-top-left-radius:15px; border-top-right-radius:1px; }
+/* Precio */
+.price {
+  color: var(--color-principal);
+  font-weight:800;
+}
 
-/* ==============================
-   ANIMACIONES
-============================== */
-@keyframes aparecer{ from{opacity:0; transform:translateY(-20px)} to{opacity:1; transform:translateY(0)} }
-@keyframes zoom{ from{opacity:0; transform:scale(.95)} to{opacity:1; transform:scale(1)} }
+/* Footer */
+footer{
+  text-align:center;
+  padding:4px;
+  color:#ffffff;
+  margin-top:-10px;
+  background: rgba(0,0,0,.6);
+  border-top-left-radius:15px;
+  border-top-right-radius:1px;
+}
 
-@keyframes brilloSuave { 0% { text-shadow: 0 0 5px var(--color-secundario); } 50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); } 100% { text-shadow: 0 0 5px var(--color-secundario); } }
+/* Animations */
+@keyframes aparecer{
+  from{opacity:0; transform:translateY(-20px)}
+  to{opacity:1; transform:translateY(0)}
+}
+@keyframes zoom{
+  from{opacity:0; transform:scale(.95)}
+  to{opacity:1; transform:scale(1)}
+}
 
-header h1,
-header img { animation: brilloSuave 3s infinite alternate; }
-
-/* ==============================
-   RESPONSIVE
-============================== */
+/* Responsive */
 @media(max-width:768px){
   .img-bienvenida{ width:92%; }
-  nav{ flex-wrap:wrap; gap:6px; top:90px; } /* Ajuste del nav en móvil */
+  nav{ flex-wrap:wrap; gap:6px; top:90px; }
   header img.logo{ width:64px;}
 }
 
@@ -155,4 +216,16 @@ nav a:hover,
   box-shadow: 0 0 10px var(--color-secundario);
   transform: scale(1.15);
   transition: all 0.3s ease-in-out;
+}
+
+/* Animación de brillo para logo/título */
+@keyframes brilloSuave {
+  0% { text-shadow: 0 0 5px var(--color-secundario); }
+  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
+  100% { text-shadow: 0 0 5px var(--color-secundario); }
+}
+
+header h1,
+header img {
+  animation: brilloSuave 3s infinite alternate;
 }
