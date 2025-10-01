@@ -55,7 +55,7 @@ display: flex;
 justify-content: space-around;
 gap: 10px;
 padding: 7px;
-border-radius: 12px; /* ✅ ahora todas las esquinas */
+border-radius: 12px; /* ✅ ahora todas las esquinas*/
 box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
 position: fixed;
 top: 72px;
