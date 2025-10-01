@@ -106,7 +106,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 200px; /* Ajusta según altura exacta de header + nav */
+  padding-top: 50px; /* Ajusta según altura exacta de header + nav */
 }
 
 /* Welcome text */
