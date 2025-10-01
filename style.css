@@ -55,6 +55,8 @@ header img.logo {
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
+
+
 /* 📍 NAV fijo debajo del header */
 nav {
   display: flex;
@@ -63,9 +65,15 @@ nav {
   padding: 10px;
   border-radius: 50px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
+
   position: fixed; /* ✅ fijo */
-  top: 80px;       /* altura aproximada del header, ajusta si cambias tamaño del logo */
-  width: 100%;
+  top: 80px;       /* altura aproximada del header */
+  
+  /* CENTRADO Y ANCHO AJUSTABLE */
+  left: 50%;               /* centro horizontal */
+  transform: translateX(-50%); /* centra el nav respecto a su width */
+  width: 80%;              /* puedes cambiar al % que quieras, p.ej. 60%, 90% */
+  
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
@@ -100,6 +108,12 @@ nav a.active {
   color: var(--color-principal);
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
+
+
+
+
+
+
 
 /* Main con padding-top suficiente para dejar espacio a header + nav */
 main {
