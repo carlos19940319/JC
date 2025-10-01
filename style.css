@@ -41,20 +41,20 @@ header {
   padding: 12px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
-  position: fixed;       /* fijo */
-  top: 0;                /* arriba de todo */
+  position: fixed;       /* logo fijo */
+  top: 0;
   left: 0;
   width: 100%;
-  z-index: 1001;         /* sobre todo */
+  z-index: 1001;
 }
 
-/* Logo dentro del header */
+/* Logo (configuración intacta) */
 header img.logo {
-  width: 100px;
+  width: 100px;                  /* tamaño original */
   height: auto;
-  border-radius: 50px;
-  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
-  animation: brilloSuave 3s infinite alternate;
+  border-radius: 50px;           /* bordes redondeados */
+  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF; /* sombras originales */
+  animation: brilloSuave 3s infinite alternate; /* animación intacta */
 }
 
 /* 📍 NAV pegado justo debajo del header */
@@ -65,8 +65,8 @@ nav {
   padding: 10px;
   border-radius: 50px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: fixed;       /* también fijo */
-  top: 72px;             /* altura del header */
+  position: fixed;       /* barra fija */
+  top: 72px;             /* pegada debajo del logo */
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -109,7 +109,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 160px; /* header (72px) + nav (aprox 70px) + margen */
+  padding-top: 160px; /* espacio suficiente para header + nav */
 }
 
 /* Welcome text */
