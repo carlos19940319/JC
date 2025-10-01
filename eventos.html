@@ -31,16 +31,22 @@
 <img src="img/facce.png" alt="Facebook" width="45" height="45" style="border-radius:40%;">
 </a></header>
 
-<nav><a href="index.html">Inicio</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a>  </nav>  <div class="welcome-text"><h3><font color="white">“🎉 Celebra con nosotros tus momentos especiales.  
-Eventos, reservas y experiencias únicas para ti.”</h3></font></div>  
-    
+<nav><a href="index.html">Inicio</a><a href="pizzas.html">Pizzas</a><a href="bebidas.html">Bebidas</a><a href="eventos.html">Catering</a>  </nav>  
 
+
+
+  <div class="welcome-text">
+  <h3 style="color:white; margin-bottom:10px;">
+    🎉 Celebra con nosotros tus momentos especiales.  
+    Eventos, reservas y experiencias únicas para ti.
+  </h3>
+</div>  
 
 <div class="grid">
-  <!-- 🍕 Carrusel de Eventos Gastronómicos - Totalmente independiente -->
-  <section id="eventos" style="padding:40px 0;">
+  <section id="eventos" style="padding:10px 0;"> <!-- Padding reducido -->
+
     <style>
-      /* 🌐 Estilos limitados solo al #eventos */
+      /* Estilos solo para #eventos */
       #eventos {
         all: initial;
         font-family: Inter, system-ui, Segoe UI, Roboto, Arial !important;
@@ -65,7 +71,7 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
         gap: 20px;
         overflow-x: auto;
         scroll-behavior: smooth;
-        padding: 20px 0;
+        padding: 10px 0; /* padding reducido */
         scroll-snap-type: x mandatory;
       }
 
@@ -88,13 +94,8 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
         box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       }
 
-      @media (min-width: 900px) {
-        #eventos .slide { min-width: 45%; }
-      }
-
-      @media (min-width: 1200px) {
-        #eventos .slide { min-width: 32%; }
-      }
+      @media (min-width: 900px) { #eventos .slide { min-width: 45%; } }
+      @media (min-width: 1200px) { #eventos .slide { min-width: 32%; } }
 
       #eventos .media {
         position: relative;
@@ -119,7 +120,7 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        padding: 25px;
+        padding: 20px; /* padding reducido */
         color: #fff;
         background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%);
         text-align: center;
@@ -162,7 +163,7 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
       #eventos .btn.right { right: -12px; }
       #eventos .btn svg { width: 20px; height: 20px; }
 
-      #eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+      #eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 12px; } /* margen reducido */
       #eventos .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }
       #eventos .dot.active { background: #d35400; }
 
@@ -200,7 +201,7 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
             <div class="overlay">
               <div>
                 <div class="badge">LA BONANZA</div>
-                <h3 class="title">🍽️ Preparamos platillos especiales</h3>
+                <h3 class="title">🍽 Preparamos platillos especiales</h3>
                 <div class="date"></div>
                 <p class="desc">Disfruta de sabores únicos que harán de tu evento un momento inolvidable.</p>
               </div>
@@ -208,66 +209,52 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
           </div>
         </article>
 
-        <!-- 🍝 Evento 3 -->
+         <!-- 🍕 Evento 1 -->
         <article class="slide">
           <div class="media">
-            <img src="img/foto9.jpg" alt="Noche Italiana">
+            <img src="img/fondo22.jpg" alt="Pizza Fest">
             <div class="overlay">
               <div>
                 <div class="badge">LA BONANZA</div>
-                <h3 class="title">Eventos especiales</h3>
+                <h3 class="title">Reserve nuestro espacio</h3>
                 <div class="date"></div>
-                <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
+                <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- 🍝 Evento 4 -->
+         <!-- 🍕 Evento 1 -->
         <article class="slide">
           <div class="media">
-            <img src="img/foto9.jpg" alt="Noche Italiana">
+            <img src="img/fondo22.jpg" alt="Pizza Fest">
             <div class="overlay">
               <div>
                 <div class="badge">LA BONANZA</div>
-                <h3 class="title">Eventos especiales</h3>
+                <h3 class="title">Reserve nuestro espacio</h3>
                 <div class="date"></div>
-                <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
+                <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- 🍝 Evento 5 -->
+         <!-- 🍕 Evento 1 -->
         <article class="slide">
           <div class="media">
-            <img src="img/foto9.jpg" alt="Noche Italiana">
+            <img src="img/fondo22.jpg" alt="Pizza Fest">
             <div class="overlay">
               <div>
                 <div class="badge">LA BONANZA</div>
-                <h3 class="title">Eventos especiales</h3>
+                <h3 class="title">Reserve nuestro espacio</h3>
                 <div class="date"></div>
-                <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
+                <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- 🍝 Evento 6 -->
-        <article class="slide">
-          <div class="media">
-            <img src="img/foto9.jpg" alt="Noche Italiana">
-            <div class="overlay">
-              <div>
-                <div class="badge">LA BONANZA</div>
-                <h3 class="title">Eventos especiales</h3>
-                <div class="date"></div>
-                <p class="desc">Ofrecemos eventos diseñados para momentos inolvidables.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
+        <!-- Puedes agregar más slides aquí -->
       </div>
 
       <div class="controls">
@@ -336,10 +323,9 @@ Eventos, reservas y experiencias únicas para ti.”</h3></font></div>
         window.addEventListener('load', () => { goTo(0); });
       })();
     </script>
+
   </section>
 </div>
-
-
 
 
 
