@@ -39,7 +39,7 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px;
+  padding: 14px;
   background: rgba(0, 0, 0, var(--fondo-opacidad));
   color: #ffffff;
   position: fixed;
@@ -47,6 +47,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1001;
+  height: 72px; /* Altura fija para referencia */
 }
 
 /* Logo */
@@ -54,9 +55,10 @@ header img.logo {
   width: 100px;
   height: auto;
   border-radius: 50px;
-  background: rgba(255,255,255,0.2); /* Fondo semitransparente opcional */
+  background: rgba(255,255,255,0.2);
   padding: 4px;
-  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 20px 1px #FFFFFF;
+  box-shadow: 0px 1px 58px #000000 inset, 0px 0px 20px 1px #FFFFFF;
+  animation: brilloSuave 3s infinite alternate;
 }
 
 /* ==============================
@@ -70,12 +72,13 @@ nav {
   border-radius: 10px;
   box-shadow: 1px 10px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
-  top: 72px; /* Ajustar según altura del header */
+  top: 72px; /* justo debajo del header */
   left: 0;
   width: 100%;
   z-index: 1000;
   background: var(--navbar-bg);
-  backdrop-filter: blur(-20px); /* mantiene efecto original */
+  backdrop-filter: blur(8px); /* valor positivo para desenfoque */
+  height: 60px; /* altura de la barra de pestañas */
 }
 
 /* Links dentro del nav */
@@ -115,7 +118,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 150px; /* Ajustado para header + nav fijo */
+  padding-top: calc(72px + 60px + 20px); /* espacio para header + nav */
 }
 
 /* ==============================
@@ -227,11 +230,6 @@ footer {
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
 
-header h1,
-header img {
-  animation: brilloSuave 3s infinite alternate;
-}
-
 /* ==============================
    Hover dorado en botones y pestañas
    ============================== */
@@ -249,6 +247,21 @@ nav a:hover,
    ============================== */
 @media(max-width:768px){
   .img-bienvenida{ width: 92%; }
-  nav{ flex-wrap: wrap; gap: 6px; top: 90px; } /* Ajusta top según header reducido en móvil */
+  nav{ 
+    flex-wrap: wrap; 
+    gap: 6px; 
+    top: 90px; 
+    height: auto; 
+  }
   header img.logo{ width: 64px; }
+  main { padding-top: calc(90px + 60px + 20px); }
+}
+
+@media(max-width:480px){
+  nav a {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  header img.logo { width: 50px; }
+  main { padding-top: calc(90px + 60px + 10px); }
 }
