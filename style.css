@@ -71,7 +71,7 @@ nav a {
   color: var(--color-secundario);
   font-weight: 700;
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: linear-gradient(145deg, #fff, #e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   display: flex;
