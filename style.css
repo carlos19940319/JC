@@ -92,13 +92,13 @@ nav {
   justify-content: space-around;
   gap: 8px;
   padding: 7px;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 85%;
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
@@ -147,6 +147,7 @@ main {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
+ padding-top: 50px;
 }
 .welcome-text h2 {
   margin: 6px 0;
