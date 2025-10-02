@@ -138,7 +138,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 150px; /* deja espacio al header+nav */
+  padding-top: 130px; /* deja espacio al header+nav */
 }
 
 /* Bienvenida */
