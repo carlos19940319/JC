@@ -186,7 +186,7 @@ main {
 .card {
   background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
   background-size: cover;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 100px 100px 50px 50px;
   padding: 10px;
   text-align: center;
   box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
