@@ -25,24 +25,33 @@
   <a href="eventos.html">Catering</a>
 </nav>
 
-<main class="contenido">
-<div class="welcome-text"><h2><font color="white">🍹 Bebidas</h2></font></div>
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Refresco"><h2><font color="#b22222">Refrescos</font></h2><p class="desc">Refrescos de sabores</p><H3><p class="price">$20</p></H3> <p class="desc">Refrescos Pellegrino.</p><H3><p class="price">$30</p> </H3> </div>
-    
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Cerveza"><h2><font color="#b22222">Cerveza</h2></font><p class="desc">Modelo especial, victoria y corona.</p><H3><p class="price">$25</p></H3></div>
+/* Contenedor de tarjetas */
+.cards-container {
+  display: flex;           /* Flexbox para organizar tarjetas */
+  flex-wrap: wrap;         /* Pasa a otra fila si no caben */
+  gap: 20px;               /* Espacio entre tarjetas */
+  justify-content: flex-start; /* Alineación a la izquierda */
+  padding: 10px;
+}
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Cerveza"><h2><font color="#b22222">Micheladas</h2></font><p class="desc">Cerveza preparada con sal y limon.</p><H3><p class="price">$35</p></H3></div>
+/* Estilo individual de cada tarjeta */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 250px;            /* Ajustable según necesites */
+  padding: 12px;
+  box-sizing: border-box;
+}
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Cerveza"><h2><font color="#b22222">Clamatos</h2></font><p class="desc">Cerveza preparada con clamato.</p><H3><p class="price">$55</p></H3></div>
+/* Ajuste de márgenes internos de textos */
+.card h2, .card h3, .card p {
+  margin: 8px 0;
+}
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Vino"><h2><font color="#b22222">Vino</h2></font><p class="desc">por copeo.</p><H3><p class="price">$60</p></H3><p class="desc">Botella de vino.</p><H3><p class="price">$200</p></H3></div>
 
-    <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Vino"><h2><font color="#b22222">Extras</h2></font><p class="desc">Te frio y cafe.</p><H3><p class="price">$15</p></H3><p class="desc">Mono de lima.</p><H3><p class="price">$100</p></H3></div>
-
-  </div>
-</main>
 
 
 
