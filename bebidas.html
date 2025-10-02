@@ -11,7 +11,7 @@
 /* =======================
    Estilos para tarjetas
 ======================= */
-.cards-container {
+.grid {
   display: flex;           /* Flexbox para organizar tarjetas */
   flex-wrap: wrap;         /* Permite varias filas */
   gap: 20px;               /* Espacio entre tarjetas */
@@ -31,8 +31,6 @@
 .card h2, .card p {
   margin: 8px 0;           /* Separación interna uniforme */
 }
-
-/* Puedes agregar más estilos globales aquí si quieres */
 </style>
 </head>
 <body>
@@ -62,8 +60,11 @@
     <h2><font color="white">🍹 Bebidas</font></h2>
   </div>
 
-  <!-- Contenedor de tarjetas -->
-  <div class="cards-container">
+  <div>
+    <h3><font color="white">Pregunte por los sabores de temporada"👌🫰.</font></h3>
+  </div>
+
+  <div class="grid">
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Refresco">
