@@ -50,7 +50,7 @@ header {
 
 /* 📸 Logo */
 header img.logo {
-  width: 50px;
+  width: 30px;
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
