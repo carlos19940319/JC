@@ -186,7 +186,7 @@ main {
 .card {
   background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
   background-size: cover;
-  border-radius: 20px 20px 50px 50px;
+  border-radius: 20px 20px 20px 20px;
   padding: 10px;
   text-align: center;
   box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
@@ -200,7 +200,7 @@ main {
   object-fit: cover;
   border-radius: 100px 100px 100px 100px;
   margin-bottom: 5px;
-  box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 1);
+  box-shadow: 0 0px 10px 3px rgba(0, 0, 0, 1);
 }
 
 .price {
