@@ -4,7 +4,7 @@
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197,0,0,0.5);
-  --fondo-img: ("img/fondo2.jpg");
+  --fondo-img: url("img/fondo24.jpg"); /* corregido, sin paréntesis extras */
   width: auto;
 }
 
@@ -23,11 +23,11 @@ body {
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
-    url("img/fondo24.jpg");
+    var(--fondo-img); /* usa la variable correctamente */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; /* fondo fijo */
   overflow-x: hidden;
 }
 
@@ -278,6 +278,7 @@ footer .btn-whatsapp:hover {
   footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
 }
 
+/* Animaciones */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
