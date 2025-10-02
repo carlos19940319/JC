@@ -1,14 +1,10 @@
 /* 📌 Variables editables */
-:root{
+:root {
   --color-principal: #C00000;
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197,0,0,0.5);
-  --fondo-img: url("img/fondo24.jpg"); /* corregido, sin paréntesis extras */
-  width: auto;
-}
-
-:root {
+  --fondo-img: url("img/fondo24.jpg");
   --fondo-opacidad: 0.3;
 }
 
@@ -23,11 +19,11 @@ body {
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
-    var(--fondo-img); /* usa la variable correctamente */
+    var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* fondo fijo */
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
@@ -35,8 +31,8 @@ body {
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* todo alineado a la izquierda */
-  gap: 10px; /* espacio entre logo, texto y redes */
+  justify-content: flex-start;
+  gap: 10px;
   padding: 8px 16px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
@@ -92,13 +88,13 @@ nav {
   justify-content: space-around;
   gap: 8px;
   padding: 7px;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 85%;
+  width: 90%;
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
@@ -138,7 +134,7 @@ main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 130px; /* deja espacio al header+nav */
+  padding-top: 150px; /* espacio al header+nav */
 }
 
 /* Bienvenida */
@@ -147,7 +143,6 @@ main {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
-
 }
 .welcome-text h2 {
   margin: 6px 0;
@@ -157,22 +152,6 @@ main {
 .welcome-text p {
   margin: 0;
   font-size: 1.05rem;
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.img-bienvenida {
-  width: 100%;
-  max-width: 950px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
-  animation: zoom 2.5s ease-out;
 }
 
 /* 📌 Grid */
@@ -185,10 +164,9 @@ main {
 
 /* Tarjeta */
 .card {
-  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 20px 20px 20px 20px;
-  padding: 5px;
+  background: var(--color-fondo-tarjeta);
+  border-radius: 20px;
+  padding: 10px;
   text-align: center;
   box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
   overflow: hidden;
@@ -199,7 +177,7 @@ main {
   height: auto;
   max-height: 210px;
   object-fit: cover;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 20px;
   margin-bottom: 5px;
   box-shadow: 0 0px 10px 3px rgba(0, 0, 0, 1);
 }
@@ -272,11 +250,30 @@ footer .btn-whatsapp:hover {
 }
 
 /* 📱 Responsive */
+@media (max-width: 1024px) {
+  header img.logo { width: 70px; }
+  nav { flex-wrap: wrap; width: 95%; gap: 6px; top: 90px; }
+  main { padding-top: 160px; }
+  .welcome-text h2 { font-size: 1.8rem; }
+  .grid { gap: 12px; }
+}
+
 @media (max-width: 768px) {
-  header img.logo { width: 64px; }
+  header img.logo { width: 60px; }
   nav { flex-wrap: wrap; width: 95%; gap: 5px; }
-  .img-bienvenida { width: 95%; }
-  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
+  main { padding-top: 170px; }
+  .welcome-text h2 { font-size: 1.6rem; }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .card img { max-height: 180px; }
+}
+
+@media (max-width: 480px) {
+  header img.logo { width: 50px; }
+  nav { padding: 5px; gap: 4px; }
+  main { padding-top: 180px; }
+  .welcome-text h2 { font-size: 1.4rem; }
+  .grid { grid-template-columns: 1fr; gap: 8px; }
+  .card img { max-height: 160px; }
 }
 
 /* Animaciones */
