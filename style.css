@@ -195,12 +195,12 @@ main {
 }
 
 .card img {
-  width: 90%;
+  width: 100%;
   height: auto;
   max-height: 210px;
   object-fit: cover;
   border-radius: 20px 20px 20px 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   box-shadow: 0 0px 10px 3px rgba(0, 0, 0, 1);
 }
 
