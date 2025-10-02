@@ -1,72 +1,11 @@
 /* ==============================
-Variables editables
-============================== */
-:root{
-  --color-principal: #C00000;
-  --color-secundario: #333333;
-  --color-fondo-tarjeta: #ffffff;
-  --navbar-bg: rgba(197,0,0,0.5);
-  --fondo-img: ("img/fondo2.jpg");
-  width: auto;
-}
-
-:root {
-  --fondo-opacidad: 0.3;
-}
-
-/* ==============================
-Body y fondo general
-============================== */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: var(--color-secundario);
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
-    ),
-    url("img/fondo24.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
-
-/* ==============================
-Modo App Fullscreen (solo index)
-============================== */
-body.app-mode {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-body.app-mode main {
-  height: calc(100vh - 130px); /* espacio para header+nav */
-  overflow: hidden;
-}
-
-body.app-mode .img-bienvenida {
-  max-height: calc(100vh - 150px);
-  object-fit: cover;
-}
-
-body.app-mode .grid {
-  max-height: calc(100vh - 250px);
-  overflow: hidden;
-}
-
-/* ==============================
-Header fijo
+Header y logos ajustados
 ============================== */
 header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px;
+  justify-content: space-between; /* separa logo y redes */
+  padding: 8px 12px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
   position: fixed;
@@ -76,237 +15,39 @@ header {
   z-index: 1001;
 }
 
-header img.logo {
-  width: 90px;
+/* Contenedor del logo principal */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo principal */
+.logo-container img.logo {
+  width: 90px; /* tamaño original */
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* ==============================
-NAV fijo debajo del header
-============================== */
-nav {
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  padding: 7px;
-  border-radius: 15px;
-  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  z-index: 1000;
-  background: var(--navbar-bg);
-  backdrop-filter: blur(20px);
-  flex-wrap: wrap;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--color-secundario);
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.18s ease-in-out;
-}
-
-nav a:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
-}
-
-nav a:active {
-  transform: translateY(2px) scale(.98);
-}
-
-nav a.active {
-  color: var(--color-principal);
-  background: linear-gradient(145deg,#fff7f7,#ffecec);
-}
-
-/* ==============================
-Main
-============================== */
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 14px;
-  padding-top: calc(80px + 50px); /* espacio para header+nav */
-}
-
-/* ==============================
-Bienvenida
-============================== */
-.welcome-text {
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-  animation: aparecer 2.5s ease-out;
-}
-.welcome-text h2 {
-  margin: 6px 0;
-  color: var(--color-principal);
-  font-size: 2rem;
-}
-.welcome-text p {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-/* ==============================
-Hero
-============================== */
-.hero {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.img-bienvenida {
-  width: 100%;
-  max-width: 950px;
+/* Iconos sociales */
+.logo-instagram, .logo-facebook {
+  width: 45px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
-  animation: zoom 2.5s ease-out;
+  max-height: 50px;
+  margin-left: 10px;
 }
 
-/* ==============================
-Grid y Tarjetas
-============================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  margin-top: 12px;
+.logo-instagram:hover, .logo-facebook:hover {
+  transform: scale(1.2);
 }
 
-.card {
-  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 50px 0px 50px 0px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  max-height: 210px;
-  object-fit: cover;
-  border-radius: 50px 0px 50px 0px;
-  margin-bottom: 5px;
-  box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 1);
-}
-
-.price {
-  color: var(--color-principal);
-  font-weight: 800;
-}
-
-/* ==============================
-Footer compacto
-============================== */
-footer {
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  text-align: center;
-  padding: 8px 10px;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-footer .footer-direccion p {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-footer .footer-botones {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-footer .footer-botones a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  white-space: nowrap;
-  transition: background 0.3s, transform 0.2s;
-}
-
-footer .btn-mapa {
-  background-color: #b22222;
-  color: #fff;
-  border-radius: 20px;
-}
-footer .btn-mapa:hover {
-  background-color: #a11d1d;
-  transform: translateY(-2px);
-}
-
-footer .btn-whatsapp {
-  background-color: #25d366;
-  color: #fff;
-}
-footer .btn-whatsapp img {
-  width: 20px;
-  height: 20px;
-}
-footer .btn-whatsapp:hover {
-  background-color: #1ebe57;
-  transform: translateY(-2px);
-}
-
-/* ==============================
-Responsive
-============================== */
+/* Ajustes responsive para móviles */
 @media (max-width: 768px) {
-  header img.logo { width: 64px; }
-  nav { flex-wrap: wrap; width: 95%; gap: 5px; }
-  .img-bienvenida { width: 95%; }
-  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
-}
-
-/* ==============================
-Animaciones
-============================== */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoom {
-  from { opacity: 0; transform: scale(.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes brilloSuave {
-  0% { text-shadow: 0 0 5px var(--color-secundario); }
-  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
-  100% { text-shadow: 0 0 5px var(--color-secundario); }
-}
-
-header h1, header img {
-  animation: brilloSuave 3s infinite alternate;
+  .logo-container img.logo {
+    width: 64px;
+  }
+  .logo-instagram, .logo-facebook {
+    width: 35px;
+  }
 }
