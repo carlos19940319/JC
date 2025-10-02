@@ -1,394 +1,435 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Inicio | La Bonanza</title>
-  <style>
-    /* ==============================
-    Variables editables
-    ============================== */
-    :root{
-      --color-principal: #C00000;
-      --color-secundario: #333333;
-      --color-fondo-tarjeta: #ffffff;
-      --navbar-bg: rgba(197,0,0,0.5);
-      --fondo-img: ("img/fondo2.jpg");
-      width: auto;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Inicio | La Bonanza</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ==============================
+Variables editables
+============================== */
+:root{
+  --color-principal: #C00000;
+  --color-secundario: #333333;
+  --color-fondo-tarjeta: #ffffff;
+  --navbar-bg: rgba(197,0,0,0.5);
+  --fondo-img: ("img/fondo2.jpg");
+  width: auto;
+}
 
-    :root {
-      --fondo-opacidad: 0.3;
-    }
+:root {
+  --fondo-opacidad: 0.3;
+}
 
-    /* ==============================
-    Body y fondo general
-    ============================== */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--color-secundario);
-      background-image:
-        linear-gradient(
-          180deg,
-          rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-          rgba(12, 19, 32, var(--fondo-opacidad)) 100%
-        ),
-        url("img/fondo24.jpg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
+/* ==============================
+Body y fondo
+============================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--color-secundario);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
+      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
+    ),
+    url("img/fondo24.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
 
-    /* ==============================
-    Modo App Fullscreen (solo index)
-    ============================== */
-    body.app-mode {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
+/* ==============================
+Modo App Fullscreen
+============================== */
+body.app-mode {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    body.app-mode main {
-      height: calc(100vh - 130px); /* espacio para header+nav */
-      overflow: hidden;
-    }
+body.app-mode main {
+  height: calc(100vh - 130px);
+  overflow: hidden;
+}
 
-    body.app-mode .img-bienvenida {
-      max-height: calc(100vh - 150px);
-      object-fit: cover;
-    }
+body.app-mode .img-bienvenida {
+  max-height: calc(100vh - 150px);
+  object-fit: cover;
+}
 
-    body.app-mode .grid {
-      max-height: calc(100vh - 250px);
-      overflow: hidden;
-    }
+body.app-mode .grid {
+  max-height: calc(100vh - 250px);
+  overflow: hidden;
+}
 
-    /* ==============================
-    Header fijo
-    ============================== */
-    header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px;
-      background: rgba(0,0,0,0.5);
-      color: #ffffff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1001;
-    }
+/* ==============================
+Header fijo
+============================== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.5);
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
 
-    header img.logo {
-      width: 90px;
-      height: auto;
-      border-radius: 50px;
-      box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
-    }
+/* Contenedor del logo principal */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    /* ==============================
-    NAV fijo debajo del header
-    ============================== */
-    nav {
-      display: flex;
-      justify-content: space-around;
-      gap: 8px;
-      padding: 7px;
-      border-radius: 15px;
-      box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-      position: fixed;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      z-index: 1000;
-      background: var(--navbar-bg);
-      backdrop-filter: blur(20px);
-      flex-wrap: wrap;
-    }
+.logo-container img.logo {
+  width: 90px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+}
 
-    nav a {
-      text-decoration: none;
-      color: var(--color-secundario);
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: linear-gradient(145deg,#fff,#e6e6e6);
-      box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: all 0.18s ease-in-out;
-    }
+/* Iconos sociales (Instagram y Facebook) */
+.icon-social {
+  width: 45px;
+  height: auto;
+  max-height: 45px;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
 
-    nav a:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
-    }
+.icon-social:hover {
+  transform: scale(1.2);
+}
 
-    nav a:active {
-      transform: translateY(2px) scale(.98);
-    }
+/* ==============================
+Nav fijo debajo del header
+============================== */
+nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 7px;
+  border-radius: 15px;
+  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 1000;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(20px);
+  flex-wrap: wrap;
+}
 
-    nav a.active {
-      color: var(--color-principal);
-      background: linear-gradient(145deg,#fff7f7,#ffecec);
-    }
+nav a {
+  text-decoration: none;
+  color: var(--color-secundario);
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(145deg,#fff,#e6e6e6);
+  box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.18s ease-in-out;
+}
 
-    /* ==============================
-    Main
-    ============================== */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 14px;
-      padding-top: calc(80px + 50px); /* espacio para header+nav */
-    }
+nav a:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
+}
 
-    /* ==============================
-    Bienvenida
-    ============================== */
-    .welcome-text {
-      text-align: center;
-      color: #ffffff;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-      animation: aparecer 2.5s ease-out;
-    }
-    .welcome-text h2 {
-      margin: 6px 0;
-      color: var(--color-principal);
-      font-size: 2rem;
-    }
-    .welcome-text p {
-      margin: 0;
-      font-size: 1.05rem;
-    }
+nav a:active {
+  transform: translateY(2px) scale(.98);
+}
 
-    /* ==============================
-    Hero
-    ============================== */
-    .hero {
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-    }
+nav a.active {
+  color: var(--color-principal);
+  background: linear-gradient(145deg,#fff7f7,#ffecec);
+}
 
-    .img-bienvenida {
-      width: 100%;
-      max-width: 950px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
-      animation: zoom 2.5s ease-out;
-    }
+/* ==============================
+Main
+============================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 14px;
+  padding-top: calc(80px + 50px); /* espacio para header+nav */
+}
 
-    /* ==============================
-    Grid y Tarjetas
-    ============================== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 12px;
-    }
+/* Bienvenida */
+.welcome-text {
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  animation: aparecer 2.5s ease-out;
+}
 
-    .card {
-      background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
-      background-size: cover;
-      border-radius: 50px 0px 50px 0px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
-      overflow: hidden;
-    }
+.welcome-text h2 {
+  margin: 6px 0;
+  color: var(--color-principal);
+  font-size: 2rem;
+}
 
-    .card img {
-      width: 100%;
-      height: auto;
-      max-height: 210px;
-      object-fit: cover;
-      border-radius: 50px 0px 50px 0px;
-      margin-bottom: 5px;
-      box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 1);
-    }
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
 
-    .price {
-      color: var(--color-principal);
-      font-weight: 800;
-    }
+.img-bienvenida {
+  width: 100%;
+  max-width: 950px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
+  animation: zoom 2.5s ease-out;
+}
 
-    /* ==============================
-    Footer compacto
-    ============================== */
-    footer {
-      width: 100%;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      text-align: center;
-      padding: 8px 10px;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+/* Grid y tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 12px;
+}
 
-    footer .footer-direccion p {
-      margin: 0 0 8px 0;
-      font-size: 14px;
-      line-height: 1.3;
-    }
+.card {
+  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 50px 0px 50px 0px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
+  overflow: hidden;
+}
 
-    footer .footer-botones {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 210px;
+  object-fit: cover;
+  border-radius: 50px 0px 50px 0px;
+  margin-bottom: 5px;
+  box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 1);
+}
 
-    footer .footer-botones a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 14px;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      white-space: nowrap;
-      transition: background 0.3s, transform 0.2s;
-    }
+.price {
+  color: var(--color-principal);
+  font-weight: 800;
+}
 
-    footer .btn-mapa {
-      background-color: #b22222;
-      color: #fff;
-      border-radius: 20px;
-    }
-    footer .btn-mapa:hover {
-      background-color: #a11d1d;
-      transform: translateY(-2px);
-    }
+/* ==============================
+Footer
+============================== */
+footer {
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    footer .btn-whatsapp {
-      background-color: #25d366;
-      color: #fff;
-    }
-    footer .btn-whatsapp img {
-      width: 20px;
-      height: 20px;
-    }
-    footer .btn-whatsapp:hover {
-      background-color: #1ebe57;
-      transform: translateY(-2px);
-    }
+footer .footer-direccion p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
 
-    /* ==============================
-    Responsive
-    ============================== */
-    @media (max-width: 768px) {
-      header img.logo { width: 64px; }
-      nav { flex-wrap: wrap; width: 95%; gap: 5px; }
-      .img-bienvenida { width: 95%; }
-      footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
-    }
+footer .footer-botones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
-    /* ==============================
-    Animaciones
-    ============================== */
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+footer .footer-botones a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.2s;
+}
 
-    @keyframes zoom {
-      from { opacity: 0; transform: scale(.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+footer .btn-mapa {
+  background-color: #b22222;
+  color: #fff;
+  border-radius: 20px;
+}
+footer .btn-mapa:hover {
+  background-color: #a11d1d;
+  transform: translateY(-2px);
+}
 
-    @keyframes brilloSuave {
-      0% { text-shadow: 0 0 5px var(--color-secundario); }
-      50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
-      100% { text-shadow: 0 0 5px var(--color-secundario); }
-    }
+footer .btn-whatsapp {
+  background-color: #25d366;
+  color: #fff;
+}
 
-    header h1, header img {
-      animation: brilloSuave 3s infinite alternate;
-    }
-  </style>
+footer .btn-whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==============================
+Animaciones
+============================== */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoom {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes brilloSuave {
+  0% { text-shadow: 0 0 5px var(--color-secundario); }
+  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
+  100% { text-shadow: 0 0 5px var(--color-secundario); }
+}
+
+header h1, header img {
+  animation: brilloSuave 3s infinite alternate;
+}
+
+/* ==============================
+Responsive
+============================== */
+@media (max-width: 768px) {
+  header img.logo { width: 64px; }
+  nav { flex-wrap: wrap; width: 95%; gap: 5px; }
+  .img-bienvenida { width: 95%; }
+  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
+  .icon-social { width: 35px; max-height: 35px; }
+}
+</style>
 </head>
+
 <body class="app-mode">
 
-  <!-- Header -->
-  <header>
+<header>
+  <div class="logo-container">
     <img src="img/logo.png" alt="Logo" class="logo">
     <div><h2 style="margin:0;color:white">Pizzería</h2></div>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
-      <img src="img/insta.png" alt="Instagram" class="logo-instagram">
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
-      <img src="img/facce.png" alt="Facebook" width="45" height="45" style="border-radius:40%;">
-    </a>
-  </header>
-
-  <!-- Navegación -->
-  <nav>
-    <a href="index.html" class="active">Inicio</a>
-    <a href="pizzas.html">Pizzas</a>
-    <a href="bebidas.html">Bebidas</a>
-    <a href="eventos.html">Catering</a>
-  </nav>
-
-  <!-- Main -->
-  <main>
-    <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
-
-    <section class="hero">
-      <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
-    </section>
-
-    <h2 style="color:white;">Descubre nuestro menú</h2>
-    <p style="color:white;">
-      Explore sabores únicos en nuestras sección de pizzas, bebidas y conozca nuestros eventos exclusivos "Catering"👌🫰.
-    </p>
-  </main>
-
-  <!-- Horario compacto -->
-  <div id="horario-compacto" style="text-align:center; font-family: Arial, sans-serif; margin-bottom:20px;">
-    <h2 id="titulo" style="margin:0 0 5px 0; font-size:1em;">Horario</h2>
-    <div id="reloj" style="margin:0 0 5px 0; font-size:1em;"></div>
-    <div id="estado" style="margin:0 0 5px 0; font-weight:bold; font-size:1em; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s ease;"></div>
-    <ul id="dias" style="list-style:none; padding:0; margin:0;">
-      <li data-dia="5" style="padding:2px 0; font-size:0.9em;">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
-    </ul>
   </div>
 
-  <!-- Footer -->
-  <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
-    <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
-      Calle Amado Nervo 14-MZ 016,<br>
-      San Miguel, 52740 Ocoyoacac, Méx
-    </div>
-    <div class="footer-botones" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-      <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"
-         target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-size:14px; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>
-      <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"
-         target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-size:14px; font-weight:bold; border-radius:8px; text-decoration:none;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873
-      </a>
-    </div>
-  </footer>
+  <!-- Iconos sociales -->
+  <a href="https://www.instagram.com/mar_bonanza" target="_blank">
+    <img src="img/insta.png" alt="Instagram" class="icon-social">
+  </a>
 
-  <!-- Scripts -->
-  <script>
-    // Código de reloj y estado
-    function actualizarReloj() {
-      const reloj = document.getElementById("reloj");
-      const ahora = new Date();
-      let h=ahora.getHours(), m=ahora.getMinutes(), s
+  <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
+    <img src="img/facce.png" alt="Facebook" class="icon-social">
+  </a>
+</header>
+
+<nav>
+  <a href="index.html" class="active">Inicio</a>
+  <a href="pizzas.html">Pizzas</a>
+  <a href="bebidas.html">Bebidas</a>
+  <a href="eventos.html">Catering</a>
+</nav>
+
+<main>
+  <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
+  <section class="hero">
+    <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
+  </section>
+  <h2 style="color:white;">Descubre nuestro menú</h2>
+  <p style="color:white;">
+    Explore sabores únicos en nuestras sección de pizzas, bebidas y conozca nuestros eventos exclusivos "Catering"👌🫰.
+  </p>
+</main>
+
+<!-- Horario compacto -->
+<div id="horario-compacto" style="text-align:center; font-family: Arial, sans-serif; margin-bottom:20px;">
+  <h2 id="titulo" style="margin:0 0 5px 0; font-size:1em;">Horario</h2>
+  <div id="reloj" style="margin:0 0 5px 0; font-size:1em;"></div>
+  <div id="estado" style="margin:0 0 5px 0; font-weight:bold; font-size:1em; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s ease;"></div>
+  <ul id="dias" style="list-style:none; padding:0; margin:0;">
+    <li data-dia="5" style="padding:2px 0; font-size:0.9em;">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
+    Calle Amado Nervo 14-MZ 016,<br>
+    San Miguel, 52740 Ocoyoacac, Méx
+  </div>
+  <div class="footer-botones">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"
+       target="_blank" class="btn-mapa">📍 Cómo llegar</a>
+    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"
+       target="_blank" class="btn-whatsapp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icon-footer">722 267 5873
+    </a>
+  </div>
+</footer>
+
+<script>
+// Reloj en vivo y estado abierto/cerrado
+function actualizarReloj() {
+  const reloj = document.getElementById("reloj");
+  const ahora = new Date();
+  let h=ahora.getHours(), m=ahora.getMinutes(), s=ahora.getSeconds();
+  h=h<10?"0"+h:h; m=m<10?"0"+m:m; s=s<10?"0"+s:s;
+  reloj.textContent = h+":"+m+":"+s;
+}
+
+let ultimoEstado="";
+function actualizarEstado() {
+  const ahora = new Date();
+  const hoy = ahora.getDay();
+  const estado = document.getElementById("estado");
+  let abierto=false;
+  if([5].includes(hoy)) {
+    const ahoraMin = ahora.getHours()*60 + ahora.getMinutes();
+    if(ahoraMin>=19*60 && ahoraMin<=23*60) abierto=true;
+  }
+  if(abierto){
+    estado.textContent="🟢 Abierto";
+    estado.style.color="green";
+    estado.style.boxShadow="0 0 8px green";
+    if(ultimoEstado!=="abierto") {
+      estado.classList.add("open-anim");
+      setTimeout(()=>estado.classList.remove("open-anim"),500);
+    }
+    ultimoEstado="abierto";
+  } else {
+    estado.textContent="🔴 Cerrado";
+    estado.style.color="red";
+    estado.style.boxShadow="0 0 8px red";
+    ultimoEstado="cerrado";
+  }
+}
+
+function resaltarDia(){
+  const dias = document.querySelectorAll("#dias li");
+  const hoy = new Date().getDay();
+  dias.forEach(li=>{
+    const diasArray = li.dataset.dia.split(",").map(Number);
