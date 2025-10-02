@@ -1,9 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bebidas | La Bonanza</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
+<style>
+/* =======================
+   Estilos para tarjetas
+======================= */
+.cards-container {
+  display: flex;           /* Flexbox para organizar tarjetas */
+  flex-wrap: wrap;         /* Permite varias filas */
+  gap: 20px;               /* Espacio entre tarjetas */
+  justify-content: flex-start;
+  padding: 10px;
+}
 
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bebidas | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 250px;            /* Ajustable según convenga */
+  padding: 12px;
+  box-sizing: border-box;
+}
 
+.card h2, .card p {
+  margin: 8px 0;           /* Separación interna uniforme */
+}
 
-
+/* Puedes agregar más estilos globales aquí si quieres */
+</style>
+</head>
+<body>
 
 <header class="header">
   <img src="img/logo.png" alt="Logo" class="logo">
@@ -25,77 +57,64 @@
   <a href="eventos.html">Catering</a>
 </nav>
 
-
-
 <main class="contenido">
-  <div class="welcome-text"><h2><font color="white">🍹 Bebidas</font></h2></div>
+  <div class="welcome-text">
+    <h2><font color="white">🍹 Bebidas</font></h2>
+  </div>
 
-  <!-- Contenedor para tarjetas -->
+  <!-- Contenedor de tarjetas -->
   <div class="cards-container">
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Refresco">
-      <h2><font color="#b22222">Refrescos</font></h2>
+      <h2 style="color:#b22222;">Refrescos</h2>
       <p class="desc">Refrescos de sabores</p>
-      <h3><p class="price">$20</p></h3>
+      <p class="price">$20</p>
       <p class="desc">Refrescos Pellegrino.</p>
-      <h3><p class="price">$30</p></h3>
+      <p class="price">$30</p>
     </div>
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Cerveza">
-      <h2><font color="#b22222">Cerveza</font></h2>
+      <h2 style="color:#b22222;">Cerveza</h2>
       <p class="desc">Modelo especial, victoria y corona.</p>
-      <h3><p class="price">$25</p></h3>
+      <p class="price">$25</p>
     </div>
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Micheladas">
-      <h2><font color="#b22222">Micheladas</font></h2>
-      <p class="desc">Cerveza preparada con sal y limon.</p>
-      <h3><p class="price">$35</p></h3>
+      <h2 style="color:#b22222;">Micheladas</h2>
+      <p class="desc">Cerveza preparada con sal y limón.</p>
+      <p class="price">$35</p>
     </div>
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Clamatos">
-      <h2><font color="#b22222">Clamatos</font></h2>
+      <h2 style="color:#b22222;">Clamatos</h2>
       <p class="desc">Cerveza preparada con clamato.</p>
-      <h3><p class="price">$55</p></h3>
+      <p class="price">$55</p>
     </div>
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Vino">
-      <h2><font color="#b22222">Vino</font></h2>
+      <h2 style="color:#b22222;">Vino</h2>
       <p class="desc">Por copeo.</p>
-      <h3><p class="price">$60</p></h3>
+      <p class="price">$60</p>
       <p class="desc">Botella de vino.</p>
-      <h3><p class="price">$200</p></h3>
+      <p class="price">$200</p>
     </div>
 
     <div class="card">
       <img src="img/IMG-20250930-WA0102.jpg" alt="Extras">
-      <h2><font color="#b22222">Extras</font></h2>
+      <h2 style="color:#b22222;">Extras</h2>
       <p class="desc">Te frío y café.</p>
-      <h3><p class="price">$15</p></h3>
+      <p class="price">$15</p>
       <p class="desc">Mono de lima.</p>
-      <h3><p class="price">$100</p></h3>
+      <p class="price">$100</p>
     </div>
 
   </div>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Footer compacto -->
 <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
@@ -112,5 +131,6 @@
     </a>
   </div>
 </footer>
+
 </body>
 </html>
