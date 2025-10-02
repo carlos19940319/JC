@@ -195,7 +195,7 @@ main {
 }
 
 .card img {
-  width: 100%;
+  width: 90%;
   height: auto;
   max-height: 210px;
   object-fit: cover;
