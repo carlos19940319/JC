@@ -188,7 +188,7 @@ main {
   background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
   background-size: cover;
   border-radius: 20px 20px 20px 20px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
   overflow: hidden;
