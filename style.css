@@ -5,20 +5,18 @@
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197,0,0,0.5);
   --fondo-img: ("img/fondo2.jpg");
-  width: auto; /* ruta editable */
+  width: auto;
 }
 
 :root {
   --fondo-opacidad: 0.3;
 }
 
-/* Body y fondo */
+/* 📍 Body y fondo */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
-
-  /* Fondo con degradado + imagen */
   background-image:
     linear-gradient(
       180deg,
@@ -29,7 +27,8 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* mantiene la imagen fija al hacer scroll */
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 /* 📌 Header fijo */
@@ -40,22 +39,19 @@ header {
   padding: 8px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
-  position: fixed; /* ✅ ahora fijo */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1001;
 }
 
-/* Logo */
 header img.logo {
   width: 90px;
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
-
-
 
 /* 📍 NAV fijo debajo del header */
 nav {
@@ -65,23 +61,17 @@ nav {
   padding: 7px;
   border-radius: 15px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-
-  position: fixed; /* ✅ fijo */
-  top: 80px;       /* altura aproximada del header */
-  
-  /* CENTRADO Y ANCHO AJUSTABLE */
-  left: 50%;               /* centro horizontal */
-  transform: translateX(-50%); /* centra el nav respecto a su width */
-  width: 90%; 
-padding: 8px; 
-            /* puedes cambiar al % que quieras, p.ej. 60%, 90% */
-  
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
   z-index: 1000;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
+  flex-wrap: wrap;
 }
 
-/* Links dentro del nav */
 nav a {
   text-decoration: none;
   color: var(--color-secundario);
@@ -103,7 +93,6 @@ nav a:hover {
 
 nav a:active {
   transform: translateY(2px) scale(.98);
-  box-shadow: inset 4px 4px 6px #b3b3b3, inset -4px -4px 6px #ffffff;
 }
 
 nav a.active {
@@ -111,42 +100,32 @@ nav a.active {
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-
-
-
-
-
-
-/* Main con padding-top suficiente para dejar espacio a header + nav */
+/* 📌 Main */
 main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 140px; /* Ajusta según altura exacta de header + nav */
+  padding-top: 150px; /* deja espacio al header+nav */
 }
 
-/* Welcome text */
+/* Bienvenida */
 .welcome-text {
   text-align: center;
   color: #ffffff;
-  margin:1px 0;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
 }
-
 .welcome-text h2 {
   margin: 6px 0;
   color: var(--color-principal);
   font-size: 2rem;
 }
-
 .welcome-text p {
   margin: 0;
   font-size: 1.05rem;
-  color: #ffffff;
 }
 
-/* Hero imagen */
+/* Hero */
 .hero {
   display: flex;
   justify-content: center;
@@ -162,7 +141,7 @@ main {
   animation: zoom 2.5s ease-out;
 }
 
-/* Grid de tarjetas */
+/* 📌 Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -178,13 +157,13 @@ main {
   padding: 10px;
   text-align: center;
   box-shadow: 0 0px 3px 1px rgba(197, 0, 0, 1);
-  position: relative;
   overflow: hidden;
 }
 
 .card img {
-  width: 98%;
-  height: 210px;
+  width: 100%;
+  height: auto;
+  max-height: 210px;
   object-fit: cover;
   border-radius: 50px 0px 50px 0px;
   margin-bottom: 5px;
@@ -196,17 +175,76 @@ main {
   font-weight: 800;
 }
 
+/* 📍 Footer compacto y adaptable */
 footer {
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
   text-align: center;
-  padding: 5px;
-  color: #ffffff;
-  margin-top: 5px;
-  background: rgba(0,0,0,.6);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 1px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Animaciones */
+footer .footer-direccion p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+footer .footer-botones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+footer .footer-botones a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.2s;
+}
+
+footer .btn-mapa {
+  background-color: #b22222;
+  color: #fff;
+  border-radius: 20px;
+}
+footer .btn-mapa:hover {
+  background-color: #a11d1d;
+  transform: translateY(-2px);
+}
+
+footer .btn-whatsapp {
+  background-color: #25d366;
+  color: #fff;
+}
+footer .btn-whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+footer .btn-whatsapp:hover {
+  background-color: #1ebe57;
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  header img.logo { width: 64px; }
+  nav { flex-wrap: wrap; width: 95%; gap: 5px; }
+  .img-bienvenida { width: 95%; }
+  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
+}
+
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -217,31 +255,12 @@ footer {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Responsive */
-@media(max-width:768px){
-  .img-bienvenida { width: 92%; }
-  nav { flex-wrap: wrap; gap: 6px; }
-  header img.logo { width: 64px; }
-}
-
-/* Hover dorado en botones y pestañas */
-nav a:hover,
-.card button:hover {
-  background-color: var(--color-secundario);
-  color: #b22222;
-  box-shadow: 0 0 10px var(--color-secundario);
-  transform: scale(1.15);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Brillo logo/título */
 @keyframes brilloSuave {
   0% { text-shadow: 0 0 5px var(--color-secundario); }
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
 
-header h1,
-header img {
+header h1, header img {
   animation: brilloSuave 3s infinite alternate;
 }
