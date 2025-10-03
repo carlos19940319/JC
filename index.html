@@ -30,36 +30,40 @@
   <h2><font color="white">Descubre nuestro menú</h2><p>Explore sabores únicos en nuestras sección de pizzas, bebidas y conozca nuestros eventos exclusivos "Catering"👌🫰.</p></font>
 
 
-<!-- Horario compacto y footer integrado -->
-<div id="horario-compacto" style="text-align:center; font-family: Arial, sans-serif; margin-bottom:20px;">
-  <h2 id="titulo" style="margin:0 0 5px 0; font-size:1em;">Horario</h2>
-  <div id="reloj" style="margin:0 0 5px 0; font-size:1em;"></div>
-  <div id="estado" style="margin:0 0 5px 0; font-weight:bold; font-size:1em; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s ease;"></div>
+
+
+<!-- Horario compacto -->
+<div id="horario-compacto" style="text-align:center; font-family:Arial,sans-serif; margin-bottom:20px; font-size:0.95em;">
+  <!-- Reloj arriba -->
+  <div id="reloj" style="margin-bottom:4px; font-weight:bold;"></div>
+  
+  <!-- Título debajo del reloj -->
+  <h2 id="titulo" style="margin:0 0 4px 0; font-size:1em;">Horario</h2>
+  
+  <!-- Estado abierto/cerrado -->
+  <div id="estado" style="margin-bottom:4px; font-weight:bold; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s;"></div>
+  
+  <!-- Días y horarios -->
   <ul id="dias" style="list-style:none; padding:0; margin:0;">
-    <li data-dia="5" style="padding:2px 0; font-size:0.9em;">Viernes: <strong>19:00 a 23:00 hrs</strong></li>
+    <li data-dia="5" style="padding:1px 0;"><strong>Viernes:</strong> 19:00 a 23:00 hrs</li>
   </ul>
 </div>
 
 <style>
   /* Animación Abierto/Cerrado */
   .open-anim { animation: zoomEstado 0.5s ease forwards; }
-  @keyframes zoomEstado {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-  }
+  @keyframes zoomEstado { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
   /* Día actual resaltar */
   .dia-actual {
       border-radius:4px;
       font-weight:bold;
-      animation: brillo 1.5s infinite;
       padding:0 3px;
+      animation: brillo 1.5s infinite;
   }
   @keyframes brillo {
-    0% { box-shadow: 0 0 3px var(--brillo-color); }
+    0%,100% { box-shadow: 0 0 3px var(--brillo-color); }
     50% { box-shadow: 0 0 8px var(--brillo-color); }
-    100% { box-shadow: 0 0 3px var(--brillo-color); }
   }
 </style>
 
@@ -69,8 +73,7 @@
     const reloj = document.getElementById("reloj");
     const ahora = new Date();
     let h=ahora.getHours(), m=ahora.getMinutes(), s=ahora.getSeconds();
-    h=h<10?"0"+h:h; m=m<10?"0"+m:m; s=s<10?"0"+s:s;
-    reloj.textContent = h+":"+m+":"+s;
+    reloj.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
   }
 
   // 🟢 Estado Abierto/Cerrado
@@ -88,10 +91,7 @@
       estado.textContent="🟢 Abierto";
       estado.style.color="green";
       estado.style.boxShadow="0 0 8px green";
-      if(ultimoEstado!=="abierto") {
-        estado.classList.add("open-anim");
-        setTimeout(()=>estado.classList.remove("open-anim"),500);
-      }
+      if(ultimoEstado!=="abierto") { estado.classList.add("open-anim"); setTimeout(()=>estado.classList.remove("open-anim"),500); }
       ultimoEstado="abierto";
     } else {
       estado.textContent="🔴 Cerrado";
@@ -128,7 +128,8 @@
       li.style.backgroundColor = brightness>128?"rgba(241,196,15,0.5)":"rgba(255,255,0,0.5)";
     });
   }
- // 🚀 Inicializar
+
+  // 🚀 Inicializar
   setInterval(()=>{ actualizarReloj(); actualizarEstado(); },1000);
   window.onload = ()=>{
     actualizarReloj();
