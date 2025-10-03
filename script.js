@@ -1,22 +1,17 @@
-
-
 // ajustarFondo.js
 
-// 1️⃣ Ajusta la altura de .fondo-fijo al tamaño real del viewport
-function ajustarFondo() {
+// 1️⃣ Ajusta la altura mínima del body al viewport real en móviles
+function ajustarAlturaBody() {
   const vh = window.innerHeight; // altura visible actual
-  const fondo = document.querySelector('.fondo-fijo');
-  if (fondo) {
-    fondo.style.height = `${vh}px`;
-  }
+  document.body.style.minHeight = `${vh}px`;
 }
 
 // Ejecuta al cargar la página y al cambiar tamaño/orientación
-window.addEventListener('load', ajustarFondo);
-window.addEventListener('resize', ajustarFondo);
-window.addEventListener('orientationchange', ajustarFondo);
+window.addEventListener('load', ajustarAlturaBody);
+window.addEventListener('resize', ajustarAlturaBody);
+window.addEventListener('orientationchange', ajustarAlturaBody);
 
-// 2️⃣ Mantén tu código actual para marcar link activo en el nav
+// 2️⃣ Mantiene tu código actual para marcar link activo en el nav
 document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('nav a');
   links.forEach(l => {
