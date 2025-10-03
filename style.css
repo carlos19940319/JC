@@ -319,3 +319,15 @@ footer .btn-whatsapp:hover {
 header h1, header img {
   animation: brilloSuave 3s infinite alternate;
 }
+
+/* ✅ Transición global al cambiar de pestaña */
+body {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
