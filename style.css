@@ -146,7 +146,7 @@ main {
 }
 
 .welcome-text h2 {
-  margin: 6px 0;
+  margin: 10px 0;
   color: var(--color-principal);
   font-size: 2rem;
 }
