@@ -13,7 +13,7 @@
 }
 
 /* 📍 Body y fondo */
-body {
+html, body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
@@ -23,12 +23,13 @@ body {
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
-    var(--fondo-img); /* usa la variable correctamente */
+    var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* fondo fijo */
   overflow-x: hidden;
+  overscroll-behavior: none; /* evita rebote y estiramiento de la imagen en móviles */
 }
 
 /* 📌 Header fijo alineado a la izquierda */
@@ -147,7 +148,6 @@ main {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
-
 }
 .welcome-text h2 {
   margin: 6px 0;
