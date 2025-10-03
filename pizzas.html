@@ -1,262 +1,43 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pizzas | La Bonanza</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-<style>
-/* Manteniendo colores y configuraciones originales */
-:root{
-  --color-principal: #C00000;
-  --color-secundario: #333333;
-  --color-fondo-tarjeta: #ffffff;
-  --navbar-bg: rgba(197,0,0,0.5);
-}
+Revisa por qué mis tarjetas se enciman
 
-/* Body general */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #fff;
-  box-sizing: border-box;
-}
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pizzas | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: var(--navbar-bg);
-}
+<header class="header">  
+  <img src="img/logo.png" alt="Logo" class="logo">  
+  <h2 class="titulo">Pizzería</h2>  
+  <div class="redes">  
+    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">  
+      <img src="img/instagram-3d-logo-free-png.png" alt="Instagram" class="icono-red">  
+    </a>  
+    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">  
+      <img src="img/facce.png" alt="Facebook" class="icono-red">  
+    </a>  
+  </div>  
+</header>  <nav class="nav">  
+  <a href="index.html">Inicio</a>  
+  <a href="pizzas.html">Pizzas</a>  
+  <a href="bebidas.html">Bebidas</a>  
+  <a href="eventos.html">¡Catering!</a>  
+</nav>  <main class="contenido">  
+<div class="welcome-text"><h2><font color="white">😋 Pizzas</h2></font></div>  <div><h3><font color="white">“¡No te pierdas nuestros sabores de temporada! Pregunta por ellos.” 👌🫰</h3></font></div>    <div class="grid">  <div class="card"><img src="img/arugula.png" alt="Margarita"><h2><font color="">Margarita</font></h2><font color="#FFFFFF"><p class="desc"> Rebanadas de jitomate, queso  mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p><H3><p class="price">$180</p></H3></div>  <div class="card"><img src="img/arugula.png" alt="Pepperoni"><h2><font color="#FFFFFF">Pepperoni</font></h2><p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p><H3><p class="price">$180</p></H3></div>  
 
-.logo { max-width: 80px; }
+<div class="card"><img src="img/arugula.png" alt="Hawaiana"><h2><font color="#FFFFFF">Arúgula</font></h2><p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arugula y un toque de cebolla.</p><H3><p class="price">$240</p></H3></div>  
 
-.titulo { margin: 0; }
+<div class="card"><img src="img/arugula.png" alt="4 Quesos"><h2><font color="#FFFFFF">Jamón Serrano</font></h2><p class="desc">Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p><H3><p class="price">$240</p></H3></div>
 
-.redes img {
-  width: 30px;
-  margin-left: 10px;
-}
-
-/* Navbar */
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background: rgba(0,0,0,0.7);
-  padding: 10px 0;
-}
-
-.nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.nav a.active {
-  color: var(--color-principal);
-}
-
-/* Contenido */
-.contenido { padding: 20px; }
-
-.welcome-text {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: white;
-}
-
-/* Grid de tarjetas */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* Tarjeta */
-.card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s;
-}
-
-.card img {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.card h2 {
-  margin: 10px 0 5px 0;
-  text-align: center;
-}
-
-.card .desc {
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.card .price {
-  font-weight: bold;
-  font-size: 16px;
-  text-align: center;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-  width: 100%;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  text-align: center;
-  padding: 12px 8px;
-  font-family: Arial, sans-serif;
-}
-
-.footer-direccion {
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.footer-botones {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.footer-botones a {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 15px;
-  text-decoration: none;
-  color: #fff;
-}
-
-.footer-botones a:nth-child(1) { background: #b22222; }
-.footer-botones a:nth-child(2) { 
-  background: #25d366;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.footer-botones img { width: 20px; height: 20px; }
-</style>
-</head>
-<body>
-
-<header class="header">
-  <img src="img/logo.png" alt="Logo" class="logo">
-  <h2 class="titulo">Pizzería</h2>
-  <div class="redes">
-    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
-      <img src="img/instagram-3d-logo-free-png.png" alt="Instagram" class="icono-red">
-    </a>
-    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
-      <img src="img/facce.png" alt="Facebook" class="icono-red">
-    </a>
-  </div>
-</header>
-
-<nav class="nav">
-  <a href="index.html">Inicio</a>
-  <a href="pizzas.html">Pizzas</a>
-  <a href="bebidas.html">Bebidas</a>
-  <a href="eventos.html">¡Catering!</a>
-</nav>
-
-<main class="contenido">
-  <div class="welcome-text">😋 Pizzas</div>
-  <div class="subtitle">“¡No te pierdas nuestros sabores de temporada! Pregunta por ellos.” 👌🫰</div>
-
-  <div class="grid">
-    <div class="card">
-      <img src="img/arugula.png" alt="Margarita">
-      <h2>Margarita</h2>
-      <p class="desc">Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p>
-      <p class="price">$180</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="Pepperoni">
-      <h2>Pepperoni</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p>
-      <p class="price">$180</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="Arúgula">
-      <h2>Arúgula</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.</p>
-      <p class="price">$240</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="Jamón Serrano">
-      <h2>Jamón Serrano</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p>
-      <p class="price">$240</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="3 Quesos">
-      <h2>3 Quesos</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p>
-      <p class="price">$220</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="Mexicana">
-      <h2>Mexicana</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p>
-      <p class="price">$220</p>
-    </div>
-
-    <div class="card">
-      <img src="img/arugula.png" alt="Champiñon">
-      <h2>Champiñon</h2>
-      <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.</p>
-      <p class="price">$220</p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="footer-direccion">
-    Calle Amado Nervo 14-MZ 016,<br>
-    San Miguel, 52740 Ocoyoacac, Méx
-  </div>
-  <div class="footer-botones">
-    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" target="_blank">📍 Cómo llegar</a>
-    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">722 267 5873
-    </a>
-  </div>
-</footer>
-
-</body>
-</html>
+<div class="card"><img src="img/arugula.png" alt="4 Quesos"><h2><font color="#FFFFFF">3 Quesos</font></h2><p class="desc">Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p><H3><p class="price">$220</p></H3></div>  <div class="card"><img src="img/arugula.png" alt="4 Quesos"><h2><font color="#FFFFFF">Mexicana</font></h2><p class="desc">Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p><H3><p class="price">$220</p></H3></div>  <div class="card"><img src="img/arugula.png" alt="4 Quesos"><h2><font color="#FFFFFF">Champiñon</font></h2><p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.</p><H3><p class="price">$220</p></H3></div>    </div>  
+</main>  <!-- Footer compacto -->  <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">  
+  <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">  
+    Calle Amado Nervo 14-MZ 016,<br>  
+    San Miguel, 52740 Ocoyoacac, Méx  
+  </div>  
+  <div class="footer-botones" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">  
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"  
+       target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-size:14px; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>  
+    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"  
+       target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-size:14px; font-weight:bold; border-radius:8px; text-decoration:none;">  
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873  
+    </a>  
+  </div>  
+</body>  
+</html>  
