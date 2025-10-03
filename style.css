@@ -13,7 +13,7 @@ width: auto;
 --fondo-opacidad: 0.3;
 }
 
-/* 📍 Body y fondo /
+/* 📍 Body y fondo*/
 body {
 margin: 0;
 font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@ overflow-x: hidden;
 overscroll-behavior: none; / evita rebote en móviles */
 }
 
-/* 📌 Fondo fijo universal (funciona en móviles) /
+/* 📌 Fondo fijo universal (funciona en móviles)*/
 body::before {
 content: "";
 position: fixed;
