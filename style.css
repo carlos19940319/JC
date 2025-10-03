@@ -13,13 +13,16 @@
 }
 
 /* 📍 Body y fondo */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; /* evita parches blancos */
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
-  position: relative; /* necesario para el fondo fijo en móviles */
+  position: relative;
   overflow-x: hidden;
-  overscroll-behavior: none; /* evita rebote en móviles */
+  overscroll-behavior: none;
 }
 
 /* 📌 Fondo fijo universal (funciona en móviles) */
@@ -40,7 +43,20 @@ body::before {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: -1; /* ✅ Mantiene el fondo detrás del contenido */
+  z-index: -1;
+  min-height: 100vh;
+}
+
+/* 📌 Transición global al cambiar de pestaña */
+body {
+  opacity: 0;
+  transform: translateY(10px); /* más suave para evitar franjas */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.mostrar {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* 📌 Header fijo alineado a la izquierda */
@@ -124,8 +140,6 @@ nav a {
   flex-direction: column;
   align-items: center;
   transition: all 0.18s ease-in-out;
-
-  /* ❌ Quitar recuadro verde en móviles */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -143,7 +157,6 @@ nav a.active {
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-/* ❌ Quitar recuadro al hacer focus (teclado / escritorio) */
 nav a:focus {
   outline: none;
   box-shadow: none;
@@ -318,16 +331,4 @@ footer .btn-whatsapp:hover {
 
 header h1, header img {
   animation: brilloSuave 3s infinite alternate;
-}
-
-/* ✅ Transición global al cambiar de pestaña */
-body {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-body.mostrar {
-  opacity: 1;
-  transform: translateY(0);
 }
