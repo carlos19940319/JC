@@ -4,7 +4,7 @@
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197,0,0,0.5);
-  --fondo-img: url("img/fondo24.jpg"); /* corregido, sin paréntesis extras */
+  --fondo-img: url("img/fondo24.jpg");
   width: auto;
 }
 
@@ -12,11 +12,13 @@
   --fondo-opacidad: 0.3;
 }
 
-/* 📍 Body y fondo */
-html, body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: var(--color-secundario);
+/* 📍 Fondo fijo detrás de todo */
+.fondo-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* JS ajustará esta altura en móviles */
   background-image:
     linear-gradient(
       180deg,
@@ -24,20 +26,28 @@ html, body {
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
     var(--fondo-img);
-  background-position: center;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* fondo fijo */
+  z-index: -1;
+}
+
+/* Body */
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--color-secundario);
   overflow-x: hidden;
-  overscroll-behavior: none; /* evita rebote y estiramiento de la imagen en móviles */
+  overscroll-behavior: none; /* evita rebote en móviles */
+  background: none; /* eliminamos el background del body */
 }
 
 /* 📌 Header fijo alineado a la izquierda */
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* todo alineado a la izquierda */
-  gap: 10px; /* espacio entre logo, texto y redes */
+  justify-content: flex-start;
+  gap: 10px;
   padding: 8px 16px;
   background: rgba(0,0,0,0.5);
   color: #ffffff;
@@ -49,7 +59,6 @@ header {
   box-sizing: border-box;
 }
 
-/* 📸 Logo */
 header img.logo {
   width: 30px;
   height: auto;
@@ -57,10 +66,7 @@ header img.logo {
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* 🧱 Texto (Pizzería) */
-header h1, 
-header h2, 
-header .titulo {
+header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
   font-size: 1.8rem;
@@ -69,7 +75,6 @@ header .titulo {
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* 🔗 Redes sociales */
 header .redes {
   display: flex;
   align-items: center;
@@ -149,11 +154,13 @@ main {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
 }
+
 .welcome-text h2 {
   margin: 6px 0;
   color: var(--color-principal);
   font-size: 2rem;
 }
+
 .welcome-text p {
   margin: 0;
   font-size: 1.05rem;
@@ -253,6 +260,7 @@ footer .btn-mapa {
   color: #fff;
   border-radius: 20px;
 }
+
 footer .btn-mapa:hover {
   background-color: #a11d1d;
   transform: translateY(-2px);
@@ -262,10 +270,12 @@ footer .btn-whatsapp {
   background-color: #25d366;
   color: #fff;
 }
+
 footer .btn-whatsapp img {
   width: 20px;
   height: 20px;
 }
+
 footer .btn-whatsapp:hover {
   background-color: #1ebe57;
   transform: translateY(-2px);
