@@ -328,7 +328,6 @@ footer .btn-whatsapp:hover {
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
-
 header h1, header img {
   animation: brilloSuave 3s infinite alternate;
 }
