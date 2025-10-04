@@ -110,7 +110,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   gap: 8px;
-  padding: 2px;
+  padding: 7px;
   border-radius: 8px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
@@ -119,7 +119,7 @@ nav {
   transform: translateX(-50%);
   width: 85%;
   max-width: 1200px;
-  height: var(--nav-height);
+  height: 8vh;
   z-index: 1001;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
