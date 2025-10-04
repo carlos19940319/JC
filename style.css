@@ -5,11 +5,18 @@
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197, 0, 0, 0.5);
   --fondo-img: url("img/fondo24.jpg");
-  width: auto;
+  --fondo-opacidad: 0.3;
+
+  /* alturas controladas para evitar solapamiento */
+  --header-height: 64px; /* ajustar si tu header cambia */
+  --nav-height: 60px;    /* ajustar si tu nav cambia */
 }
 
-:root {
-  --fondo-opacidad: 0.3;
+/* reset box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* 📍 Body y fondo*/
@@ -20,6 +27,8 @@ body {
   position: relative; /* necesario para el fondo fijo en móviles */
   overflow-x: hidden;
   overscroll-behavior: none; /* evita rebote en móviles */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 📌 Fondo fijo universal (funciona en móviles)*/
@@ -56,10 +65,13 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1001;
+  height: var(--header-height);
+  min-height: var(--header-height);
+  z-index: 1002;
   box-sizing: border-box;
 }
 
+/* Logo y títulos */
 header img.logo {
   width: 30px;
   height: auto;
@@ -70,16 +82,18 @@ header img.logo {
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: 1.8rem;
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
 }
 
+/* redes sociales en header */
 header .redes {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 
 header .redes img {
@@ -93,46 +107,64 @@ header .redes img:hover {
   transform: scale(1.1);
 }
 
-/* 📍 NAV fijo debajo del header - Ajustado para que no se bajen los botones */
+/* 📍 NAV fijo debajo del header - sin sobreponerse y siempre horizontal */
+/* --------------------------------------------------------------
+   - No hay scroll horizontal en la nav
+   - Los botones comparten el espacio con flex: 1
+   - min-width asegura que no se hagan tan pequeños que pierdan legibilidad
+   - justify-content: space-between/space-around para mantener estética
+   -------------------------------------------------------------- */
 nav {
   display: flex;
   justify-content: space-around; /* mantiene separación entre botones */
+  align-items: center;
   gap: 8px;
   padding: 7px;
   border-radius: 10px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
-  top: 80px;
+  top: calc(var(--header-height) + 6px); /* separado del header */
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
-  z-index: 1000;
+  max-width: 1200px;
+  height: var(--nav-height);
+  min-height: var(--nav-height);
+  z-index: 1001;
   background: var(--navbar-bg);
   backdrop-filter: blur(20px);
 
-  flex-wrap: nowrap; /* ❌ no deja bajar los botones */
-  overflow-x: auto;  /* permite scroll horizontal en móviles si no caben */
+  /* Claves para mantener siempre horizontal sin scroll */
+  flex-wrap: nowrap;    /* Nunca baja de línea */
+  overflow: hidden;     /* Sin scroll horizontal */
 }
 
+/* Botones de nav: se reparten el espacio y se reducen proporcionalmente */
 nav a {
-  flex: 0 0 auto;            /* evita encimarse o comprimirse */
-  display: flex;
-  flex-direction: row;        /* texto/icono en línea horizontal */
+  flex: 1 1 auto;         /* permite crecer y reducirse proporcionalmente */
+  min-width: 64px;        /* evita tamaños ridículos en móviles */
+  max-width: 240px;       /* evita que un botón crezca demasiado */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
+  white-space: nowrap;    /* evita partir texto en dos líneas */
   text-decoration: none;
   color: var(--color-secundario);
   font-weight: 700;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
   padding: 10px 14px;
   border-radius: 12px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  transition: all 0.18s ease-in-out;
-
+  transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
   -webkit-tap-highlight-color: transparent; /* Quita recuadro verde en móviles */
+  text-align: center;
+  box-sizing: border-box;
 }
 
+/* Efectos */
 nav a:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
@@ -152,12 +184,13 @@ nav a:focus {
   box-shadow: none;
 }
 
-/* 📌 Main */
+/* 📌 Main: dejar suficiente espacio para header + nav para evitar solapamiento */
 main {
   max-width: 1100px;
   margin: 18px auto;
   padding: 0 14px;
-  padding-top: 130px;
+  /* padding-top depende de los tamaños de header y nav */
+  padding-top: calc(var(--header-height) + var(--nav-height) + 28px);
 }
 
 /* Bienvenida */
@@ -171,12 +204,12 @@ main {
 .welcome-text h2 {
   margin: 10px 0;
   color: var(--color-principal);
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
 .welcome-text p {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
 }
 
 /* Hero */
@@ -184,6 +217,7 @@ main {
   display: flex;
   justify-content: center;
   padding: 10px;
+  width: 100%;
 }
 
 .img-bienvenida {
@@ -294,12 +328,62 @@ footer .btn-whatsapp:hover {
   transform: translateY(-2px);
 }
 
-/* 📱 Responsive */
+/* 📱 Responsive - adaptaciones finas sin romper diseño */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 64px;
+    --nav-height: 56px;
+  }
+
+  main {
+    padding-top: calc(var(--header-height) + var(--nav-height) + 22px);
+  }
+
+  nav { width: 90%; gap: 6px; }
+  nav a { font-size: clamp(0.85rem, 1.4vw, 0.98rem); padding: 8px 10px; min-width: 58px; }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .card img { max-height: 160px; }
+}
+
+/* 📱 Tablets */
 @media (max-width: 768px) {
-  header img.logo { width: 64px; }
-  nav { width: 95%; gap: 5px; }
-  .img-bienvenida { width: 95%; }
-  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
+  :root { --header-height: 72px; --nav-height: 56px; }
+
+  header { justify-content: space-between; padding: 6px 10px; height: var(--header-height); }
+  header img.logo { width: 50px; }
+  header h1 { font-size: clamp(1rem, 2.6vw, 1.4rem); }
+
+  nav { width: 95%; top: calc(var(--header-height) + 6px); padding: 6px; height: var(--nav-height); }
+  nav a { font-size: clamp(0.82rem, 2.2vw, 0.95rem); padding: 7px 8px; min-width: 56px; }
+
+  .welcome-text h2 { font-size: clamp(1.3rem, 3.2vw, 1.6rem); }
+  .img-bienvenida { max-width: 700px; }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .card img { max-height: 150px; }
+}
+
+/* 📱 Celulares */
+@media (max-width: 480px) {
+  :root { --header-height: 80px; --nav-height: 56px; }
+
+  header { flex-direction: column; align-items: center; text-align: center; padding: 8px; height: var(--header-height); }
+  header img.logo { width: 45px; margin-bottom: 4px; }
+  header h1 { font-size: clamp(0.95rem, 3.6vw, 1.2rem); }
+
+  nav { width: 98%; top: calc(var(--header-height) - 4px); gap: 6px; padding: 6px; height: var(--nav-height); }
+  /* IMPORTANTE: los botones se reducen pero mantienen proporción */
+  nav a { font-size: clamp(0.76rem, 3.6vw, 0.9rem); padding: 6px 8px; min-width: 52px; max-width: 160px; }
+
+  main { padding-top: calc(var(--header-height) + var(--nav-height) + 18px); }
+
+  .welcome-text h2 { font-size: clamp(1.1rem, 4.2vw, 1.4rem); }
+  .welcome-text p { font-size: clamp(0.88rem, 2.8vw, 0.95rem); }
+
+  .img-bienvenida { max-width: 95%; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .card img { max-height: 140px; }
+
+  footer .footer-botones a { font-size: 12px; padding: 6px 10px; }
 }
 
 /* Animaciones */
