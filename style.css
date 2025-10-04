@@ -57,7 +57,7 @@ header {
   justify-content: flex-start;
   gap: 12px;
   padding: 8px 16px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   color: #ffffff;
   position: fixed;
   top: 0;
