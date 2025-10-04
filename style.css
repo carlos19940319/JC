@@ -111,10 +111,10 @@ nav {
   align-items: center;
   gap: 8px;
   padding: 7px;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
-  top: calc(var(--header-height) + 6px);
+  top: calc(var(--header-height) + 0px);
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
@@ -142,7 +142,7 @@ nav a {
   font-weight: 700;
   font-size: clamp(0.8rem, 1.6vw, 1rem);
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
