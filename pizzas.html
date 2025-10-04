@@ -1,4 +1,31 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pizzas | La Bonanza</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pizzas | La Bonanza</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/img/logo.png" type="image/png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+
+  <!-- Datos estructurados para el logo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "La Bonanza",
+    "url": "https://labonanza.netlify.app/",
+    "logo": "https://labonanza.netlify.app/img/logo.png"
+  }
+  </script>
+</head>
+<body>
 
 <header class="header">  
   <img src="img/logo.png" alt="Logo" class="logo">  
@@ -11,69 +38,75 @@
       <img src="img/facce.png" alt="Facebook" class="icono-red">  
     </a>  
   </div>  
-</header>  <nav class="nav">  
+</header>  
+
+<nav class="nav">  
   <a href="index.html">Inicio</a>  
   <a href="pizzas.html">Pizzas</a>  
   <a href="bebidas.html">Bebidas</a>  
   <a href="eventos.html">¡Catering!</a>  
-</nav>  <main class="contenido">  
-<div class="welcome-text"><h2><font color="white">😋 Pizzas</h2></font></div>  <div><h3><font color="white">“¡No te pierdas nuestros sabores de temporada! Pregunta por ellos.” 👌🫰</h3></font></div>   
+</nav>  
 
+<main class="contenido">  
+  <div class="welcome-text"><h2><font color="white">😋 Pizzas</h2></font></div>  
+  <div><h3><font color="white">“¡No te pierdas nuestros sabores de temporada! Pregunta por ellos.” 👌🫰</h3></font></div>   
 
+  <div class="grid">
 
-<div class="grid">
+    <div class="card">
+      <img src="img/arugula.png" alt="Margarita">
+      <h2><font color="#b22222">Margarita</font></h2>
+      <p class="desc">Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p>
+      <h3><p class="price">$180</p></h3>
+    </div>
 
-  <div class="card">
-    <img src="img/arugula.png" alt="Margarita">
-<h2><font color="#b22222">Margarita</font></h2>
-    <p class="desc">Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p>
-    <h3><p class="price">$180</p></h3>
+    <div class="card">
+      <img src="img/arugula.png" alt="Pepperoni">
+      <h2><font color="#b22222">Pepperoni</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p>
+      <h3><p class="price">$180</p></h3>
+    </div>
+
+    <div class="card">
+      <img src="img/arugula.png" alt="Arúgula">
+      <h2><font color="#b22222">Arúgula</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.</p>
+      <h3><p class="price">$240</p></h3>
+    </div>
+
+    <div class="card">
+      <img src="img/arugula.png" alt="Jamón Serrano">
+      <h2><font color="#b22222">Jamón serrano</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p>
+      <h3><p class="price">$240</p></h3>
+    </div>
+
+    <div class="card">
+      <img src="img/arugula.png" alt="3 Quesos">
+      <h2><font color="#b22222">3 Quesos</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p>
+      <h3><p class="price">$220</p></h3>
+    </div>
+
+    <div class="card">
+      <img src="img/IMG-20251003-WA0204.jpg" alt="Mexicana">
+      <h2><font color="#b22222">Mexicana</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p>
+      <h3><p class="price">$220</p></h3>
+    </div>
+
+    <div class="card">
+      <img src="img/arugula.png" alt="Champiñon">
+      <h2><font color="#b22222">Champiñon</font></h2>
+      <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.</p>
+      <h3><p class="price">$220</p></h3>
+    </div>
+
   </div>
+</main>  
 
-  <div class="card">
-    <img src="img/arugula.png" alt="Pepperoni">
-    <h2><font color="#b22222">Pepperoni</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p>
-    <h3><p class="price">$180</p></h3>
-  </div>
-
-  <div class="card">
-    <img src="img/arugula.png" alt="Arúgula">
-<h2><font color="#b22222">Arúgula</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.</p>
-    <h3><p class="price">$240</p></h3>
-  </div>
-
-  <div class="card">
-    <img src="img/arugula.png" alt="Jamón Serrano">
-<h2><font color="#b22222">Jamón serrano</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p>
-    <h3><p class="price">$240</p></h3>
-  </div>
-
-  <div class="card">
-    <img src="img/arugula.png" alt="3 Quesos">
-<h2><font color="#b22222">3 Quesos</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p>
-    <h3><p class="price">$220</p></h3>
-  </div>
-
-  <div class="card">
-    <img src="img/IMG-20251003-WA0204.jpg" alt="Mexicana">
-<h2><font color="#b22222">Mexicana</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p>
-    <h3><p class="price">$220</p></h3>
-  </div>
-
-  <div class="card">
-    <img src="img/arugula.png" alt="Champiñon">
-<h2><font color="#b22222">Champiñon</font></h2>
-    <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.</p>
-    <h3><p class="price">$220</p></h3>
-  </div>
-
-</div>
-</main>  <!-- Footer compacto -->  <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">  
+<!-- Footer compacto -->  
+<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">  
   <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">  
     Calle Amado Nervo 14-MZ 016,<br>  
     San Miguel, 52740 Ocoyoacac, Méx  
@@ -86,5 +119,7 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873  
     </a>  
   </div>  
+</footer>
+
 </body>  
-</html>  
+</html>
