@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -15,7 +14,7 @@
   <!-- Scripts -->
   <script src="script.js" defer></script>
 
-  <!-- Datos estructurados para el logo (SEO) -->
+  <!-- Datos estructurados para SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,20 +24,188 @@
     "logo": "https://labonanza.netlify.app/img/logo.png"
   }
   </script>
+
+  <style>
+    /* 🎠 Estilos del carrusel */
+    #eventos {
+      width: 100%;
+      font-family: Inter, system-ui, Roboto, Arial;
+      padding: 40px 0;
+    }
+
+    .carousel-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0;
+      scrollbar-width: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      min-width: 90%;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+      transform: scale(.9);
+      opacity: .85;
+      scroll-snap-align: center;
+    }
+
+    .slide.active {
+      transform: scale(1.07);
+      opacity: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    @media (min-width: 900px) { .slide { min-width: 45%; } }
+    @media (min-width: 1200px) { .slide { min-width: 32%; } }
+
+    .media {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease-out;
+    }
+
+    .slide.active img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .title {
+      font-size: 1.4rem;
+      margin: 6px 0;
+      font-weight: bold;
+    }
+
+    .desc {
+      font-size: 1rem;
+      margin-top: 8px;
+      line-height: 1.35;
+    }
+
+    /* 🎯 Botones mejorados */
+    .controls {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: auto;
+      background: rgba(178,34,34,0.95);
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform .25s ease, background .3s ease, box-shadow .3s ease;
+      z-index: 5;
+    }
+
+    .btn:hover {
+      background: #ff4d4d;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn.left { left: -16px; }
+    .btn.right { right: -16px; }
+
+    /* 📱 Responsive botones */
+    @media (max-width: 640px) {
+      .media { height: 280px; }
+      .slide { min-width: 90%; }
+      .btn { width: 40px; height: 40px; }
+      .btn.left { left: 4px; }
+      .btn.right { right: 4px; }
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #b22222;
+    }
+  </style>
 </head>
+
 <body>
-
-
 <header class="header">
   <img src="img/logo.png" alt="Logo" class="logo">
   <h2 class="titulo">Pizzería</h2>
   <div class="redes">
-    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
-      <img src="img/instagram-3d-logo-free-png.png" alt="Instagram" class="icono-red">
-    </a>
-    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
-      <img src="img/facce.png" alt="Facebook" class="icono-red">
-    </a>
+    <a href="https://www.instagram.com/mar_bonanza" target="_blank"><img src="img/instagram-3d-logo-free-png.png" class="icono-red"></a>
+    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank"><img src="img/facce.png" class="icono-red"></a>
   </div>
 </header>
 
@@ -49,347 +216,180 @@
   <a href="eventos.html">¡Catering!</a>
 </nav>
 
-
-
-
-
-
-
 <main>
-<div class="welcome-text"> <h3><font color="white">🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.
-    </h3></font></div>
+  <div class="welcome-text">
+    <h3><font color="white">🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.</font></h3>
+  </div>
 
+  <!-- 🥂 Carrusel de eventos -->
+  <section id="eventos">
+    <div class="carousel-wrap">
+      <div class="carousel" id="carousel" tabindex="0">
 
-  <!-- CONTENIDO PRINCIPAL: CARRUSEL DE EVENTOS -->
-  <div class="grid">
-    <section id="eventos" style="padding:10px 0;">
-      <style>
-        /* Estilos solo para #eventos */
-        #eventos {
-          all: initial;
-          font-family: Inter, system-ui, Segoe UI, Roboto, Arial !important;
-          display: block;
-          width: 100%;
-        }
-
-        #eventos * {
-          all: unset;
-          display: revert;
-          box-sizing: border-box;
-        }
-
-        #eventos .carousel-wrap {
-          max-width: 1100px;
-          margin: 0 auto;
-          position: relative;
-        }
-
-        #eventos .carousel {
-          display: flex;
-          gap: 20px;
-          overflow-x: auto;
-          scroll-behavior: smooth;
-          padding: 10px 0;
-          scroll-snap-type: x mandatory;
-        }
-
-        #eventos .slide {
-          min-width: 90%;
-          border-radius: 16px;
-          overflow: hidden;
-          position: relative;
-          background: rgba(255,255,255,0.06);
-          transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.3s ease-out;
-          transform: scale(0.9);
-          opacity: 0.85;
-          scroll-snap-align: center;
-          text-align: center;
-        }
-
-        #eventos .slide.active {
-          transform: scale(1.07);
-          opacity: 1;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        @media (min-width: 900px) { #eventos .slide { min-width: 45%; } }
-        @media (min-width: 1200px) { #eventos .slide { min-width: 32%; } }
-
-        #eventos .media {
-          position: relative;
-          height: 420px;
-          overflow: hidden;
-        }
-
-        #eventos .media img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease-out;
-        }
-
-        #eventos .slide.active img {
-          transform: scale(1.08);
-        }
-
-        #eventos .overlay {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          padding: 20px;
-          color: #fff;
-          background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%);
-          text-align: center;
-        }
-
-        #eventos .badge {
-          display: inline-flex;
-          gap: 8px;
-          align-items: center;
-          background: rgba(255,255,255,0.12);
-          padding: 6px 12px;
-          border-radius: 999px;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-
-        #eventos .title { font-size: 1.4rem; margin: 6px 0; font-weight: bold; }
-        #eventos .date { font-size: 1rem; opacity: .9; }
-        #eventos .desc { font-size: 1rem; margin-top: 8px; line-height: 1.35; }
-
-        #eventos .controls { position: absolute; inset: 0; pointer-events: none; }
-        #eventos .btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          pointer-events: auto;
-          background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-          border: 0;
-          width: 44px;
-          height: 44px;
-          border-radius: 10px;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-        }
-
-        #eventos .btn.left { left: -12px; }
-        #eventos .btn.right { right: -12px; }
-        #eventos .btn svg { width: 20px; height: 20px; }
-
-        #eventos .dots { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
-        #eventos .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }
-        #eventos .dot.active { background: #d35400; }
-
-        @media (max-width: 640px) {
-          #eventos .media { height: 280px; }
-          #eventos .title { font-size: 1.2rem; }
-          #eventos .desc { font-size: .95rem; }
-          #eventos .slide { min-width: 90%; }
-          #eventos .btn.left { left: 6px; }
-          #eventos .btn.right { right: 6px; }
-        }
-      </style>
-
-      <div class="carousel-wrap">
-        <div class="carousel" id="carousel" tabindex="0">
-          <!-- 🍕 Evento 1 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/fondo22.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">LA BONANZA</div>
-                  <h3 class="title">Reserve nuestro espacio</h3>
-                  <div class="date"></div>
-                  <p class="desc">Disfrute de un ambiente cómodo y exclusivo, ideal para celebrar momentos especiales junto a sus seres queridos.</p>
-                </div>
+        <!-- Evento 1 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/fondo22.jpg" alt="Evento 1">
+            <div class="overlay">
+              <div>
+                <div class="badge">LA BONANZA</div>
+                <h3 class="title">Reserve nuestro espacio</h3>
+                <p class="desc">Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.</p>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- 🍕 Evento 2 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/foto7.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">CATERING</div>
-                  <h3 class="title">🍽 servicio de banquetes</h3>
-                  <div class="date"></div>
-                  <p class="desc">Torre de nopal, queso y jitomate con pesto de albahaca.</p>
-                </div>
+        <!-- Evento 2 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/foto7.jpg" alt="Evento 2">
+            <div class="overlay">
+              <div>
+                <div class="badge">CATERING</div>
+                <h3 class="title">🍽 Servicio de banquetes</h3>
+                <p class="desc">Torre de nopal, queso y jitomate con pesto de albahaca.</p>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- 🍕 Evento 3 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/foto3.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">CATERING</div>
-                  <h3 class="title">🍽 servicio de banquetes</h3>
-                  <div class="date"></div>
-                  <p class="desc">Sopa de tortilla.</p>
-                </div>
+        <!-- Evento 3 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/foto3.jpg" alt="Evento 3">
+            <div class="overlay">
+              <div>
+                <div class="badge">CATERING</div>
+                <h3 class="title">🍽 Servicio de banquetes</h3>
+                <p class="desc">Sopa de tortilla.</p>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-  <!-- 🍕 Evento 4 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/foto6.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">CATERING</div>
-<h3 class="title">🍽 servicio de banquetes</h3>
-                  
-                  <p class="desc">Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.</p>
-                </div>
+        <!-- Evento 4 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/foto6.jpg" alt="Evento 4">
+            <div class="overlay">
+              <div>
+                <div class="badge">CATERING</div>
+                <h3 class="title">🍽 Servicio de banquetes</h3>
+                <p class="desc">Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.</p>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-
-
-  <!-- 🍕 Evento 5 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/IMG-20251003-WA0150.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">CATERING</div>
-<h3 class="title">🍽 servicio de banquetes</h3>
-                  
-                  <p class="desc">Rollo de pollo, con salsa de cacahuate🥜.</p>
-                </div>
+        <!-- Evento 5 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/IMG-20251003-WA0150.jpg" alt="Evento 5">
+            <div class="overlay">
+              <div>
+                <div class="badge">CATERING</div>
+                <h3 class="title">🍽 Servicio de banquetes</h3>
+                <p class="desc">Rollo de pollo con salsa de cacahuate 🥜.</p>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-
-
-<!-- 🍕 Evento 6 -->
-          <article class="slide">
-            <div class="media">
-              <img src="img/IMG-20251003-WA0155.jpg" alt="Pizza Fest">
-              <div class="overlay">
-                <div>
-                  <div class="badge">CATERING</div>
-<h4 class="title">🍽🎅 “La magia de la Navidad y el Año Nuevo se sirve en la mesa… ¡Muy pronto nuestras cenas especiales estarán listas para compartir en familia!”</h4>
-      
-                </div>
+        <!-- Evento 6 -->
+        <article class="slide">
+          <div class="media">
+            <img src="img/IMG-20251003-WA0155.jpg" alt="Evento 6">
+            <div class="overlay">
+              <div>
+                <div class="badge">CATERING</div>
+                <h4 class="title">🍽🎅 “La magia de la Navidad y el Año Nuevo se sirve en la mesa… ¡Muy pronto nuestras cenas especiales!”</h4>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-
-
-
-          <!-- Más eventos se pueden agregar aquí -->
-
-        </div>
-
-        <div class="controls">
-          <button class="btn left" id="prevBtn" aria-label="Anterior">
-            <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="btn right" id="nextBtn" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-
-        <div class="dots" id="dots"></div>
       </div>
 
-      <script>
-        (function(){
-          const carousel = document.getElementById('carousel');
-          const slides = [...carousel.querySelectorAll('.slide')];
-          const prevBtn = document.getElementById('prevBtn');
-          const nextBtn = document.getElementById('nextBtn');
-          const dotsWrap = document.getElementById('dots');
-          let current = 0;
+      <div class="controls">
+        <button class="btn left" id="prevBtn" aria-label="Anterior">
+          <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18"/></svg>
+        </button>
+        <button class="btn right" id="nextBtn" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18"/></svg>
+        </button>
+      </div>
 
-          slides.forEach((s, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'dot';
-            dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));
-            dot.addEventListener('click', () => goTo(i));
-            dotsWrap.appendChild(dot);
-          });
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+</main>
 
-          const dots = [...dotsWrap.children];
-
-          function updateActiveSlide() {
-            const center = carousel.scrollLeft + carousel.clientWidth / 2;
-            let closest = 0, min = Infinity;
-            slides.forEach((s, i) => {
-              const slideCenter = s.offsetLeft + s.clientWidth / 2;
-              const dist = Math.abs(center - slideCenter);
-              if (dist < min) { min = dist; closest = i; }
-              s.classList.remove('active');
-            });
-            slides[closest].classList.add('active');
-            current = closest;
-            dots.forEach(d => d.classList.remove('active'));
-            dots[current]?.classList.add('active');
-          }
-
-          function clamp(i) { return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i; }
-
-          function goTo(i) {
-            current = clamp(i);
-            const s = slides[current];
-            const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
-            carousel.scrollTo({ left, behavior: 'smooth' });
-            setTimeout(updateActiveSlide, 250);
-          }
-
-          prevBtn.onclick = () => goTo(current - 1);
-          nextBtn.onclick = () => goTo(current + 1);
-          carousel.addEventListener('scroll', () => {
-            clearTimeout(window._scrollTimer);
-            window._scrollTimer = setTimeout(updateActiveSlide, 100);
-          });
-
-          window.addEventListener('load', () => { goTo(0); });
-        })();
-      </script>
-
-    </section>
-  </div>
-</Main>
-
-
-
-
-<!-- Footer compacto -->
-<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
-  <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
-    Calle Amado Nervo 14-MZ 016,<br>
-    San Miguel, 52740 Ocoyoacac, Méx
-  </div>
-  <div class="footer-botones" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"
-       target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-size:14px; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>
-    <a href="https://wa.me/5217222675873?text=¡Hola!%20Me%20gustaria%20recibir%20más%20detalles%20sobre%20sus%20eventos%20y%20cómo%20hacer%20una%20reservación."
-
-       target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-size:14px; font-weight:bold; border-radius:8px; text-decoration:none;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873
+<!-- Footer -->
+<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px;">
+  <div style="margin-bottom:10px; font-size:14px;">Calle Amado Nervo 14-MZ 016,<br> San Miguel, 52740 Ocoyoacac, Méx</div>
+  <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>
+    <a href="https://wa.me/5217222675873?text=¡Hola!%20Me%20gustaria%20recibir%20más%20detalles%20sobre%20sus%20eventos." target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:20px; height:20px;"> 722 267 5873
     </a>
   </div>
+</footer>
+
+<script>
+  (function() {
+    const carousel = document.getElementById('carousel');
+    const slides = [...carousel.querySelectorAll('.slide')];
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsWrap = document.getElementById('dots');
+    let current = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = [...dotsWrap.children];
+
+    function updateActiveSlide() {
+      const center = carousel.scrollLeft + carousel.clientWidth / 2;
+      let closest = 0, min = Infinity;
+      slides.forEach((s, i) => {
+        const slideCenter = s.offsetLeft + s.clientWidth / 2;
+        const dist = Math.abs(center - slideCenter);
+        if (dist < min) { min = dist; closest = i; }
+        s.classList.remove('active');
+      });
+      slides[closest].classList.add('active');
+      current = closest;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[current]?.classList.add('active');
+    }
+
+    function clamp(i) { return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i; }
+
+    function goTo(i) {
+      current = clamp(i);
+      const s = slides[current];
+      const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
+      carousel.scrollTo({ left, behavior: 'smooth' });
+      setTimeout(updateActiveSlide, 250);
+    }
+
+    prevBtn.onclick = () => goTo(current - 1);
+    nextBtn.onclick = () => goTo(current + 1);
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(window._scrollTimer);
+      window._scrollTimer = setTimeout(updateActiveSlide, 100);
+    });
+
+    window.addEventListener('load', () => goTo(0));
+  })();
+</script>
+
 </body>
 </html>
-
-
-
-
 
