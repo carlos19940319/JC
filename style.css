@@ -1,10 +1,9 @@
-
 /* 📌 Variables editables */
 :root {
   --color-principal: #C00000;
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
-  --navbar-bg: rgba(0, 0, 0, 0.0);
+  --navbar-bg: rgba(197, 0, 0, 0.5);
   --fondo-img: url("img/fondo24.jpg");
   --fondo-header-img: url("img/muertos3.jpg");
   --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7.jpg");    /* agregar imagen opcional del nav */
@@ -233,7 +232,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
- margin-top: clamp(10px, 3vw, 40px);
+  margin-top: clamp(10px, 3vw, 40px);
 }
 
 /* Tarjeta */
@@ -356,3 +355,14 @@ footer .btn-whatsapp:hover {
 header h1, header img {
   animation: brilloSuave 3s infinite alternate;
 }
+
+/* =========================== */
+/* 🔹 NUEVO: quitar efecto verdoso al hacer clic */
+/* Solo logos, botones de carrusel y enlaces nav */
+header img.logo:focus,
+.carousel button:focus,
+nav a:focus {
+  outline: none;
+  box-shadow: none;
+}
+/* =========================== */
