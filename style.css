@@ -91,7 +91,7 @@ header h1, header h2, header .titulo {
   padding: 0;
   font-size: clamp(1rem, 1.8vw, 1.8rem);
   color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
 }
 
