@@ -69,7 +69,7 @@ header {
 
 /* Logo principal */
 header img.logo {
-  width: 40px;
+  width: 60px;
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
@@ -94,8 +94,8 @@ header .redes {
 
 /* Iconos de redes sociales */
 header .redes img {
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
