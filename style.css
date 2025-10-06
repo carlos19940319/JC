@@ -161,7 +161,7 @@ nav a {
   border-radius: 8px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
+  transition: transform 0.12s ease-in-out, box-shadow 0.12s ease-in-out;
 }
 
 nav a:hover {
@@ -170,7 +170,7 @@ nav a:hover {
 }
 
 nav a:active {
-  transform: translateY(1px) scale(.);
+  transform: translateY(-2px) scale(1);
 }
 
 nav a.active {
