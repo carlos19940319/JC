@@ -71,7 +71,7 @@ body::before {
   100% {
     opacity: 1;
     transform: scale(1);
-    filter: blur(6px);
+    filter: blur(0);
   }
 }
 
