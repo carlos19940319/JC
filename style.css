@@ -58,14 +58,14 @@ body::before {
 body::before {
   opacity: 0;
   transform: scale(1.15); /* empieza un poco más grande */
-  animation: fondoZoomUniforme 6s linear forwards; /* velocidad constante */
+  animation: fondoZoomUniforme 2s linear forwards; /* velocidad constante */
 }
 
 /* Keyframes para zoom uniforme */
 @keyframes fondoZoomUniforme {
   0% {
     opacity: 0;
-    transform: scale(2);
+    transform: scale(1.7);
     filter: blur(6px);
   }
   100% {
