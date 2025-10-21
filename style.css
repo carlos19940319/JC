@@ -54,35 +54,28 @@ body::before {
   z-index: -1;
 }
 
+
 body::before {
   opacity: 0;
   transform: scale(1.15); /* empieza un poco más grande */
-  animation: fondoZoomSuave 4s ease-out forwards; /* duración más lenta y suave */
+  animation: fondoZoomUniforme 6s linear forwards; /* velocidad constante */
 }
 
-/* Keyframes para zoom cinematográfico ultra suave */
-@keyframes fondoZoomSuave {
+/* Keyframes para zoom uniforme */
+@keyframes fondoZoomUniforme {
   0% {
     opacity: 0;
-    transform: scale(1.15); /* tamaño inicial más grande */
-    filter: blur(6px);      /* desenfoque inicial */
-  }
-  40% {
-    opacity: 0.7;
-    transform: scale(1.08); /* transición intermedia suave */
-    filter: blur(3px);
-  }
-  70% {
-    opacity: 0.9;
-    transform: scale(1.02); /* acercándose al tamaño final */
-    filter: blur(1px);
+    transform: scale(2);
+    filter: blur(6px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);    /* tamaño final exacto */
-    filter: blur(0);        /* enfoque total */
+    transform: scale(1);
+    filter: blur(0);
   }
 }
+
+
 
 
 /* 📌 Header: logo, título y redes */
