@@ -26,7 +26,6 @@ body {
   color: var(--color-secundario);
   position: relative;
   overflow-x: hidden;
-   will-change: transform, opacity;
   overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
