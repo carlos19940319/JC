@@ -58,20 +58,20 @@ body::before {
 body::before {
   opacity: 0;
   transform: scale(1.15); /* empieza un poco más grande */
-  animation: fondoZoomUniforme 3s linear forwards; /* velocidad constante */
+  animation: fondoZoomUniforme 3.5s linear forwards; /* velocidad constante */
 }
 
 /* Keyframes para zoom uniforme */
 @keyframes fondoZoomUniforme {
   0% {
     opacity: 0;
-    transform: scale(1.7);
-    filter: blur(2px);
+    transform: scale(1.15);
+    filter: blur(6px);
   }
   100% {
     opacity: 1;
     transform: scale(1);
-    filter: blur(0);
+    filter: blur(6px);
   }
 }
 
