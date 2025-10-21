@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* 🔹 Fondo negro con opacidad al inicio */
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 1);
   transition: opacity 1s ease-out;
 }
 
@@ -53,33 +53,34 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
-/* ========================= */
-/* ✨ Animación fondo al cargar */
-/* ========================= */
 
-/* Estado inicial antes de mostrar el fondo */
 body::before {
   opacity: 0;
-  transform: scale(1.05);
-  animation: fondoAparecer 2.5s ease-out forwards;
+  transform: scale(1.15); /* empieza un poco más grande */
+  animation: fondoZoomSuave 4s ease-out forwards; /* duración más lenta y suave */
 }
 
-/* Keyframes para el efecto */
-@keyframes fondoAparecer {
+/* Keyframes para zoom cinematográfico ultra suave */
+@keyframes fondoZoomSuave {
   0% {
     opacity: 0;
-    transform: scale(1.05);
-    filter: blur(6px);
+    transform: scale(1.15); /* tamaño inicial más grande */
+    filter: blur(6px);      /* desenfoque inicial */
   }
-  60% {
-    opacity: 0.8;
-    transform: scale(1.02);
-    filter: blur(2px);
+  40% {
+    opacity: 0.7;
+    transform: scale(1.08); /* transición intermedia suave */
+    filter: blur(3px);
+  }
+  70% {
+    opacity: 0.9;
+    transform: scale(1.02); /* acercándose al tamaño final */
+    filter: blur(1px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
+    transform: scale(1);    /* tamaño final exacto */
+    filter: blur(0);        /* enfoque total */
   }
 }
 
