@@ -19,9 +19,7 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   📌 BODY Y FONDO MODERNO
-========================= */
+/* 📍 Body y fondo */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -32,8 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* Fondo fijo con degradado y blur */
+/* 📌 Fondo fijo universal */
 body::before {
   content: "";
   position: fixed;
@@ -44,39 +41,19 @@ body::before {
   background:
     linear-gradient(
       180deg,
-      rgba(7, 16, 33, var(--fondo-opacidad, 0.6)) 0%,
-      rgba(12, 19, 32, var(--fondo-opacidad, 0.6)) 100%
+      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
+      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
     var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
-  backdrop-filter: blur(2px); /* desenfoque suave */
+
+
+backdrop-filter: blur(2px); /* desenfoque suave */
   animation: fondoAparecer 2s ease-out forwards;
   opacity: 0; /* inicia invisible para animación */
-}
-
-/* Fondo fijo solo en pantallas grandes para mejor rendimiento móvil */
-@media (min-width: 768px) {
-  body::before {
-    background-attachment: fixed;
-  }
-}
-
-
-
-
-/* Animación suave de aparición del fondo */
-@keyframes fondoAparecer {
-  0% {
-    opacity: 0;
-    transform: scale(1.02); /* ligero zoom al iniciar */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 
