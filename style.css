@@ -391,4 +391,8 @@ nav a:focus {
   outline: none;
   box-shadow: none;
 }
-/* =========================== */
+/* Quita el cuadro verdoso de selección en móviles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
