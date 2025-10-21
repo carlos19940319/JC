@@ -30,6 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* 📌 Fondo fijo universal */
 body::before {
   content: "";
@@ -42,13 +43,13 @@ body::before {
     linear-gradient(
       180deg,
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
-    ),
+      rgba(12, 19, 32, var(--fondo-opacidad)) 100%),
     var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
+}
 
 /* 📌 Header: logo, título y redes */
 header {
@@ -363,5 +364,4 @@ nav a:focus {
   outline: none;
   box-shadow: none;
 }
-
-
+/* =========================== */
