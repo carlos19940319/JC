@@ -45,7 +45,6 @@ body::before {
       rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
       rgba(12, 19, 32, var(--fondo-opacidad)) 100%
     ),
-    var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
