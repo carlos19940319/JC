@@ -50,14 +50,6 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 
-
-backdrop-filter: blur(2px); /* desenfoque suave */
-  animation: fondoAparecer 2s ease-out forwards;
-  opacity: 0; /* inicia invisible para animación */
-}
-
-
-
 /* 📌 Header: logo, título y redes */
 header {
   display: flex;
