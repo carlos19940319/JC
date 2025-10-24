@@ -3,20 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>La Bonanza Pizzería</title>
+<title>La Bonanza pizzería</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<!-- Metaetiqueta de verificación de Google -->
+<meta name="google-site-verification" content="LQZOjQew5_GIjOqafnr1L3Y0WsEU06BC2rNpjLsLfow" />
+<meta name="msvalidate.01" content="B0C5292EF3AB318E5B3555BE967BDF1A" />
 
 <!-- Favicon -->
 <link rel="icon" href="img/Imagen6.jpg" type="image/png">
 
-<!-- Estilos -->
-<link rel="stylesheet" href="style.css">
-
-<!-- Scripts -->
-<script src="script.js" defer></script>
-
-<!-- Metaetiquetas y datos estructurados -->
-<meta name="google-site-verification" content="LQZOjQew5_GIjOqafnr1L3Y0WsEU06BC2rNpjLsLfow" />
-<meta name="msvalidate.01" content="B0C5292EF3AB318E5B3555BE967BDF1A" />
+<!-- Datos estructurados para el logo -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,25 +24,17 @@
   "logo": "https://labonanza.netlify.app/img/logo.png"
 }
 </script>
-
-<style>
-/* 🔹 Estilos para ocultar secciones */
-section.page { display: none; }
-section.page.active { display: block; }
-
-/* 🔹 Puedes mantener aquí estilos adicionales de tus páginas */
-</style>
 </head>
 <body>
 
-<!-- ✨ Contenedor principal -->
+<!-- ✨ Contenedor para la animación -->
 <div class="page-transition">
 
 <header class="header">
   <img src="img/logo.png" alt="Logo" class="logo">
   <h2 class="titulo">Pizzería</h2>
   <div class="redes">
-    <a href="https://www.instagram.com/mar_bonanza" target="_blank">
+    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
       <img src="img/instagram-3d-logo-free-png.png" alt="Instagram" class="icono-red">
     </a>
     <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
@@ -52,238 +42,71 @@ section.page.active { display: block; }
     </a>
   </div>
 </header>
-
-<!-- 🔹 Navegación interna -->
+<!-- Datos de las pestañas -->
 <nav class="nav">
-  <a href="#" data-target="inicio">Inicio</a>
-  <a href="#" data-target="pizzas">Pizzas</a>
-  <a href="#" data-target="bebidas">Bebidas</a>
-  <a href="#" data-target="eventos">¡Catering!</a>
+  <a href="index.html">Inicio</a>
+  <a href="pizzas.html">Pizzas</a>
+  <a href="bebidas.html">Bebidas</a>
+  <a href="eventos.html">¡Catering!</a>
 </nav>
-
+<!-- texto de bienvenida-->
 <main class="contenido">
-
-  <!-- ======= INICIO ======= -->
-  <section id="inicio" class="page active">
-    <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
-    <section class="hero">
-      <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
-    </section>
-    <p style="color:white;">¡Explora sabores únicos en nuestra sección de pizzas y bebidas! 🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰</p>
-
-    <div id="horario-compacto" style="text-align:center; font-family:Arial,sans-serif; margin-bottom:20px; font-size:0.95em;">
-      <div id="reloj" style="margin-bottom:4px; font-weight:bold;"></div>
-      <div id="estado" style="margin-bottom:4px; font-weight:bold; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s;"></div>
-      <h2 id="titulo" style="margin:0 0 4px 0; font-size:1em;">Horario de servicio.</h2>
-      <ul id="dias" style="list-style:none; padding:0; margin:0;">
-        <li data-dia="5" style="padding:1px 0;"><strong>Viernes:</strong> 19:00 a 23:00 hrs</li>
-      </ul>
-    </div>
+  <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
+  <section class="hero">
+    <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
   </section>
+  <p><font color="white">
+¡Explora sabores únicos en nuestra sección de pizzas y bebidas!  
+🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰
+</p>
 
-  <!-- ======= PIZZAS ======= -->
-  <section id="pizzas" class="page">
-    <div class="welcome-text"><h2 style="color:white;">😋 Pizzas</h2></div>
-    <div class="grid">
-      <!-- Agrega aquí todas las cards de pizzas -->
-      <div class="card">
-        <img src="img/IMG-20251008-WA0007.jpg" alt="Margarita">
-        <h2 style="color:#b22222;">Margarita</h2>
-        <p class="desc">Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p>
-        <h3 class="price">$180</h3>
-      </div>
-      <div class="card">
-        <img src="img/peperoni.jpg" alt="Pepperoni">
-        <h2 style="color:#b22222;">Pepperoni</h2>
-        <p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p>
-        <h3 class="price">$180</h3>
-      </div>
-      <!-- ... Resto de pizzas ... -->
-      <div><h3 style="color:white;">“Pregunta por nuestros sabores de temporada.” 👌🫰</h3></div>
-    </div>
-  </section>
+  <!-- Horario compacto -->
+  <div id="horario-compacto" style="text-align:center; font-family:Arial,sans-serif; margin-bottom:20px; font-size:0.95em;">
+    <div id="reloj" style="margin-bottom:4px; font-weight:bold;"></div>
+    <div id="estado" style="margin-bottom:4px; font-weight:bold; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s;"></div>
+    <h2 id="titulo" style="margin:0 0 4px 0; font-size:1em;">Horario de servicio.</h2>
+    <ul id="dias" style="list-style:none; padding:0; margin:0;">
+      <li data-dia="5" style="padding:1px 0;"><strong>Viernes:</strong> 19:00 a 23:00 hrs</li>
+    </ul>
+  </div>
 
-  <!-- ======= BEBIDAS ======= -->
-  <section id="bebidas" class="page">
-    <div class="welcome-text"><h2 style="color:white;">🍹 Bebidas</h2></div>
-    <div class="grid">
-      <!-- Agrega aquí todas las cards de bebidas -->
-      <div class="card">
-        <img src="img/refresco3.jpg" alt="Refresco">
-        <h2 style="color:#b22222;">Refrescos</h2>
-        <p class="desc">Refrescos de sabores.</p>
-        <h3 class="price">$20</h3>
-      </div>
-      <div class="card">
-        <img src="img/png.png" alt="Cerveza">
-        <h2 style="color:#b22222;">Cerveza</h2>
-        <p class="desc">Modelo especial, victoria y corona.</p>
-        <h3 class="price">$25</h3>
-      </div>
-      <!-- ... Resto de bebidas ... -->
-    </div>
-  </section>
+  <style>
+    .open-anim { animation: zoomEstado 0.5s ease forwards; }
+    @keyframes zoomEstado { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    .dia-actual { border-radius:4px; font-weight:bold; padding:0 3px; animation: brillo 1.5s infinite; }
+    @keyframes brillo { 0%,100% { box-shadow: 0 0 3px var(--brillo-color); } 50% { box-shadow: 0 0 8px var(--brillo-color); } }
+  </style>
 
-  <!-- ======= EVENTOS / CATERING ======= -->
-  <section id="eventos" class="page">
-    <div class="welcome-text">
-      <h3 style="color:white;">🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.</h3>
-    </div>
-    <section id="carousel-wrap" class="carousel-wrap">
-      <div class="carousel" id="carousel" tabindex="0">
-        <!-- Agrega aquí tus slides de eventos -->
-        <article class="slide">
-          <div class="media">
-            <img src="img/fondo22.jpg" alt="Evento 1">
-            <div class="overlay">
-              <div>
-                <div class="badge">LA BONANZA</div>
-                <h3 class="title">Reserve nuestro espacio</h3>
-                <p class="desc">Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <!-- ... Resto de slides ... -->
-      </div>
-      <div class="controls">
-        <button class="btn left" id="prevBtn"><svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <button class="btn right" id="nextBtn"><svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18"/></svg></button>
-      </div>
-      <div class="dots" id="dots"></div>
-    </section>
-  </section>
+  <script>
+    function actualizarReloj() { const reloj = document.getElementById("reloj"); const ahora = new Date(); let h=ahora.getHours(), m=ahora.getMinutes(), s=ahora.getSeconds(); reloj.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
+    let ultimoEstado="";
+    function actualizarEstado() { const ahora = new Date(); const hoy = ahora.getDay(); const estado = document.getElementById("estado"); let abierto=false; if([5].includes(hoy)) { const ahoraMin = ahora.getHours()*60 + ahora.getMinutes(); if(ahoraMin>=19*60 && ahoraMin<=23*60) abierto=true; } if(abierto){ estado.textContent="🟢 Abierto"; estado.style.color="green"; estado.style.boxShadow="0 0 8px green"; if(ultimoEstado!="abierto") { estado.classList.add("open-anim"); setTimeout(()=>estado.classList.remove("open-anim"),500); } ultimoEstado="abierto"; } else { estado.textContent="🔴 Cerrado"; estado.style.color="red"; estado.style.boxShadow="0 0 8px red"; ultimoEstado="cerrado"; } }
+    function resaltarDia(){ const dias = document.querySelectorAll("#dias li"); const hoy = new Date().getDay(); dias.forEach(li=>{ const diasArray = li.dataset.dia.split(",").map(Number); if(diasArray.includes(hoy)) li.classList.add("dia-actual"); }); ajustarColores(); actualizarEstado(); }
+    function ajustarColores() { let bgColor = window.getComputedStyle(document.body).backgroundColor || "rgb(255,255,255)"; let rgb = bgColor.match(/\d+/g); let brightness = (parseInt(rgb[0])*299 + parseInt(rgb[1])*587 + parseInt(rgb[2])*114)/1000; let textoColor = brightness>128?"#000":"#fff"; let brilloColor = brightness>128?"rgba(241,196,15,1)":"rgba(255,255,0,1)"; document.getElementById("titulo").style.color=textoColor; document.getElementById("reloj").style.color=textoColor; document.querySelectorAll("#dias li").forEach(li=>li.style.color=textoColor); document.documentElement.style.setProperty("--brillo-color", brilloColor); document.querySelectorAll(".dia-actual").forEach(li=>{ li.style.backgroundColor = brightness>128?"rgba(241,196,15,0.5)":"rgba(255,255,0,0.5)"; }); }
+    setInterval(()=>{ actualizarReloj(); actualizarEstado(); },1000);
+    window.onload = ()=>{ actualizarReloj(); resaltarDia(); };
+  </script>
 
 </main>
 
-<!-- Footer -->
-<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; font-family:Arial,sans-serif;">
-  <div style="margin-bottom:10px; font-size:14px;">Calle Amado Nervo 14-MZ 016,<br> San Miguel, 52740 Ocoyoacac, Méx</div>
-  <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>
-    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería" target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:20px; height:20px;">722 267 5873
+<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
+  <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
+    Calle Amado Nervo 14-MZ 016,<br>
+    San Miguel, 52740 Ocoyoacac, Méx.
+  </div>
+  <div class="footer-botones" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"
+       target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-size:14px; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>
+    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"
+       target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-size:14px; font-weight:bold; border-radius:8px; text-decoration:none;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873
     </a>
   </div>
+
+  
 </footer>
 
-<script>
-// 🔹 Cambio de secciones según pestaña
-const navLinks = document.querySelectorAll('nav a');
-const pages = document.querySelectorAll('section.page');
+</div> <!-- ✅ cierre del contenedor .page-transition -->
 
-navLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = link.dataset.target;
-    pages.forEach(p => p.classList.remove('active'));
-    document.getElementById(target).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-// 🔹 Reloj y horario
-function actualizarReloj() { 
-  const reloj = document.getElementById("reloj"); 
-  const ahora = new Date(); 
-  let h=ahora.getHours(), m=ahora.getMinutes(), s=ahora.getSeconds(); 
-  reloj.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; 
-}
-let ultimoEstado="";
-function actualizarEstado() { 
-  const ahora = new Date(); 
-  const hoy = ahora.getDay(); 
-  const estado = document.getElementById("estado"); 
-  let abierto=false; 
-  if([5].includes(hoy)) { const ahoraMin = ahora.getHours()*60 + ahora.getMinutes(); if(ahoraMin>=19*60 && ahoraMin<=23*60) abierto=true; } 
-  if(abierto){ 
-    estado.textContent="🟢 Abierto"; 
-    estado.style.color="green"; 
-    estado.style.boxShadow="0 0 8px green"; 
-    if(ultimoEstado!="abierto") { estado.classList.add("open-anim"); setTimeout(()=>estado.classList.remove("open-anim"),500); } 
-    ultimoEstado="abierto"; 
-  } else { 
-    estado.textContent="🔴 Cerrado"; 
-    estado.style.color="red"; 
-    estado.style.boxShadow="0 0 8px red"; 
-    ultimoEstado="cerrado"; 
-  } 
-}
-function resaltarDia(){ 
-  const dias = document.querySelectorAll("#dias li"); 
-  const hoy = new Date().getDay(); 
-  dias.forEach(li=>{ const diasArray = li.dataset.dia.split(",").map(Number); if(diasArray.includes(hoy)) li.classList.add("dia-actual"); }); 
-  ajustarColores(); actualizarEstado(); 
-}
-function ajustarColores() { 
-  let bgColor = window.getComputedStyle(document.body).backgroundColor || "rgb(255,255,255)"; 
-  let rgb = bgColor.match(/\d+/g); 
-  let brightness = (parseInt(rgb[0])*299 + parseInt(rgb[1])*587 + parseInt(rgb[2])*114)/1000; 
-  let textoColor = brightness>128?"#000":"#fff"; 
-  let brilloColor = brightness>128?"rgba(241,196,15,1)":"rgba(255,255,0,1)"; 
-  document.getElementById("titulo").style.color=textoColor; 
-  document.getElementById("reloj").style.color=textoColor; 
-  document.querySelectorAll("#dias li").forEach(li=>li.style.color=textoColor); 
-  document.documentElement.style.setProperty("--brillo-color", brilloColor); 
-  document.querySelectorAll(".dia-actual").forEach(li=>{ li.style.backgroundColor = brightness>128?"rgba(241,196,15,0.5)":"rgba(255,255,0,0.5)"; }); 
-}
-setInterval(()=>{ actualizarReloj(); actualizarEstado(); },1000);
-window.onload = ()=>{ actualizarReloj(); resaltarDia(); };
-
-// 🔹 Carousel eventos (igual que tu script original)
-(function() {
-    const carousel = document.getElementById('carousel');
-    if(!carousel) return;
-    const slides = [...carousel.querySelectorAll('.slide')];
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsWrap = document.getElementById('dots');
-    let current = 0;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'dot';
-      dot.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(dot);
-    });
-    const dots = [...dotsWrap.children];
-
-    function updateActiveSlide() {
-      const center = carousel.scrollLeft + carousel.clientWidth / 2;
-      let closest = 0, min = Infinity;
-      slides.forEach((s, i) => {
-        const slideCenter = s.offsetLeft + s.clientWidth / 2;
-        const dist = Math.abs(center - slideCenter);
-        if (dist < min) { min = dist; closest = i; }
-        s.classList.remove('active');
-      });
-      slides[closest].classList.add('active');
-      current = closest;
-      dots.forEach(d => d.classList.remove('active'));
-      dots[current]?.classList.add('active');
-    }
-
-    function clamp(i) { return i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i; }
-
-    function goTo(i) {
-      current = clamp(i);
-      const s = slides[current];
-      const left = s.offsetLeft - (carousel.clientWidth - s.clientWidth) / 2;
-      carousel.scrollTo({ left, behavior: 'smooth' });
-      setTimeout(updateActiveSlide, 250);
-    }
-
-    prevBtn.onclick = () => goTo(current - 1);
-    nextBtn.onclick = () => goTo(current + 1);
-    carousel.addEventListener('scroll', () => {
-      clearTimeout(window._scrollTimer);
-      window._scrollTimer = setTimeout(updateActiveSlide, 100);
-    });
-
-    window.addEventListener('load', () => goTo(0));
-})();
-</script>
-
-</div>
 </body>
 </html>
