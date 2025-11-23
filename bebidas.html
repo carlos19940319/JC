@@ -27,25 +27,55 @@
 </head>
 <body>
 
-<header class="header">
-  <img src="img/logo.png" alt="Logo" class="logo">
-  <h2 class="titulo">Pizzería</h2>
-  <div class="redes">
-    <a href="https://www.instagram.com/mar_bonanza?utm_source=qr&igsh=MXFnd3E3ZjRqOTk3dQ==" target="_blank">
-      <img src="img/instagram-3d-logo-free-png.png" alt="Instagram" class="icono-red">
-    </a>
-    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
-      <img src="img/facce.png" alt="Facebook" class="icono-red">
-    </a>
-  </div>
-</header>
 
-<nav class="nav">  
-  <a href="index.html">Inicio</a>  
-  <a href="pizzas.html">Pizzas</a>  
-  <a href="bebidas.html">Bebidas</a>  
-  <a href="eventos.html">¡Catering!</a>  
-</nav>  
+<!-- 🔘 BOTONES FLOTANTES DE REDES -->
+<div class="redes-flotantes">
+
+
+<a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" class="redes-flotantes-icono">
+    <img src="img/UB.png" class="img-red" alt="Ubicación" onerror="this.style.display='none';">
+</a>
+
+<!-- WhatsApp con mensaje automático -->
+<a href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank" class="icono">
+    <img src="img/WA..png" class="img-red" 
+         onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-whatsapp\'></i>';">
+</a>
+
+
+    
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/mar_bonanza" target="_blank" class="icono">
+        <img src="img/instagram-3d-logo-free-png.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-instagram\'></i>';">
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank" class="icono">
+        <img src="img/facce.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-facebook-f\'></i>';">
+    </a>
+
+
+</div>
+
+
+
+
+
+</header>
+<div class="header-unificado">
+  <div class="header-top">
+    <img src="img/logo.png" alt="Logo" class="logo">
+    <h2 class="titulo">Pizzería La Bonanza</h2>
+  </div>
+
+  <nav>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="pizzas.html">Pizzas</a>
+    <a href="bebidas.html">Bebidas</a>
+    <a href="eventos.html">¡Catering!</a>
+  </nav>
+</div>
+
 
 <main class="contenido">  
   <div class="welcome-text"><h2><font color="white">🍹 Bebidas</h2></font></div> 
@@ -79,14 +109,7 @@
     Calle Amado Nervo 14-MZ 016,<br>  
     San Miguel, 52740 Ocoyoacac, Méx  
   </div>  
-  <div class="footer-botones" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">  
-    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"  
-       target="_blank" style="padding:8px 16px; background:#b22222; color:#fff; font-size:14px; font-weight:bold; border-radius:15px; text-decoration:none;">📍 Cómo llegar</a>  
-    <a href="https://wa.me/5217222675873?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"  
-       target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#25d366; color:#fff; font-size:14px; font-weight:bold; border-radius:8px; text-decoration:none;">  
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">722 267 5873  
-    </a>  
-  </div>  
+  
    
 </footer>
 
