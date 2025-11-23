@@ -5,7 +5,7 @@
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197, 0, 0, 0.6);
   --fondo-img: url("img/fondo24.jpg");
-  --fondo-header-img: url("img/muertoss.jpg");
+  --fondo-header-img: url("img/NAV.png");
   --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");    /* agregar imagen opcional del nav */
   --fondo-opacidad: 0.3;
 
@@ -75,43 +75,45 @@ body::before {
   }
 }
 
-
-
-
-/* 📌 Header: logo, título y redes */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
-  padding: 8px 16px;
-  color: #ffffff;
+/* Contenedor unificado de header + nav */
+.header-unificado {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: 1002;
-
-  /* fondo por defecto con posibilidad de imagen */
-  background-color: rgba(0,0,0,0.7); /* misma opacidad que antes */
-  background-image: var(--fondo-header-img); /* opcional */
+  display: flex;
+  flex-direction: column; /* logo arriba, nav abajo */
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: rgba(0,0,0,0.7);
+  background-image: var(--fondo-header-img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: overlay; /* mantiene la opacidad */
+  background-blend-mode: overlay;
 }
 
-/* Logo principal */
-header img.logo {
+/* Logo y título */
+.header-unificado .header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.header-unificado .header-top img.logo {
   width: 60px;
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* Título junto al logo */
-header h1, header h2, header .titulo {
+.header-unificado .header-top h1,
+.header-unificado .header-top h2,
+.header-unificado .header-top .titulo {
   margin: 0;
   padding: 0;
   font-size: clamp(1rem, 1.8vw, 1.8rem);
@@ -120,60 +122,22 @@ header h1, header h2, header .titulo {
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* Contenedor de redes */
-header .redes {
+/* Navegación debajo SIN BARRA DE FONDO */
+.header-unificado nav {
   display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Iconos de redes sociales */
-header .redes img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-header .redes img:hover {
-  transform: scale(1.1);
-}
-
-/* 📍 NAV fijo debajo del header */
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 7px;
-  border-radius: 8px;
-  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
-  position: fixed;
-  top: calc(var(--header-height) + 0px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
+  padding: 0;
+  width: 100%;
   max-width: 1200px;
-  height: 5vh;
-  z-index: 1001;
-
-  /* fondo con opacidad igual que antes */
-  background-color: var(--navbar-bg);
-  background-image: var(--fondo-nav-img); /* opcional */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  backdrop-filter: blur(20px);
-
-  flex-wrap: nowrap;
-  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  flex-wrap: nowrap; /* nunca se bajan ni se rompen */
 }
 
-nav a {
-  flex: 1 1 auto;
-  min-width: 64px;
-  max-width: 240px;
+/* Botones de navegación */
+.header-unificado nav a {
+  flex: 1 1 auto; /* se expanden proporcionalmente */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -184,30 +148,52 @@ nav a {
   font-weight: 700;
   font-size: clamp(0.8rem, 1.6vw, 1rem);
   padding: 10px 14px;
-  border-radius: 8px;
+  border-radius: 50px; 
   background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 64px; /* no se achican demasiado */
+  max-width: 240px; /* no se agrandan demasiado */
 }
 
-nav a:hover {
-  transform: translateY(1px) scale(1.03);
-  box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
+.header-unificado nav a:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-nav a:active {
-  transform: translateY(0px) scale(1.2);
+.header-unificado nav a:active {
+  transform: translateY(0) scale(1);
 }
 
-nav a.active {
+.header-unificado nav a.active {
   color: var(--color-principal);
   background: linear-gradient(145deg,#fff7f7,#ffecec);
 }
 
-nav a:focus {
+.header-unificado nav a:focus {
   outline: none;
   box-shadow: none;
 }
+
+/* Animación brillo suave */
+@keyframes brilloSuave {
+  0% { text-shadow: 0 0 5px var(--color-secundario); }
+  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
+  100% { text-shadow: 0 0 5px var(--color-secundario); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-unificado .header-top img.logo { width: 48px; }
+  .header-unificado .header-top .titulo { font-size: clamp(0.9rem, 4vw, 1.6rem); }
+  .header-unificado nav a { font-size: clamp(0.7rem, 2.5vw, 0.95rem); padding: 8px 10px; }
+}
+
+
+
+
+
+
 
 /* 📌 Main */
 main {
@@ -399,4 +385,44 @@ nav a:focus {
 /* Quita el cuadro verdoso de selección en móviles */
 * {
   -webkit-tap-highlight-color: transparent;
+}
+/* 🔘 BOTONES FLOTANTES DE REDES 100% LIMPIOS (solo imagen) */
+.redes-flotantes {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.redes-flotantes a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 👇 ELIMINADO todo lo que daba contorno */
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border: none;
+}
+
+.redes-flotantes img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+
+  /* 👇 quitar sombra también */
+  filter: none;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* 🧲 efecto hover suave */
+.redes-flotantes img:hover {
+  transform: scale(1.15);
 }
