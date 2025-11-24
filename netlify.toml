@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "https://labonanza.netlify.app/"
+  to = "https://www.labonanza.pizza/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://labonanza.netlify.app/*"
   to = "https://www.labonanza.pizza/:splat"
   status = 301
