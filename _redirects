@@ -3,3 +3,10 @@ https://labonanza.netlify.app/* https://labonanza.pizza/:splat 301!
 
 # Redirige www al dominio principal (aunque Netlify ya lo hace)
 https://www.labonanza.pizza/* https://labonanza.pizza/:splat 301!
+
+# Redirecciones específicas de tus páginas (opcional, pero recomendable)
+https://labonanza.netlify.app/index.html https://labonanza.pizza/index.html 301!
+https://labonanza.netlify.app/bebidas.html https://labonanza.pizza/bebidas.html 301!
+https://labonanza.netlify.app/eventos.html https://labonanza.pizza/eventos.html 301!
+https://labonanza.netlify.app/pizzas.html https://labonanza.pizza/pizzas.html 301!
+https://labonanza.netlify.app/google66eaa6660df177f2.html https://labonanza.pizza/google66eaa6660df177f2.html 301!
