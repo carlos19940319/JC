@@ -25,7 +25,11 @@
   }
   </script>
 
-  <style>
+
+
+
+  
+ <style>
     /* 🎠 Estilos del carrusel */
     #eventos {
       width: 100%;
@@ -81,15 +85,16 @@
       overflow: hidden;
     }
 
+    /* 🔥 Imagen ajustada 100% x 100% aunque se deforme */
     .media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;  /* 👈 Se estira para cubrir todo sin huecos */
       transition: transform .3s ease-out;
     }
 
     .slide.active img {
-      transform: scale(1.08);
+      transform: scale(1.12); /* Zoom suave */
     }
 
     .overlay {
@@ -125,7 +130,7 @@
       line-height: 1.35;
     }
 
-    /* 🎯 Botones mejorados */
+    /* 🎯 Botones */
     .controls {
       position: absolute;
       inset: 0;
@@ -169,7 +174,7 @@
     .btn.left { left: -16px; }
     .btn.right { right: -16px; }
 
-    /* 📱 Responsive botones */
+    /* 📱 Responsive */
     @media (max-width: 640px) {
       .media { height: 280px; }
       .slide { min-width: 90%; }
@@ -196,9 +201,14 @@
     .dot.active {
       background: #b22222;
     }
-  </style>
-</head>
+</style>
 
+
+
+
+
+
+  
 <body>
 
 
