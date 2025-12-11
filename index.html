@@ -1,152 +1,286 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>La Bonanza pizzería</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>La Bonanza Pizzería</title>
 
-<!-- Metaetiqueta de verificación de Google -->
-<meta name="google-site-verification" content="LQZOjQew5_GIjOqafnr1L3Y0WsEU06BC2rNpjLsLfow" />
-<meta name="msvalidate.01" content="B0C5292EF3AB318E5B3555BE967BDF1A" />
+  <!-- Favicon -->
+  <link rel="icon" href="img/Imagen6.jpg" type="image/png">
 
-<!-- Favicon -->
-<link rel="icon" href="img/Imagen6.jpg" type="image/png">
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 
-<!-- Datos estructurados para el logo -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "La Bonanza",
-  "url": "https://www.labonanza.pizza/",
-  "logo": "https://www.labonanza.pizza/img/logo.png"
-}
+  <!-- SEO -->
+  <meta name="google-site-verification" content="LQZOjQew5_GIjOqafnr1L3Y0WsEU06BC2rNpjLsLfow" />
+  <meta name="msvalidate.01" content="B0C5292EF3AB318E5B3555BE967BDF1A" />
 
-</script>
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "La Bonanza",
+    "url": "https://www.labonanza.pizza/",
+    "logo": "https://www.labonanza.pizza/img/logo.png"
+  }
+  </script>
 </head>
 <body>
 
-<!-- ✨ Contenedor para la animación -->
-<div class="page-transition">
+  <!-- ✨ BOTONES FLOTANTES DE REDES (iguales a los que tenías) -->
+  <div class="redes-flotantes">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" class="redes-flotantes-icono">
+      <img src="img/UB.png" class="img-red" alt="Ubicación" onerror="this.style.display='none';">
+    </a>
 
+    <a href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank" class="icono">
+      <img src="img/WAA.png" class="img-red" 
+           onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-whatsapp\'></i>';">
+    </a>
 
-
-
-
-
-
-
-
-
-
-<!-- 🔘 BOTONES FLOTANTES DE REDES -->
-<div class="redes-flotantes">
-
-
-<a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" class="redes-flotantes-icono">
-    <img src="img/UB.png" class="img-red" alt="Ubicación" onerror="this.style.display='none';">
-</a>
-
-<!-- WhatsApp con mensaje automático -->
-<a href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank" class="icono">
-    <img src="img/WAA.png" class="img-red" 
-         onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-whatsapp\'></i>';">
-</a>
-
-
-    
-    <!-- Instagram -->
     <a href="https://www.instagram.com/mar_bonanza" target="_blank" class="icono">
-        <img src="img/instagram-3d-logo-free-png.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-instagram\'></i>';">
+      <img src="img/instagram-3d-logo-free-png.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-instagram\'></i>';">
     </a>
 
-    <!-- Facebook -->
     <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank" class="icono">
-        <img src="img/facce.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-facebook-f\'></i>';">
+      <img src="img/facce.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-facebook-f\'></i>';">
     </a>
-
-
-</div>
-
-
-
-
-
-</header>
-<div class="header-unificado">
-  <div class="header-top">
-    <img src="img/logo.png" alt="Logo" class="logo">
-    <h2 class="titulo">Pizzería La Bonanza</h2>
   </div>
 
-  <nav>
-    <a href="index.html" class="active">Bienvenida</a>
-    <a href="pizzas.html">Menú Pizzas</a>
-    <a href="bebidas.html">Menú Bebidas</a>
-    <a href="eventos.html">¡Catering!</a>
-  </nav>
-</div>
+  <!-- HEADER UNIFICADO -->
+  <div class="header-unificado">
+    <div class="header-top">
+      <img src="img/logo.png" alt="Logo" class="logo">
+      <h2 class="titulo">Pizzería La Bonanza</h2>
+    </div>
 
+    <nav>
+      <a href="#inicio" data-target="inicio">Bienvenida</a>
+      <a href="#pizzas" data-target="pizzas">Menú Pizzas</a>
+      <a href="#bebidas" data-target="bebidas">Menú Bebidas</a>
+      <a href="#eventos" data-target="eventos">¡Catering!</a>
+    </nav>
+  </div>
 
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 1 — INICIO (Bienvenida) -->
+  <!-- ========================================================= -->
+  <section id="inicio" class="page-section active">
+    <main class="contenido">
+      <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
 
+      <section class="hero">
+        <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
+      </section>
 
+      <p style="color:white;">
+        ¡Explora sabores únicos en nuestra sección de pizzas y bebidas!  
+        🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰
+      </p>
 
-
-<!-- texto de bienvenida-->
-<main class="contenido">
-  <div class="welcome-text"><h2>¡BIENVENIDOS!</h2></div>
-  <section class="hero">
-    <img src="img/principal.jpg" class="img-bienvenida" alt="Bienvenida">
+      <!-- Horario compacto -->
+      <div id="horario-compacto" style="text-align:center; font-family:Arial,sans-serif; margin-bottom:20px; font-size:0.95em;">
+        <div id="reloj" style="margin-bottom:4px; font-weight:bold;"></div>
+        <div id="estado" style="margin-bottom:4px; font-weight:bold; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s;"></div>
+        <h2 id="titulo" style="margin:0 0 4px 0; font-size:1em;">Horario de servicio.</h2>
+        <ul id="dias" style="list-style:none; padding:0; margin:0;">
+          <li data-dia="5" style="padding:1px 0;"><strong>Viernes:</strong> 19:00 a 23:00 hrs</li>
+        </ul>
+      </div>
+    </main>
   </section>
-  <p><font color="white">
-¡Explora sabores únicos en nuestra sección de pizzas y bebidas!  
-🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰
-</p>
 
-  <!-- Horario compacto -->
-  <div id="horario-compacto" style="text-align:center; font-family:Arial,sans-serif; margin-bottom:20px; font-size:0.95em;">
-    <div id="reloj" style="margin-bottom:4px; font-weight:bold;"></div>
-    <div id="estado" style="margin-bottom:4px; font-weight:bold; display:inline-block; padding:2px 6px; border-radius:4px; transition: all 0.3s;"></div>
-    <h2 id="titulo" style="margin:0 0 4px 0; font-size:1em;">Horario de servicio.</h2>
-    <ul id="dias" style="list-style:none; padding:0; margin:0;">
-      <li data-dia="5" style="padding:1px 0;"><strong>Viernes:</strong> 19:00 a 23:00 hrs</li>
-    </ul>
-  </div>
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 2 — PIZZAS (TODO el HTML que me pasaste) -->
+  <!-- ========================================================= -->
+  <section id="pizzas" class="page-section">
+    <main class="contenido">  
+      <div class="welcome-text"><h2 style="color:white;">😋 Pizzas</h2></div>  
+      <div class="grid">
 
-  <style>
-    .open-anim { animation: zoomEstado 0.5s ease forwards; }
-    @keyframes zoomEstado { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-    .dia-actual { border-radius:4px; font-weight:bold; padding:0 3px; animation: brillo 1.5s infinite; }
-    @keyframes brillo { 0%,100% { box-shadow: 0 0 3px var(--brillo-color); } 50% { box-shadow: 0 0 8px var(--brillo-color); } }
-  </style>
+        <div class="card">
+          <img src="img/IMG-20251008-WA0007.jpg" alt="Margarita">
+          <h2><span class="name-red">Margarita</span></h2>
+          <p class="desc">Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p>
+          <h3><p class="price">$180</p></h3>
+        </div>
 
-  <script>
-    function actualizarReloj() { const reloj = document.getElementById("reloj"); const ahora = new Date(); let h=ahora.getHours(), m=ahora.getMinutes(), s=ahora.getSeconds(); reloj.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
-    let ultimoEstado="";
-    function actualizarEstado() { const ahora = new Date(); const hoy = ahora.getDay(); const estado = document.getElementById("estado"); let abierto=false; if([5].includes(hoy)) { const ahoraMin = ahora.getHours()*60 + ahora.getMinutes(); if(ahoraMin>=19*60 && ahoraMin<=23*60) abierto=true; } if(abierto){ estado.textContent="🟢 Abierto"; estado.style.color="green"; estado.style.boxShadow="0 0 8px green"; if(ultimoEstado!="abierto") { estado.classList.add("open-anim"); setTimeout(()=>estado.classList.remove("open-anim"),500); } ultimoEstado="abierto"; } else { estado.textContent="🔴 Cerrado"; estado.style.color="red"; estado.style.boxShadow="0 0 8px red"; ultimoEstado="cerrado"; } }
-    function resaltarDia(){ const dias = document.querySelectorAll("#dias li"); const hoy = new Date().getDay(); dias.forEach(li=>{ const diasArray = li.dataset.dia.split(",").map(Number); if(diasArray.includes(hoy)) li.classList.add("dia-actual"); }); ajustarColores(); actualizarEstado(); }
-    function ajustarColores() { let bgColor = window.getComputedStyle(document.body).backgroundColor || "rgb(255,255,255)"; let rgb = bgColor.match(/\d+/g); let brightness = (parseInt(rgb[0])*299 + parseInt(rgb[1])*587 + parseInt(rgb[2])*114)/1000; let textoColor = brightness>128?"#000":"#fff"; let brilloColor = brightness>128?"rgba(241,196,15,1)":"rgba(255,255,0,1)"; document.getElementById("titulo").style.color=textoColor; document.getElementById("reloj").style.color=textoColor; document.querySelectorAll("#dias li").forEach(li=>li.style.color=textoColor); document.documentElement.style.setProperty("--brillo-color", brilloColor); document.querySelectorAll(".dia-actual").forEach(li=>{ li.style.backgroundColor = brightness>128?"rgba(241,196,15,0.5)":"rgba(255,255,0,0.5)"; }); }
-    setInterval(()=>{ actualizarReloj(); actualizarEstado(); },1000);
-    window.onload = ()=>{ actualizarReloj(); resaltarDia(); };
-  </script>
+        <div class="card">
+          <img src="img/peperoni.jpg" alt="Pepperoni">
+          <h2><span class="name-red">Pepperoni</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella y pepperoni.</p>
+          <h3><p class="price">$180</p></h3>
+        </div>
 
-</main>
+        <div class="card">
+          <img src="img/arugula.png" alt="Arúgula">
+          <h2><span class="name-red">Arúgula</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.</p>
+          <h3><p class="price">$240</p></h3>
+        </div>
 
-<footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
-  <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
-    Calle Amado Nervo 14-MZ 016,<br>
-    San Miguel, 52740 Ocoyoacac, Méx.
-  </div>
-  
-  </div>
+        <div class="card">
+          <img src="img/serrano.jpg" alt="Jamón Serrano">
+          <h2><span class="name-red">Jamón serrano</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p>
+          <h3><p class="price">$240</p></h3>
+        </div>
 
-  
-</footer>
+        <div class="card">
+          <img src="img/3quesos.png" alt="3 Quesos">
+          <h2><span class="name-red">3 Quesos</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p>
+          <h3><p class="price">$220</p></h3>
+        </div>
 
-</div> <!-- ✅ cierre del contenedor .page-transition -->
+        <div class="card">
+          <img src="img/IMG-20251003-WA0204.jpg" alt="Mexicana">
+          <h2><span class="name-red">Mexicana</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p>
+          <h3><p class="price">$220</p></h3>
+        </div>
 
+        <div class="card">
+          <img src="img/champiñones.jpg" alt="Champiñon">
+          <h2><span class="name-red">Champiñon</span></h2>
+          <p class="desc">Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.</p>
+          <h3><p class="price">$220</p></h3>
+        </div>
+
+      </div>
+      <div><h3 style="color:white">“Pregunta por nuestros sabores de temporada.” 👌🫰</h3></div>
+    </main>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 3 — BEBIDAS (COMPLETA) -->
+  <!-- ========================================================= -->
+  <section id="bebidas" class="page-section">
+    <main class="contenido">  
+      <div class="welcome-text"><h2 style="color:white;">🍹 Bebidas</h2></div> 
+
+      <div class="grid">
+
+        <div class="card"><img src="img/refresco3.jpg" alt="Refresco"><h2><span class="name-red">Refrescos</span></h2><p class="desc">Refrescos de sabores.</p><h3><p class="price">$20</p></h3><p class="desc">Refrescos Pellegrino.</p><h3><p class="price">$30</p></h3></div>  
+
+        <div class="card"><img src="img/png.png" alt="Cerveza"><h2><span class="name-red">Cerveza</span></h2><p class="desc">Modelo especial, victoria y corona.</p><h3><p class="price">$25</p></h3></div>  
+
+        <div class="card"><img src="img/sal3.jpg" alt="Micheladas"><h2><span class="name-red">Micheladas</span></h2><p class="desc">Cerveza preparada con sal y limón.</p><h3><p class="price">$35</p></h3></div>  
+
+        <div class="card"><img src="img/michelada.png" alt="Clamatos"><h2><span class="name-red">Clamatos</span></h2><p class="desc">Cerveza preparada con clamato.</p><h3><p class="price">$55</p></h3></div>  
+          
+        <div class="card"><img src="img/IMG-20251008-WA0097.jpg" alt="Mono de lima"><h2><span class="name-red">Mono de lima</span></h2><p class="desc">licor de limón con especias.</p><h3><p class="price">$60</p></h3></div>
+
+        <div class="card"><img src="img/IMG-20250930-WA0102.jpg" alt="Vino"><h2><span class="name-red">Vino</span></h2><p class="desc">Por copeo.</p><h3><p class="price">$60</p></h3><p class="desc">Botella de vino.</p><h3><p class="price">$200</p></h3></div>  
+
+        <div class="card"><img src="img/Screenshot_20251008-120229.Fotos.png" alt="Smoothie"><h2><span class="name-red">Smoothie de vino.</span></h2><p class="desc">¡Ven y prueba nuestro exclusivo Smoothie de Vino!.</p><h3><p class="price">$70</p></h3></div>
+
+        <div class="card"><img src="img/cafe2.jpg" alt="Cafe"><h2><span class="name-red">Café</span></h2><p class="desc">“Disfruta del mejor café a grano, directo a tu taza.”</p><h3><p class="price">$15</p></h3></div>
+
+        <div class="card"><img src="img/Capuchino-perfecto.jpg" alt="Capuchino"><h2><span class="name-red">Capuchino</span></h2><p class="desc">¡Ven y prueba nuestro delicioso Capuchino artesanal!.</p><h3><p class="price">$15</p></h3></div>
+
+      </div>
+    </main>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 4 — EVENTOS (CARRUSEL COMPLETO) -->
+  <!-- ========================================================= -->
+  <section id="eventos" class="page-section">
+    <main class="contenido">
+      <div class="welcome-text">
+        <h3 style="color:white">🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.</h3>
+      </div>
+
+      <!-- Carrusel (estructura idéntica a la original) -->
+      <section id="eventos-carrusel" aria-label="Carrusel de eventos">
+        <div class="carousel-wrap">
+          <div class="carousel" id="carousel" tabindex="0">
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/dos.jpg" alt="Evento 1">
+                <div class="overlay"><div><p class="desc"></p></div></div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/uno.jpg" alt="Evento 2">
+                <div class="overlay"><div><p class="desc"></p></div></div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/fondo22.jpg" alt="Evento 3">
+                <div class="overlay">
+                  <div>
+                    <div class="badge">LA BONANZA</div>
+                    <h3 class="title">Reserve nuestro espacio</h3>
+                    <p class="desc">Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/foto7.jpg" alt="Evento 4">
+                <div class="overlay"><div><div class="badge">CATERING</div><h3 class="title">🍽 Servicio de banquetes</h3><p class="desc">Torre de nopal, queso y jitomate con pesto de albahaca.</p></div></div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/foto3.jpg" alt="Evento 5">
+                <div class="overlay"><div><div class="badge">CATERING</div><h3 class="title">🍽 Servicio de banquetes</h3><p class="desc">Sopa de tortilla.</p></div></div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/foto6.jpg" alt="Evento 6">
+                <div class="overlay"><div><div class="badge">CATERING</div><h3 class="title">🍽 Servicio de banquetes</h3><p class="desc">Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.</p></div></div>
+              </div>
+            </article>
+
+            <article class="slide">
+              <div class="media">
+                <img src="img/IMG-20251003-WA0150.jpg" alt="Evento 7">
+                <div class="overlay"><div><div class="badge">CATERING</div><h3 class="title">🍽 Servicio de banquetes</h3><p class="desc">Rollo de pollo con salsa de cacahuate 🥜.</p></div></div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="controls">
+            <button class="btn left" id="prevBtn" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><path d="M15 6 L9 12 L15 18"/></svg>
+            </button>
+            <button class="btn right" id="nextBtn" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24"><path d="M9 6 L15 12 L9 18"/></svg>
+            </button>
+          </div>
+
+          <div class="dots" id="dots"></div>
+        </div>
+      </section>
+
+    </main>
+  </section>
+
+  <!-- FOOTER GLOBAL -->
+  <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
+    <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
+      Calle Amado Nervo 14-MZ 016,<br>
+      San Miguel, 52740 Ocoyoacac, Méx.
+    </div>
+    <div>© <span id="year"></span> La Bonanza — Ceniza y fuego. ❤</div>
+  </footer>
+
+  <!-- JS externo -->
+  <script src="script.js" defer></script>
 </body>
-  <footer>© <span id="year"></span> La Bonanza — Ceniza y fuego. ❤</footer>
 </html>
