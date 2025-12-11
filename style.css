@@ -256,3 +256,20 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
    ========================= */
 .page-section { display: none; opacity: 0; transition: opacity 360ms ease, visibility 360ms; visibility: hidden; position: relative; min-height: 60vh; padding-bottom: 40px; }
 .page-section.active { display: block; opacity: 1; visibility: visible; }
+/* ❄ EFECTO DE NIEVE */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  animation-name: caerNieve;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes caerNieve {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
