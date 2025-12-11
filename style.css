@@ -33,24 +33,45 @@ body {
   transition: opacity 1s ease-out;
 }
 
+
+
+
+
 /* Fondo fijo universal */
 body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+
+  /* 🔥 Tamaño real del dispositivo, NO del navegador */
+  width: 100vw;
+  height: 100dvh;
+
+  /* 🔥 Fondo con imagen REAL (NO variable, para evitar fallos móviles) */
   background:
-    linear-gradient(180deg, rgba(7, 16, 33, var(--fondo-opacidad)) 0%, rgba(12, 19, 32, var(--fondo-opacidad)) 100%),
-    var(--fondo-img);
+    linear-gradient(
+      180deg,
+      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
+      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
+    ),
+    url("img/fondo24.jpg");
+
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+
   z-index: -1;
+
+  /* Tu animación original */
   opacity: 0;
   transform: scale(1.15);
   animation: fondoZoomUniforme 4s linear forwards;
 }
+
+
+
+
 
 @keyframes fondoZoomUniforme {
   0% { opacity: 0; transform: scale(1.15); filter: blur(2px); }
