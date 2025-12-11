@@ -1,3 +1,8 @@
+/* ==========================
+   style.css — todo tu CSS
+   Incluye: CSS base + carrusel + estilos de SPA (fade)
+   ========================== */
+
 /* 📌 Variables editables */
 :root {
   --color-principal: #C00000;
@@ -6,35 +11,29 @@
   --navbar-bg: rgba(197, 0, 0, 0.6);
   --fondo-img: url("img/fondo24.jpg");
   --fondo-header-img: url("img/n..jpg");
-  --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");    /* agregar imagen opcional del nav */
+  --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");
   --fondo-opacidad: 0.3;
-
-  /* alturas controladas */
   --header-height: 64px;
   --nav-height: 60px;
 }
 
-/* Reset box-sizing */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
 
-/* 📍 Body y fondo */
+/* Body y fondo */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: var(--color-secundario);
   position: relative;
   overflow-x: hidden;
-  overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* 🔹 Fondo negro con opacidad al inicio */
   background-color: rgba(0, 0, 0, 1);
   transition: opacity 1s ease-out;
 }
 
-/* 📌 Fondo fijo universal */
+/* Fondo fijo universal */
 body::before {
   content: "";
   position: fixed;
@@ -43,39 +42,22 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    linear-gradient(
-      180deg,
-      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-      rgba(12, 19, 32, var(--fondo-opacidad)) 100%),
+    linear-gradient(180deg, rgba(7, 16, 33, var(--fondo-opacidad)) 0%, rgba(12, 19, 32, var(--fondo-opacidad)) 100%),
     var(--fondo-img);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
   z-index: -1;
-}
-
-
-body::before {
   opacity: 0;
-  transform: scale(1.15); /* empieza un poco más grande */
-  animation: fondoZoomUniforme 4s linear forwards; /* velocidad constante */
+  transform: scale(1.15);
+  animation: fondoZoomUniforme 4s linear forwards;
 }
 
-/* Keyframes para zoom uniforme */
 @keyframes fondoZoomUniforme {
-  0% {
-    opacity: 0;
-    transform: scale(1.15);
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
+  0% { opacity: 0; transform: scale(1.15); filter: blur(2px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
-/* Contenedor unificado de header + nav */
+/* Header unificado */
 .header-unificado {
   position: fixed;
   top: 0;
@@ -83,7 +65,7 @@ body::before {
   width: 100%;
   z-index: 1002;
   display: flex;
-  flex-direction: column; /* logo arriba, nav abajo */
+  flex-direction: column;
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
@@ -95,7 +77,6 @@ body::before {
   background-blend-mode: overlay;
 }
 
-/* Logo y título */
 .header-unificado .header-top {
   display: flex;
   align-items: center;
@@ -111,8 +92,6 @@ body::before {
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-.header-unificado .header-top h1,
-.header-unificado .header-top h2,
 .header-unificado .header-top .titulo {
   margin: 0;
   padding: 0;
@@ -122,7 +101,13 @@ body::before {
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* Navegación debajo SIN BARRA DE FONDO */
+@keyframes brilloSuave {
+  0% { text-shadow: 0 0 5px var(--color-secundario); }
+  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
+  100% { text-shadow: 0 0 5px var(--color-secundario); }
+}
+
+/* Nav */
 .header-unificado nav {
   display: flex;
   justify-content: center;
@@ -132,261 +117,56 @@ body::before {
   max-width: 1200px;
   background: transparent;
   box-shadow: none;
-  flex-wrap: nowrap; /* nunca se bajan ni se rompen */
+  flex-wrap: nowrap;
 }
 
-/* Botones de navegación */
 .header-unificado nav a {
-  flex: 1 1 auto; /* se expanden proporcionalmente */
+  flex: 1 1 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   white-space: nowrap;
   text-decoration: none;
   color: var(--color-secundario);
   font-weight: 700;
   font-size: clamp(0.8rem, 1.6vw, 1rem);
   padding: 10px 14px;
-  border-radius: 50px; 
+  border-radius: 50px;
   background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  min-width: 64px; /* no se achican demasiado */
-  max-width: 240px; /* no se agrandan demasiado */
+  min-width: 64px;
+  max-width: 240px;
 }
 
-.header-unificado nav a:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
+.header-unificado nav a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+.header-unificado nav a.active { color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
 
-.header-unificado nav a:active {
-  transform: translateY(0) scale(1);
-}
+/* Main */
+main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(var(--header-height) + var(--nav-height) + 20px); }
 
-.header-unificado nav a.active {
-  color: var(--color-principal);
-  background: linear-gradient(145deg,#fff7f7,#ffecec);
-}
+/* Welcome */
+.welcome-text { text-align: center; color: #ffffff; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); animation: aparecer 2.5s ease-out; }
+.welcome-text h2 { margin: 10px 0; color: var(--color-principal); font-size: clamp(1.4rem, 3vw, 2rem); }
 
-.header-unificado nav a:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Animación brillo suave */
-@keyframes brilloSuave {
-  0% { text-shadow: 0 0 5px var(--color-secundario); }
-  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
-  100% { text-shadow: 0 0 5px var(--color-secundario); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .header-unificado .header-top img.logo { width: 48px; }
-  .header-unificado .header-top .titulo { font-size: clamp(0.9rem, 4vw, 1.6rem); }
-  .header-unificado nav a { font-size: clamp(0.7rem, 2.5vw, 0.95rem); padding: 8px 10px; }
-}
-
-
-
-
-
-
-
-/* 📌 Main */
-main {
-  max-width: 1100px;
-  margin: 18px auto;
-  padding: 0 14px;
-  padding-top: calc(var(--header-height) + var(--nav-height) + 20px);
-}
-
-/* Bienvenida */
-.welcome-text {
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-  animation: aparecer 2.5s ease-out;
-}
-
-.welcome-text h2 {
-  margin: 10px 0;
-  color: var(--color-principal);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-}
-
-.welcome-text p {
-  margin: 0;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-}
+@keyframes aparecer { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Hero */
-.hero {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  width: 100%;
-}
+.hero { display: flex; justify-content: center; padding: 10px; width: 100%; }
+.img-bienvenida { width: 100%; max-width: 950px; height: auto; border-radius: 10px; box-shadow: 0 0px 15px -2px rgba(255,255,255,1); animation: zoom 2.5s ease-out; }
+@keyframes zoom { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
 
-.img-bienvenida {
-  width: 100%;
-  max-width: 950px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
-  animation: zoom 2.5s ease-out;
-}
+/* Grid y tarjetas */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: clamp(10px, 3vw, 40px); }
+.card { background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center; background-size: cover; border-radius: 20px; padding: 5px; text-align: center; box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1); overflow: hidden; }
+.card img { width: 98%; height: auto; max-height: 200px; object-fit: cover; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 8); }
+.price { color: var(--color-principal); font-weight: 800; }
+.name-red { color: #b22222; }
 
-/* 📌 Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  margin-top: clamp(10px, 3vw, 40px);
-}
+/* Footer */
+footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: center; padding: 8px 10px; font-family: Arial, sans-serif; }
 
-/* Tarjeta */
-.card {
-  background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
-  background-size: cover;
-  border-radius: 20px;
-  padding: 5px;
-  text-align: center;
-  box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1);
-  overflow: hidden;
-}
-
-.card img {
-  width: 98%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 8);
-}
-
-.price {
-  color: var(--color-principal);
-  font-weight: 800;
-}
-
-/* 📍 Footer */
-footer {
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  text-align: center;
-  padding: 8px 10px;
-  font-family: Arial, sans-serif;
-}
-
-footer .footer-direccion p {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-footer .footer-botones {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-footer .footer-botones a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  white-space: nowrap;
-  transition: background 0.3s, transform 0.2s;
-}
-
-footer .btn-mapa {
-  background-color: #b22222;
-  color: #fff;
-  border-radius: 20px;
-}
-
-footer .btn-mapa:hover {
-  background-color: #a11d1d;
-  transform: translateY(-2px);
-}
-
-footer .btn-whatsapp {
-  background-color: #25d366;
-  color: #fff;
-}
-
-footer .btn-whatsapp img {
-  width: 20px;
-  height: 20px;
-}
-
-footer .btn-whatsapp:hover {
-  background-color: #1ebe57;
-  transform: translateY(-2px);
-}
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  header img.logo { width: 36px; }
-  header h1, header h2, header .titulo { font-size: clamp(0.9rem, 4vw, 1.6rem); }
-  nav { width: 95%; gap: 4px; }
-  nav a { font-size: clamp(0.7rem, 2.5vw, 0.95rem); padding: 8px 10px; }
-  .img-bienvenida { width: 95%; }
-  footer .footer-botones a { font-size: 13px; padding: 7px 12px; }
-}
-
-/* Animaciones */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoom {
-  from { opacity: 0; transform: scale(.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes brilloSuave {
-  0% { text-shadow: 0 0 5px var(--color-secundario); }
-  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
-  100% { text-shadow: 0 0 5px var(--color-secundario); }
-}
-
-header h1, header img {
-  animation: brilloSuave 3s infinite alternate;
-}
-
-/* =========================== */
-/* 🔹 NUEVO: quitar efecto verdoso al hacer clic */
-/* Solo logos, botones de carrusel y enlaces nav */
-header img.logo:focus,
-.carousel button:focus,
-nav a:focus {
-  outline: none;
-  box-shadow: none;
-}
-/* Quita el cuadro verdoso de selección en móviles */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Quita el cuadro verdoso de selección en móviles */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-/* 🔘 BOTONES FLOTANTES DE REDES 100% LIMPIOS (solo imagen) */
+/* Redes flotantes */
 .redes-flotantes {
   position: fixed;
   bottom: 15px;
@@ -396,33 +176,62 @@ nav a:focus {
   gap: 12px;
   z-index: 9999;
 }
+.redes-flotantes a { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: transparent; border: none; }
+.redes-flotantes img { width: 48px; height: 48px; object-fit: contain; filter: none; border-radius: 50%; transition: transform 0.2s ease-in-out; }
+.redes-flotantes img:hover { transform: scale(1.15); }
 
-.redes-flotantes a {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* 👇 ELIMINADO todo lo que daba contorno */
-  background: transparent;
-  backdrop-filter: none;
-  box-shadow: none;
-  border: none;
+/* Responsive */
+@media (max-width: 768px) {
+  .header-unificado .header-top img.logo { width: 48px; }
+  .header-unificado .header-top .titulo { font-size: clamp(0.9rem, 4vw, 1.6rem); }
+  .header-unificado nav a { font-size: clamp(0.7rem, 2.5vw, 0.95rem); padding: 8px 10px; }
+  .img-bienvenida { width: 95%; }
 }
 
-.redes-flotantes img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+/* Quitar tap highlight para móviles */
+* { -webkit-tap-highlight-color: transparent; }
 
-  /* 👇 quitar sombra también */
-  filter: none;
-  border-radius: 50%;
-  transition: transform 0.2s ease-in-out;
+/* =========================
+   CARRUSEL (copiado de tu <style> original)
+   ========================= */
+#eventos { width: 100%; font-family: Inter, system-ui, Roboto, Arial; padding: 40px 0; }
+.carousel-wrap { max-width: 1100px; margin: 0 auto; position: relative; }
+.carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; }
+.carousel::-webkit-scrollbar { display: none; }
+.slide { min-width: 90%; background: rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; position: relative; text-align: center; transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease; transform: scale(.9); opacity: .85; scroll-snap-align: center; }
+.slide.active { transform: scale(1.07); opacity: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+@media (min-width: 900px) { .slide { min-width: 45%; } }
+@media (min-width: 1200px) { .slide { min-width: 32%; } }
+.media { position: relative; height: 550px; overflow: hidden; }
+.media img { width: 100%; height: 100%; object-fit: fill; transition: transform .3s ease-out; }
+.slide.active img { transform: scale(1.12); }
+.overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 20px; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%); color: #fff; text-align: center; }
+.badge { background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 999px; font-weight: 600; margin-bottom: 10px; display: inline-block; }
+.title { font-size: 1.4rem; margin: 6px 0; font-weight: bold; }
+.desc { font-size: 1rem; margin-top: 8px; line-height: 1.35; }
+
+/* Botones carrusel */
+.controls { position: absolute; inset: 0; pointer-events: none; }
+.btn { position: absolute; top: 50%; transform: translateY(-50%); pointer-events: auto; background: rgba(178,34,34,0.95); border: none; width: 48px; height: 48px; border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform .25s ease, background .3s ease, box-shadow .3s ease; z-index: 5; }
+.btn:hover { background: #ff4d4d; transform: translateY(-50%) scale(1.1); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.btn svg { width: 24px; height: 24px; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.btn.left { left: -16px; }
+.btn.right { right: -16px; }
+
+@media (max-width: 640px) {
+  .media { height: 280px; }
+  .slide { min-width: 90%; }
+  .btn { width: 40px; height: 40px; }
+  .btn.left { left: 4px; }
+  .btn.right { right: 4px; }
 }
 
-/* 🧲 efecto hover suave */
-.redes-flotantes img:hover {
-  transform: scale(1.15);
-}
+.dots { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }
+.dot.active { background: #b22222; }
+
+/* =========================
+   SPA: estilos para fade entre secciones
+   ========================= */
+.page-section { display: none; opacity: 0; transition: opacity 360ms ease, visibility 360ms; visibility: hidden; position: relative; min-height: 60vh; padding-bottom: 40px; }
+.page-section.active { display: block; opacity: 1; visibility: visible; }
