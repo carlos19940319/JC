@@ -280,26 +280,28 @@
     <div>© <span id="year"></span> La Bonanza — Ceniza y fuego. ❤</div>
   </footer>
 
-  <!-- ❄️ EFECTO NIEVE -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const cantidad = 70; // Cantidad de copos
+  <!-- ❄️ EFECTO NIEVE SOLO EN DICIEMBRE -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const mes = new Date().getMonth(); // 0 = enero, 11 = diciembre
 
-    for (let i = 0; i < cantidad; i++) {
-      let copo = document.createElement("div");
-      copo.classList.add("snowflake");
+  if (mes === 11) {  // ❄️ Solo diciembre
+    const copos = 70;
 
-      // Posición aleatoria
-      copo.style.left = Math.random() * 100 + "vw";
-      copo.style.animationDuration = 4 + Math.random() * 7 + "s";
-      copo.style.opacity = Math.random();
-      copo.style.fontSize = 8 + Math.random() * 12 + "px";
-
-      copo.textContent = "❄";
-      document.body.appendChild(copo);
+    for (let i = 0; i < copos; i++) {
+      const f = document.createElement("div");
+      f.classList.add("snowflake");
+      f.style.left = Math.random() * 100 + "vw";
+      f.style.animationDuration = 4 + Math.random() * 7 + "s";
+      f.style.opacity = Math.random();
+      f.style.fontSize = 8 + Math.random() * 14 + "px";
+      f.textContent = "❄";
+      document.body.appendChild(f);
     }
-  });
-  </script>
+  }
+});
+</script>
+
 
   <!-- JS externo -->
   <script src="script.js" defer></script>
