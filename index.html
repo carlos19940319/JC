@@ -28,7 +28,7 @@
 </head>
 <body>
 
-  <!-- ✨ BOTONES FLOTANTES DE REDES (iguales a los que tenías) -->
+  <!-- ✨ BOTONES FLOTANTES DE REDES -->
   <div class="redes-flotantes">
     <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" class="redes-flotantes-icono">
       <img src="img/UB.png" class="img-red" alt="Ubicación" onerror="this.style.display='none';">
@@ -36,15 +36,15 @@
 
     <a href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank" class="icono">
       <img src="img/WAA.png" class="img-red" 
-           onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-whatsapp\'></i>';">
+           onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-whatsapp\'></i>'; ">
     </a>
 
     <a href="https://www.instagram.com/mar_bonanza" target="_blank" class="icono">
-      <img src="img/instagram-3d-logo-free-png.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-instagram\'></i>';">
+      <img src="img/instagram-3d-logo-free-png.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-instagram\'></i>'; ">
     </a>
 
     <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank" class="icono">
-      <img src="img/facce.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-facebook-f\'></i>';">
+      <img src="img/facce.png" class="img-red" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-brands fa-facebook-f\'></i>'; ">
     </a>
   </div>
 
@@ -64,7 +64,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- SECCIÓN 1 — INICIO (Bienvenida) -->
+  <!-- SECCIÓN 1 — INICIO -->
   <!-- ========================================================= -->
   <section id="inicio" class="page-section active">
     <main class="contenido">
@@ -92,7 +92,7 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- SECCIÓN 2 — PIZZAS (TODO el HTML que me pasaste) -->
+  <!-- SECCIÓN 2 — PIZZAS -->
   <!-- ========================================================= -->
   <section id="pizzas" class="page-section">
     <main class="contenido">  
@@ -154,7 +154,7 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- SECCIÓN 3 — BEBIDAS (COMPLETA) -->
+  <!-- SECCIÓN 3 — BEBIDAS -->
   <!-- ========================================================= -->
   <section id="bebidas" class="page-section">
     <main class="contenido">  
@@ -185,7 +185,7 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- SECCIÓN 4 — EVENTOS (CARRUSEL COMPLETO) -->
+  <!-- SECCIÓN 4 — EVENTOS -->
   <!-- ========================================================= -->
   <section id="eventos" class="page-section">
     <main class="contenido">
@@ -193,7 +193,7 @@
         <h3 style="color:white">🎉 Celebra con nosotros tus momentos especiales. Eventos, reservas y experiencias únicas para ti.</h3>
       </div>
 
-      <!-- Carrusel (estructura idéntica a la original) -->
+      <!-- Carrusel -->
       <section id="eventos-carrusel" aria-label="Carrusel de eventos">
         <div class="carousel-wrap">
           <div class="carousel" id="carousel" tabindex="0">
@@ -271,7 +271,7 @@
     </main>
   </section>
 
-  <!-- FOOTER GLOBAL -->
+  <!-- FOOTER -->
   <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
     <div class="footer-direccion" style="margin-bottom:10px; font-size:14px; line-height:1.4;">
       Calle Amado Nervo 14-MZ 016,<br>
@@ -279,6 +279,27 @@
     </div>
     <div>© <span id="year"></span> La Bonanza — Ceniza y fuego. ❤</div>
   </footer>
+
+  <!-- ❄️ EFECTO NIEVE -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cantidad = 70; // Cantidad de copos
+
+    for (let i = 0; i < cantidad; i++) {
+      let copo = document.createElement("div");
+      copo.classList.add("snowflake");
+
+      // Posición aleatoria
+      copo.style.left = Math.random() * 100 + "vw";
+      copo.style.animationDuration = 4 + Math.random() * 7 + "s";
+      copo.style.opacity = Math.random();
+      copo.style.fontSize = 8 + Math.random() * 12 + "px";
+
+      copo.textContent = "❄";
+      document.body.appendChild(copo);
+    }
+  });
+  </script>
 
   <!-- JS externo -->
   <script src="script.js" defer></script>
