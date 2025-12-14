@@ -251,11 +251,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.15); cursor: pointer; }
 .dot.active { background: #b22222; }
 
-/* =========================
-   SPA: estilos para fade entre secciones
-   ========================= */
-.page-section { display: none; opacity: 0; transition: opacity 360ms ease, visibility 360ms; visibility: hidden; position: relative; min-height: 60vh; padding-bottom: 40px; }
-.page-section.active { display: block; opacity: 1; visibility: visible; }
+
 /* ❄ EFECTO DE NIEVE */
 .snowflake {
   position: fixed;
@@ -272,4 +268,84 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 @keyframes caerNieve {
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(100vh) rotate(360deg); }
+}  /* =========================
+   📖 SPA — EFECTO HOJA REAL
+   ========================= */
+
+.page-section {
+  position: absolute;
+  inset: 0;
+  min-height: 60vh;
+  padding-bottom: 40px;
+
+  opacity: 0;
+  transform-origin: left center;
+  transform: rotateY(90deg);
+
+  transition:
+    transform 700ms cubic-bezier(.4,0,.2,1),
+    opacity 400ms ease;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* Página visible */
+.page-section.active {
+  position: relative;
+  opacity: 1;
+  transform: rotateY(0deg);
+  pointer-events: auto;
+}
+
+/* Página saliendo */
+.page-section.exit-left {
+  transform-origin: right center;
+  transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+/* =========================
+   🌊 CURVATURA REAL DE HOJA
+   ========================= */
+
+.page-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 100%;
+
+  background: linear-gradient(
+    to left,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.15),
+    transparent
+  );
+
+  transform-origin: right center;
+  transform: rotateY(-25deg);
+  opacity: 0;
+  transition: opacity 500ms ease;
+  pointer-events: none;
+}
+
+/* Activar curvatura */
+.page-section.active::before {
+  opacity: 1;
+}
+
+/* Curva fuerte al salir */
+.page-section.exit-left::before {
+  transform: rotateY(-45deg);
+  opacity: 1;
+}
+
+/* Sombra de papel */
+.page-section.active {
+  box-shadow:
+    -18px 0 40px rgba(0,0,0,0.35),
+    inset -6px 0 12px rgba(0,0,0,0.25);
 }
