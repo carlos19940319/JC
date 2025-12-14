@@ -202,33 +202,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-}); // ==========================
-// SPA — EFECTO HOJA
-// ==========================
-let current = document.querySelector('.page-section.active');
-
-function showSection(id, push = true) {
-  if (current && current.id === id) return;
-
-  const next = document.getElementById(id);
-  if (!next) return;
-
-  // Salida hoja
-  if (current) {
-    current.classList.add('exit-left');
-    setTimeout(() => {
-      current.classList.remove('active', 'exit-left');
-    }, 700);
-  }
-
-  // Entrada hoja
-  next.classList.add('active');
-  current = next;
-
-  // Estado activo menú
-  links.forEach(link => {
-    link.classList.toggle('active', link.dataset.target === id);
-  });
-
-  if (push) history.replaceState(null, '', `#${id}`);
-}
+}); 
