@@ -269,13 +269,14 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(100vh) rotate(360deg); }
 }  /* =========================
-   📖 SPA — EFECTO HOJA REAL
+   📖 SPA — EFECTO HOJA REAL (FIX DEFINITIVO)
    ========================= */
 
 .page-section {
   position: absolute;
   inset: 0;
-  min-height: 60vh;
+  width: 100%;
+  min-height: 100dvh;
   padding-bottom: 40px;
 
   opacity: 0;
@@ -289,14 +290,15 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   backface-visibility: hidden;
   transform-style: preserve-3d;
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Página visible */
 .page-section.active {
-  position: relative;
   opacity: 1;
   transform: rotateY(0deg);
   pointer-events: auto;
+  z-index: 2;
 }
 
 /* Página saliendo */
@@ -304,6 +306,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   transform-origin: right center;
   transform: rotateY(-90deg);
   opacity: 0;
+  z-index: 1;
 }
 
 /* =========================
@@ -317,14 +320,12 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   right: 0;
   width: 55px;
   height: 100%;
-
   background: linear-gradient(
     to left,
     rgba(0,0,0,0.35),
     rgba(0,0,0,0.15),
     transparent
   );
-
   transform-origin: right center;
   transform: rotateY(-25deg);
   opacity: 0;
@@ -332,20 +333,37 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   pointer-events: none;
 }
 
-/* Activar curvatura */
 .page-section.active::before {
   opacity: 1;
 }
 
-/* Curva fuerte al salir */
 .page-section.exit-left::before {
   transform: rotateY(-45deg);
   opacity: 1;
 }
 
-/* Sombra de papel */
+/* Sombra papel */
 .page-section.active {
   box-shadow:
     -18px 0 40px rgba(0,0,0,0.35),
     inset -6px 0 12px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   CARRUSEL, CARDS, ETC.
+   (SIN CAMBIOS)
+   ========================= */
+
+/* ❄ NIEVE */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  pointer-events: none;
+  z-index: 9999;
+  animation: caerNieve linear infinite;
+}
+
+@keyframes caerNieve {
+  to { transform: translateY(100vh) rotate(360deg); }
 }
