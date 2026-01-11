@@ -35,27 +35,28 @@ body {
 
 
 
-
-
-/* Fondo fijo universal */
+/* =========================
+   FONDO FIJO ESTABLE + ANIMADO
+   (NO CAMBIA CON BARRA URL)
+========================= */
 body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
 
-  /* 🔥 Tamaño real del dispositivo, NO del navegador */
+  /* 🔒 Tamaño estable (NO se recalcula) */
   width: 100vw;
-  height: 100dvh;
+  height: 100svh;
 
-  /* 🔥 Fondo con imagen REAL (NO variable, para evitar fallos móviles) */
+  /* 🎨 Tu fondo real (NO se pierde la imagen) */
   background:
     linear-gradient(
       180deg,
-      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
+      rgba(7,16,33,var(--fondo-opacidad)) 0%,
+      rgba(12,19,32,var(--fondo-opacidad)) 100%
     ),
-    url("img/fondo24.jpg");
+    var(--fondo-img);
 
   background-position: center;
   background-size: cover;
@@ -63,20 +64,31 @@ body::before {
 
   z-index: -1;
 
-  /* Tu animación original */
+  /* 🧠 estabilidad gráfica */
+  transform: translateZ(0);
+  will-change: opacity, filter;
+
+  /* ✨ animación conservada */
   opacity: 0;
-  transform: scale(1.15);
-  animation: fondoZoomUniforme 4s linear forwards;
+  filter: blur(2px);
+  animation: fondoEntradaEstable 2.6s ease-out forwards;
+}
+
+/* ✨ Animación SEGURA (sin reescalar) */
+@keyframes fondoEntradaEstable {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 
 
 
-
-@keyframes fondoZoomUniforme {
-  0% { opacity: 0; transform: scale(1.15); filter: blur(2px); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0); }
-}
 
 /* Header unificado */
 .header-unificado {
