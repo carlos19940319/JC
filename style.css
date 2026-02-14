@@ -140,11 +140,15 @@ body::before {
   100% { text-shadow: 0 0 5px var(--color-secundario); }
 }
 
-/* Nav */
+/* ==============================
+   NAV – CRISTAL PREMIUM
+   REFLEJO AUTOMÁTICO
+============================== */
+
 .header-unificado nav {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   padding: 0;
   width: 100%;
   max-width: 1200px;
@@ -153,24 +157,99 @@ body::before {
   flex-wrap: nowrap;
 }
 
+/* BOTONES CRISTAL */
+
 .header-unificado nav a {
+  position: relative;
+  overflow: hidden;
+
   flex: 1 1 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   text-decoration: none;
-  color: var(--color-secundario);
-  font-weight: 700;
+
+  color: #ffffff;
+  font-weight: 600;
   font-size: clamp(0.8rem, 1.6vw, 1rem);
   padding: 10px 14px;
   border-radius: 50px;
-  background: linear-gradient(145deg,#fff,#e6e6e6);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.35),
+    0 8px 20px rgba(0,0,0,0.25),
+    inset 0 1px 2px rgba(255,255,255,0.25),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+
+  transition: all 0.25s ease;
+
   min-width: 64px;
   max-width: 240px;
 }
+
+/* 💎 REFLEJO AUTOMÁTICO */
+
+/* 💎 REFLEJO AUTOMÁTICO LENTO Y ELEGANTE */
+
+.header-unificado nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255,255,255,0) 100%
+  );
+
+  transform: skewX(-25deg);
+
+  animation: brilloLujo 3s infinite; /* MÁS LENTO */
+}
+
+/* Animación elegante y pausada */
+@keyframes brilloLujo {
+  0%   { left: -80%; }
+  15%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+
+/* HOVER SUAVE */
+.header-unificado nav a:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.4),
+    0 12px 25px rgba(0,0,0,0.35),
+    0 0 15px rgba(193,154,107,0.4);
+}
+
+/* ACTIVO */
+.header-unificado nav a.active {
+  color: #ffffff;
+
+  background: rgba(193,154,107,0.25);
+
+  border: 1px solid rgba(193,154,107,0.6);
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.45),
+    0 0 18px rgba(193,154,107,0.6),
+    inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
 
 .header-unificado nav a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
 .header-unificado nav a.active { color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
@@ -178,16 +257,301 @@ body::before {
 /* Main */
 main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(var(--header-height) + var(--nav-height) + 20px); }
 
-/* Welcome */
-.welcome-text { text-align: center; color: #ffffff; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); animation: aparecer 2.5s ease-out; }
-.welcome-text h2 { margin: 10px 0; color: var(--color-principal); font-size: clamp(1.4rem, 3vw, 2rem); }
+/* ==============================
+   WELCOME PREMIUM
+============================== */
 
-@keyframes aparecer { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+.welcome-text {
+  text-align: center;
+  color: #ffffff;
 
-/* Hero */
-.hero { display: flex; justify-content: center; padding: 10px; width: 100%; }
-.img-bienvenida { width: 100%; max-width: 950px; height: auto; border-radius: 10px; box-shadow: 0 0px 15px -2px rgba(255,255,255,1); animation: zoom 2.5s ease-out; }
+  /* Más profundidad */
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.4),
+    0 0 12px rgba(193,154,107,0.25);
+
+  animation: aparecer 2.5s ease-out;
+
+  letter-spacing: 1px;
+}
+
+/* TÍTULO PRINCIPAL */
+.welcome-text h2 {
+  margin: 10px 0;
+  color: var(--color-principal);
+
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.5),
+    0 0 15px rgba(193,154,107,0.35);
+}
+
+/* ANIMACIÓN MÁS SUAVE */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+  position: relative; /* IMPORTANTE */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  width: 100%;
+  perspective: 1200px;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  width: 280px;
+  height: 60px;
+
+  background: radial-gradient(ellipse at center,
+    rgba(0,0,0,0.6) 0%,
+    rgba(0,0,0,0.3) 40%,
+    rgba(0,0,0,0) 75%);
+
+  filter: blur(10px);
+  border-radius: 50%;
+
+  animation: sombraFlotante 7s ease-in-out infinite 2.5s;
+}
+
+
+/* ==============================
+   IMAGEN 3D PREMIUM
+============================== */
+
+.img-bienvenida::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+
+  transform: skewX(-25deg);
+  border-radius: 50%;
+
+  animation: luzEntrada 1.8s ease-out 2.2s forwards;
+}
+
+.img-bienvenida {
+  width: 90%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 6px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.5),
+    0 0 25px rgba(193,154,107,0.3),
+    inset 0 0 15px rgba(0,0,0,0.3);
+
+  transform-style: preserve-3d;
+
+  animation:
+    intro3D 2.5s ease-out forwards,
+    flotacion3D 7s ease-in-out infinite 2.5s;
+}
+
+/* ==============================
+   ENTRADA 3D CINEMATOGRÁFICA
+============================== */
+
+@keyframes intro3D {
+
+  0% {
+    opacity: 0;
+    transform:
+      translateY(80px)
+      rotateX(55deg)
+      rotateY(-30deg)
+      scale(0.6);
+    filter: blur(10px);
+  }
+
+  40% {
+    opacity: 1;
+    transform:
+      translateY(-15px)
+      rotateX(-12deg)
+      rotateY(8deg)
+      scale(1.08);
+    filter: blur(0);
+  }
+
+  65% {
+    transform:
+      translateY(5px)
+      rotateX(6deg)
+      rotateY(-4deg)
+      scale(0.98);
+  }
+
+  85% {
+    transform:
+      translateY(-2px)
+      rotateX(-2deg)
+      rotateY(1deg)
+      scale(1.01);
+  }
+
+  100% {
+    transform:
+      translateY(0px)
+      rotateX(0deg)
+      rotateY(0deg)
+      scale(1);
+  }
+}
+@keyframes luzEntrada {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+
+/* ==============================
+   FLOTACIÓN 3D PREMIUM ORGÁNICA
+============================== */
+
+@keyframes flotacion3D {
+  0% {
+    transform: 
+      translateY(0px)
+      rotateX(0deg)
+      rotateY(0deg)
+      rotateZ(0deg);
+  }
+
+  25% {
+    transform: 
+      translateY(-12px)
+      rotateX(4deg)
+      rotateY(-3deg)
+      rotateZ(1deg);
+  }
+
+  50% {
+    transform: 
+      translateY(-20px)
+      rotateX(6deg)
+      rotateY(-6deg)
+      rotateZ(-1deg);
+  }
+
+  75% {
+    transform: 
+      translateY(-10px)
+      rotateX(-3deg)
+      rotateY(4deg)
+      rotateZ(1deg);
+  }
+
+  100% {
+    transform: 
+      translateY(0px)
+      rotateX(0deg)
+      rotateY(0deg)
+      rotateZ(0deg);
+  }
+}
+
+
+
+@keyframes sombraFlotante {
+
+  0% {
+    transform:
+      scale(1)
+      translateY(0px)
+      scaleX(1)
+      scaleY(1);
+    opacity: 0.55;
+  }
+
+  25% {
+    transform:
+      scale(0.9)
+      translateY(8px)
+      scaleX(0.95)
+      scaleY(0.9);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform:
+      scale(0.7)
+      translateY(18px)
+      scaleX(0.85)
+      scaleY(0.75);
+    opacity: 0.28;
+  }
+
+  75% {
+    transform:
+      scale(0.88)
+      translateY(10px)
+      scaleX(0.95)
+      scaleY(0.9);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform:
+      scale(1)
+      translateY(0px)
+      scaleX(1)
+      scaleY(1);
+    opacity: 0.55;
+  }
+}
+
+
+
+
 @keyframes zoom { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+
 
 /* Grid y tarjetas */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: clamp(10px, 3vw, 40px); }
