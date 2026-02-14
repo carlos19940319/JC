@@ -12,7 +12,7 @@
   --fondo-img: url("img/fondo24.jpg");
   --fondo-header-img: url("img/n..jpg");
   --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");
-  --fondo-opacidad: 0.3;
+  --fondo-opacidad: 0.5;
   --header-height: 64px;
   --nav-height: 60px;
 }
@@ -1206,5 +1206,116 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* ==============================
+   HORARIO PREMIUM CRISTAL
+============================== */
+
+#horario-compacto {
+  max-width: 420px;
+  margin: 0 auto 30px;
+  padding: 20px 25px;
+
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.6),
+    0 0 20px rgba(193,154,107,0.15);
+
+  color: #ffffff;
+
+  transition: all .3s ease;
+}
+
+/* Reloj */
+#reloj {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* Estado */
+#estado {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.8);
+
+  transition: all .3s ease;
+}
+
+/* Título */
+#titulo {
+  margin: 10px 0 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: var(--color-principal);
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.7),
+    0 0 12px rgba(193,154,107,0.3);
+}
+
+/* Lista */
+#dias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#dias li {
+  padding: 6px 0;
+  font-size: 0.9rem;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.7);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+#dias li:last-child {
+  border-bottom: none;
+}
+
+/* Día actual resaltado */
+.dia-actual {
+  background: rgba(193,154,107,0.15);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #horario-compacto {
+    margin: 0 15px 25px;
+    padding: 18px;
   }
 }
