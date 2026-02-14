@@ -672,11 +672,11 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
   min-height: 280px;
 
   /* 👇 CONTORNO TIPO MARCO */
-  border: 1px solid rgba(255,255,255,0.9);
+  border: 1.5px solid rgba(255,255,255,0.7);
 
   box-shadow:
-    0 0 0 6px rgba(255,255,255,0.17), /* segundo anillo suave */
-    0 20px 45px rgba(0,0,0,0.1);      /* sombra profunda */
+    0 0 0 5px rgba(255,100,0,0.4), /* segundo anillo suave */
+    0 20px 45px rgba(0,0,0,1);      /* sombra profunda */
 
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -707,7 +707,6 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
     0 25px 50px rgba(0,0,0,1),
     0 0 30px rgba(193,154,107,0.35);
 }
-
 /* ==============================
    TITULO FIJO ARRIBA
 ============================== */
