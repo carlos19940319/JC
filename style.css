@@ -858,8 +858,11 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 #eventos {
   width: 100%;
   font-family: Inter, system-ui, Roboto, Arial;
-  padding: clamp(40px, 6vw, 80px) 0;
+
+  padding-top: clamp(10px, 3vw, 30px);   /* 👈 menos espacio arriba */
+  padding-bottom: clamp(40px, 6vw, 80px);
 }
+
 
 /* CONTENEDOR */
 .carousel-wrap {
