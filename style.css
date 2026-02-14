@@ -809,11 +809,11 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 .card.arugula { background-image: url("img/arugula.png"); }
 .card.serrano { background-image: url("img/serrano.jpg"); }
 .card.tresquesos { background-image: url("img/3QUESOS.jpg"); }
-.card.mexicana { background-image: url("img/IMG-20251003-WA0204.jpg"); }
+.card.mexicana { background-image: url("img/MEXICANA.jpg"); }
 .card.champinon { background-image: url("img/champiñones.jpg"); }
 
 
-.card.refrescos { background-image: url("img/refresco3.jpgg"); }
+.card.refrescos { background-image: url("img/cerveza.jpg"); }
 .card.cerveza { background-image: url("img/png.png"); }
 .card.micheladas { background-image: url("img/sal3.jpg"); }
 .card.clamatos { background-image: url("img/michelada.png"); }
@@ -858,7 +858,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   width: 100%;
   font-family: Inter, system-ui, Roboto, Arial;
 
- padding-top: clamp(5px, 2vw, 20px);
+ padding-top: clamp(5px, 2vw, 0px);
    /* 👈 menos espacio arriba */
   padding-bottom: clamp(40px, 6vw, 80px);
 }
@@ -879,9 +879,19 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 10px 0 30px;
+
+  padding: 20px 15px 40px;
+
+  border-radius: 24px;
+  border: 1px solid rgba(193,154,107,0.25);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 25px rgba(193,154,107,0.15);
+
   scrollbar-width: none;
 }
+
 
 .carousel::-webkit-scrollbar {
   display: none;
@@ -916,22 +926,34 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     0 0 25px rgba(193,154,107,0.25);
 }
 
-/* IMAGEN */
 .media {
   position: relative;
-  aspect-ratio: 16 / 9; /* 👈 mejor que altura fija */
-  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  overflow: visible; /* 👈 importante para que “flote” */
 }
 
+/* Imagen flotante */
 .media img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 👈 evita deformación */
-  transition: transform .6s ease;
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.6),
+    0 0 20px rgba(193,154,107,0.15);
+
+  transform: translateY(0);
+  transition: transform .6s ease, box-shadow .6s ease;
 }
 
-.slide.active img {
-  transform: scale(1.08);
+/* Slide activo más elevado */
+.slide.active .media img {
+  transform: translateY(-12px);
+  box-shadow:
+    0 35px 70px rgba(0,0,0,0.75),
+    0 0 30px rgba(193,154,107,0.25);
 }
 
 /* OVERLAY */
@@ -946,7 +968,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   background: linear-gradient(
     180deg,
     rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.75) 80%
+    rgba(0,0,0,0.5) 80%
   );
 
   color: #fff;
@@ -954,8 +976,30 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 }
 
 /* BADGE */
+.overlay .badge {
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.9),
+    0 4px 12px rgba(0,0,0,0.8);
+}
+
+/* TÍTULO */
+.overlay .title {
+  text-shadow:
+    0 3px 8px rgba(0,0,0,0.95),
+    0 6px 18px rgba(0,0,0,0.85);
+}
+
+/* DESCRIPCIÓN */
+.overlay .desc {
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.9),
+    0 4px 14px rgba(0,0,0,0.8);
+}
+
+
+/* BADGE */
 .badge {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.5);
   padding: 6px 14px;
   border-radius: 999px;
   font-weight: 500;
@@ -1089,28 +1133,6 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     aspect-ratio: 4 / 5; /* 👈 más vertical */
   }
 
-}
-/* =========================
-   MOBILE – ESTILO STORY
-========================= */
-
-@media (max-width: 640px) {
-
-  .slide {
-    flex: 0 0 92%;
-  }
-
-  .media {
-    aspect-ratio: 9 / 16;   /* 👈 formato story vertical */
-  }
-
-  .media img {
-    object-fit: cover;
-  }
-
-  .slide.active {
-    transform: scale(1);
-  }
 
 }
 
