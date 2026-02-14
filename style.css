@@ -407,7 +407,7 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 
 
 .img-bienvenida {
-  width: 90%;
+  width: 70%;
   max-width: 450px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -429,13 +429,16 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 @media (max-width: 600px) {
 
   .img-bienvenida {
-    width: 240px;
+    width: clamp(170px, 55vw, 220px);
     border-width: 4px;
 
     animation:
       intro3D 2s ease-out forwards,
-      flotacion3D 9s ease-in-out infinite 2s;
+      flotacion3D 9s ease-in-out infinite 2.5s;
   }
+
+}
+
 
 
   .hero::after {
@@ -809,11 +812,11 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 .card.arugula { background-image: url("img/arugula.png"); }
 .card.serrano { background-image: url("img/serrano.jpg"); }
 .card.tresquesos { background-image: url("img/3QUESOS.jpg"); }
-.card.mexicana { background-image: url("img/IMG-20251003-WA0204.jpg"); }
+.card.mexicana { background-image: url("img/MEXICANA.jpg"); }
 .card.champinon { background-image: url("img/champiñones.jpg"); }
 
 
-.card.refrescos { background-image: url("img/refresco3.jpg"); }
+.card.refrescos { background-image: url("img/cerveza.jpg"); }
 .card.cerveza { background-image: url("img/png.png"); }
 .card.micheladas { background-image: url("img/sal3.jpg"); }
 .card.clamatos { background-image: url("img/michelada.png"); }
