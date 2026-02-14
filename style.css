@@ -1080,6 +1080,13 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     transform: scale(1.05);
   }
 }
+@media (max-width: 640px) {
+
+  .media {
+    aspect-ratio: 4 / 5; /* 👈 más vertical */
+  }
+
+}
 
 
 /* =========================
