@@ -402,6 +402,8 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 
 }
 
+
+
 /* ==============================
    ENTRADA 3D CINEMATOGRÁFICA
 ============================== */
@@ -571,12 +573,189 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 @keyframes zoom { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
 
 
-/* Grid y tarjetas */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: clamp(10px, 3vw, 40px); }
-.card { background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center; background-size: cover; border-radius: 20px; padding: 5px; text-align: center; box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1); overflow: hidden; }
-.card img { width: 98%; height: auto; max-height: 200px; object-fit: cover; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 8); }
-.price { color: var(--color-principal); font-weight: 800; }
-.name-red { color: #b22222; }
+/* ==============================
+   GRID
+============================== */
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(15px, 2vw, 25px);
+  margin-top: clamp(10px, 3vw, 40px);
+  align-items: stretch;
+}
+
+.grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.03),
+    rgba(0,0,0,0.05)
+  );
+}
+
+/* ==============================
+   CARD CON IMAGEN DE FONDO
+============================== */
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 15px;
+  text-align: center;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  min-height: 280px;
+
+  /* 👇 CONTORNO TIPO MARCO */
+  border: 1px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,0.17), /* segundo anillo suave */
+    0 20px 45px rgba(0,0,0,0.1);      /* sombra profunda */
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Capa oscura para legibilidad */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,1.5),
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.0)
+  );
+  z-index: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover elegante */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 50px rgba(0,0,0,1),
+    0 0 30px rgba(193,154,107,0.35);
+}
+
+/* ==============================
+   TITULO FIJO ARRIBA
+============================== */
+
+.card-title {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 8px 22px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  color: #ffffff;
+
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 50px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  z-index: 3;
+
+  transition: all 0.3s ease;
+}
+
+
+/* ==============================
+   TEXTO Y PRECIO PREMIUM
+============================== */
+
+.desc {
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  line-height: 1.6;          /* 👈 más aire entre líneas */
+  margin: 8px 0 6px;
+  padding: 0 8px;            /* 👈 margen interno lateral */
+
+  text-align: center;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-shadow: 0 2px 6px rgba(0,0,0,0.75);
+
+  opacity: 0.95;
+}
+
+
+.price {
+  margin-top: 6px;
+
+  color: var(--color-principal);
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.7);
+
+  line-height: 1.2;
+}
+
+
+/* Hover elegante */
+.card:hover .price {
+  transform: scale(1.08);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.8),
+    0 0 20px rgba(193,154,107,0.5);
+}
+
+.card.margarita { background-image: url("img/MARGARITA2.jpg"); }
+.card.pepperoni { background-image: url("img/PEPERONI2.jpg"); }
+.card.arugula { background-image: url("img/arugula.png"); }
+.card.serrano { background-image: url("img/serrano.jpg"); }
+.card.tresquesos { background-image: url("img/3QUESOS.jpg"); }
+.card.mexicana { background-image: url("img/MEXICANA.jpg"); }
+.card.champinon { background-image: url("img/champiñones.jpg"); }
+
+
+.card.refrescos { background-image: url("img/cerveza.jpg"); }
+.card.cerveza { background-image: url("img/png.png"); }
+.card.micheladas { background-image: url("img/sal3.jpg"); }
+.card.clamatos { background-image: url("img/michelada.png"); }
+.card.monodelima { background-image: url("img/IMG-20251008-WA0097.jpg"); }
+.card.vino { background-image: url("img/IMG-20250930-WA0102.jpg"); }
+.card.smoothie { background-image: url("img/Screenshot_20251008-120229.Fotos.png"); }
+.card.cafe { background-image: url("img/cafe2.jpg"); }
+.card.capuchino { background-image: url("img/Capuchino-perfecto.jpg"); }
+
 
 /* Footer */
 footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: center; padding: 8px 10px; font-family: Arial, sans-serif; }
