@@ -383,6 +383,24 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
     intro3D 2.5s ease-out forwards,
     flotacion3D 7s ease-in-out infinite 2.5s;
 }
+@media (max-width: 600px) {
+
+  .img-bienvenida {
+    width: 240px;
+    border-width: 4px;
+
+    animation:
+      intro3D 2s ease-out forwards,
+      flotacion3D 9s ease-in-out infinite 2s;
+  }
+
+
+  .hero::after {
+    width: 180px;        /* Sombra proporcional */
+    height: 40px;
+  }
+
+}
 
 /* ==============================
    ENTRADA 3D CINEMATOGRÁFICA
