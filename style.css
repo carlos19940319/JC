@@ -854,12 +854,12 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 /* =========================
    CARRUSEL PREMIUM RESPONSIVE
 ========================= */
-
 #eventos {
   width: 100%;
   font-family: Inter, system-ui, Roboto, Arial;
 
-  padding-top: clamp(10px, 3vw, 30px);   /* 👈 menos espacio arriba */
+ padding-top: clamp(5px, 2vw, 20px);
+   /* 👈 menos espacio arriba */
   padding-bottom: clamp(40px, 6vw, 80px);
 }
 
@@ -1110,48 +1110,6 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 
   .slide.active {
     transform: scale(1);
-  }
-
-}
-/* =========================
-   MOBILE STORY PREMIUM
-========================= */
-
-@media (max-width: 640px) {
-
-  /* Más redondeado en móvil */
-  .slide {
-    flex: 0 0 92%;
-    border-radius: 30px;   /* 👈 más redondeado */
-    transition: transform .4s ease, opacity .4s ease;
-  }
-
-  /* Formato vertical story */
-  .media {
-    aspect-ratio: 9 / 16;
-    border-radius: 30px;
-    overflow: hidden;
-  }
-
-  /* Profundidad lateral */
-  .slide {
-    transform: scale(.9);
-    opacity: .5;
-  }
-
-  .slide.active {
-    transform: scale(1);
-    opacity: 1;
-    z-index: 3;
-
-    box-shadow:
-      0 25px 60px rgba(0,0,0,0.7),
-      0 0 25px rgba(193,154,107,0.25);
-  }
-
-  /* Efecto blur lateral tipo profundidad */
-  .slide:not(.active) {
-    filter: blur(2px);
   }
 
 }
