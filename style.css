@@ -9,10 +9,10 @@
   --color-secundario: #333333;
   --color-fondo-tarjeta: #ffffff;
   --navbar-bg: rgba(197, 0, 0, 0.6);
-  --fondo-img: url("img/fondo24.jpg");
+  --fondo-img: url("img/fondo22.jpg");
   --fondo-header-img: url("img/n..jpg");
   --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");
-  --fondo-opacidad: 0.5;
+  --fondo-opacidad: 0.6;
   --header-height: 64px;
   --nav-height: 60px;
 }
@@ -44,17 +44,13 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-
-  /* 🔒 Tamaño estable (NO se recalcula) */
   width: 100vw;
   height: 100svh;
 
-  /* 🎨 Tu fondo real (NO se pierde la imagen) */
   background:
     linear-gradient(
-      180deg,
-      rgba(7,16,33,var(--fondo-opacidad)) 0%,
-      rgba(12,19,32,var(--fondo-opacidad)) 100%
+      rgba(0, 0, 0, var(--fondo-opacidad)),
+      rgba(0, 0, 0, var(--fondo-opacidad))
     ),
     var(--fondo-img);
 
@@ -64,11 +60,9 @@ body::before {
 
   z-index: -1;
 
-  /* 🧠 estabilidad gráfica */
   transform: translateZ(0);
   will-change: opacity, filter;
 
-  /* ✨ animación conservada */
   opacity: 0;
   filter: blur(2px);
   animation: fondoEntradaEstable 2.6s ease-out forwards;
@@ -85,8 +79,6 @@ body::before {
     filter: blur(0);
   }
 }
-
-
 
 
 
