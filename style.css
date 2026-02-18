@@ -923,17 +923,15 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
 
 .media {
   position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: visible; /* 👈 importante para que “flote” */
+  display: inline-block; /* 👈 se adapta al tamaño real */
+  overflow: visible;
 }
 
-/* Imagen flotante */
 .media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 👈 evita recorte */
-  background: #000;    /* relleno elegante */
-
+  display: block;
+  width: 100%;      /* 👈 en móvil ocupa todo */
+  height: auto;
+  object-fit: contain;
 
   border-radius: 18px;
 
@@ -941,9 +939,25 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     0 20px 40px rgba(0,0,0,0.6),
     0 0 20px rgba(193,154,107,0.15);
 
-  transform: translateY(0);
+  margin: 0 auto;
   transition: transform .6s ease, box-shadow .6s ease;
 }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .media img {
+    width: 85%;
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  .media img {
+    width: 70%;
+  }
+}
+
+
 
 /* Slide activo más elevado */
 .slide.active .media img {
