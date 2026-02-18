@@ -931,7 +931,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   display: block;
   width: 100%;      /* 👈 en móvil ocupa todo */
   height: auto;
-  object-fit: contain;
+  object-fit: scale-down;
 
   border-radius: 18px;
 
