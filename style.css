@@ -251,33 +251,49 @@ body::before {
 }
 
 
-/* HOVER SUAVE */
+/* ===========================
+   HOVER — EFECTO 3D REAL
+=========================== */
+
 .header-unificado nav a:hover {
-  transform: translateY(-2px);
+
+  transform:
+    perspective(500px)
+    translateY(-6px)
+    rotateX(8deg)
+    scale(1.06);
 
   box-shadow:
-    0 6px 15px rgba(0,0,0,0.4),
-    0 12px 25px rgba(0,0,0,0.35),
-    0 0 15px rgba(193,154,107,0.4);
+    0 12px 22px rgba(0,0,0,0.45),
+    0 22px 40px rgba(0,0,0,0.35),
+    inset 0 2px 3px rgba(255,255,255,0.35),
+    inset 0 -3px 6px rgba(0,0,0,0.4);
+
 }
 
-/* ACTIVO */
+
+/* ===========================
+   ACTIVE — BOTÓN PRESIONADO
+=========================== */
+
 .header-unificado nav a.active {
-  color: #ffffff;
 
-  background: rgba(193,154,107,0.25);
+  color: var(--color-principal);
+  background: linear-gradient(145deg,#fff7f7,#ffecec);
 
-  border: 1px solid rgba(193,154,107,0.6);
+  transform:
+    perspective(500px)
+    translateY(-2px)
+    scale(1.03);
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,0.45),
-    0 0 18px rgba(193,154,107,0.6),
-    inset 0 2px 4px rgba(255,255,255,0.3);
+    0 6px 12px rgba(0,0,0,0.45),
+    inset 0 3px 6px rgba(0,0,0,0.35),
+    inset 0 -2px 3px rgba(255,255,255,0.6);
+
 }
 
 
-.header-unificado nav a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-.header-unificado nav a.active { color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
 
 /* Main */
 main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(var(--header-height) + var(--nav-height) + 20px); }
