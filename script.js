@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ev.stopPropagation();
 
-      // Toggle tamaño
       if (card.classList.contains('selected')) {
 
         card.classList.remove('selected');
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
 
-        // Centrar suave (solo scroll)
         card.scrollIntoView({
           behavior: 'smooth',
           block: 'center'
@@ -91,6 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!e.target.closest('.card')) {
       cards.forEach(c => c.classList.remove('selected'));
     }
+  });
+
+  // ✅ NUEVO — cerrar cards al hacer scroll
+  let scrollTimer;
+
+  window.addEventListener('scroll', () => {
+
+    clearTimeout(scrollTimer);
+
+    scrollTimer = setTimeout(() => {
+      cards.forEach(c => c.classList.remove('selected'));
+    }, 80);
+
   });
 
 
