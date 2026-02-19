@@ -1,11 +1,13 @@
 /* =========================
    script.js — todo tu JS
-   Incluye: SPA, reloj, carrusel, cards expandibles
 ========================= */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   document.body.classList.add('show');
+
+  // Detectar tipo de dispositivo
+  const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   // =========================
   // SPA NAV
@@ -30,9 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    if (push) {
-      history.replaceState(null, '', `#${id}`);
-    }
+    if (push) history.replaceState(null, '', `#${id}`);
   }
 
   links.forEach(link => {
@@ -52,25 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
     showSection(location.hash.replace('#','') || defaultSection, false);
   });
 
-
   // =========================
-  // ⭐ CARDS — SOLO AGRANDAR
+  // ⭐ CARDS INTERACCIÓN
   // =========================
 
   const cards = document.querySelectorAll('.card');
 
+  // CLICK (igual que antes)
   cards.forEach(card => {
-
     card.addEventListener('click', (ev) => {
 
       ev.stopPropagation();
 
       if (card.classList.contains('selected')) {
-
         card.classList.remove('selected');
-
       } else {
-
         cards.forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
 
@@ -79,31 +75,43 @@ document.addEventListener('DOMContentLoaded', () => {
           block: 'center'
         });
       }
-
     });
-
   });
 
-  // Click fuera = cerrar
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.card')) {
       cards.forEach(c => c.classList.remove('selected'));
     }
   });
 
-  // ✅ NUEVO — cerrar cards al hacer scroll
+  // Scroll → cerrar seleccionadas
   let scrollTimer;
-
   window.addEventListener('scroll', () => {
-
     clearTimeout(scrollTimer);
-
     scrollTimer = setTimeout(() => {
       cards.forEach(c => c.classList.remove('selected'));
     }, 80);
-
   });
 
+  // ⭐⭐⭐ EFECTO ZOOM SEGÚN DISPOSITIVO ⭐⭐⭐
+
+  if (!isDesktop) {
+
+    // 📱 CELULAR → zoom cuando aparece en pantalla
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("mobile-zoom");
+        } else {
+          entry.target.classList.remove("mobile-zoom");
+        }
+      });
+    }, {
+      threshold: 0.6
+    });
+
+    cards.forEach(card => observer.observe(card));
+  }
 
   // =========================
   // RELOJ Y ESTADO
@@ -138,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (abierto) {
-
       estado.textContent = "🟢 Abierto";
       estado.style.color = "green";
       estado.style.boxShadow = "0 0 8px green";
@@ -151,17 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
       ultimoEstado = "abierto";
 
     } else {
-
       estado.textContent = "🔴 Cerrado";
       estado.style.color = "red";
       estado.style.boxShadow = "0 0 8px red";
-
       ultimoEstado = "cerrado";
     }
   }
 
   function resaltarDia() {
-
     const dias = document.querySelectorAll("#dias li");
     const hoy = new Date().getDay();
 
@@ -180,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   actualizarReloj();
   resaltarDia();
-
 
   // =========================
   // CARRUSEL
@@ -208,13 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = [...dotsWrap.children];
 
     function updateActiveSlide() {
-
       const center = carousel.scrollLeft + carousel.clientWidth / 2;
       let closest = 0;
       let min = Infinity;
 
       slides.forEach((s, i) => {
-
         const slideCenter = s.offsetLeft + s.clientWidth / 2;
         const dist = Math.abs(center - slideCenter);
 
@@ -222,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
           min = dist;
           closest = i;
         }
-
         s.classList.remove('active');
       });
 
@@ -240,7 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function goTo(i) {
-
       current = clamp(i);
       const s = slides[current];
 
@@ -264,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     goTo(0);
 
   })();
-
 
   // =========================
   // FOOTER YEAR
