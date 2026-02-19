@@ -85,13 +85,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Scroll → cerrar seleccionadas
-  let scrollTimer;
-  window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      cards.forEach(c => c.classList.remove('selected'));
-    }, 80);
+  // ⭐ RESET TOTAL AL HACER SCROLL ⭐
+let scrollTimer;
+
+window.addEventListener('scroll', () => {
+
+  clearTimeout(scrollTimer);
+
+  // Reset inmediato
+  cards.forEach(card => {
+    card.classList.remove('selected');
+    card.classList.remove('mobile-zoom');
+    card.classList.remove('hover-zoom');
   });
+
+  // Espera a que termine el scroll
+  scrollTimer = setTimeout(() => {
+
+    // En celular vuelve a activar observer
+    if (!isDesktop) {
+      cards.forEach(card => observer?.observe(card));
+    }
+
+  }, 120);
+
+});
 
   // ⭐⭐⭐ EFECTO ZOOM SEGÚN DISPOSITIVO ⭐⭐⭐
 
