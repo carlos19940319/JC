@@ -82,6 +82,8 @@ body::before {
 
 
 
+
+
 /* Header unificado */
 .header-unificado {
   position: fixed;
@@ -292,8 +294,6 @@ body::before {
     inset 0 -2px 3px rgba(255,255,255,0.6);
 
 }
-
-
 
 /* Main */
 main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(var(--header-height) + var(--nav-height) + 20px); }
@@ -650,6 +650,7 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 @keyframes zoom { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
 
 
+
 /* ==============================
    GRID
 ============================== */
@@ -661,6 +662,8 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
   gap: clamp(15px, 2vw, 25px);
   margin-top: clamp(10px, 3vw, 40px);
   align-items: stretch;
+
+  perspective: 1200px;
 }
 
 .grid::before {
@@ -677,7 +680,7 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 }
 
 /* ==============================
-   CARD CON IMAGEN DE FONDO
+   CARD 3D (SIN REFLEJO)
 ============================== */
 
 .card {
@@ -697,17 +700,22 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 
   min-height: 280px;
 
-  /* 👇 CONTORNO TIPO MARCO */
   border: 1.5px solid rgba(255,255,255,0.7);
 
   box-shadow:
-    0 0 0 5px rgba(255,255,255,0.4), /* segundo anillo suave */
-    0 20px 45px rgba(0,0,0,1);      /* sombra profunda */
+    0 0 0 5px rgba(255,255,255,0.35),
+    0 15px 35px rgba(0,0,0,0.9),
+    0 35px 70px rgba(0,0,0,0.8);
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+
+  transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.45s ease;
 }
 
-/* Capa oscura para legibilidad */
+/* Capa oscura */
 .card::before {
   content: "";
   position: absolute;
@@ -716,33 +724,42 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
     to top,
     rgba(0,0,0,1.5),
     rgba(0,0,0,0.15),
-    rgba(0,0,0,0.0)
+    rgba(0,0,0,0)
   );
   z-index: 1;
 }
+
+/* Hover profundo */
+.card:hover {
+  transform:
+    translateY(-12px)
+    rotateX(6deg)
+    rotateY(-6deg)
+    scale(1.03);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,1),
+    0 0 40px rgba(193,154,107,0.35);
+}
+
+/* ==============================
+   CONTENIDO
+============================== */
 
 .card > * {
   position: relative;
   z-index: 2;
 }
 
-/* Hover elegante */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 25px 50px rgba(0,0,0,1),
-    0 0 30px rgba(193,154,107,0.35);
-}
-
 /* ==============================
-   TITULO FIJO ARRIBA
+   TITULO 3D
 ============================== */
 
 .card-title {
   position: absolute;
   top: 15px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(40px);
 
   padding: 8px 22px;
   font-size: 1.1rem;
@@ -750,35 +767,38 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
   letter-spacing: 1px;
 
   color: #ffffff;
-
   background: rgba(0,0,0,0.55);
+
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
   border-radius: 50px;
 
   box-shadow:
-    0 8px 20px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(255,255,255,0.15);
+    0 10px 25px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.25);
 
-  z-index: 3;
-
-  transition: all 0.3s ease;
+  transition: transform 0.35s ease;
 }
 
+.card:hover .card-title {
+  transform: translateX(-50%) translateZ(60px) scale(1.08);
+}
+
+/* ==============================
+   DESCRIPCION
+============================== */
 
 .desc {
   color: #f1f1f1;
   font-size: 0.95rem;
   line-height: 1.6;
-
   margin: 8px auto 6px;
   max-width: 90%;
   text-align: center;
 
-  /* Sombra difuminada profunda */
   text-shadow:
     0 2px 4px rgba(0,0,0,1),
     0 4px 10px rgba(0,0,0,1),
@@ -787,31 +807,85 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
   opacity: 0.98;
 }
 
-
+/* ==============================
+   PRECIO 3D
+============================== */
 
 .price {
   margin-top: 6px;
-
   color: var(--color-principal);
   font-weight: 900;
   font-size: 1.3rem;
   letter-spacing: 1px;
 
-  /* 👇 sombra más profunda y elegante */
+  transform: translateZ(35px);
+
   text-shadow:
     0 2px 3px rgba(255,255,255,0.9),
     0 1px 15px rgba(255,255,255,0.7),
     0 0 8px rgba(255,255,255,0.6);
 
   line-height: 1.2;
+  transition: transform 0.35s ease;
 }
-/* Hover elegante */
+
 .card:hover .price {
-  transform: scale(1.08);
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.8),
-    0 0 20px rgba(193,154,107,0.5);
+  transform: translateZ(65px) scale(1.12);
 }
+/* ==============================
+   CARD SELECCIONADA
+============================== */
+
+.card.selected {
+
+  transform:
+    translateY(-18px)
+    scale(1.08)
+    rotateX(4deg)
+    rotateY(0deg);
+
+  z-index: 50;
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,1),
+    0 0 60px rgba(193,154,107,0.45);
+
+}
+
+
+/* Oscurecer las demás */
+.grid.focus-mode .card:not(.selected){
+  opacity: .35;
+  transform: scale(.92);
+  filter: blur(1px);
+  transition: .4s;
+}
+/* ==============================
+   ZOOM SUAVE SIN DEFORMAR
+============================== */
+
+.card {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Hover mouse (PC) */
+.card:hover {
+  transform: scale(1.06) translateY(-6px);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,1),
+    0 0 35px rgba(193,154,107,0.45);
+}
+
+/* Cuando está seleccionada por click */
+.card.selected {
+  transform: scale(1.12);
+  z-index: 10;
+}
+
+
+
 
 
 
@@ -824,7 +898,7 @@ main { max-width: 1100px; margin: 18px auto; padding: 0 14px; padding-top: calc(
 .card.champinon { background-image: url("img/champiñones.webp"); }
 
 
-.card.refrescos { background-image: url("img/refresco3.jpg"); }
+.card.refrescos { background-image: url("img/cerveza.jpg"); }
 .card.cerveza { background-image: url("img/png.png"); }
 .card.micheladas { background-image: url("img/sal3.jpg"); }
 .card.clamatos { background-image: url("img/michelada.png"); }
@@ -947,7 +1021,8 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
   display: block;
   width: 100%;      /* 👈 en móvil ocupa todo */
   height: auto;
-  object-fit: scale-down;
+object-fit: scale-down;
+
 
   border-radius: 18px;
 
@@ -972,6 +1047,7 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     width: 70%;
   }
 }
+
 
 
 
@@ -1345,4 +1421,25 @@ footer { width: 100%; background: rgba(0,0,0,0.6); color: #fff; text-align: cent
     margin: 0 15px 25px;
     padding: 18px;
   }
+}
+.nav-evento {
+  position: relative;
+  font-weight: 600;
+}
+
+.nav-evento::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #c19a6b, #b22222);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.nav-evento:hover::before {
+  transform: scaleX(1);
 }
