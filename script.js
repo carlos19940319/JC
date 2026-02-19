@@ -1,7 +1,7 @@
 /* =========================
    script.js — todo tu JS
-   Incluye: comportamiento SPA (fade), reloj/estado, carrusel
-   ========================= */
+   Incluye: SPA, reloj, carrusel, cards expandibles
+========================= */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -17,23 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showSection(id, push = true) {
 
-    // 🔥 SIEMPRE SUBE ARRIBA
     window.scrollTo(0, 0);
 
     sections.forEach(sec => {
-      if (sec.id === id) {
-        sec.classList.add('active');
-      } else {
-        sec.classList.remove('active');
-      }
+      sec.classList.toggle('active', sec.id === id);
     });
 
     links.forEach(link => {
-      if (link.getAttribute('data-target') === id) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+      link.classList.toggle(
+        'active',
+        link.getAttribute('data-target') === id
+      );
     });
 
     if (push) {
@@ -44,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = link.getAttribute('data-target');
-      showSection(target, true);
+      showSection(link.dataset.target, true);
     });
   });
 
@@ -56,33 +49,50 @@ document.addEventListener('DOMContentLoaded', () => {
   showSection(currentHash, false);
 
   window.addEventListener('hashchange', () => {
-    const id = location.hash.replace('#','') || defaultSection;
-    showSection(id, false);
+    showSection(location.hash.replace('#','') || defaultSection, false);
   });
 
+
   // =========================
-  // CARDS
+  // ⭐ CARDS — SOLO AGRANDAR
   // =========================
 
   const cards = document.querySelectorAll('.card');
 
   cards.forEach(card => {
+
     card.addEventListener('click', (ev) => {
+
       ev.stopPropagation();
-      cards.forEach(c => {
-        if (c !== card) c.classList.remove('selected');
-      });
-      card.classList.toggle('selected');
+
+      // Toggle tamaño
+      if (card.classList.contains('selected')) {
+
+        card.classList.remove('selected');
+
+      } else {
+
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        // Centrar suave (solo scroll)
+        card.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+
     });
+
   });
 
+  // Click fuera = cerrar
   document.addEventListener('click', (e) => {
-    cards.forEach(card => {
-      if (!card.contains(e.target)) {
-        card.classList.remove('selected');
-      }
-    });
+    if (!e.target.closest('.card')) {
+      cards.forEach(c => c.classList.remove('selected'));
+    }
   });
+
 
   // =========================
   // RELOJ Y ESTADO
@@ -93,14 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!reloj) return;
 
     const ahora = new Date();
-    let h = ahora.getHours();
-    let m = ahora.getMinutes();
-    let s = ahora.getSeconds();
 
     reloj.textContent =
-      `${h.toString().padStart(2,'0')}:` +
-      `${m.toString().padStart(2,'0')}:` +
-      `${s.toString().padStart(2,'0')}`;
+      `${ahora.getHours().toString().padStart(2,'0')}:`+
+      `${ahora.getMinutes().toString().padStart(2,'0')}:`+
+      `${ahora.getSeconds().toString().padStart(2,'0')}`;
   }
 
   let ultimoEstado = "";
@@ -115,22 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let abierto = false;
 
     if ([5].includes(hoy)) {
-      const ahoraMin = ahora.getHours()*60 + ahora.getMinutes();
-      if (ahoraMin >= 19*60 && ahoraMin <= 23*60) {
-        abierto = true;
-      }
+      const min = ahora.getHours()*60 + ahora.getMinutes();
+      if (min >= 19*60 && min <= 23*60) abierto = true;
     }
 
     if (abierto) {
+
       estado.textContent = "🟢 Abierto";
       estado.style.color = "green";
       estado.style.boxShadow = "0 0 8px green";
 
       if (ultimoEstado !== "abierto") {
         estado.classList.add("open-anim");
-        setTimeout(() => {
-          estado.classList.remove("open-anim");
-        }, 500);
+        setTimeout(() => estado.classList.remove("open-anim"), 500);
       }
 
       ultimoEstado = "abierto";
@@ -140,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
       estado.textContent = "🔴 Cerrado";
       estado.style.color = "red";
       estado.style.boxShadow = "0 0 8px red";
+
       ultimoEstado = "cerrado";
     }
   }
@@ -150,10 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoy = new Date().getDay();
 
     dias.forEach(li => {
-      const diasArray = li.dataset.dia.split(",").map(Number);
-      if (diasArray.includes(hoy)) {
-        li.classList.add("dia-actual");
-      }
+      const arr = li.dataset.dia.split(",").map(Number);
+      if (arr.includes(hoy)) li.classList.add("dia-actual");
     });
 
     actualizarEstado();
@@ -164,10 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarEstado();
   }, 1000);
 
-  window.onload = () => {
-    actualizarReloj();
-    resaltarDia();
-  };
+  actualizarReloj();
+  resaltarDia();
+
 
   // =========================
   // CARRUSEL
@@ -197,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateActiveSlide() {
 
       const center = carousel.scrollLeft + carousel.clientWidth / 2;
-
       let closest = 0;
       let min = Infinity;
 
@@ -214,14 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
         s.classList.remove('active');
       });
 
-      if (slides[closest]) {
-        slides[closest].classList.add('active');
-      }
-
+      slides[closest].classList.add('active');
       current = closest;
 
       dots.forEach(d => d.classList.remove('active'));
-      if (dots[current]) dots[current].classList.add('active');
+      dots[current].classList.add('active');
     }
 
     function clamp(i) {
@@ -233,15 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function goTo(i) {
 
       current = clamp(i);
-
       const s = slides[current];
 
-      const left =
-        s.offsetLeft -
-        (carousel.clientWidth - s.clientWidth) / 2;
-
       carousel.scrollTo({
-        left,
+        left: s.offsetLeft -
+              (carousel.clientWidth - s.clientWidth) / 2,
         behavior: 'smooth'
       });
 
@@ -253,13 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carousel.addEventListener('scroll', () => {
       clearTimeout(window._scrollTimer);
-      window._scrollTimer =
-        setTimeout(updateActiveSlide, 100);
+      window._scrollTimer = setTimeout(updateActiveSlide, 100);
     });
 
-    window.addEventListener('load', () => goTo(0));
+    goTo(0);
 
   })();
+
 
   // =========================
   // FOOTER YEAR
