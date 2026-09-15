@@ -1,0 +1,2823 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>La Bonanza Pizzería</title>
+<link rel="icon" href="/img/logo.webp">
+<link rel="canonical" href="https://www.labonanza.pizza/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#050605;--panel:#090b0a;--panel2:#101210;--gold:#d6a94e;--gold2:#f1d07d;
+ --cream:#f6eee1;--muted:#aaa69d;--red:#821717;--line:rgba(214,169,78,.34);
+ --shadow:0 18px 55px rgba(0,0,0,.45)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,Arial,sans-serif}
+button,a{font:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+.page{display:none}.page.active{display:block}
+.gold{color:var(--gold2)}
+.serif{font-family:Cinzel,serif}
+.script{font-family:Italianno,cursive}
+
+/* ===== DESKTOP SHELL ===== */
+.desktop-side{
+ position:fixed;inset:0 auto 0 0;width:235px;z-index:50;padding:24px 16px;
+ display:flex;flex-direction:column;background:
+ linear-gradient(rgba(3,4,3,.88),rgba(3,4,3,.97)),url("img/fondo22.webp") center/cover;
+ border-right:1px solid var(--line)
+}
+.brand{text-align:center}
+.brand img{width:138px;height:138px;object-fit:contain;margin:auto;border-radius:50%;
+ border:1px solid var(--gold);box-shadow:0 0 0 5px rgba(214,169,78,.05)}
+.brand h1{font:600 1.05rem Cinzel,serif;color:var(--gold2);letter-spacing:.08em;margin:10px 0 2px}
+.brand p{font:1.7rem Italianno,cursive;color:#d9bd79;margin:0 0 20px}
+.side-nav{display:grid;gap:6px}
+.navbtn{
+ border:1px solid transparent;background:transparent;color:#ddd6ca;border-radius:12px;
+ padding:12px 14px;text-align:left;display:flex;align-items:center;gap:12px
+}
+.navbtn i{font-style:normal;color:var(--gold2);font-size:1.15rem;width:24px;text-align:center}
+.navbtn:hover,.navbtn.active{background:linear-gradient(90deg,#681515,#270b0b);border-color:var(--gold);color:#fff}
+.side-bottom{margin-top:auto}
+.side-quote{font:1.85rem Italianno,cursive;color:#d8b96e;line-height:1.05;margin:14px 6px}
+.side-social{display:flex;gap:9px;flex-wrap:wrap}
+.side-social a{
+ width:38px;height:38px;border-radius:50%;display:grid;place-items:center;text-decoration:none;
+ border:1px solid var(--line);color:var(--gold2);background:#080a09
+}
+.app{margin-left:235px;min-height:100vh}
+
+/* ===== HOME ===== */
+.home-hero{
+ min-height:620px;position:relative;overflow:hidden;
+ background:linear-gradient(90deg,rgba(3,4,3,.93) 0%,rgba(3,4,3,.55) 43%,rgba(3,4,3,.14) 75%,rgba(3,4,3,.55)),
+ url("img/principal.webp") center/cover no-repeat
+}
+.home-top{display:flex;justify-content:flex-end;gap:12px;padding:24px 34px}
+.mini-link{color:#eee4d4;text-decoration:none;font-size:.82rem;padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(5,6,5,.55)}
+.hero-copy{position:absolute;left:5vw;top:50%;transform:translateY(-46%);max-width:520px}
+.eyebrow{color:var(--gold);font-weight:700;font-size:.7rem;letter-spacing:.3em}
+.hero-copy h2{font:600 clamp(3rem,5.2vw,5.8rem)/.95 Cinzel,serif;margin:12px 0;color:#fff0d1;text-shadow:0 8px 35px #000}
+.hero-copy p{font-size:1rem;line-height:1.6;color:#ded5c7;max-width:430px}
+.primary{
+ border:1px solid var(--gold2);background:linear-gradient(135deg,#8d1919,#420b0b);color:#fff1d0;
+ border-radius:14px;padding:15px 24px;font-weight:700;letter-spacing:.05em;min-width:230px;
+ box-shadow:0 10px 32px rgba(100,0,0,.38),0 0 22px rgba(214,169,78,.10)
+}
+.features{
+ position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);
+ background:rgba(4,5,4,.82);backdrop-filter:blur(10px);border-top:1px solid var(--line)
+}
+.feature{padding:18px;text-align:center;border-right:1px solid rgba(214,169,78,.16)}
+.feature:last-child{border:0}.feature b{display:block;color:var(--gold2);font-size:1.35rem}.feature span{font-size:.72rem;letter-spacing:.08em}
+
+/* ===== HOME MENU PREVIEW ===== */
+.home-content{padding:28px 28px 42px;background:radial-gradient(circle at 50% 0,rgba(117,62,18,.12),transparent 34%),#050605}
+.section-title{display:flex;align-items:center;gap:14px;margin:0 0 20px}
+.section-title h2{font:600 clamp(1.6rem,3vw,2.4rem) Cinzel,serif;color:var(--gold2);margin:0;white-space:nowrap}
+.section-title .rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
+.preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.preview-card,.promo-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#090b0a;box-shadow:var(--shadow)}
+.preview-img{height:185px;background-size:cover;background-position:center}
+.preview-body{padding:13px 14px}.preview-body h3{font:600 1rem Cinzel,serif;margin:0 0 6px;color:#f6eee1}
+.preview-body p{font-size:.76rem;line-height:1.4;color:var(--muted);min-height:42px;margin:0 0 10px}
+.preview-price{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font:600 1.15rem Cinzel,serif}
+.circle-go{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;background:transparent;color:var(--gold2)}
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.promo-card{min-height:210px;padding:28px;display:flex;flex-direction:column;justify-content:center;background-size:cover;background-position:center;position:relative}
+.promo-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,4,3,.92),rgba(3,4,3,.34))}
+.promo-card>*{position:relative}.promo-card h3{font:600 1.7rem Cinzel,serif;color:var(--gold2);margin:0 0 8px}
+.promo-card p{color:#eee4d5;margin:0 0 16px}.promo-card button{width:max-content}
+.promo-drinks{background-image:url("img/refresco3.jpg")}.promo-catering{background-image:url("img/foto7.jpg")}
+
+/* ===== MENU PAGE ===== */
+.menu-wrap{padding:28px 30px 45px;max-width:1060px;margin:auto}
+.menu-head{text-align:center;margin-bottom:22px}
+.menu-head .eyebrow{display:block}.menu-head h2{font:600 clamp(2rem,4vw,3rem) Cinzel,serif;color:var(--gold2);margin:7px 0 3px}
+.menu-head p{margin:0;color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.menu-tools{display:flex;gap:10px;margin:0 auto 18px;max-width:820px}
+.search{flex:1;border:1px solid var(--line);border-radius:999px;background:#090b0a;color:#fff;padding:12px 16px;outline:none}
+.search:focus{border-color:var(--gold)}
+.menu-list{display:grid;gap:9px;max-width:820px;margin:auto}
+.menu-item{
+ display:grid;grid-template-columns:165px 1fr auto;min-height:126px;overflow:hidden;
+ border:1px solid rgba(214,169,78,.28);border-radius:15px;background:linear-gradient(120deg,#0b0d0c,#070908);
+ box-shadow:0 9px 28px rgba(0,0,0,.28);transition:.2s
+}
+.menu-item:hover{transform:translateY(-2px);border-color:rgba(241,208,125,.68)}
+.item-img{background-size:cover;background-position:center;position:relative}
+.item-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 65%,#0b0d0c)}
+.item-info{padding:17px 16px}.item-info h3{font:600 1.08rem Cinzel,serif;margin:0 0 7px;color:#fff1dd}
+.item-info p{font-size:.8rem;line-height:1.45;color:var(--muted);margin:0}
+.badge{display:inline-block;font-size:.56rem;font-weight:700;letter-spacing:.06em;padding:4px 7px;border-radius:999px;margin-bottom:6px;background:#a91919;color:#fff}
+.badge.gold{background:transparent;color:var(--gold2);border:1px solid rgba(214,169,78,.45)}
+.item-price{min-width:105px;padding:18px 18px 18px 6px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;color:var(--gold2);font:600 1.25rem Cinzel,serif}
+
+/* ===== CATERING ===== */
+.catering{padding:30px;max-width:1120px;margin:auto}
+.catering-intro{text-align:center;margin-bottom:22px}.catering-intro h2{font:600 2.5rem Cinzel,serif;color:var(--gold2);margin:5px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery figure{margin:0;min-height:300px;border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;background:#111}
+.gallery img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:55px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.9));color:#fff}
+.gallery figcaption b{display:block;font-family:Cinzel,serif;color:var(--gold2);margin-bottom:4px}
+
+/* ===== MOBILE ===== */
+.mobile-top,.mobile-bottom{display:none}
+@media(max-width:900px){
+ .desktop-side{display:none}.app{margin-left:0;padding-bottom:74px}
+ .mobile-top{position:sticky;top:0;z-index:60;height:68px;display:flex;align-items:center;justify-content:center;
+ background:rgba(5,6,5,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(15px)}
+ .mobile-top img{width:50px;height:50px;object-fit:contain;border-radius:50%;border:1px solid var(--gold)}
+ .mobile-top b{font:600 .9rem Cinzel,serif;color:var(--gold2);margin-left:9px}
+ .home-hero{min-height:650px;background-position:center}
+ .home-top{display:none}.hero-copy{left:18px;right:18px;top:36%;transform:translateY(-35%);text-align:center;max-width:none}
+ .hero-copy .eyebrow{font-size:.62rem}.hero-copy h2{font-size:2.45rem}.hero-copy p{font-size:.88rem;margin:10px auto 18px;max-width:360px}
+ .primary{min-width:260px}
+ .features{grid-template-columns:repeat(3,1fr)}.feature{padding:14px 7px}.feature b{font-size:1.15rem}.feature span{font-size:.6rem}
+ .home-content{padding:24px 10px 30px}.preview-grid{grid-template-columns:1fr}.preview-card{display:grid;grid-template-columns:118px 1fr}
+ .preview-img{height:118px}.preview-body p{min-height:auto}.promo-grid{grid-template-columns:1fr}.promo-card{min-height:180px}
+ .section-title h2{font-size:1.55rem}
+ .menu-wrap{padding:22px 9px 30px}.menu-tools{display:none}
+ .menu-item{grid-template-columns:118px 1fr auto;min-height:112px;border-radius:14px}
+ .item-info{padding:12px 9px}.item-info h3{font-size:.92rem;margin-bottom:4px}.item-info p{font-size:.68rem;line-height:1.35}
+ .item-price{min-width:66px;padding:10px 9px 10px 2px;font-size:1rem}
+ .item-img:after{background:linear-gradient(90deg,transparent 72%,#0b0d0c)}
+ .menu-head h2{font-size:1.8rem}
+ .gallery{grid-template-columns:1fr}.gallery figure{min-height:360px}.catering{padding:22px 10px}
+ .mobile-bottom{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:repeat(4,1fr);
+ min-height:68px;padding-bottom:env(safe-area-inset-bottom);background:rgba(5,6,5,.98);border-top:1px solid var(--line)}
+ .mobile-bottom button{border:0;background:transparent;color:#9e998f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.65rem}
+ .mobile-bottom button i{font-style:normal;font-size:1.3rem}.mobile-bottom button.active{color:var(--gold2);background:linear-gradient(rgba(214,169,78,.12),transparent)}
+}
+@media(max-width:390px){
+ .menu-item{grid-template-columns:105px 1fr auto}.item-info p{font-size:.64rem}.item-price{font-size:.92rem;min-width:58px}
+ .hero-copy h2{font-size:2.15rem}
+}
+
+/* Redes sociales visibles también en celular */
+.mobile-social{
+  display:none;
+}
+@media(max-width:900px){
+  .mobile-social{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    padding:20px 12px 22px;
+    margin:0;
+    background:#050605;
+    border-top:1px solid rgba(214,169,78,.18);
+  }
+  .mobile-social a{
+    width:44px;
+    height:44px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid rgba(214,169,78,.55);
+    color:#f1d07d;
+    background:#090b0a;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow:0 7px 20px rgba(0,0,0,.28);
+  }
+}
+
+
+/* Redes flotantes en celular, como en la versión original */
+@media(max-width:900px){
+  .mobile-social{
+    position:fixed !important;
+    right:12px !important;
+    bottom:88px !important;
+    z-index:1000 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+    padding:0 !important;
+    margin:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    pointer-events:none;
+  }
+  .mobile-social a{
+    pointer-events:auto;
+    width:46px !important;
+    height:46px !important;
+    border-radius:50% !important;
+    display:grid !important;
+    place-items:center !important;
+    border:1px solid rgba(214,169,78,.72) !important;
+    background:rgba(7,9,8,.94) !important;
+    color:#f1d07d !important;
+    text-decoration:none !important;
+    font-size:1.15rem !important;
+    box-shadow:0 7px 22px rgba(0,0,0,.48) !important;
+    backdrop-filter:blur(10px);
+    transition:transform .18s ease,border-color .18s ease;
+  }
+  .mobile-social a:active{
+    transform:scale(.93);
+  }
+}
+
+
+@media(max-width:900px){
+  .mobile-social{
+    position:fixed !important;
+    right:12px !important;
+    bottom:88px !important;
+    z-index:1000 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:10px !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+  }
+  .mobile-social a{
+    width:48px !important;
+    height:48px !important;
+    border:0 !important;
+    display:grid !important;
+    place-items:center !important;
+    text-decoration:none !important;
+    box-shadow:0 5px 15px rgba(0,0,0,.42) !important;
+    overflow:visible !important;
+  }
+  .mobile-social .float-icon{
+    display:grid;
+    place-items:center;
+    width:100%;
+    height:100%;
+    font-family:Arial,sans-serif;
+    font-weight:800;
+  }
+  .mobile-social .float-map{
+    background:transparent !important;
+    box-shadow:none !important;
+    font-size:34px !important;
+  }
+  .mobile-social .float-wa{
+    border-radius:50% !important;
+    background:#20b85a !important;
+    color:#fff !important;
+    font-size:23px !important;
+  }
+  .mobile-social .float-ig{
+    border-radius:14px !important;
+    background:linear-gradient(135deg,#ffcf45,#f73377 48%,#7436d6) !important;
+    color:#fff !important;
+    font-size:34px !important;
+  }
+  .mobile-social .float-fb{
+    border-radius:50% !important;
+    background:linear-gradient(#5c7fbd,#263e73) !important;
+    color:#fff !important;
+    font-family:Georgia,serif !important;
+    font-size:34px !important;
+  }
+}
+
+
+/* PNG originales para los accesos flotantes en móvil */
+@media(max-width:900px){
+  .mobile-social a{
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
+  .mobile-social .img-red{
+    display:block;
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    filter:drop-shadow(0 5px 8px rgba(0,0,0,.45));
+  }
+}
+
+
+/* Estado y horario visible en celular */
+.mobile-hours{
+  display:none;
+}
+@media(max-width:900px){
+  .mobile-hours{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:max-content;
+    max-width:calc(100% - 28px);
+    margin:12px auto 4px;
+    padding:9px 14px;
+    border:1px solid rgba(214,169,78,.38);
+    border-radius:999px;
+    background:rgba(5,7,6,.82);
+    color:#e8dcc1;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+    backdrop-filter:blur(9px);
+  }
+  .mobile-hours .status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#8b8b8b;
+    box-shadow:0 0 8px currentColor;
+    flex:0 0 auto;
+  }
+  .mobile-hours.open{
+    border-color:rgba(68,196,104,.55);
+    color:#9ee4ae;
+  }
+  .mobile-hours.open .status-dot{background:#45c96b;}
+  .mobile-hours.closed{
+    border-color:rgba(214,169,78,.38);
+    color:#e7c875;
+  }
+  .mobile-hours.closed .status-dot{background:#d4a94e;}
+}
+
+
+/* Horario: compacto y exclusivo de Inicio */
+@media(max-width:900px){
+  .mobile-hours{
+    display:none !important;
+    padding:5px 9px !important;
+    margin:6px auto 0 !important;
+    gap:5px !important;
+    font-size:.66rem !important;
+    line-height:1 !important;
+    min-height:0 !important;
+    border-radius:999px !important;
+    white-space:nowrap;
+  }
+  .mobile-hours .status-dot{
+    width:6px !important;
+    height:6px !important;
+  }
+  body.home-active .mobile-hours{
+    display:flex !important;
+  }
+}
+
+
+/* ===== DEMO PANEL ADMINISTRATIVO ===== */
+.admin-demo{display:none;position:fixed;inset:0;z-index:5000;background:#090a09;color:#f3eee3;overflow:auto}
+.admin-demo.open{display:block}
+.admin-shell{min-height:100vh;display:grid;grid-template-columns:245px 1fr}
+.admin-side{background:#050605;border-right:1px solid rgba(214,169,78,.18);padding:22px 16px;position:sticky;top:0;height:100vh}
+.admin-brand{display:flex;align-items:center;gap:10px;padding:5px 7px 22px;border-bottom:1px solid rgba(214,169,78,.15)}
+.admin-brand img{width:46px;height:46px;object-fit:contain;border-radius:50%}
+.admin-brand b{font-family:Cinzel,serif;color:#e2bd67;font-size:.92rem}
+.admin-brand small{display:block;color:#817b70;font-size:.62rem;margin-top:3px}
+.admin-nav{display:grid;gap:6px;margin-top:20px}
+.admin-nav button{border:0;background:transparent;color:#aaa398;text-align:left;padding:11px 12px;border-radius:9px;font-weight:700;cursor:pointer}
+.admin-nav button.active,.admin-nav button:hover{background:rgba(214,169,78,.11);color:#eccd83}
+.admin-side-bottom{position:absolute;bottom:22px;left:16px;right:16px}
+.admin-back{width:100%;border:1px solid rgba(214,169,78,.28);background:#0c0e0d;color:#d8c28d;border-radius:9px;padding:10px;cursor:pointer}
+.admin-main{padding:28px 34px 60px}
+.admin-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+.admin-top h2{font-family:Cinzel,serif;margin:0;color:#f1d485;font-size:1.5rem}
+.admin-top p{margin:5px 0 0;color:#888276;font-size:.82rem}
+.admin-add{border:0;background:#8b2331;color:white;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.admin-stat{background:#111310;border:1px solid rgba(214,169,78,.13);border-radius:12px;padding:15px}
+.admin-stat small{color:#8f887d;font-size:.7rem}.admin-stat strong{display:block;color:#e6c873;font-size:1.4rem;margin-top:5px}
+.admin-toolbar{display:flex;gap:10px;margin-bottom:15px}
+.admin-toolbar input,.admin-toolbar select{background:#0e100e;border:1px solid #292b27;color:#eee5d4;border-radius:9px;padding:10px 12px;outline:none}
+.admin-toolbar input{flex:1}
+.admin-products{display:grid;gap:10px}
+.admin-product{display:grid;grid-template-columns:72px minmax(150px,1fr) 110px 125px 115px;gap:14px;align-items:center;background:#111310;border:1px solid rgba(214,169,78,.12);border-radius:12px;padding:10px}
+.admin-product img{width:72px;height:62px;object-fit:cover;border-radius:8px}
+.admin-product h4{margin:0 0 4px;font-size:.9rem}.admin-product p{margin:0;color:#827d73;font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:420px}
+.admin-price{color:#e9c86f;font-weight:900}
+.admin-badge{font-size:.63rem;font-weight:800;border:1px solid rgba(214,169,78,.3);color:#d9b866;padding:5px 7px;border-radius:999px;text-align:center}
+.admin-actions{display:flex;justify-content:flex-end;gap:6px}.admin-actions button{width:32px;height:32px;border-radius:7px;border:1px solid #2d302b;background:#171a16;color:#d6c28d;cursor:pointer}
+.admin-section{display:none}.admin-section.active{display:block}
+.admin-editor{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.admin-panel{background:#111310;border:1px solid rgba(214,169,78,.14);border-radius:13px;padding:18px}
+.admin-panel h3{font-family:Cinzel,serif;color:#dfc477;margin:0 0 15px;font-size:1rem}
+.admin-field{display:grid;gap:6px;margin-bottom:12px}.admin-field label{font-size:.7rem;color:#a29b8e;font-weight:700}.admin-field input,.admin-field textarea,.admin-field select{width:100%;box-sizing:border-box;background:#090b09;border:1px solid #292d27;color:#f1eadb;border-radius:8px;padding:10px}.admin-field textarea{min-height:90px;resize:vertical}
+.admin-upload{border:1px dashed rgba(214,169,78,.35);border-radius:10px;padding:22px;text-align:center;color:#a99b78;background:#0b0d0b}
+.admin-save{background:#9a2938;border:0;color:white;padding:11px 16px;border-radius:8px;font-weight:800}
+.admin-fab{position:fixed;right:18px;top:18px;z-index:1500;width:42px;height:42px;border-radius:50%;border:1px solid rgba(214,169,78,.45);background:#090b09;color:#e9c86f;cursor:pointer;font-size:18px;box-shadow:0 6px 20px #0008}
+@media(max-width:900px){
+ .admin-fab{top:68px;right:12px;width:38px;height:38px}
+ .admin-shell{grid-template-columns:1fr}.admin-side{position:relative;height:auto;padding:12px}.admin-brand{padding-bottom:10px}.admin-nav{display:flex;overflow:auto;margin-top:10px}.admin-nav button{white-space:nowrap}.admin-side-bottom{position:static;margin-top:10px}
+ .admin-main{padding:18px 12px 90px}.admin-stats{grid-template-columns:1fr 1fr}.admin-product{grid-template-columns:58px 1fr auto}.admin-product img{width:58px;height:54px}.admin-product .admin-badge{display:none}.admin-product .admin-actions{grid-column:2/4;justify-content:flex-start}.admin-editor{grid-template-columns:1fr}.admin-top{align-items:flex-start}.admin-top h2{font-size:1.15rem}
+}
+
+
+/* ===== ADMIN v10: editor visual de tarjetas ===== */
+.admin-manager{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;align-items:start}
+.admin-edit-card{background:#111310;border:1px solid rgba(214,169,78,.16);border-radius:13px;padding:17px;position:sticky;top:20px}
+.admin-edit-card h3{font-family:Cinzel,serif;color:#e4c778;margin:0 0 14px;font-size:1rem}
+.admin-image-preview{height:155px;border-radius:10px;overflow:hidden;background:#080908;border:1px solid #292c27;margin-bottom:10px}
+.admin-image-preview img{width:100%;height:100%;object-fit:cover}
+.admin-image-tools{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
+.admin-image-tools button{border:1px solid #33362f;background:#171a16;color:#d9c58f;border-radius:8px;padding:9px;font-size:.7rem;cursor:pointer}
+.admin-help{font-size:.67rem;color:#777268;line-height:1.45;margin:7px 0 12px}
+.admin-switches{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.admin-check{display:flex;align-items:center;gap:7px;background:#0b0d0b;border:1px solid #292c27;border-radius:8px;padding:9px;font-size:.7rem;color:#b9b1a3}
+.admin-edit-actions{display:flex;gap:8px;margin-top:14px}.admin-edit-actions button{flex:1;padding:10px;border-radius:8px;font-weight:800;cursor:pointer}
+.admin-delete{border:1px solid #612c33;background:#241014;color:#e89aa4}.admin-primary{border:0;background:#942938;color:#fff}
+.admin-product{cursor:pointer}.admin-product.selected{border-color:rgba(214,169,78,.52);box-shadow:0 0 0 1px rgba(214,169,78,.12)}
+.admin-add-card{border:1px dashed rgba(214,169,78,.35);background:#0d0f0d;color:#c8ae70;border-radius:12px;padding:18px;text-align:center;cursor:pointer;font-weight:800}
+.admin-catering-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.admin-cat-card{background:#111310;border:1px solid rgba(214,169,78,.14);border-radius:11px;overflow:hidden}
+.admin-cat-card img{width:100%;height:130px;object-fit:cover;display:block}
+.admin-cat-info{padding:10px}.admin-cat-info strong{font-size:.78rem}.admin-cat-actions{display:flex;gap:6px;margin-top:8px}.admin-cat-actions button{flex:1;background:#181a17;border:1px solid #30332d;color:#cbb77f;border-radius:7px;padding:7px;font-size:.65rem}
+.admin-note{padding:10px 12px;border-radius:9px;background:rgba(214,169,78,.07);border:1px solid rgba(214,169,78,.18);color:#a99b78;font-size:.69rem;line-height:1.45;margin-bottom:14px}
+@media(max-width:1050px){.admin-manager{grid-template-columns:1fr}.admin-edit-card{position:relative;top:auto}.admin-catering-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.admin-catering-grid{grid-template-columns:1fr}.admin-image-preview{height:180px}}
+
+
+/* ===== ADMIN FUNCIONAL LOCAL ===== */
+.admin-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);z-index:9999;background:#171a16;border:1px solid rgba(214,169,78,.35);color:#f2dfad;padding:10px 15px;border-radius:9px;opacity:0;pointer-events:none;transition:.2s;font-size:.75rem;box-shadow:0 10px 30px #0009}.admin-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.admin-modal-bg{display:none;position:fixed;inset:0;z-index:8000;background:#000b;align-items:center;justify-content:center;padding:18px}.admin-modal-bg.open{display:flex}.admin-modal-box{width:min(480px,100%);background:#111310;border:1px solid rgba(214,169,78,.3);border-radius:14px;padding:20px}.admin-modal-box h3{font-family:Cinzel,serif;color:#e4c778;margin-top:0}.admin-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}.admin-modal-actions button{padding:9px 13px;border-radius:8px;border:1px solid #34372f;background:#171a16;color:#d9c58f;cursor:pointer}.admin-modal-actions .ok{background:#922a38;color:#fff;border:0}
+.admin-cat-card{position:relative}.admin-cat-card.hidden-item{opacity:.45}.admin-product.hidden-item{opacity:.45}
+
+
+
+/* ===== v19: fondo principal permanente en todas las secciones ===== */
+body{
+  background:
+    linear-gradient(rgba(3,5,3,.88),rgba(3,5,3,.88)),
+    url("img/principal.webp") center center / cover fixed no-repeat !important;
+}
+.app,
+.page,
+.page-section,
+section,
+#inicio,
+#pizzas,
+#bebidas,
+#eventos,
+#catering{
+  background-color:transparent !important;
+}
+/* Las tarjetas conservan contraste y legibilidad sobre la fotografía */
+.menu-item,
+.admin-live-catering article{
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+@media(max-width:768px){
+  body{
+    background:
+      linear-gradient(rgba(3,5,3,.90),rgba(3,5,3,.90)),
+      url("img/principal.webp") center center / cover fixed no-repeat !important;
+  }
+}
+
+
+/* ===== v20: Panel administrativo totalmente responsive ===== */
+@media (max-width: 768px){
+  .admin-demo{
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+  .admin-shell{
+    display:block !important;
+    width:100% !important;
+    min-height:100dvh !important;
+  }
+  .admin-side{
+    position:sticky !important;
+    top:0;
+    z-index:30;
+    width:100% !important;
+    min-height:auto !important;
+    padding:8px 10px !important;
+    display:flex !important;
+    align-items:center;
+    gap:8px;
+    overflow-x:auto;
+    background:rgba(9,11,9,.98) !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(214,169,78,.18);
+    scrollbar-width:none;
+  }
+  .admin-side::-webkit-scrollbar{display:none}
+  .admin-side .admin-brand{
+    min-width:max-content;
+    margin:0 5px 0 0 !important;
+  }
+  .admin-side .admin-brand img{
+    width:34px !important;height:34px !important;
+  }
+  .admin-side .admin-brand h3,
+  .admin-side .admin-brand p{display:none !important}
+  .admin-nav{
+    display:flex !important;
+    flex-direction:row !important;
+    gap:5px !important;
+    min-width:max-content;
+  }
+  .admin-nav button{
+    width:auto !important;
+    min-width:max-content;
+    padding:8px 10px !important;
+    font-size:.67rem !important;
+    border-radius:8px !important;
+  }
+  #closeAdmin{
+    min-width:max-content;
+    margin:0 0 0 auto !important;
+    padding:8px 10px !important;
+  }
+  .admin-main{
+    width:100% !important;
+    padding:14px 10px 90px !important;
+    overflow:visible !important;
+  }
+  .admin-top{
+    display:flex !important;
+    align-items:flex-start !important;
+    gap:10px;
+    margin-bottom:12px !important;
+  }
+  .admin-top h2{font-size:1.15rem !important}
+  .admin-top p{font-size:.68rem !important}
+  .admin-add{
+    padding:8px 9px !important;
+    font-size:.65rem !important;
+    white-space:nowrap;
+  }
+  .admin-stats{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:7px !important;
+  }
+  .admin-stat{padding:10px !important}
+  .admin-stat strong{font-size:1.15rem !important}
+  .admin-toolbar{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:7px !important;
+  }
+  .admin-manager{display:block !important}
+  .admin-products{margin-bottom:12px}
+  .admin-product{
+    display:grid !important;
+    grid-template-columns:62px minmax(0,1fr) auto !important;
+    gap:8px !important;
+    align-items:center !important;
+    padding:7px !important;
+  }
+  .admin-product>img{
+    width:62px !important;height:62px !important;
+    border-radius:8px !important;object-fit:cover;
+  }
+  .admin-product h4{font-size:.75rem !important}
+  .admin-product p{font-size:.62rem !important;white-space:normal !important}
+  .admin-product .admin-price{font-size:.78rem !important}
+  .admin-product .admin-badge{
+    grid-column:2/3;
+    width:max-content;
+    font-size:.53rem !important;
+  }
+  .admin-product .admin-actions{
+    grid-column:3;
+    grid-row:1/3;
+    display:flex !important;
+    flex-direction:column;
+    gap:4px;
+  }
+  .admin-product .admin-actions button{
+    width:30px !important;height:28px !important;
+  }
+  .admin-edit-card{
+    position:relative !important;
+    top:auto !important;
+    width:100% !important;
+    padding:12px !important;
+    margin-top:12px;
+  }
+  .admin-image-preview{height:200px !important}
+  .admin-field input,.admin-field textarea,.admin-field select{
+    font-size:16px !important; /* evita zoom automático en iPhone */
+    width:100% !important;
+  }
+  .admin-switches{grid-template-columns:1fr !important}
+  .admin-edit-actions{
+    position:sticky;
+    bottom:8px;
+    z-index:20;
+    background:rgba(17,19,16,.96);
+    padding:7px;
+    border-radius:10px;
+  }
+  .admin-catering-grid{grid-template-columns:1fr !important}
+  .admin-cat-card{
+    display:grid !important;
+    grid-template-columns:105px minmax(0,1fr);
+  }
+  .admin-cat-card img{
+    width:105px !important;height:100% !important;min-height:120px;
+  }
+  .admin-cat-info{min-width:0}
+  .admin-cat-actions{
+    display:grid !important;
+    grid-template-columns:repeat(2,1fr);
+  }
+  .admin-cat-actions button{
+    min-width:0 !important;
+    font-size:.59rem !important;
+    padding:7px 4px !important;
+  }
+  .admin-modal-bg{
+    align-items:flex-end !important;
+    padding:0 !important;
+  }
+  .admin-modal-box{
+    width:100% !important;
+    max-height:92dvh;
+    overflow-y:auto;
+    border-radius:18px 18px 0 0 !important;
+    padding:16px 12px calc(16px + env(safe-area-inset-bottom)) !important;
+  }
+  .admin-note{font-size:.64rem !important}
+}
+@media (max-width: 390px){
+  .admin-main{padding-left:7px !important;padding-right:7px !important}
+  .admin-product{grid-template-columns:54px minmax(0,1fr) auto !important}
+  .admin-product>img{width:54px !important;height:54px !important}
+  .admin-top{display:block !important}
+  .admin-top .admin-add{margin-top:8px;width:100%}
+}
+
+
+/* ===== v21: Admin móvil + Catering compacto ===== */
+@media(max-width:768px){
+  .admin-side{
+    position:sticky!important;top:0!important;
+    display:grid!important;
+    grid-template-columns:1fr auto!important;
+    gap:7px!important;
+    overflow:visible!important;
+    padding:8px!important;
+  }
+  .admin-side .admin-brand{display:none!important}
+  .admin-nav{
+    grid-column:1/-1;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;min-width:0!important;
+    gap:6px!important;
+  }
+  .admin-nav button{
+    width:100%!important;min-width:0!important;
+    white-space:normal!important;
+    text-align:center!important;
+    padding:9px 5px!important;
+  }
+  #closeAdmin{grid-column:2;grid-row:1;margin:0!important}
+  .admin-main{padding-top:10px!important}
+
+  /* Catering vuelve a tarjetas pequeñas y elegantes */
+  .admin-catering-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  .admin-cat-card{
+    display:grid!important;
+    grid-template-columns:82px minmax(0,1fr)!important;
+    min-height:92px!important;
+    border-radius:10px!important;
+  }
+  .admin-cat-card img{
+    width:82px!important;height:92px!important;min-height:92px!important;
+    object-fit:cover!important;
+  }
+  .admin-cat-info{padding:8px!important}
+  .admin-cat-info strong{font-size:.72rem!important}
+  .admin-cat-info p{font-size:.61rem!important;line-height:1.35!important;margin:4px 0!important}
+  .admin-cat-actions{
+    display:flex!important;flex-wrap:wrap!important;gap:4px!important;margin-top:6px!important;
+  }
+  .admin-cat-actions button{
+    flex:1 1 calc(33.33% - 4px)!important;
+    padding:6px 3px!important;font-size:.54rem!important;
+  }
+}
+@media(min-width:769px){
+ .admin-catering-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .admin-cat-card img{height:145px!important;object-fit:cover!important}
+}
+
+
+/* Catering público: proporción controlada */
+.bonanza-catering-live article{overflow:hidden}
+.bonanza-catering-live img{width:100%;height:190px!important;object-fit:cover!important}
+@media(max-width:768px){
+ .bonanza-catering-live{grid-template-columns:1fr!important;gap:10px!important}
+ .bonanza-catering-live article{display:grid;grid-template-columns:110px minmax(0,1fr);min-height:110px}
+ .bonanza-catering-live img{width:110px!important;height:110px!important}
+ .bonanza-catering-live article>div{padding:10px!important}
+ .bonanza-catering-live h3{font-size:.82rem!important}
+ .bonanza-catering-live p{font-size:.67rem!important;line-height:1.4!important}
+}
+
+
+/* ===== v22 CATERING PREMIUM ===== */
+.bonanza-catering-live{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:18px!important;
+ max-width:1120px;margin:24px auto 0!important;
+}
+.bonanza-catering-live article{
+ position:relative!important;display:block!important;
+ min-height:330px!important;border-radius:18px!important;overflow:hidden!important;
+ border:1px solid rgba(218,174,82,.28)!important;
+ background:#10110f!important;box-shadow:0 14px 38px rgba(0,0,0,.35)!important;
+}
+.bonanza-catering-live article img{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center!important;
+ transition:transform .35s ease!important;
+}
+.bonanza-catering-live article:hover img{transform:scale(1.035)}
+.bonanza-catering-live article:after{
+ content:"";position:absolute;inset:0;z-index:1;
+ background:linear-gradient(to top,rgba(5,6,5,.96) 0%,rgba(5,6,5,.66) 32%,rgba(5,6,5,.12) 66%,rgba(5,6,5,.04) 100%);
+ pointer-events:none;
+}
+.bonanza-catering-live article>div{
+ position:absolute!important;z-index:2!important;left:0!important;right:0!important;bottom:0!important;
+ padding:22px!important;background:transparent!important;
+}
+.bonanza-catering-live h3{
+ margin:0 0 7px!important;color:#f0d58d!important;font-family:Cinzel,serif!important;
+ font-size:1.08rem!important;letter-spacing:.02em!important;
+}
+.bonanza-catering-live p{
+ margin:0!important;color:#ddd5c6!important;font-size:.78rem!important;
+ line-height:1.55!important;max-width:92%!important;
+}
+@media(max-width:768px){
+ .bonanza-catering-live{grid-template-columns:1fr!important;gap:14px!important;margin-top:16px!important}
+ .bonanza-catering-live article{min-height:250px!important;border-radius:15px!important}
+ .bonanza-catering-live article img{width:100%!important;height:100%!important}
+ .bonanza-catering-live article>div{padding:17px!important}
+ .bonanza-catering-live h3{font-size:.92rem!important}
+ .bonanza-catering-live p{font-size:.7rem!important;line-height:1.45!important}
+}
+@media(max-width:390px){
+ .bonanza-catering-live article{min-height:220px!important}
+}
+
+/* Administrador Catering: miniaturas uniformes, sin deformación */
+.admin-catering-grid{align-items:stretch!important}
+.admin-cat-card{overflow:hidden!important}
+.admin-cat-card img{object-fit:cover!important;object-position:center!important}
+@media(max-width:768px){
+ .admin-cat-card{grid-template-columns:96px minmax(0,1fr)!important;min-height:112px!important}
+ .admin-cat-card img{width:96px!important;height:112px!important;min-height:112px!important}
+}
+
+
+/* ===== v23: Catering XL en PC + responsive fino ===== */
+
+/* PC grande: tarjetas más amplias y fotográficas */
+@media (min-width:1200px){
+  #eventos .catering{
+    width:min(94vw,1440px)!important;
+    max-width:1440px!important;
+    margin-inline:auto!important;
+  }
+  .bonanza-catering-live{
+    width:100%!important;
+    max-width:1380px!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:24px!important;
+    margin:30px auto 0!important;
+  }
+  .bonanza-catering-live article{
+    min-height:440px!important;
+    border-radius:22px!important;
+  }
+  .bonanza-catering-live article>div{
+    padding:30px 32px!important;
+  }
+  .bonanza-catering-live h3{
+    font-size:1.35rem!important;
+    margin-bottom:9px!important;
+  }
+  .bonanza-catering-live p{
+    font-size:.9rem!important;
+    line-height:1.6!important;
+    max-width:88%!important;
+  }
+}
+
+/* Laptop / PC mediana */
+@media (min-width:769px) and (max-width:1199px){
+  #eventos .catering{
+    width:min(94vw,1100px)!important;
+    margin-inline:auto!important;
+  }
+  .bonanza-catering-live{
+    max-width:1050px!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+  .bonanza-catering-live article{
+    min-height:350px!important;
+  }
+}
+
+/* Tablet vertical */
+@media (min-width:601px) and (max-width:768px){
+  .bonanza-catering-live{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .bonanza-catering-live article{
+    min-height:285px!important;
+  }
+  .bonanza-catering-live article>div{padding:16px!important}
+}
+
+/* Celulares */
+@media (max-width:600px){
+  #eventos .catering{
+    width:100%!important;
+    padding-left:12px!important;
+    padding-right:12px!important;
+  }
+  .bonanza-catering-live{
+    width:100%!important;
+    grid-template-columns:1fr!important;
+    gap:13px!important;
+    margin:14px auto 0!important;
+  }
+  .bonanza-catering-live article{
+    width:100%!important;
+    min-height:clamp(220px,72vw,310px)!important;
+    border-radius:16px!important;
+  }
+  .bonanza-catering-live article>div{
+    padding:16px 17px!important;
+  }
+  .bonanza-catering-live h3{
+    font-size:clamp(.9rem,4vw,1.05rem)!important;
+  }
+  .bonanza-catering-live p{
+    font-size:clamp(.67rem,3vw,.76rem)!important;
+    line-height:1.45!important;
+    max-width:96%!important;
+  }
+}
+
+/* Teléfonos muy pequeños */
+@media (max-width:360px){
+  #eventos .catering{padding-left:8px!important;padding-right:8px!important}
+  .bonanza-catering-live article{
+    min-height:215px!important;
+    border-radius:13px!important;
+  }
+  .bonanza-catering-live article>div{padding:13px!important}
+}
+
+/* Pantallas móviles en horizontal */
+@media (max-height:500px) and (orientation:landscape) and (max-width:950px){
+  .bonanza-catering-live{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .bonanza-catering-live article{
+    min-height:230px!important;
+  }
+}
+
+
+/* ===== v24: Pizzas/Bebidas en cuadrícula para pantallas grandes ===== */
+
+/* PC y laptops anchas: aprovechamos el espacio con tarjetas en cuadrícula */
+@media (min-width: 1050px){
+  #pizzas .menu-wrap,
+  #bebidas .menu-wrap{
+    width:min(94vw,1450px)!important;
+    max-width:1450px!important;
+    margin-inline:auto!important;
+  }
+
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:16px!important;
+    align-items:stretch!important;
+  }
+
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:210px 1fr auto!important;
+    min-width:0!important;
+    min-height:365px!important;
+    height:100%!important;
+    padding:0!important;
+    overflow:hidden!important;
+    border-radius:15px!important;
+  }
+
+  #pizzaList .item-img,
+  #drinkList .item-img{
+    width:100%!important;
+    height:210px!important;
+    min-height:210px!important;
+    border-radius:0!important;
+    background-size:cover!important;
+    background-position:center!important;
+  }
+
+  #pizzaList .item-info,
+  #drinkList .item-info{
+    width:100%!important;
+    min-width:0!important;
+    padding:14px 15px 8px!important;
+  }
+
+  #pizzaList .item-info h3,
+  #drinkList .item-info h3{
+    margin:0 0 6px!important;
+    font-size:1rem!important;
+  }
+
+  #pizzaList .item-info p,
+  #drinkList .item-info p{
+    margin:0!important;
+    white-space:normal!important;
+    line-height:1.45!important;
+  }
+
+  #pizzaList .item-price,
+  #drinkList .item-price{
+    width:100%!important;
+    padding:10px 15px 15px!important;
+    text-align:left!important;
+    align-self:end!important;
+    font-size:1.05rem!important;
+  }
+}
+
+/* Pantallas extra grandes: 4 columnas amplias, sin huecos enormes */
+@media (min-width: 1450px){
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    grid-template-columns:repeat(4,minmax(260px,1fr))!important;
+    gap:20px!important;
+  }
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    grid-template-rows:235px 1fr auto!important;
+    min-height:400px!important;
+  }
+  #pizzaList .item-img,
+  #drinkList .item-img{
+    height:235px!important;
+    min-height:235px!important;
+  }
+}
+
+/* Tablet y celular: conserva exactamente el formato horizontal compacto */
+@media (max-width:1049px){
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+}
+
+
+/* ===== v26: tarjetas grandes, pero contenido bien distribuido ===== */
+@media (min-width:1050px){
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    align-items:stretch!important;
+  }
+
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    /* Conservamos el tamaño grande de v24 */
+    min-height:365px!important;
+    height:100%!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:210px 1fr!important;
+    position:relative!important;
+    padding:0 0 54px!important;
+  }
+
+  #pizzaList .item-img,
+  #drinkList .item-img{
+    height:210px!important;
+    min-height:210px!important;
+    width:100%!important;
+  }
+
+  #pizzaList .item-info,
+  #drinkList .item-info{
+    padding:14px 15px 12px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:flex-start!important;
+    min-height:0!important;
+  }
+
+  #pizzaList .item-info h3,
+  #drinkList .item-info h3{
+    margin:0 0 7px!important;
+  }
+
+  #pizzaList .item-info p,
+  #drinkList .item-info p{
+    margin:0!important;
+    line-height:1.5!important;
+  }
+
+  /* El precio usa su propia franja inferior:
+     ya no queda flotando dentro de un gran espacio vacío */
+  #pizzaList .item-price,
+  #drinkList .item-price{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    height:54px!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:0 15px!important;
+    margin:0!important;
+    border-top:1px solid rgba(214,169,78,.13)!important;
+    background:linear-gradient(90deg,rgba(214,169,78,.055),transparent)!important;
+    font-size:1.08rem!important;
+  }
+}
+
+@media (min-width:1450px){
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    min-height:400px!important;
+    grid-template-rows:235px 1fr!important;
+    padding-bottom:58px!important;
+  }
+
+  #pizzaList .item-img,
+  #drinkList .item-img{
+    height:235px!important;
+    min-height:235px!important;
+  }
+
+  #pizzaList .item-info,
+  #drinkList .item-info{
+    padding:16px 17px 13px!important;
+  }
+
+  #pizzaList .item-price,
+  #drinkList .item-price{
+    height:58px!important;
+    padding:0 17px!important;
+    font-size:1.12rem!important;
+  }
+}
+
+
+/* ===== v27: aprovechar TODO el ancho útil en PC ===== */
+
+/* El contenido ya no queda angosto/centrado dentro del área disponible */
+@media (min-width:1050px){
+  #pizzas .menu-wrap,
+  #bebidas .menu-wrap{
+    width:calc(100% - 44px)!important;
+    max-width:none!important;
+    margin-left:22px!important;
+    margin-right:22px!important;
+  }
+
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    width:100%!important;
+    max-width:none!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+}
+
+/* En PC grande usamos 5 columnas: llena los espacios laterales señalados */
+@media (min-width:1350px){
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:15px!important;
+  }
+}
+
+/* Monitor muy ancho: sigue usando 5, pero las tarjetas crecen con el espacio */
+@media (min-width:1750px){
+  #pizzas .menu-wrap,
+  #bebidas .menu-wrap{
+    width:calc(100% - 64px)!important;
+    margin-left:32px!important;
+    margin-right:32px!important;
+  }
+
+  #pizzaList.menu-list,
+  #drinkList.menu-list{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    min-height:420px!important;
+    grid-template-rows:250px 1fr!important;
+  }
+
+  #pizzaList .item-img,
+  #drinkList .item-img{
+    height:250px!important;
+    min-height:250px!important;
+  }
+}
+
+/* Móvil/tablet queda intacto */
+
+
+/* ===== v29: CATERING CAROUSEL REESTRUCTURADO ===== */
+.bonanza-catering-carousel{
+  width:min(96%,1480px);
+  margin:24px auto 0;
+  position:relative;
+}
+.bc-stage{
+  position:relative;
+  border:1px solid rgba(224,183,82,.34);
+  border-radius:24px;
+  overflow:hidden;
+  background:#050605;
+  box-shadow:0 24px 70px rgba(0,0,0,.48);
+  outline:none;
+}
+.bc-track{
+  display:flex;
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  overscroll-behavior-x:contain;
+  scrollbar-width:none;
+  touch-action:pan-x pan-y;
+  -webkit-overflow-scrolling:touch;
+}
+.bc-track::-webkit-scrollbar{display:none}
+.bc-slide{
+  flex:0 0 100%;
+  width:100%;
+  min-width:100%;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 360px;
+  min-height:620px;
+  overflow:hidden;
+  background:#080908;
+}
+.bc-photo{
+  position:relative;
+  min-width:0;
+  min-height:620px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  isolation:isolate;
+  background:#080908;
+}
+.bc-photo:before{
+  content:"";
+  position:absolute;
+  inset:-28px;
+  z-index:-2;
+  background-image:var(--bc-bg);
+  background-size:cover;
+  background-position:center;
+  filter:blur(24px) brightness(.35) saturate(.85);
+  transform:scale(1.08);
+}
+.bc-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:rgba(0,0,0,.18);
+}
+.bc-photo img{
+  display:block;
+  width:100%;
+  height:620px;
+  object-fit:contain; /* FOTO COMPLETA: jamás recortada */
+  object-position:center;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.bc-caption{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:42px 34px;
+  background:
+    radial-gradient(circle at 30% 10%,rgba(184,126,34,.12),transparent 34%),
+    linear-gradient(145deg,#11130f,#080908);
+  border-left:1px solid rgba(224,183,82,.18);
+}
+.bc-count{
+  color:#d9ae4d;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  margin-bottom:14px;
+}
+.bc-caption h3{
+  margin:0 0 12px;
+  color:#f2d784;
+  font-family:Cinzel,serif;
+  font-size:clamp(1.35rem,2vw,2rem);
+  line-height:1.1;
+}
+.bc-caption p{
+  margin:0;
+  color:#d3cec2;
+  font-size:.9rem;
+  line-height:1.7;
+}
+.bc-arrow{
+  position:absolute;
+  top:50%;
+  z-index:10;
+  transform:translateY(-50%);
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(235,196,91,.72);
+  background:rgba(5,6,5,.78);
+  color:#f1ce68;
+  font-size:24px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  backdrop-filter:blur(8px);
+  transition:transform .18s ease,background .18s ease;
+}
+.bc-arrow:hover{background:rgba(88,38,27,.94);transform:translateY(-50%) scale(1.07)}
+.bc-prev{left:18px}
+.bc-next{right:378px}
+.bc-footer{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding-top:12px;
+}
+.bc-dots{display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-dot{
+  width:8px;height:8px;padding:0;border:0;border-radius:50%;
+  background:rgba(235,202,111,.30);cursor:pointer;
+  transition:width .2s ease,background .2s ease,border-radius .2s ease;
+}
+.bc-dot.active{width:27px;border-radius:8px;background:#e6bd58}
+.bc-help{color:#8d887d;font-size:.62rem;letter-spacing:.08em}
+.bc-empty{padding:40px;text-align:center;color:#aaa}
+
+/* Laptop */
+@media(max-width:1200px) and (min-width:769px){
+  .bonanza-catering-carousel{width:95%}
+  .bc-slide{grid-template-columns:minmax(0,1fr) 300px;min-height:520px}
+  .bc-photo{min-height:520px}
+  .bc-photo img{height:520px}
+  .bc-caption{padding:32px 25px}
+  .bc-next{right:318px}
+}
+
+/* Tablet y celular: fotografía arriba, texto abajo */
+@media(max-width:768px){
+  .bonanza-catering-carousel{
+    width:calc(100% - 20px);
+    margin-top:16px;
+  }
+  .bc-stage{border-radius:18px}
+  .bc-slide{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .bc-photo{
+    width:100%;
+    min-height:0;
+    height:clamp(300px,64vh,560px);
+  }
+  .bc-photo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .bc-caption{
+    min-height:120px;
+    padding:17px 18px 19px;
+    justify-content:flex-start;
+    border-left:0;
+    border-top:1px solid rgba(224,183,82,.18);
+  }
+  .bc-count{margin-bottom:7px;font-size:.57rem}
+  .bc-caption h3{font-size:1rem;margin-bottom:6px}
+  .bc-caption p{font-size:.72rem;line-height:1.48}
+  .bc-arrow{
+    width:42px;height:42px;font-size:20px;
+    top:calc(clamp(300px,64vh,560px) / 2);
+  }
+  .bc-prev{left:8px}
+  .bc-next{right:8px}
+  .bc-footer{padding-top:9px;gap:10px}
+  .bc-help{display:none}
+}
+
+/* Teléfonos pequeños */
+@media(max-width:390px){
+  .bonanza-catering-carousel{width:calc(100% - 12px)}
+  .bc-stage{border-radius:14px}
+  .bc-photo{height:clamp(260px,58vh,440px)}
+  .bc-arrow{top:calc(clamp(260px,58vh,440px) / 2);width:37px;height:37px}
+  .bc-caption{padding:14px 15px 16px}
+}
+
+/* Móvil horizontal */
+@media(max-height:500px) and (orientation:landscape) and (max-width:950px){
+  .bc-slide{display:grid;grid-template-columns:minmax(0,1fr) 250px}
+  .bc-photo{height:78vh;min-height:280px}
+  .bc-photo img{height:100%}
+  .bc-caption{border-top:0;border-left:1px solid rgba(224,183,82,.18);justify-content:center}
+  .bc-arrow{top:50%}
+  .bc-next{right:258px}
+}
+
+
+/* ===== v30: TARJETAS PREMIUM LA BONANZA ===== */
+@media(min-width:1050px){
+ #pizzaList.menu-list,#drinkList.menu-list{
+   gap:15px!important;
+ }
+ #pizzaList .menu-item,#drinkList .menu-item{
+   position:relative!important;
+   overflow:hidden!important;
+   border:1px solid rgba(222,173,55,.48)!important;
+   border-radius:15px!important;
+   background:linear-gradient(155deg,rgba(15,17,14,.98),rgba(5,7,6,.99))!important;
+   box-shadow:0 12px 32px rgba(0,0,0,.34)!important;
+   transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important;
+ }
+ #pizzaList .menu-item:hover,#drinkList .menu-item:hover{
+   transform:translateY(-4px)!important;
+   border-color:rgba(240,193,72,.85)!important;
+   box-shadow:0 18px 42px rgba(0,0,0,.48)!important;
+ }
+ #pizzaList .item-img,#drinkList .item-img{
+   position:relative!important;
+   background-size:cover!important;
+   background-position:center!important;
+ }
+ #pizzaList .item-img:after,#drinkList .item-img:after{
+   content:"";position:absolute;inset:0;
+   background:linear-gradient(to top,rgba(5,7,6,.58),transparent 42%)!important;
+ }
+ #pizzaList .item-info,#drinkList .item-info{
+   padding:14px 16px 10px!important;
+ }
+ #pizzaList .item-info h3,#drinkList .item-info h3{
+   color:#f4e5bd!important;
+   font-family:Cinzel,serif!important;
+   font-size:1rem!important;
+   letter-spacing:.015em!important;
+ }
+ #pizzaList .item-info p,#drinkList .item-info p{
+   color:#c9c5bb!important;
+   font-size:.74rem!important;
+   line-height:1.48!important;
+ }
+ #pizzaList .item-price,#drinkList .item-price{
+   color:#f0c75c!important;
+   font-family:Cinzel,serif!important;
+   font-weight:700!important;
+   border-top:1px solid rgba(222,173,55,.16)!important;
+   background:linear-gradient(90deg,rgba(193,134,30,.08),transparent)!important;
+ }
+ #pizzaList .badge,#drinkList .badge{
+   display:inline-flex!important;
+   width:max-content!important;
+   border-radius:999px!important;
+   padding:4px 8px!important;
+   margin-bottom:7px!important;
+   font-size:.53rem!important;
+   font-weight:800!important;
+   letter-spacing:.04em!important;
+   box-shadow:0 4px 12px rgba(0,0,0,.3)!important;
+ }
+}
+
+/* Móvil: misma identidad premium, formato compacto */
+@media(max-width:1049px){
+ #pizzaList.menu-list,#drinkList.menu-list{gap:9px!important}
+ #pizzaList .menu-item,#drinkList .menu-item{
+   position:relative!important;
+   overflow:hidden!important;
+   border:1px solid rgba(222,173,55,.38)!important;
+   border-radius:13px!important;
+   background:linear-gradient(145deg,rgba(14,16,13,.98),rgba(5,7,6,.99))!important;
+   box-shadow:0 7px 20px rgba(0,0,0,.28)!important;
+ }
+ #pizzaList .item-img,#drinkList .item-img{
+   flex:0 0 clamp(92px,29vw,128px)!important;
+   width:clamp(92px,29vw,128px)!important;
+   height:clamp(92px,29vw,128px)!important;
+   min-height:0!important;
+   background-size:cover!important;
+   background-position:center!important;
+   border-radius:0!important;
+ }
+ #pizzaList .item-info,#drinkList .item-info{
+   padding:10px 8px 9px 11px!important;
+   min-width:0!important;
+ }
+ #pizzaList .item-info h3,#drinkList .item-info h3{
+   color:#f2e3bd!important;
+   font-family:Cinzel,serif!important;
+   font-size:clamp(.76rem,3.5vw,.9rem)!important;
+   margin-bottom:4px!important;
+ }
+ #pizzaList .item-info p,#drinkList .item-info p{
+   color:#c5c1b7!important;
+   font-size:clamp(.59rem,2.7vw,.7rem)!important;
+   line-height:1.35!important;
+   display:-webkit-box!important;
+   -webkit-line-clamp:3;
+   -webkit-box-orient:vertical;
+   overflow:hidden!important;
+ }
+ #pizzaList .item-price,#drinkList .item-price{
+   align-self:stretch!important;
+   min-width:66px!important;
+   padding:0 10px!important;
+   display:flex!important;
+   align-items:center!important;
+   justify-content:center!important;
+   color:#efc85d!important;
+   font-family:Cinzel,serif!important;
+   font-size:.88rem!important;
+   border-left:1px solid rgba(222,173,55,.14)!important;
+   background:rgba(180,121,26,.045)!important;
+ }
+ #pizzaList .badge,#drinkList .badge{
+   width:max-content!important;
+   border-radius:999px!important;
+   padding:3px 6px!important;
+   margin-bottom:4px!important;
+   font-size:.47rem!important;
+ }
+}
+@media(max-width:390px){
+ #pizzaList .item-img,#drinkList .item-img{
+   flex-basis:88px!important;width:88px!important;height:88px!important;
+ }
+ #pizzaList .item-price,#drinkList .item-price{min-width:58px!important;padding:0 7px!important;font-size:.78rem!important}
+}
+
+
+/* ===== v34: iconos profesionales REEMPLAZAN los originales ===== */
+.pro-icon{
+ width:20px!important;height:20px!important;min-width:20px!important;
+ display:inline-grid!important;place-items:center!important;
+ margin:0!important;color:#e9c452!important;font-style:normal!important;
+}
+.pro-icon svg,.social-svg{
+ width:19px;height:19px;display:block;
+ fill:none;stroke:currentColor;stroke-width:1.7;
+ stroke-linecap:round;stroke-linejoin:round;
+}
+.social-fill{fill:currentColor!important;stroke:none!important}
+.side-nav .navbtn{
+ display:flex!important;align-items:center!important;gap:14px!important;
+}
+.mobile-bottom button{
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ justify-content:center!important;gap:3px!important;
+}
+.mobile-bottom .pro-icon{width:18px!important;height:18px!important;min-width:18px!important}
+.mobile-bottom .pro-icon svg{width:17px!important;height:17px!important}
+.home-top .mini-link{display:inline-flex!important;align-items:center!important;gap:6px!important}
+.home-top .pro-icon{width:15px!important;height:15px!important;min-width:15px!important}
+.home-top .pro-icon svg{width:14px!important;height:14px!important}
+
+
+/* ===== v35: accesos flotantes móviles sin tapar precios/contenido ===== */
+@media(max-width:768px){
+  /* Reservamos una pequeña zona lateral para los accesos y los hacemos compactos */
+  .floating-actions,
+  .mobile-float,
+  .mobile-socials,
+  .quick-actions{
+    right:7px!important;
+    bottom:82px!important;
+    gap:7px!important;
+    z-index:35!important;
+  }
+
+  /* Los accesos flotantes originales de La Bonanza */
+  .floating-actions a,
+  .mobile-float a,
+  .mobile-socials a,
+  .quick-actions a{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+  }
+  .floating-actions img,
+  .mobile-float img,
+  .mobile-socials img,
+  .quick-actions img{
+    width:38px!important;
+    height:38px!important;
+    object-fit:contain!important;
+  }
+
+  /* Cuando estamos viendo Pizzas/Bebidas, dejamos espacio real a la derecha
+     para que los botones nunca caigan encima del precio. */
+  #pizzas .menu-wrap,
+  #bebidas .menu-wrap{
+    padding-right:54px!important;
+  }
+
+  #pizzaList .menu-item,
+  #drinkList .menu-item{
+    width:100%!important;
+  }
+}
+
+/* En teléfonos muy angostos, la barra se vuelve horizontal encima del menú inferior.
+   Así no invade ninguna tarjeta. */
+@media(max-width:390px){
+  .floating-actions,
+  .mobile-float,
+  .mobile-socials,
+  .quick-actions{
+    position:fixed!important;
+    right:10px!important;
+    left:auto!important;
+    bottom:76px!important;
+    flex-direction:row!important;
+    gap:5px!important;
+  }
+  .floating-actions a,
+  .mobile-float a,
+  .mobile-socials a,
+  .quick-actions a,
+  .floating-actions img,
+  .mobile-float img,
+  .mobile-socials img,
+  .quick-actions img{
+    width:34px!important;
+    height:34px!important;
+    min-width:34px!important;
+    min-height:34px!important;
+  }
+}
+
+/* PC/tablet grande conserva los accesos sin afectar el contenido */
+@media(min-width:769px){
+  #pizzas .menu-wrap,#bebidas .menu-wrap{padding-right:0!important}
+}
+
+
+/* ===== v36: acceso protegido al administrador ===== */
+.admin-login-lock{
+ position:fixed;inset:0;z-index:100000;
+ display:none;align-items:center;justify-content:center;
+ padding:18px;
+ background:rgba(2,3,2,.90);
+ backdrop-filter:blur(12px);
+ -webkit-backdrop-filter:blur(12px);
+}
+.admin-login-lock.open{display:flex}
+.admin-login-card{
+ width:min(100%,390px);
+ border:1px solid rgba(229,184,71,.42);
+ border-radius:20px;
+ padding:27px 23px 22px;
+ background:linear-gradient(155deg,#151711,#080908);
+ box-shadow:0 28px 80px rgba(0,0,0,.65);
+ text-align:center;
+}
+.admin-login-card img{width:78px;height:78px;object-fit:contain;margin-bottom:10px}
+.admin-login-card h2{
+ margin:0;color:#efd178;font-family:Cinzel,serif;font-size:1.3rem;
+}
+.admin-login-card .admin-user{
+ margin:5px 0 20px;color:#b8b2a5;font-size:.72rem;letter-spacing:.08em;
+}
+.admin-login-field{text-align:left;margin-bottom:11px}
+.admin-login-field label{
+ display:block;margin-bottom:5px;color:#d5c28c;font-size:.65rem;font-weight:700;
+}
+.admin-login-field input{
+ width:100%;box-sizing:border-box;padding:12px 13px;
+ border:1px solid rgba(222,173,55,.28);border-radius:10px;
+ background:#080a08;color:#fff;outline:none;font-size:16px;
+}
+.admin-login-field input:focus{border-color:#e4bb53}
+.admin-login-error{
+ min-height:18px;margin:3px 0 8px;color:#ff7c73;font-size:.66rem;
+}
+.admin-login-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.admin-login-actions button{
+ padding:11px 8px;border-radius:10px;cursor:pointer;font-weight:800;
+}
+#adminLoginCancel{border:1px solid #3d4038;background:#11130f;color:#ccc}
+#adminLoginSubmit{border:1px solid #d7a938;background:#6f1f1d;color:#ffe3a0}
+@media(max-width:480px){
+ .admin-login-card{padding:22px 16px 18px;border-radius:17px}
+}
+
+
+/* ===== v37: cerrar sesión administrador ===== */
+.admin-logout-btn{
+  width:100%;
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px solid rgba(224,183,82,.28);
+  border-radius:9px;
+  background:rgba(104,25,24,.28);
+  color:#f0d58a;
+  font-size:.68rem;
+  font-weight:800;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.admin-logout-btn:hover{
+  background:#6f1f1d;
+  border-color:#d7a938;
+}
+@media(max-width:768px){
+  .admin-logout-btn{
+    width:auto!important;
+    min-width:max-content!important;
+    margin:0!important;
+    padding:8px 10px!important;
+  }
+}
+
+
+/* ===== v38: acceso de administrador temporalmente desactivado ===== */
+#adminFab,
+.admin-fab,
+[data-open-admin],
+.admin-trigger,
+.admin-access,
+.admin-login-lock{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+
+/* ===== v43: menú público limpio, sin etiquetas promocionales ===== */
+#pizzas .badge,
+#bebidas .badge,
+#pizzas .item-badge,
+#bebidas .item-badge,
+#pizzas .menu-badge,
+#bebidas .menu-badge,
+#pizzas .product-badge,
+#bebidas .product-badge{
+  display:none !important;
+}
+
+
+/* Aviso de pizza de temporada */
+.bonanza-season-note{
+  grid-column:1/-1;
+  width:100%;
+  box-sizing:border-box;
+  margin:18px auto 4px;
+  padding:11px 14px;
+  text-align:center;
+  color:#e8cb7b;
+  font-family:Cinzel,serif;
+  font-size:clamp(.72rem,1.2vw,.9rem);
+  letter-spacing:.04em;
+}
+
+
+/* ===== v50: sin etiquetas promocionales también en Inicio ===== */
+#inicio .badge,
+#inicio .item-badge,
+#inicio .menu-badge,
+#inicio .product-badge,
+#inicio .preview-badge,
+#inicio [class*="badge"]{
+  display:none !important;
+}
+
+</style>
+</head>
+<body>
+
+<aside class="desktop-side">
+ <div class="brand">
+  <img src="img/logo.webp" alt="La Bonanza">
+  <h1>LA BONANZA</h1><p>Más que pizza, buenos momentos</p>
+ </div>
+ <nav class="side-nav">
+  <button class="navbtn active" data-page="inicio"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg></i>Inicio</button>
+  <button class="navbtn" data-page="pizzas"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M4 4c6.4-1.3 12.6 1 16 5L9 21 4 4Z"/><path d="M5.3 7.3c4.6-.9 8.4.3 11.6 3.4"/><circle cx="10" cy="10.5" r="1.15"/><circle cx="12.2" cy="15" r="1.15"/></svg></i>Pizzas</button>
+  <button class="navbtn" data-page="bebidas"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M7 7h10l-1 13H8L7 7ZM6 4h12m-4 3 2-5h3"/></svg></i>Bebidas</button>
+  <button class="navbtn" data-page="eventos"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 7V4M10 4h4"/></svg></i>Catering</button>
+  <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>Ubicación</a>
+  <a class="navbtn" href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M7 3 4 5c0 8 7 15 15 15l2-3-5-3-2 2c-3-1-5-3-6-6l2-2-3-5Z"/></svg></i>Contacto</a>
+ </nav>
+ <div class="side-bottom">
+  <div class="side-quote">Pizza · Amigos<br>Buenos momentos</div>
+  <div class="side-social">
+   <a href="https://www.instagram.com/mar_bonanza" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".8" class="social-fill"/></svg></a>
+   <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank"><svg class="social-svg social-fill" viewBox="0 0 24 24"><path d="M14.3 8.1V6.4c0-.8.5-1 1.1-1h2.5V2h-3.4C11.5 2 10 3.8 10 6.2v1.9H7v4h3V22h4.3v-9.9h3.1l.6-4h-3.7Z"/></svg></a>
+   <a href="https://wa.me/5217222675873" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.7Z"/><path d="M8.3 7.3c.5 4.4 3.1 7.1 7.4 8.2l1.3-1.8-2.4-1.2-1.1 1c-1.8-.7-3-1.9-3.8-3.7l1-1.1-1.2-2.4-1.2 1Z"/></svg></a>
+  </div>
+ </div>
+</aside>
+
+<header class="mobile-top"><img src="img/logo.webp" alt="La Bonanza"><b>LA BONANZA PIZZERÍA</b></header>
+<div id="mobileHours" class="mobile-hours closed" aria-live="polite">
+  <span class="status-dot"></span>
+  <span id="mobileHoursText">Viernes 7:00 PM – 11:00 PM</span>
+</div>
+
+
+<div class="app">
+<section class="page active" id="inicio">
+ <div class="home-hero">
+  <div class="home-top">
+   <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>Ubicación</a>
+   <span class="mini-link" id="estado">Horario</span>
+   <a class="mini-link" href="https://wa.me/5217222675873" target="_blank"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M7 3 4 5c0 8 7 15 15 15l2-3-5-3-2 2c-3-1-5-3-6-6l2-2-3-5Z"/></svg></i>Contáctanos</a>
+  </div>
+  <div class="hero-copy">
+   <span class="eyebrow">LA BONANZA · PIZZERÍA</span>
+   <h2>CENIZA<br>Y FUEGO</h2>
+   <p>¡Explora sabores únicos en nuestra sección de pizzas y bebidas! 🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰</p>
+   <button class="primary" data-page="pizzas">🍕 &nbsp; VER MENÚ &nbsp; ›</button>
+  </div>
+  <div class="features">
+   <div class="feature"><b>♧</b><span>INGREDIENTES<br>DE CALIDAD</span></div>
+   <div class="feature"><b>♨</b><span>HECHAS<br>AL MOMENTO</span></div>
+   <div class="feature"><b>♙</b><span>PERFECTAS<br>PARA COMPARTIR</span></div>
+  </div>
+ </div>
+
+ <div class="home-content">
+  <div class="section-title"><h2>Nuestras Pizzas</h2><div class="rule"></div><button class="circle-go" data-page="pizzas">›</button></div>
+  <div class="preview-grid">
+   <article class="preview-card"><div class="preview-img" style="background-image:url('img/PEPERONI2.webp')"></div><div class="preview-body"><span class="badge">MÁS PEDIDA</span><h3>Pepperoni</h3><p>Salsa pomodoro, queso mozzarella y pepperoni.</p><div class="preview-price">180 <button class="circle-go" data-page="pizzas">+</button></div></div></article>
+   <article class="preview-card"><div class="preview-img" style="background-image:url('img/MARGARITA2.webp')"></div><div class="preview-body"><h3>Margarita</h3><p>Jitomate, mozzarella, pomodoro y pesto de albahaca.</p><div class="preview-price">180 <button class="circle-go" data-page="pizzas">+</button></div></div></article>
+   <article class="preview-card"><div class="preview-img" style="background-image:url('img/serrano.webp')"></div><div class="preview-body"><span class="badge gold">★ ESPECIAL</span><h3>Jamón Serrano</h3><p>Mozzarella, jamón serrano y arúgula.</p><div class="preview-price">240 <button class="circle-go" data-page="pizzas">+</button></div></div></article>
+   <article class="preview-card"><div class="preview-img" style="background-image:url('img/3QUESOS.webp')"></div><div class="preview-body"><h3>Tres Quesos</h3><p>Mozzarella, queso de cabra y provolone.</p><div class="preview-price">220 <button class="circle-go" data-page="pizzas">+</button></div></div></article>
+  </div>
+  <div class="promo-grid">
+   <article class="promo-card promo-drinks"><h3>Bebidas</h3><p>Refresca tu momento.</p><button class="primary" data-page="bebidas">VER BEBIDAS ›</button></article>
+   <article class="promo-card promo-catering"><h3>Catering</h3><p>Eventos, reuniones y momentos especiales.</p><button class="primary" data-page="eventos">VER MÁS ›</button></article>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="pizzas">
+ <main class="menu-wrap">
+  <header class="menu-head"><span class="eyebrow">LA BONANZA · PIZZERÍA</span><h2>Nuestras Pizzas</h2><p>Pregunta por nuestras pizzas de temporada</p></header>
+  <div class="menu-tools"><input id="pizzaSearch" class="search" placeholder="⌕  Buscar pizza..."></div>
+  <div class="menu-list" id="pizzaList">
+   <article class="menu-item" data-name="mexicana"><div class="item-img" style="background-image:url('img/IMG-20251003-WA0204.webp')"></div><div class="item-info"><span class="badge gold">★ ESPECIAL</span><h3>Mexicana</h3><p>Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.</p></div><div class="item-price">220</div></article>
+   <article class="menu-item" data-name="pepperoni"><div class="item-img" style="background-image:url('img/PEPERONI2.webp')"></div><div class="item-info"><span class="badge">MÁS PEDIDA</span><h3>Pepperoni</h3><p>Salsa pomodoro, queso mozzarella y pepperoni.</p></div><div class="item-price">180</div></article>
+   <article class="menu-item" data-name="margarita"><div class="item-img" style="background-image:url('img/MARGARITA2.webp')"></div><div class="item-info"><h3>Margarita</h3><p>Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.</p></div><div class="item-price">180</div></article>
+   <article class="menu-item" data-name="arugula"><div class="item-img" style="background-image:url('img/arugula.webp')"></div><div class="item-info"><h3>Arúgula</h3><p>Salsa pomodoro, mozzarella, tocino, cebolla, queso de cabra y arúgula.</p></div><div class="item-price">240</div></article>
+   <article class="menu-item" data-name="jamon serrano"><div class="item-img" style="background-image:url('img/serrano.webp')"></div><div class="item-info"><span class="badge gold">★ PREMIUM</span><h3>Jamón Serrano</h3><p>Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.</p></div><div class="item-price">240</div></article>
+   <article class="menu-item" data-name="tres quesos"><div class="item-img" style="background-image:url('img/3QUESOS.webp')"></div><div class="item-info"><h3>Tres Quesos</h3><p>Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.</p></div><div class="item-price">220</div></article>
+   <article class="menu-item" data-name="champinon"><div class="item-img" style="background-image:url('img/champiñones.webp')"></div><div class="item-info"><h3>Champiñón</h3><p>Salsa pomodoro, mozzarella, tocino, queso philadelphia, champiñones y cebolla.</p></div><div class="item-price">220</div></article>
+  </div>
+ </main>
+</section>
+
+<section class="page" id="bebidas">
+ <main class="menu-wrap">
+  <header class="menu-head"><span class="eyebrow">PARA ACOMPAÑAR</span><h2>Bebidas</h2><p>Refresca tu momento</p></header>
+  <div class="menu-list" id="drinkList">
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/refresco3.jpg')"></div><div class="item-info"><h3>Refrescos</h3><p>Refrescos de sabores.</p></div><div class="item-price">30</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/png.png')"></div><div class="item-info"><h3>Cerveza</h3><p>Modelo especial, Victoria y Corona.</p></div><div class="item-price">30</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/sal3.jpg')"></div><div class="item-info"><h3>Micheladas</h3><p>Cerveza preparada con sal y limón.</p></div><div class="item-price">40</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/michelada.png')"></div><div class="item-info"><h3>Clamatos</h3><p>Cerveza preparada con clamato.</p></div><div class="item-price">65</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/IMG-20251008-WA0097.jpg')"></div><div class="item-info"><h3>Mono de Lima</h3><p>Licor de limón con especias.</p></div><div class="item-price">60</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/IMG-20250930-WA0102.jpg')"></div><div class="item-info"><h3>Vino</h3><p>Por copeo 65 · Botella 230.</p></div><div class="item-price">65</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/Screenshot_20251008-120229.Fotos.png')"></div><div class="item-info"><h3>Smoothie de Vino</h3><p>Nuestro exclusivo Smoothie de Vino.</p></div><div class="item-price">80</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/cafe2.jpg')"></div><div class="item-info"><h3>Café</h3><p>Café a grano, directo a tu taza.</p></div><div class="item-price">25</div></article>
+   <article class="menu-item"><div class="item-img" style="background-image:url('img/Capuchino-perfecto.jpg')"></div><div class="item-info"><h3>Capuchino</h3><p>Delicioso Capuchino artesanal.</p></div><div class="item-price">50</div></article>
+  </div>
+ </main>
+</section>
+
+<section class="page" id="eventos">
+ <main class="catering">
+  <header class="catering-intro"><span class="eyebrow">EVENTOS Y REUNIONES</span><h2>Catering La Bonanza</h2><p>Haz de tus momentos especiales una experiencia para compartir.</p></header>
+  <div class="gallery">
+   <figure><img src="img/dos.jpg" alt="Evento La Bonanza"><figcaption><b>Eventos especiales</b>Un espacio para compartir.</figcaption></figure>
+   <figure><img src="img/uno.jpg" alt="Evento La Bonanza"><figcaption><b>Experiencias</b>Momentos con sabor La Bonanza.</figcaption></figure>
+   <figure><img src="img/fondo22.webp" alt="Espacio La Bonanza"><figcaption><b>Reserva nuestro espacio</b>Ambiente cómodo y exclusivo.</figcaption></figure>
+   <figure><img src="img/foto7.jpg" alt="Catering"><figcaption><b>Servicio de banquetes</b>Torre de nopal, queso y jitomate.</figcaption></figure>
+   <figure><img src="img/foto3.jpg" alt="Catering"><figcaption><b>Servicio de banquetes</b>Sopa de tortilla.</figcaption></figure>
+   <figure><img src="img/foto6.jpg" alt="Catering"><figcaption><b>Servicio de banquetes</b>Lomo de cerdo en salsa de champiñones.</figcaption></figure>
+   <figure><img src="img/IMG-20251003-WA0150.jpg" alt="Catering"><figcaption><b>Servicio de banquetes</b>Rollo de pollo con salsa de cacahuate.</figcaption></figure>
+  </div>
+ </main>
+</section>
+</div>
+
+
+<div class="mobile-social" aria-label="Accesos rápidos La Bonanza">
+  <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Calle+Amado+Nervo+14-MZ+016,+San+Miguel,+52740+Ocoyoacac,+Méx" class="redes-flotantes-icono" aria-label="Ubicación">
+    <img src="img/UB.png" class="img-red" alt="Ubicación" onerror="this.style.display='none';">
+  </a>
+
+  <a href="https://wa.me/5217222675873?text=Hola,%20me%20gustaría%20más%20información%20sobre%20la%20pizzería" target="_blank" rel="noopener" class="icono" aria-label="WhatsApp">
+    <img src="img/WAA.png" class="img-red" alt="WhatsApp" onerror="this.style.display='none';">
+  </a>
+
+  <a href="https://www.instagram.com/mar_bonanza" target="_blank" rel="noopener" class="icono" aria-label="Instagram">
+    <img src="img/instagram-3d-logo-free-png.png" class="img-red" alt="Instagram" onerror="this.style.display='none';">
+  </a>
+
+  <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank" rel="noopener" class="icono" aria-label="Facebook">
+    <img src="img/facce.png" class="img-red" alt="Facebook" onerror="this.style.display='none';">
+  </a>
+</div>
+<nav class="mobile-bottom">
+ <button class="active" data-page="inicio"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg></i>Inicio</button>
+ <button data-page="pizzas"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M4 4c6.4-1.3 12.6 1 16 5L9 21 4 4Z"/><path d="M5.3 7.3c4.6-.9 8.4.3 11.6 3.4"/><circle cx="10" cy="10.5" r="1.15"/><circle cx="12.2" cy="15" r="1.15"/></svg></i>Pizzas</button>
+ <button data-page="bebidas"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M7 7h10l-1 13H8L7 7ZM6 4h12m-4 3 2-5h3"/></svg></i>Bebidas</button>
+ <button data-page="eventos"><i class="pro-icon"><svg viewBox="0 0 24 24"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 7V4M10 4h4"/></svg></i>Catering</button>
+</nav>
+
+
+
+
+
+
+
+
+<script>
+/* v49: restaurar descripciones originales de bebidas y banquetes */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_descriptions_v49';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st){
+     const drinks={
+       'Refrescos':'Refrescos de sabores.',
+       'Pellegrino':'Pellegrino y Schweppes.',
+       'Cerveza':'Modelo especial, victoria y corona.',
+       'Micheladas':'Cerveza preparada con sal y limón.',
+       'Clamatos':'Cerveza preparada con clamato.',
+       'Mono de Lima':'Licor de limón con especias.',
+       'Vino':'Por copeo 65 · Botella de vino 230.',
+       'Smoothie de Vino':'¡Ven y prueba nuestro exclusivo Smoothie de Vino!',
+       'Café':'Disfruta del mejor café a grano, directo a tu taza.',
+       'Capuchino':'¡Ven y prueba nuestro delicioso Capuchino artesanal!'
+     };
+     (st.products||[]).forEach(p=>{if(drinks[p.name])p.desc=drinks[p.name];});
+     const cats={
+       c3:['Reserve nuestro espacio','Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.'],
+       c4:['Servicio de banquetes','Torre de nopal, queso y jitomate con pesto de albahaca.'],
+       c5:['Servicio de banquetes','Sopa de tortilla.'],
+       c6:['Servicio de banquetes','Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.'],
+       c7:['Servicio de banquetes','Rollo de pollo con salsa de cacahuate 🥜.']
+     };
+     (st.catering||[]).forEach(c=>{if(cats[c.id]){c.title=cats[c.id][0];c.text=cats[c.id][1];}});
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v48: imagen proporcionada por el usuario para Pellegrino */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_pellegrino_user_image_v48';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.products)){
+     const p=st.products.find(x=>x.name==='Pellegrino');
+     if(p){
+       p.defaultImage='img/pellegrino.png';
+       p.image=null;
+     }
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v47: agregar Schweppes a la tarjeta Pellegrino */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_pellegrino_schweppes_v47';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.products)){
+     const p=st.products.find(x=>x.name==='Pellegrino');
+     if(p) p.desc='Pellegrino y Schweppes.';
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v46: precios públicos como cantidad, sin símbolo de moneda */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_prices_numbers_only_v46';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.products)){
+     const vino=st.products.find(p=>p.name==='Vino');
+     if(vino) vino.desc='Por copeo 65 · Botella 230.';
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v45: corregir únicamente la tarjeta Refrescos */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_refrescos_sin_pellegrino_v45';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.products)){
+     const r=st.products.find(p=>p.name==='Refrescos');
+     if(r){ r.desc='Refrescos de sabores.'; r.price=30; }
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v42: retirar Catering 2 vacío */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_remove_empty_catering2_v42';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.catering)){
+     st.catering=st.catering.filter(c=>c.id!=='c2');
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){}
+})();
+</script>
+
+<script>
+/* v40: migración de contenido recuperado del código original */
+(function(){
+ const KEY='bonanza_admin_v1', MIG='bonanza_content_source_v40';
+ if(localStorage.getItem(MIG)==='1') return;
+ try{
+   const st=JSON.parse(localStorage.getItem(KEY)||'null');
+   if(st && Array.isArray(st.products)){
+     const info={
+       'Mexicana':['Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.',220],
+       'Pepperoni':['Salsa pomodoro, queso mozzarella y pepperoni.',180],
+       'Margarita':['Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.',180],
+       'Arúgula':['Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.',240],
+       'Jamón Serrano':['Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.',240],
+       'Tres Quesos':['Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.',220],
+       'Champiñón':['Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.',220],
+       'Refrescos':['Refrescos de sabores.',30],
+       'Pellegrino':['Refrescos Pellegrino.',45],
+       'Cerveza':['Modelo especial, victoria y corona.',30],
+       'Micheladas':['Cerveza preparada con sal y limón.',40],
+       'Clamatos':['Cerveza preparada con clamato.',65],
+       'Mono de Lima':['Licor de limón con especias.',60],
+       'Vino':['Por copeo 65 · Botella de vino 230.',65],
+       'Smoothie de Vino':['¡Ven y prueba nuestro exclusivo Smoothie de Vino!',80],
+       'Café':['Disfruta del mejor café a grano, directo a tu taza.',25],
+       'Capuchino':['¡Ven y prueba nuestro delicioso Capuchino artesanal!',50]
+     };
+     st.products.forEach(p=>{if(info[p.name]){p.desc=info[p.name][0];p.price=info[p.name][1];}});
+     const cats={
+       c3:['Reserve nuestro espacio','Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.'],
+       c4:['Servicio de banquetes','Torre de nopal, queso y jitomate con pesto de albahaca.'],
+       c5:['Servicio de banquetes','Sopa de tortilla.'],
+       c6:['Servicio de banquetes','Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.'],
+       c7:['Servicio de banquetes','Rollo de pollo con salsa de cacahuate 🥜.']
+     };
+     (st.catering||[]).forEach(c=>{if(cats[c.id]){c.title=cats[c.id][0];c.text=cats[c.id][1];}});
+     st.content=st.content||{};
+     st.content.heroText='¡Explora sabores únicos en nuestra sección de pizzas y bebidas! 🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰';
+     st.schedule={day:5,open:'19:00',close:'23:00'};
+     localStorage.setItem(KEY,JSON.stringify(st));
+   }
+   localStorage.setItem(MIG,'1');
+ }catch(e){console.warn('Migración de contenido no aplicada',e);}
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const pages=[...document.querySelectorAll(".page")];
+ const controls=[...document.querySelectorAll("[data-page]")];
+ function showPage(id,push=true){
+   if(!document.getElementById(id)) id="inicio";
+   pages.forEach(p=>p.classList.toggle("active",p.id===id));
+   document.querySelectorAll(".navbtn[data-page],.mobile-bottom button[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+   if(push) history.replaceState(null,"","#"+id);
+   window.scrollTo({top:0,behavior:"smooth"});
+ }
+ controls.forEach(c=>c.addEventListener("click",e=>{e.preventDefault();showPage(c.dataset.page)}));
+ showPage(location.hash.slice(1)||"inicio",false);
+ window.addEventListener("hashchange",()=>showPage(location.hash.slice(1)||"inicio",false));
+
+ const search=document.getElementById("pizzaSearch");
+ if(search) search.addEventListener("input",()=>{
+   const q=search.value.trim().toLowerCase();
+   document.querySelectorAll("#pizzaList .menu-item").forEach(x=>x.style.display=x.textContent.toLowerCase().includes(q)?"grid":"none");
+ });
+
+ function estado(){
+   const el=document.getElementById("estado"); if(!el)return;
+   const d=new Date(), min=d.getHours()*60+d.getMinutes();
+   const abierto=d.getDay()===5 && min>=19*60 && min<=23*60;
+   el.textContent=abierto?"● Abierto":"● Cerrado";
+   el.style.color=abierto?"#78d58a":"#ef7777";
+ }
+ estado();setInterval(estado,60000);
+});
+</script>
+
+<script>
+(function(){
+  function updateMobileHours(){
+    const box = document.getElementById('mobileHours');
+    const text = document.getElementById('mobileHoursText');
+    if(!box || !text) return;
+
+    const now = new Date();
+    const day = now.getDay();
+    const mins = now.getHours()*60 + now.getMinutes();
+    const open = day === 5 && mins >= 19*60 && mins < 23*60;
+
+    box.classList.toggle('open', open);
+    box.classList.toggle('closed', !open);
+    text.textContent = open
+      ? 'ABIERTO AHORA · Hoy hasta 11:00 PM'
+      : 'CERRADO · Viernes 7:00 PM – 11:00 PM';
+  }
+  updateMobileHours();
+  setInterval(updateMobileHours, 60000);
+})();
+</script>
+
+
+<script>
+(function(){
+  function syncHoursVisibility(){
+    let isHome = false;
+
+    // El diseño usa secciones/páginas internas; detectar Inicio de varias formas.
+    const home = document.getElementById('inicio') ||
+                 document.querySelector('[data-section="inicio"]') ||
+                 document.querySelector('[data-page-section="inicio"]');
+
+    if(home){
+      const cs = getComputedStyle(home);
+      isHome = cs.display !== 'none' && !home.hidden &&
+               !home.classList.contains('hidden');
+    } else {
+      const hash = (location.hash || '#inicio').replace('#','').toLowerCase();
+      isHome = !hash || hash === 'inicio' || hash === 'home';
+    }
+
+    document.body.classList.toggle('home-active', isHome);
+  }
+
+  syncHoursVisibility();
+
+  window.addEventListener('hashchange', function(){
+    setTimeout(syncHoursVisibility, 0);
+  });
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-page], [data-section], .mobile-bottom button, .desktop-side button, nav button, nav a')){
+      setTimeout(syncHoursVisibility, 50);
+    }
+  });
+
+  // Sin MutationObserver global: la navegación ya se sincroniza por hash/clic.
+  // Evita ciclos de repintado/parpadeo que parecían una recarga constante.
+})();
+</script>
+
+
+<button class="admin-fab" id="openAdmin" title="Vista de administrador" aria-label="Abrir panel administrativo">⚙</button>
+
+<div class="admin-demo" id="adminDemo">
+ <div class="admin-shell">
+  <aside class="admin-side">
+   <div class="admin-brand"><img src="img/logo.webp" alt=""><div><b>LA BONANZA</b><small>Panel administrativo</small></div></div>
+   <div class="admin-nav">
+    <button class="active" data-admin="productos">▦ Productos</button>
+    <button data-admin="contenido">✎ Textos del sitio</button>
+    <button data-admin="catering">▣ Catering</button>
+    <button data-admin="config">⚙ Configuración</button>
+   </div>
+   <div class="admin-side-bottom"><button type="button" class="admin-logout-btn" id="adminLogoutBtn">Cerrar sesión</button>
+<button class="admin-back" id="closeAdmin">← Volver al menú</button></div>
+  </aside>
+  <main class="admin-main">
+   <section class="admin-section active" data-admin-section="productos">
+ <div class="admin-top"><div><h2>Menús</h2><p>Administra pizzas y bebidas desde un solo lugar.</p></div><button class="admin-add" id="adminNewProduct">＋ Nueva tarjeta</button></div>
+ <div class="admin-note">Las fotografías actuales quedan registradas como <b>imagen de respaldo</b>. Si el administrador elimina una imagen personalizada, la tarjeta vuelve automáticamente a su fotografía original.</div>
+ <div class="admin-stats">
+  <div class="admin-stat"><small>PIZZAS</small><strong>7</strong></div><div class="admin-stat"><small>BEBIDAS</small><strong>9</strong></div><div class="admin-stat"><small>ESPECIALES</small><strong>2</strong></div><div class="admin-stat"><small>ACTIVAS</small><strong>16</strong></div>
+ </div>
+ <div class="admin-toolbar"><input id="adminSearch" placeholder="Buscar pizza o bebida..."><select id="adminFilter"><option value="all">Todo el menú</option><option value="pizza">Pizzas</option><option value="bebida">Bebidas</option></select></div>
+ <div class="admin-manager">
+  <div class="admin-products" id="adminProductList">
+   <div class="admin-product selected" data-kind="pizza" data-default="img/PEPERONI2.webp"><img src="img/PEPERONI2.webp"><div><h4>Pizza Pepperoni</h4><p>Clásica pizza de pepperoni</p></div><div class="admin-price">$180</div><div class="admin-badge">MÁS PEDIDA</div><div class="admin-actions"><button>✎</button><button>◉</button><button>×</button></div></div>
+   <div class="admin-product" data-kind="pizza" data-default="img/MARGARITA2.webp"><img src="img/MARGARITA2.webp"><div><h4>Pizza Margarita</h4><p>Tomate, queso y sabor artesanal</p></div><div class="admin-price">$180</div><div class="admin-badge">NORMAL</div><div class="admin-actions"><button>✎</button><button>◉</button><button>×</button></div></div>
+   <div class="admin-product" data-kind="pizza" data-default="img/serrano.webp"><img src="img/serrano.webp"><div><h4>Jamón Serrano</h4><p>Una de las especialidades de La Bonanza</p></div><div class="admin-price">$240</div><div class="admin-badge">★ ESPECIAL</div><div class="admin-actions"><button>✎</button><button>◉</button><button>×</button></div></div>
+   <div class="admin-product" data-kind="bebida" data-default="img/refresco3.jpg"><img src="img/refresco3.jpg"><div><h4>Refrescos</h4><p>Sección de bebidas</p></div><div class="admin-price">$30</div><div class="admin-badge">NORMAL</div><div class="admin-actions"><button>✎</button><button>◉</button><button>×</button></div></div>
+  </div>
+  <aside class="admin-edit-card">
+   <h3>Editar tarjeta</h3>
+   <div class="admin-image-preview"><img id="adminPreview" src="img/PEPERONI2.webp" alt=""></div>
+   <div class="admin-image-tools"><button id="adminUploadImage">⬆ Cambiar imagen</button><button id="adminResetImage">↶ Usar respaldo</button></div>
+   <input type="file" id="adminFileInput" accept="image/*" hidden>
+   <div class="admin-help">Imagen de respaldo actual: <b id="adminDefaultPath">img/PEPERONI2.webp</b>. Nunca se elimina del sitio.</div>
+   <div class="admin-field"><label>Sección</label><select id="editKind"><option value="pizza">Pizza</option><option value="bebida">Bebida</option></select></div>
+   <div class="admin-field"><label>Nombre</label><input id="editName" value="Pizza Pepperoni"></div>
+   <div class="admin-field"><label>Descripción</label><textarea id="editDesc">Clásica pizza de pepperoni</textarea></div>
+   <div class="admin-field"><label>Precio</label><input id="editPrice" type="number" value="180"></div>
+   <div class="admin-field"><label>Etiqueta</label><select id="editBadge"><option>Normal</option><option selected>Más pedida</option><option>Especial</option><option>Temporada</option><option>Nuevo</option></select></div>
+   <div class="admin-switches"><label class="admin-check"><input type="checkbox" checked> Visible</label><label class="admin-check"><input type="checkbox"> Destacar en Inicio</label></div>
+   <div class="admin-edit-actions"><button class="admin-delete">Eliminar tarjeta</button><button class="admin-primary">Guardar</button></div>
+  </aside>
+ </div>
+</section>
+
+<section class="admin-section" data-admin-section="contenido">
+    <div class="admin-top"><div><h2>Textos del sitio</h2><p>Vista previa de cómo editarías el contenido sin tocar código.</p></div></div>
+    <div class="admin-editor">
+     <div class="admin-panel"><h3>Portada</h3>
+      <div class="admin-field"><label>Frase de marca</label><input id="adminTagline" value="Más que pizza, buenos momentos"></div>
+<div class="admin-field"><label>Título / slogan</label><input value="CENIZA Y FUEGO"></div>
+      <div class="admin-field"><label>Texto de bienvenida</label><textarea>¡Explora sabores únicos en nuestra sección de pizzas y bebidas! 🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰</textarea></div>
+      <button class="admin-save">Guardar cambios</button>
+     </div>
+     <div class="admin-panel"><h3>Imagen principal</h3><div class="admin-upload">☁<br><b>Subir nueva imagen</b><br><small>JPG, PNG o WEBP</small></div></div>
+    </div>
+   </section>
+
+   <section class="admin-section" data-admin-section="catering">
+ <div class="admin-top"><div><h2>Catering</h2><p>Administra imagen, título y texto independiente de cada tarjeta.</p></div><button class="admin-add">＋ Nueva tarjeta</button></div>
+ <div class="admin-note">Cada tarjeta conserva su imagen original como respaldo. Al quitar una fotografía nueva, vuelve a mostrarse automáticamente la imagen que actualmente existe en tu carpeta <b>img</b>.</div>
+ <div class="admin-catering-grid">
+  <div class="admin-cat-card"><img src="img/dos.jpg"><div class="admin-cat-info"><strong>Evento / Catering 1</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+  <div class="admin-cat-card"><img src="img/uno.jpg"><div class="admin-cat-info"><strong>Evento / Catering 2</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+  <div class="admin-cat-card"><img src="img/fondo22.webp"><div class="admin-cat-info"><strong>Evento / Catering 3</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+  <div class="admin-cat-card"><img src="img/foto7.jpg"><div class="admin-cat-info"><strong>Evento / Catering 4</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+  <div class="admin-cat-card"><img src="img/foto3.jpg"><div class="admin-cat-info"><strong>Evento / Catering 5</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+  <div class="admin-cat-card"><img src="img/foto6.jpg"><div class="admin-cat-info"><strong>Evento / Catering 6</strong><div class="admin-cat-actions"><button>✎ Editar</button><button>↶ Imagen</button><button>× Eliminar</button></div></div></div>
+ </div>
+</section>
+
+<section class="admin-section" data-admin-section="config">
+    <div class="admin-top"><div><h2>Configuración</h2><p>Datos generales que posteriormente podremos guardar en la nube.</p></div></div>
+    <div class="admin-editor"><div class="admin-panel"><h3>Horario</h3><div class="admin-field"><label>Día</label><select><option>Viernes</option></select></div><div class="admin-field"><label>Apertura</label><input type="time" value="19:00"></div><div class="admin-field"><label>Cierre</label><input type="time" value="23:00"></div></div><div class="admin-panel"><h3>Etiquetas disponibles</h3><div class="admin-field"><label>Estado del producto</label><select><option>Normal</option><option>Más pedida</option><option>Especial</option><option>Temporada</option><option>Nuevo</option></select></div><p style="color:#888276;font-size:.75rem">Después podremos crear etiquetas personalizadas desde aquí.</p></div></div>
+   </section>
+  </main>
+ </div>
+</div>
+
+
+<div class="admin-toast" id="adminToast"></div>
+<div class="admin-modal-bg" id="adminModal">
+ <div class="admin-modal-box">
+  <h3 id="adminModalTitle">Nueva tarjeta</h3>
+  <div class="admin-field"><label>Tipo</label><select id="newType"><option value="pizza">Pizza</option><option value="bebida">Bebida</option></select></div>
+  <div class="admin-field"><label>Nombre</label><input id="newName" placeholder="Nombre del producto"></div>
+  <div class="admin-field"><label>Descripción</label><textarea id="newDesc" placeholder="Descripción"></textarea></div>
+  <div class="admin-field"><label>Precio</label><input id="newPrice" type="number" min="0" placeholder="0"></div>
+  <div class="admin-field"><label>Imagen de respaldo</label><input id="newDefault" placeholder="img/mi-imagen.webp"></div>
+  <div class="admin-modal-actions"><button id="cancelModal">Cancelar</button><button class="ok" id="saveNew">Agregar</button></div>
+ </div>
+</div>
+
+
+<script>
+(function(){
+ const KEY='bonanza_admin_v1';
+ const defaults={
+  products:[
+   {id:'p1',type:'pizza',name:'Mexicana',desc:'Salsa pomodoro, queso mozzarella, chorizo y un toque de cebolla con pimiento.',price:220,defaultImage:'img/IMG-20251003-WA0204.webp',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'p2',type:'pizza',name:'Pepperoni',desc:'Salsa pomodoro, queso mozzarella y pepperoni.',price:180,defaultImage:'img/PEPERONI2.webp',image:null,badge:'Más pedida',visible:true,featured:true},
+   {id:'p3',type:'pizza',name:'Margarita',desc:'Rebanadas de jitomate, queso mozzarella, salsa pomodoro y un toque de pesto de albahaca.',price:180,defaultImage:'img/MARGARITA2.webp',image:null,badge:'Normal',visible:true,featured:true},
+   {id:'p4',type:'pizza',name:'Arúgula',desc:'Salsa pomodoro, queso mozzarella, trozos de tocino, cebolla, queso de cabra, arúgula y un toque de cebolla.',price:240,defaultImage:'img/arugula.webp',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'p5',type:'pizza',name:'Jamón Serrano',desc:'Salsa pomodoro, queso mozzarella, jamón serrano y arúgula.',price:240,defaultImage:'img/serrano.webp',image:null,badge:'Especial',visible:true,featured:true},
+   {id:'p6',type:'pizza',name:'Tres Quesos',desc:'Salsa pomodoro, queso mozzarella, queso de cabra y queso provolone.',price:220,defaultImage:'img/3QUESOS.webp',image:null,badge:'Normal',visible:true,featured:true},
+   {id:'p7',type:'pizza',name:'Champiñón',desc:'Salsa pomodoro, queso mozzarella, trozos de tocino, queso philadelphia, champiñones y toque de cebolla.',price:220,defaultImage:'img/champiñones.webp',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b1',type:'bebida',name:'Refrescos',desc:'Refrescos de sabores.',price:30,defaultImage:'img/refresco3.jpg',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b2',type:'bebida',name:'Pellegrino',desc:'Pellegrino y Schweppes.',price:45,defaultImage:'img/pellegrino.png',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b3',type:'bebida',name:'Cerveza',desc:'Modelo especial, victoria y corona.',price:30,defaultImage:'img/png.png',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b4',type:'bebida',name:'Micheladas',desc:'Cerveza preparada con sal y limón.',price:40,defaultImage:'img/sal3.jpg',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b5',type:'bebida',name:'Clamatos',desc:'Cerveza preparada con clamato.',price:65,defaultImage:'img/michelada.png',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b6',type:'bebida',name:'Mono de Lima',desc:'Licor de limón con especias.',price:60,defaultImage:'img/IMG-20251008-WA0097.jpg',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b7',type:'bebida',name:'Vino',desc:'Por copeo 65 · Botella de vino 230.',price:65,defaultImage:'img/IMG-20250930-WA0102.jpg',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b8',type:'bebida',name:'Smoothie de Vino',desc:'¡Ven y prueba nuestro exclusivo Smoothie de Vino!',price:80,defaultImage:'img/Screenshot_20251008-120229.Fotos.png',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b9',type:'bebida',name:'Café',desc:'Disfruta del mejor café a grano, directo a tu taza.',price:25,defaultImage:'img/cafe2.jpg',image:null,badge:'Normal',visible:true,featured:false},
+   {id:'b10',type:'bebida',name:'Capuchino',desc:'¡Ven y prueba nuestro delicioso Capuchino artesanal!',price:50,defaultImage:'img/Capuchino-perfecto.jpg',image:null,badge:'Normal',visible:true,featured:false}
+  ],
+  catering:[
+   {id:'c1',title:'Catering 1',text:'',defaultImage:'img/dos.jpg',image:null,visible:true},
+   {id:'c3',title:'Reserve nuestro espacio',text:'Ambiente cómodo y exclusivo, ideal para celebrar momentos especiales.',defaultImage:'img/fondo22.webp',image:null,visible:true},
+   {id:'c4',title:'Servicio de banquetes',text:'Torre de nopal, queso y jitomate con pesto de albahaca.',defaultImage:'img/foto7.jpg',image:null,visible:true},
+   {id:'c5',title:'Servicio de banquetes',text:'Sopa de tortilla.',defaultImage:'img/foto3.jpg',image:null,visible:true},
+   {id:'c6',title:'Servicio de banquetes',text:'Lomo de cerdo en salsa de champiñones, con papa al horno y aderezo de la casa.',defaultImage:'img/foto6.jpg',image:null,visible:true},
+   {id:'c7',title:'Servicio de banquetes',text:'Rollo de pollo con salsa de cacahuate 🥜.',defaultImage:'img/IMG-20251003-WA0150.jpg',image:null,visible:true}
+  ],
+  content:{slogan:'CENIZA Y FUEGO',tagline:'Más que pizza, buenos momentos',welcome:'¡Explora sabores únicos en nuestra sección de pizzas y bebidas! 🎉 Conozca también nuestros eventos exclusivos "Catering". 👌🫰',heroImage:null,heroDefault:'img/principal.webp',cateringTitle:'Catering',cateringText:'Eventos y experiencias especiales de La Bonanza.'},
+  schedule:{day:5,open:'19:00',close:'23:00'}
+ };
+ let state;
+ try{state=JSON.parse(localStorage.getItem(KEY))||structuredClone(defaults)}catch(e){state=JSON.parse(JSON.stringify(defaults))}
+ // Primera visita: guardar el estado base una sola vez. Esto permite que
+ // el carrusel público funcione aunque el administrador esté desactivado.
+ if(!localStorage.getItem(KEY)){
+   try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+ }
+ function save(){localStorage.setItem(KEY,JSON.stringify(state));toast('Cambios guardados en este dispositivo');renderAll()}
+ function toast(t){const x=document.getElementById('adminToast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ const imgOf=x=>x.image||x.defaultImage;
+
+ // Panel open/close/nav
+ const modal=document.getElementById('adminDemo');
+ document.getElementById('openAdmin')?.addEventListener('click',()=>{modal.classList.add('open');renderAll()});
+ document.getElementById('closeAdmin')?.addEventListener('click',()=>modal.classList.remove('open'));
+ document.querySelectorAll('[data-admin]').forEach(btn=>btn.addEventListener('click',()=>{
+   document.querySelectorAll('[data-admin]').forEach(x=>x.classList.remove('active')); btn.classList.add('active');
+   document.querySelectorAll('[data-admin-section]').forEach(s=>s.classList.toggle('active',s.dataset.adminSection===btn.dataset.admin));
+ }));
+
+ // Products
+ let selectedId=state.products[0]?.id;
+ const list=document.getElementById('adminProductList');
+ function renderProducts(){
+   if(!list)return;
+   const q=(document.getElementById('adminSearch')?.value||'').toLowerCase(), f=document.getElementById('adminFilter')?.value||'all';
+   list.innerHTML=state.products.filter(p=>(f==='all'||p.type===f)&&(`${p.name} ${p.desc}`.toLowerCase().includes(q))).map(p=>`
+    <div class="admin-product ${p.id===selectedId?'selected':''} ${p.visible?'':'hidden-item'}" data-id="${p.id}">
+     <img src="${esc(imgOf(p))}" onerror="this.src='${esc(p.defaultImage)}'">
+     <div><h4>${esc(p.name)}</h4><p>${esc(p.desc)}</p></div><div class="admin-price">$${Number(p.price)||0}</div>
+     <div class="admin-badge">${esc(p.badge||'Normal')}</div><div class="admin-actions"><button data-act="edit">✎</button><button data-act="vis">${p.visible?'◉':'○'}</button><button data-act="del">×</button></div>
+    </div>`).join('')+`<button class="admin-add-card" id="inlineAdd">＋ Agregar nueva tarjeta</button>`;
+   document.getElementById('inlineAdd')?.addEventListener('click',openNew);
+   updateStats();
+ }
+ function updateStats(){
+   const nums=document.querySelectorAll('[data-admin-section="productos"] .admin-stat strong');
+   if(nums.length>=4){nums[0].textContent=state.products.filter(x=>x.type==='pizza').length;nums[1].textContent=state.products.filter(x=>x.type==='bebida').length;nums[2].textContent=state.products.filter(x=>['Especial','Temporada','Más pedida'].includes(x.badge)).length;nums[3].textContent=state.products.filter(x=>x.visible).length}
+ }
+ function loadEditor(id){
+   const p=state.products.find(x=>x.id===id);if(!p)return;selectedId=id;
+   document.getElementById('adminPreview').src=imgOf(p);document.getElementById('adminDefaultPath').textContent=p.defaultImage;
+   document.getElementById('editKind').value=p.type;document.getElementById('editName').value=p.name;document.getElementById('editDesc').value=p.desc;document.getElementById('editPrice').value=p.price;document.getElementById('editBadge').value=p.badge||'Normal';
+   const checks=document.querySelectorAll('.admin-switches input');if(checks[0])checks[0].checked=p.visible;if(checks[1])checks[1].checked=p.featured;
+   renderProducts();
+ }
+ list?.addEventListener('click',e=>{
+   const card=e.target.closest('[data-id]');if(!card)return;const id=card.dataset.id, act=e.target.closest('button')?.dataset.act;
+   if(act==='del'){if(confirm('¿Eliminar esta tarjeta del menú?')){state.products=state.products.filter(x=>x.id!==id);selectedId=state.products[0]?.id;save();if(selectedId)loadEditor(selectedId)}return}
+   if(act==='vis'){const p=state.products.find(x=>x.id===id);p.visible=!p.visible;save();return}
+   loadEditor(id);
+ });
+ document.getElementById('adminSearch')?.addEventListener('input',renderProducts);
+ document.getElementById('adminFilter')?.addEventListener('change',renderProducts);
+ document.querySelector('.admin-edit-actions .admin-primary')?.addEventListener('click',()=>{
+   const p=state.products.find(x=>x.id===selectedId);if(!p)return;
+   p.type=document.getElementById('editKind').value;p.name=document.getElementById('editName').value.trim()||'Sin nombre';p.desc=document.getElementById('editDesc').value.trim();p.price=Number(document.getElementById('editPrice').value)||0;p.badge=document.getElementById('editBadge').value;
+   const c=document.querySelectorAll('.admin-switches input');p.visible=!!c[0]?.checked;p.featured=!!c[1]?.checked;save();loadEditor(p.id);
+ });
+ document.querySelector('.admin-edit-actions .admin-delete')?.addEventListener('click',()=>{if(selectedId&&confirm('¿Eliminar esta tarjeta?')){state.products=state.products.filter(x=>x.id!==selectedId);selectedId=state.products[0]?.id;save();if(selectedId)loadEditor(selectedId)}});
+ document.getElementById('adminUploadImage')?.addEventListener('click',()=>document.getElementById('adminFileInput').click());
+ document.getElementById('adminFileInput')?.addEventListener('change',e=>{const f=e.target.files[0],p=state.products.find(x=>x.id===selectedId);if(!f||!p)return;const r=new FileReader();r.onload=()=>{p.image=r.result;save();loadEditor(p.id)};r.readAsDataURL(f)});
+ document.getElementById('adminResetImage')?.addEventListener('click',()=>{const p=state.products.find(x=>x.id===selectedId);if(p){p.image=null;save();loadEditor(p.id)}});
+
+ // New product
+ const newModal=document.getElementById('adminModal');
+ function openNew(){newModal.classList.add('open')}
+ document.getElementById('adminNewProduct')?.addEventListener('click',openNew);
+ document.getElementById('cancelModal')?.addEventListener('click',()=>newModal.classList.remove('open'));
+ document.getElementById('saveNew')?.addEventListener('click',()=>{
+   const n=document.getElementById('newName').value.trim();if(!n)return alert('Escribe un nombre');
+   const d=document.getElementById('newDefault').value.trim()||'img/logo.webp';
+   const p={id:'x'+Date.now(),type:document.getElementById('newType').value,name:n,desc:document.getElementById('newDesc').value.trim(),price:Number(document.getElementById('newPrice').value)||0,defaultImage:d,image:null,badge:'Normal',visible:true,featured:false};
+   state.products.push(p);selectedId=p.id;newModal.classList.remove('open');save();loadEditor(p.id);
+ });
+
+ // Content editor
+ const contentSec=document.querySelector('[data-admin-section="contenido"]');
+ if(contentSec){
+   const ins=contentSec.querySelectorAll('input'), ta=contentSec.querySelector('textarea');
+   if(ins[0])ins[0].value=state.content.slogan;if(ta)ta.value=state.content.welcome;
+   contentSec.querySelector('.admin-save')?.addEventListener('click',()=>{state.content.slogan=ins[0]?.value||state.content.slogan;state.content.welcome=ta?.value||state.content.welcome;save()});
+   const upload=contentSec.querySelector('.admin-upload');if(upload){upload.style.cursor='pointer';upload.addEventListener('click',()=>{const i=document.createElement('input');i.type='file';i.accept='image/*';i.onchange=()=>{const f=i.files[0];if(f){const r=new FileReader();r.onload=()=>{state.content.heroImage=r.result;save()};r.readAsDataURL(f)}};i.click()})}
+ }
+
+ // Catering is managed by the dedicated v14 controller below.
+ function renderCatering(){ if(window.BonanzaCateringSync) window.BonanzaCateringSync(); }
+
+ // Schedule
+ const cfg=document.querySelector('[data-admin-section="config"]');
+ if(cfg){
+   const times=cfg.querySelectorAll('input[type="time"]');if(times[0])times[0].value=state.schedule.open;if(times[1])times[1].value=state.schedule.close;
+   times.forEach(i=>i.addEventListener('change',()=>{state.schedule.open=times[0].value;state.schedule.close=times[1].value;save()}));
+ }
+
+ // MENÚ PÚBLICO: una sola fuente visual (estado del administrador).
+ function renderPublicProducts(type){
+   const sec=document.getElementById(type==='pizza'?'pizzas':'bebidas');if(!sec)return;
+   const list=sec.querySelector('.menu-list');
+   if(!list)return;
+
+   // El administrador controla directamente el ÚNICO menú visual existente.
+   const items=state.products.filter(p=>p.type===type&&p.visible);
+   list.innerHTML=items.map(p=>{
+     const badge=(p.badge&&p.badge!=='Normal')?`<span class="badge ${p.badge==='Especial'?'gold':''}">${esc(p.badge==='Especial'?'★ ESPECIAL':p.badge.toUpperCase())}</span>`:'';
+     return `<article class="menu-item" data-product-id="${esc(p.id)}" data-name="${esc((p.name||'').toLowerCase())}">
+       <div class="item-img" style="background-image:url('${esc(imgOf(p))}')"></div>
+       <div class="item-info">${badge}<h3>${esc(p.name)}</h3><p>${esc(p.desc||'')}</p></div>
+       <div class="item-price">${Number(p.price)||0}</div>
+     </article>`;
+   }).join('');
+
+   // Quitar cualquier menú experimental de versiones previas.
+   sec.querySelectorAll('.admin-live-grid').forEach(g=>g.remove());
+ }
+ function applyContent(){
+   const slogan=[...document.querySelectorAll('h1,h2')].find(x=>/CENIZA|SABOR QUE NOS UNE/i.test(x.textContent));if(slogan)slogan.textContent=state.content.slogan;
+   const welcome=[...document.querySelectorAll('p')].find(x=>x.textContent.includes('Explora sabores únicos'));if(welcome)welcome.textContent=state.content.welcome;
+   const hero=document.querySelector('.hero');if(hero&&state.content.heroImage)hero.style.backgroundImage=`linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.6)),url("${state.content.heroImage}")`;
+ }
+ function renderAll(){renderProducts();renderCatering();renderPublicProducts('pizza');renderPublicProducts('bebida');applyContent();updateStatus()}
+ function updateStatus(){
+   const box=document.getElementById('mobileHours'), text=document.getElementById('mobileHoursText');if(!box||!text)return;
+   const now=new Date(), [oh,om]=state.schedule.open.split(':').map(Number),[ch,cm]=state.schedule.close.split(':').map(Number),m=now.getHours()*60+now.getMinutes(),open=now.getDay()===state.schedule.day&&m>=oh*60+om&&m<ch*60+cm;
+   box.classList.toggle('open',open);box.classList.toggle('closed',!open);
+   text.textContent=open?`ABIERTO AHORA · Hoy hasta ${state.schedule.close}`:`CERRADO · Viernes ${state.schedule.open} – ${state.schedule.close}`;
+ }
+ renderAll();if(selectedId)loadEditor(selectedId);setInterval(updateStatus,60000);
+})();
+</script>
+
+
+<script>
+/* ===== v14 FIX CATERING: una sola fuente de datos ===== */
+(function(){
+ const KEY='bonanza_admin_v1';
+ const read=()=>{try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}};
+ const write=s=>localStorage.setItem(KEY,JSON.stringify(s));
+ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ const img=x=>x.image||x.defaultImage;
+
+ function publicSection(){
+   return document.getElementById('eventos') || document.getElementById('catering') ||
+          document.querySelector('[data-section="eventos"],[data-section="catering"]');
+ }
+ function renderPublic(){
+   const sec=publicSection(); if(!sec)return;
+   const stored=read();
+   const fallback=[...sec.querySelectorAll('.gallery figure')].map((f,i)=>({
+     id:'fallback-'+i,
+     title:f.querySelector('figcaption b')?.textContent?.trim()||('Catering '+(i+1)),
+     text:(f.querySelector('figcaption')?.textContent||'').replace(f.querySelector('figcaption b')?.textContent||'','').trim(),
+     defaultImage:f.querySelector('img')?.getAttribute('src')||'img/logo.webp',
+     image:null,visible:true
+   }));
+   const items=((stored?.catering?.length?stored.catering:fallback)||[]).filter(c=>c.visible!==false);
+
+   // El carrusel PRO sustituye a la galería estática sin depender de una conexión.
+   sec.querySelectorAll('.catering-gallery,.gallery,.carousel,.event-grid,.bonanza-catering-live').forEach(g=>g.remove());
+   let host=sec.querySelector('.bonanza-catering-carousel');
+   if(!host){
+     host=document.createElement('div');
+     host.className='bonanza-catering-carousel';
+     sec.appendChild(host);
+   }
+
+   if(!items.length){
+     host.innerHTML='<div class="bc-empty">No hay imágenes de Catering visibles.</div>';
+     return;
+   }
+
+   host.innerHTML=`
+     <div class="bc-stage" tabindex="0" aria-label="Galería de Catering">
+       <div class="bc-track">
+         ${items.map((c,i)=>{
+           const source=img(c);
+           return `<article class="bc-slide" data-index="${i}" style="--bc-bg:url('${esc(source)}')">
+             <div class="bc-photo">
+               <img src="${esc(source)}" data-fallback="${esc(c.defaultImage)}" alt="${esc(c.title)}" draggable="false">
+             </div>
+             <div class="bc-caption">
+               <div class="bc-count">${i+1} / ${items.length}</div>
+               <h3>${esc(c.title)}</h3>
+               ${c.text?`<p>${esc(c.text)}</p>`:''}
+             </div>
+           </article>`;
+         }).join('')}
+       </div>
+       <button class="bc-arrow bc-prev" type="button" aria-label="Foto anterior">&#10094;</button>
+       <button class="bc-arrow bc-next" type="button" aria-label="Foto siguiente">&#10095;</button>
+     </div>
+     <div class="bc-footer">
+       <div class="bc-dots" aria-label="Seleccionar fotografía">
+         ${items.map((_,i)=>`<button type="button" class="bc-dot ${i===0?'active':''}" data-go="${i}" aria-label="Ir a foto ${i+1}"></button>`).join('')}
+       </div>
+       <div class="bc-help">Desliza o usa las flechas</div>
+     </div>`;
+
+   const stage=host.querySelector('.bc-stage');
+   const track=host.querySelector('.bc-track');
+   const slides=[...host.querySelectorAll('.bc-slide')];
+   const dots=[...host.querySelectorAll('.bc-dot')];
+   let current=0, settleTimer=0;
+
+   function normalize(i){ return (i+slides.length)%slides.length; }
+   function update(i){
+     current=normalize(i);
+     dots.forEach((d,n)=>d.classList.toggle('active',n===current));
+   }
+   function go(i,behavior='smooth'){
+     current=normalize(i);
+     track.scrollTo({left:current*track.clientWidth,behavior});
+     update(current);
+   }
+
+   host.querySelector('.bc-prev').onclick=()=>go(current-1);
+   host.querySelector('.bc-next').onclick=()=>go(current+1);
+   dots.forEach(d=>d.onclick=()=>go(Number(d.dataset.go)));
+
+   // Native touch/mouse scrolling + snap. After a swipe, synchronize the dots/counter.
+   track.addEventListener('scroll',()=>{
+     clearTimeout(settleTimer);
+     settleTimer=setTimeout(()=>{
+       const i=Math.round(track.scrollLeft/Math.max(1,track.clientWidth));
+       update(i);
+     },70);
+   },{passive:true});
+
+   // Keyboard accessibility on desktop.
+   stage.addEventListener('keydown',e=>{
+     if(e.key==='ArrowLeft'){e.preventDefault();go(current-1)}
+     if(e.key==='ArrowRight'){e.preventDefault();go(current+1)}
+     if(e.key==='Home'){e.preventDefault();go(0)}
+     if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+   });
+
+   // Keep the same slide selected when the screen rotates/resizes.
+   let resizeTimer;
+   if(window.__bonanzaCateringResize){
+     window.removeEventListener('resize',window.__bonanzaCateringResize);
+   }
+   window.__bonanzaCateringResize=()=>{
+     clearTimeout(resizeTimer);
+     resizeTimer=setTimeout(()=>go(current,'auto'),100);
+   };
+   window.addEventListener('resize',window.__bonanzaCateringResize,{passive:true});
+
+   host.querySelectorAll('img[data-fallback]').forEach(im=>{
+     im.onerror=()=>{
+       im.onerror=null;
+       if(im.dataset.fallback){
+         im.src=im.dataset.fallback;
+         im.closest('.bc-slide')?.style.setProperty('--bc-bg',`url("${im.dataset.fallback}")`);
+       }
+     };
+   });
+ }
+ function renderAdmin(){
+   const s=read(),grid=document.querySelector('.admin-catering-grid');if(!s||!grid)return;
+   grid.innerHTML=s.catering.map(c=>`
+    <div class="admin-cat-card ${c.visible===false?'hidden-item':''}" data-cid="${c.id}">
+      <img src="${esc(img(c))}" data-fallback="${esc(c.defaultImage)}">
+      <div class="admin-cat-info">
+       <strong>${esc(c.title)}</strong>
+       ${c.text?`<p style="font-size:.68rem;color:#817b70">${esc(c.text)}</p>`:''}
+       <div class="admin-cat-actions">
+        <button data-cfix="edit">✎ Editar</button>
+        <button data-cfix="image">▣ Imagen</button>
+        <button data-cfix="reset">↶ Respaldo</button>
+        <button data-cfix="visible">${c.visible===false?'○ Mostrar':'◉ Ocultar'}</button>
+        <button data-cfix="delete">× Eliminar</button>
+       </div>
+      </div>
+    </div>`).join('');
+   grid.querySelectorAll('img[data-fallback]').forEach(im=>im.onerror=()=>{im.onerror=null;im.src=im.dataset.fallback});
+ }
+ function save(s,msg){write(s);renderAdmin();renderPublic();const t=document.getElementById('adminToast');if(t){t.textContent=msg||'Catering actualizado';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}}
+
+ // Capture phase prevents old v11/v12 Catering handlers from executing.
+ document.addEventListener('click',function(e){
+   const btn=e.target.closest('[data-cfix]'); if(!btn)return;
+   e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
+   const card=btn.closest('[data-cid]'),s=read();if(!card||!s)return;
+   const c=s.catering.find(x=>x.id===card.dataset.cid);if(!c)return;
+   const act=btn.dataset.cfix;
+   if(act==='edit'){
+     const title=prompt('Título:',c.title);if(title===null)return;
+     const text=prompt('Descripción:',c.text||'');if(text===null)return;
+     c.title=title.trim()||c.title;c.text=text;save(s,'Texto de Catering actualizado');
+   }else if(act==='reset'){
+     c.image=null;save(s,'Imagen original restaurada');
+   }else if(act==='visible'){
+     c.visible=c.visible===false?true:false;save(s,c.visible?'Tarjeta visible':'Tarjeta oculta');
+   }else if(act==='delete'){
+     if(confirm('¿Eliminar esta tarjeta de Catering?')){s.catering=s.catering.filter(x=>x.id!==c.id);save(s,'Tarjeta eliminada')}
+   }else if(act==='image'){
+     const input=document.createElement('input');input.type='file';input.accept='image/*';
+     input.onchange=()=>{const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{c.image=r.result;save(s,'Imagen de Catering actualizada')};r.readAsDataURL(f)};input.click();
+   }
+ },true);
+
+ // Replace the old "Nueva tarjeta" Catering behavior.
+ const catSection=document.querySelector('[data-admin-section="catering"]');
+ const add=catSection?.querySelector('.admin-add');
+ if(add){
+   const clone=add.cloneNode(true);add.replaceWith(clone);
+   clone.addEventListener('click',()=>{
+     const s=read();if(!s)return;
+     const title=prompt('Nombre de la nueva tarjeta:','Nuevo evento');if(title===null)return;
+     const text=prompt('Descripción:','') ?? '';
+     const path=prompt('Imagen de respaldo dentro de img/:','img/logo.webp')||'img/logo.webp';
+     s.catering.push({id:'c'+Date.now(),title:title.trim()||'Nuevo evento',text,defaultImage:path,image:null,visible:true});
+     save(s,'Nueva tarjeta de Catering agregada');
+   });
+ }
+ // Re-render whenever the admin opens or the Catering tab is selected.
+ document.addEventListener('click',e=>{
+   if(e.target.closest('#openAdmin,[data-admin="catering"],#closeAdmin'))setTimeout(()=>{renderAdmin();renderPublic()},20);
+ });
+ window.BonanzaCateringSync=()=>{renderAdmin();renderPublic()};
+ setTimeout(()=>{renderAdmin();renderPublic()},350);
+})();
+</script>
+
+
+
+<script>
+/* v21: edición de frase de marca */
+(function(){
+ const KEY='bonanza_admin_v1';
+ const input=document.getElementById('adminTagline');
+ if(!input)return;
+ function get(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+ function apply(){
+   const st=get();if(!st)return;
+   st.content=st.content||{};
+   if(!st.content.tagline)st.content.tagline='Más que pizza, buenos momentos';
+   input.value=st.content.tagline;
+   document.querySelectorAll('*').forEach(el=>{
+     if(el.children.length===0 && el.textContent.trim()==='Más que pizza, buenos momentos') el.textContent=st.content.tagline;
+   });
+ }
+ const sec=document.querySelector('[data-admin-section="contenido"]');
+ sec?.querySelector('.admin-save')?.addEventListener('click',()=>{
+   const st=get();if(!st)return;
+   st.content=st.content||{};st.content.tagline=input.value.trim()||'Más que pizza, buenos momentos';
+   localStorage.setItem(KEY,JSON.stringify(st));
+   apply();
+ },true);
+ document.addEventListener('click',e=>{
+   if(e.target.closest('[data-admin="contenido"],#closeAdmin'))setTimeout(apply,30);
+ });
+ apply();
+})();
+</script>
+
+
+<div class="admin-login-lock" id="adminLoginLock" aria-hidden="true">
+ <form class="admin-login-card" id="adminLoginForm" autocomplete="off">
+   <img src="img/logo.webp" alt="La Bonanza">
+   <h2>Administración</h2>
+   <div class="admin-user">MITZI VILLA · ADMINISTRADOR</div>
+   <div class="admin-login-field">
+     <label for="adminLoginPassword">Contraseña</label>
+     <input id="adminLoginPassword" type="password" autocomplete="current-password" placeholder="Ingresa la contraseña" required>
+   </div>
+   <div class="admin-login-error" id="adminLoginError"></div>
+   <div class="admin-login-actions">
+     <button type="button" id="adminLoginCancel">Cancelar</button>
+     <button type="submit" id="adminLoginSubmit">Entrar</button>
+   </div>
+ </form>
+</div>
+
+
+<script>
+/* v36: login local para abrir el panel administrativo */
+(function(){
+ const ADMIN_NAME='Mitzi Villa';
+ const ADMIN_PASSWORD='Bonanza2026';
+ const SESSION_KEY='bonanza_admin_authenticated';
+
+ const lock=document.getElementById('adminLoginLock');
+ const form=document.getElementById('adminLoginForm');
+ const pass=document.getElementById('adminLoginPassword');
+ const error=document.getElementById('adminLoginError');
+ if(!lock||!form)return;
+
+ function authenticated(){
+   return sessionStorage.getItem(SESSION_KEY)==='1';
+ }
+ function showLogin(){
+   error.textContent='';
+   pass.value='';
+   lock.classList.add('open');
+   lock.setAttribute('aria-hidden','false');
+   setTimeout(()=>pass.focus(),50);
+ }
+ function hideLogin(){
+   lock.classList.remove('open');
+   lock.setAttribute('aria-hidden','true');
+ }
+ function openAdmin(){
+   const admin=document.querySelector('.admin-demo');
+   if(admin){
+     admin.classList.add('open');
+     admin.style.display='';
+     document.body.style.overflow='hidden';
+   }
+ }
+ form.addEventListener('submit',function(e){
+   e.preventDefault();
+   if(pass.value===ADMIN_PASSWORD){
+     sessionStorage.setItem(SESSION_KEY,'1');
+     hideLogin();
+     openAdmin();
+   }else{
+     error.textContent='Contraseña incorrecta.';
+     pass.select();
+   }
+ });
+ document.getElementById('adminLoginCancel')?.addEventListener('click',hideLogin);
+
+ // Capture the admin launcher before the old handler can open the panel.
+ document.addEventListener('click',function(e){
+   const launcher=e.target.closest('#adminFab,.admin-fab,[data-open-admin],[aria-label*="admin" i],[title*="admin" i]');
+   if(!launcher)return;
+   if(authenticated())return; // let the existing functional handler run normally
+   e.preventDefault();
+   e.stopImmediatePropagation();
+   showLogin();
+ },true);
+
+ // If the old code somehow opens admin without a launcher click, protect initial state.
+ const admin=document.querySelector('.admin-demo');
+ if(admin && !authenticated()){
+   admin.classList.remove('open');
+ }
+ window.BonanzaAdminAuth={
+   user:ADMIN_NAME,
+   logout:function(){
+     sessionStorage.removeItem(SESSION_KEY);
+     document.querySelector('.admin-demo')?.classList.remove('open');
+     document.body.style.overflow='';
+   }
+ };
+})();
+</script>
+
+
+<script>
+/* v37: cierre de sesión del administrador */
+(function(){
+ const btn=document.getElementById('adminLogoutBtn');
+ if(!btn)return;
+ btn.addEventListener('click',function(){
+   sessionStorage.removeItem('bonanza_admin_authenticated');
+   const admin=document.querySelector('.admin-demo');
+   if(admin){
+     admin.classList.remove('open');
+     admin.style.display='';
+   }
+   document.body.style.overflow='';
+   const lock=document.getElementById('adminLoginLock');
+   if(lock){
+     lock.classList.add('open');
+     lock.setAttribute('aria-hidden','false');
+     const pass=document.getElementById('adminLoginPassword');
+     if(pass){pass.value='';setTimeout(()=>pass.focus(),50);}
+   }
+ });
+})();
+</script>
+
+
+<script>
+/* v38: bloqueo temporal del acceso administrativo.
+   No elimina el panel ni su configuración; solo impide abrirlo desde la web. */
+(function(){
+  const admin=document.querySelector('.admin-demo');
+  if(admin){
+    admin.classList.remove('open');
+    admin.style.display='none';
+  }
+  sessionStorage.removeItem('bonanza_admin_authenticated');
+
+  document.addEventListener('click', function(e){
+    const t=e.target.closest('#adminFab,.admin-fab,[data-open-admin],.admin-trigger,.admin-access');
+    if(!t) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }, true);
+})();
+</script>
+
+
+<script>
+/* v43: aviso único de pizza de temporada */
+(function(){
+ function ensureSeasonNote(){
+   const page=document.getElementById('pizzas');
+   if(!page)return;
+   page.querySelectorAll('.frase-temporada,.bonanza-season-note').forEach(n=>n.remove());
+   const list=page.querySelector('#pizzaList,.menu-list,.menu-grid');
+   if(!list)return;
+   const note=document.createElement('div');
+   note.className='bonanza-season-note';
+   note.textContent=''; note.style.display='none';
+   list.insertAdjacentElement('afterend',note);
+ }
+ document.addEventListener('DOMContentLoaded',ensureSeasonNote);
+ document.addEventListener('click',e=>{
+   if(e.target.closest('[data-page="pizzas"],[data-target="pizzas"],a[href="#pizzas"]')){
+     setTimeout(ensureSeasonNote,50);
+   }
+ });
+ window.addEventListener('storage',e=>{
+   if(e.key==='bonanza_admin_v1')setTimeout(ensureSeasonNote,50);
+ });
+})();
+</script>
+
+</body>
+</html>
